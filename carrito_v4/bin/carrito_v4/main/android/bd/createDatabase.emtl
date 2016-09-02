@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="103" endPosition="177" value=" Se importa el mtl de services para poder utilizar las funciones definidas"/>
     </ownedModuleElement>
@@ -33,7 +33,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tiene persistentEntity&#xA;"/>
           <ifExpr xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+            <definition href="../../../../services/uml2services.emtl#/0/hasStereotype.1"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
             </argument>
@@ -50,7 +50,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tiene Mobile Profile::persistentEntity&#xA;"/>
           <ifExpr xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+            <definition href="../../../../services/uml2services.emtl#/0/hasStereotype.1"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
             </argument>
@@ -79,7 +79,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -98,7 +98,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -139,7 +139,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -158,7 +158,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -228,7 +228,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+          <references href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -243,7 +243,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+          <references href="../../../../services/uml2services.emtl#/0/hasStereotype.1"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -258,7 +258,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

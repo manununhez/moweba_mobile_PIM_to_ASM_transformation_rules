@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="98" endPosition="172" value=" Se importa el mtl de services para poder utilizar las funciones definidas"/>
     </ownedModuleElement>
@@ -16,7 +16,7 @@
           <body xsi:type="ocl.ecore:OperationCallExp" eType="/8/Sequence(OclAny)" referredOperation="/1/oclstdlib_Collection(T)_Class/sep">
             <source xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/8/Sequence(String)">
               <source xsi:type="mtl:QueryInvocation" eType="/8/Sequence(Package)">
-                <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/containingPackages"/>
+                <definition href="../../../../common/utils_gen.emtl#/0/containingPackages"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateModelsAndroid/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -70,7 +70,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" attribute.&#xA;&#x9;*/&#xA;&#x9;private List&lt;"/>
               <body xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
+                <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateModelsAndroid/%/%/%.8/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </argument>
@@ -138,7 +138,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" attribute.&#xA;&#x9;*/&#xA;&#x9;private "/>
                 <body xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateModelsAndroid/%/%/%.8/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -210,7 +210,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;public "/>
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
+              <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateModelsAndroid/%/%/%.11/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </argument>
@@ -301,7 +301,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="("/>
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
+              <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateModelsAndroid/%/%/%.13/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </argument>
@@ -431,7 +431,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;}&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="models/">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </argument>
@@ -445,7 +445,7 @@
         </body>
         <ifExpr xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-          <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+          <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateModelsAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -498,7 +498,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+          <references href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -513,7 +513,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/classFileName"/>
+          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -531,9 +531,9 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/containingPackages"/>
+          <references href="../../../../common/utils_gen.emtl#/0/containingPackages"/>
         </eAnnotations>
-        <eType xsi:type="ocl.ecore:SequenceType" href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/3/Sequence(Package)"/>
+        <eType xsi:type="ocl.ecore:SequenceType" href="../../../../common/utils_gen.emtl#/3/Sequence(Package)"/>
         <eParameters name="aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
@@ -543,7 +543,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForJava"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

@@ -4,15 +4,15 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/models/modelsGen.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/createDatabase.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/tables/generateDbTables.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0"/>
+    <imports href="android/models/modelsGen.emtl#/0"/>
+    <imports href="android/bd/createDatabase.emtl#/0"/>
+    <imports href="android/tables/generateDbTables.emtl#/0"/>
+    <imports href="../../services/uml2services.emtl#/0"/>
+    <imports href="../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/createDatabase.emtl#/0/createDatabase"/>
+        <definition href="android/bd/createDatabase.emtl#/0/createDatabase"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
         </argument>
@@ -22,7 +22,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" &#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/models/modelsGen.emtl#/0/generateModelsAndroid"/>
+          <definition href="android/models/modelsGen.emtl#/0/generateModelsAndroid"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%.2/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -30,7 +30,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/tables/generateDbTables.emtl#/0/generateDbTables"/>
+          <definition href="android/tables/generateDbTables.emtl#/0/generateDbTables"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%.2/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -92,7 +92,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/models/modelsGen.emtl#/0/generateModelsAndroid"/>
+          <references href="android/models/modelsGen.emtl#/0/generateModelsAndroid"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -104,7 +104,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/createDatabase.emtl#/0/createDatabase"/>
+          <references href="android/bd/createDatabase.emtl#/0/createDatabase"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -116,7 +116,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/tables/generateDbTables.emtl#/0/generateDbTables"/>
+          <references href="android/tables/generateDbTables.emtl#/0/generateDbTables"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
