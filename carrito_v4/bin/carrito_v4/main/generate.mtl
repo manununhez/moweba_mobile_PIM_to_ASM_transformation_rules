@@ -1,0 +1,23 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+
+[import carrito_v4::main::android::models::modelsGen/]
+[import carrito_v4::main::android::bd::createDatabase/]
+[import carrito_v4::main::android::tables::generateDbTables/]
+
+[import services::uml2services/]
+
+[import common::utils_gen/]
+
+[template public generateElement(aPackage: Package)]
+[comment @main/]
+[createDatabase(aPackage)/]
+
+[for (aClass : Class | aPackage.ownedElement->filter(Class))]
+ 	[generateModelsAndroid(aClass)/]
+	[generateDbTables(aClass)/]
+[/for]
+
+[/template]
+

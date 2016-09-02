@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="createDatabase" nsURI="carrito_v4::main::android::bd::createDatabase" startHeaderPosition="29" endHeaderPosition="177">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <imports href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0"/>
+    <imports href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Comment">
+      <body startPosition="103" endPosition="177" value=" Se importa el mtl de services para poder utilizar las funciones definidas"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="createDatabase" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/URI"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tiene persistentEntity&#xA;"/>
+          <ifExpr xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </ifExpr>
+          <else>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="no tiene persistentEntity&#xA;"/>
+          </else>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="mtl:IfBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tiene Mobile Profile::persistentEntity&#xA;"/>
+          <ifExpr xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+            <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </ifExpr>
+          <else>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="no tiene Mobile Profile::persistentEntity&#xA;"/>
+          </else>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;public class MySQLiteHelper extends SQLiteOpenHelper {&#xA;&#xA;    public static final String DATABASE_NAME = &quot;emarket.db&quot;;  ##Nombre de la BD ????????&#xA;    public static final int DATABASE_VERSION = 1;&#xA;&#xA;    public MySQLiteHelper(Context context) {&#xA;        super(context, DATABASE_NAME, null, DATABASE_VERSION);&#xA;    }&#xA;&#xA;    @Override&#xA;    public void onCreate(SQLiteDatabase sqLiteDatabase) {&#xA;        Tools.Logger.i(&quot;Creating database &quot; + DATABASE_NAME + &quot;with version &quot; + DATABASE_VERSION);&#xA;&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Table.onCreate(sqLiteDatabase);&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="mtl:QueryInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentType">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Database">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+              </ifExpr>
+            </body>
+            <ifExpr xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </ifExpr>
+          </body>
+          <loopVariable name="aClass">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/11/Set(Class)" referredOperation="/1/oclstdlib_Collection(T)_Class/filter">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/11/Set(Element)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/ownedElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/12/Class">
+              <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </argument>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    }&#xA;&#xA;&#xA;    @Override&#xA;    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {&#xA;        Tools.Logger.i(&quot;Upgrading database &quot; + DATABASE_NAME + &quot;from  version &quot; + oldVersion + &quot;to version&quot; + newVersion);&#xA;"/>
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="mtl:IfBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+              <body xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </body>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Table.onUpgrade(sqLiteDatabase, oldVersion, newVersion);&#xA;"/>
+              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="mtl:QueryInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentType">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Database">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+              </ifExpr>
+            </body>
+            <ifExpr xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </ifExpr>
+          </body>
+          <loopVariable name="aClass">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/11/Set(Class)" referredOperation="/1/oclstdlib_Collection(T)_Class/filter">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/11/Set(Element)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+              </source>
+              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/ownedElement"/>
+            </source>
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/12/Class">
+              <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </argument>
+          </iterSet>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;    }&#xA;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="helper/MySQLHelper.java">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <parameter name="aPackage">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="createDatabase">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/createDatabase"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPackage">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="hasStereotype">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="hasStereotype">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getValueOfStereotypePropertyEnumLit">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="elem">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        </eParameters>
+        <eParameters name="stereotype_name">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="property_name">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+      <eOperations name="filter">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:CollectionType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+        <eParameters name="filter">
+          <eType xsi:type="ocl.ecore:TypeType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclType"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Package_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Class_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Element_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Element)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Class)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ecore:EPackage name="types">
+    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Class">
+      <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/%">
+      <details key="start" value="95"/>
+      <details key="end" value="179"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/createDatabase">
+      <details key="start" value="243"/>
+      <details key="end" value="2056"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/createDatabase/%">
+      <details key="start" value="295"/>
+      <details key="end" value="296"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/createDatabase/%.1">
+      <details key="start" value="296"/>
+      <details key="end" value="2043"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/createDatabase/%.1/%">
+      <details key="start" value="337"/>
+      <details key="end" value="338"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/createDatabase/%.1/%.1">
+      <details key="start" value="339"/>
+      <details key="end" value="351"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/createDatabase/%.1/%.1/aPackage">
+      <details key="start" value="339"/>
+      <details key="end" value="347"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/createDatabase/%.1/%.2">
+      <details key="start" value="353"/>
+      <details key="end" value="354"/>
+      <details key="line" value="14"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/createDatabase/%.1/%.3">
+      <details key="start" value="355"/>
+      <details key="end" value="368"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/createDatabase/%.1/%.3/aPackage">
+      <details key="start" value="355"/>
+      <details key="end" value="363"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/createDatabase/%.1/%.4">
+      <details key="start" value="370"/>
+      <details key="end" value="372"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/createDatabase/%.1/%.5">
+      <details key="start" value="372"/>
+      <details key="end" value="482"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/createDatabase/%.1/%.5/%">
+      <details key="start" value="421"/>
+      <details key="end" value="444"/>
+      <details key="line" value="17"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/createDatabase/%.1/%.5/%.1">
+      <details key="start" value="375"/>
+      <details key="end" value="419"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/createDatabase/%.1/%.5/%.1/aPackage">
+      <details key="start" value="376"/>
+      <details key="end" value="384"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/createDatabase/%.1/%.5/%.1/%">
+      <details key="start" value="399"/>
+      <details key="end" value="417"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/createDatabase/%.1/%.5/%.2">
+      <details key="start" value="444"/>
+      <details key="end" value="477"/>
+      <details key="line" value="18"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/createDatabase/%.1/%.5/%.2/%">
+      <details key="start" value="451"/>
+      <details key="end" value="477"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/createDatabase/%.1/%.6">
+      <details key="start" value="483"/>
+      <details key="end" value="484"/>
+      <details key="line" value="21"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/createDatabase/%.1/%.7">
+      <details key="start" value="484"/>
+      <details key="end" value="642"/>
+      <details key="line" value="22"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/createDatabase/%.1/%.7/%">
+      <details key="start" value="549"/>
+      <details key="end" value="588"/>
+      <details key="line" value="23"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/createDatabase/%.1/%.7/%.1">
+      <details key="start" value="487"/>
+      <details key="end" value="547"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/createDatabase/%.1/%.7/%.1/aPackage">
+      <details key="start" value="488"/>
+      <details key="end" value="496"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/createDatabase/%.1/%.7/%.1/%">
+      <details key="start" value="511"/>
+      <details key="end" value="545"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/createDatabase/%.1/%.7/%.2">
+      <details key="start" value="588"/>
+      <details key="end" value="637"/>
+      <details key="line" value="24"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/createDatabase/%.1/%.7/%.2/%">
+      <details key="start" value="595"/>
+      <details key="end" value="637"/>
+      <details key="line" value="25"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/createDatabase/%.1/%.8">
+      <details key="start" value="643"/>
+      <details key="end" value="1127"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/createDatabase/%.1/%.9">
+      <details key="start" value="1129"/>
+      <details key="end" value="1445"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/createDatabase/%.1/%.9/%">
+      <details key="start" value="1196"/>
+      <details key="end" value="1434"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/createDatabase/%.1/%.9/%/%">
+      <details key="start" value="1248"/>
+      <details key="end" value="1425"/>
+      <details key="line" value="43"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/createDatabase/%.1/%.9/%/%/%">
+      <details key="start" value="1365"/>
+      <details key="end" value="1370"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/createDatabase/%.1/%.9/%/%/%.1">
+      <details key="start" value="1371"/>
+      <details key="end" value="1382"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/createDatabase/%.1/%.9/%/%/%.1/aClass">
+      <details key="start" value="1371"/>
+      <details key="end" value="1377"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/createDatabase/%.1/%.9/%/%/%.2">
+      <details key="start" value="1384"/>
+      <details key="end" value="1416"/>
+      <details key="line" value="44"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/createDatabase/%.1/%.9/%/%/%.3">
+      <details key="start" value="1252"/>
+      <details key="end" value="1363"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/createDatabase/%.1/%.9/%/%/%.3/%">
+      <details key="start" value="1253"/>
+      <details key="end" value="1349"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/createDatabase/%.1/%.9/%/%/%.3/%/aClass">
+      <details key="start" value="1253"/>
+      <details key="end" value="1259"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/createDatabase/%.1/%.9/%/%/%.3/%/%">
+      <details key="start" value="1296"/>
+      <details key="end" value="1330"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/createDatabase/%.1/%.9/%/%/%.3/%/%.1">
+      <details key="start" value="1332"/>
+      <details key="end" value="1348"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/createDatabase/%.1/%.9/%/%/%.3/%.1">
+      <details key="start" value="1352"/>
+      <details key="end" value="1362"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/createDatabase/%.1/%.9/%/%.1">
+      <details key="start" value="1200"/>
+      <details key="end" value="1242"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/createDatabase/%.1/%.9/%/%.1/aClass">
+      <details key="start" value="1201"/>
+      <details key="end" value="1207"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/createDatabase/%.1/%.9/%/%.1/%">
+      <details key="start" value="1222"/>
+      <details key="end" value="1240"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/createDatabase/%.1/%.9/aClass">
+      <details key="start" value="1135"/>
+      <details key="end" value="1149"/>
+      <details key="line" value="41"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/createDatabase/%.1/%.9/%.1">
+      <details key="start" value="1152"/>
+      <details key="end" value="1188"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/createDatabase/%.1/%.9/%.1/%">
+      <details key="start" value="1152"/>
+      <details key="end" value="1173"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/createDatabase/%.1/%.9/%.1/%/aPackage">
+      <details key="start" value="1152"/>
+      <details key="end" value="1160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/createDatabase/%.1/%.9/%.1/%.1">
+      <details key="start" value="1182"/>
+      <details key="end" value="1187"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/createDatabase/%.1/%.10">
+      <details key="start" value="1446"/>
+      <details key="end" value="1682"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/createDatabase/%.1/%.11">
+      <details key="start" value="1684"/>
+      <details key="end" value="2025"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/createDatabase/%.1/%.11/%">
+      <details key="start" value="1751"/>
+      <details key="end" value="2014"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/createDatabase/%.1/%.11/%/%">
+      <details key="start" value="1803"/>
+      <details key="end" value="2005"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/createDatabase/%.1/%.11/%/%/%">
+      <details key="start" value="1920"/>
+      <details key="end" value="1925"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/createDatabase/%.1/%.11/%/%/%.1">
+      <details key="start" value="1926"/>
+      <details key="end" value="1937"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/createDatabase/%.1/%.11/%/%/%.1/aClass">
+      <details key="start" value="1926"/>
+      <details key="end" value="1932"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/createDatabase/%.1/%.11/%/%/%.2">
+      <details key="start" value="1939"/>
+      <details key="end" value="1996"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/createDatabase/%.1/%.11/%/%/%.3">
+      <details key="start" value="1807"/>
+      <details key="end" value="1918"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/createDatabase/%.1/%.11/%/%/%.3/%">
+      <details key="start" value="1808"/>
+      <details key="end" value="1904"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/createDatabase/%.1/%.11/%/%/%.3/%/aClass">
+      <details key="start" value="1808"/>
+      <details key="end" value="1814"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/createDatabase/%.1/%.11/%/%/%.3/%/%">
+      <details key="start" value="1851"/>
+      <details key="end" value="1885"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/createDatabase/%.1/%.11/%/%/%.3/%/%.1">
+      <details key="start" value="1887"/>
+      <details key="end" value="1903"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/createDatabase/%.1/%.11/%/%/%.3/%.1">
+      <details key="start" value="1907"/>
+      <details key="end" value="1917"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/createDatabase/%.1/%.11/%/%.1">
+      <details key="start" value="1755"/>
+      <details key="end" value="1797"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/createDatabase/%.1/%.11/%/%.1/aClass">
+      <details key="start" value="1756"/>
+      <details key="end" value="1762"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/createDatabase/%.1/%.11/%/%.1/%">
+      <details key="start" value="1777"/>
+      <details key="end" value="1795"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/createDatabase/%.1/%.11/aClass">
+      <details key="start" value="1690"/>
+      <details key="end" value="1704"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/createDatabase/%.1/%.11/%.1">
+      <details key="start" value="1707"/>
+      <details key="end" value="1743"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/createDatabase/%.1/%.11/%.1/%">
+      <details key="start" value="1707"/>
+      <details key="end" value="1728"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/createDatabase/%.1/%.11/%.1/%/aPackage">
+      <details key="start" value="1707"/>
+      <details key="end" value="1715"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/createDatabase/%.1/%.11/%.1/%.1">
+      <details key="start" value="1737"/>
+      <details key="end" value="1742"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/createDatabase/%.1/%.12">
+      <details key="start" value="2028"/>
+      <details key="end" value="2036"/>
+      <details key="line" value="60"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/createDatabase/%.1/%.13">
+      <details key="start" value="303"/>
+      <details key="end" value="328"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/createDatabase/%.2">
+      <details key="start" value="2044"/>
+      <details key="end" value="2045"/>
+      <details key="line" value="65"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/createDatabase/aPackage">
+      <details key="start" value="275"/>
+      <details key="end" value="292"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

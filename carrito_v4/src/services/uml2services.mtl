@@ -1,0 +1,23 @@
+[comment encoding = Cp1252 /]
+[module uml2services('http://www.eclipse.org/uml2/5.0.0/UML')/]
+
+[query public hasStereotype(arg0 : Class, arg1 : String) : Boolean
+	= invoke('services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Class, java.lang.String)', Sequence{arg0, arg1})
+/]
+
+[query public hasStereotype(arg0 : Package, arg1 : String) : Boolean
+	= invoke('services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Package, java.lang.String)', Sequence{arg0, arg1})
+/]
+
+[query public hasStereotype(arg0 : Element, arg1 : String) : Boolean
+	= invoke('services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Element, java.lang.String)', Sequence{arg0, arg1})
+/]
+
+[query public classFileName(arg0 : String, arg1 : Class, arg2 : String) : String
+	= invoke('services.UML2Services', 'classFileName(java.lang.String, org.eclipse.uml2.uml.Class, java.lang.String)', Sequence{arg0, arg1, arg2})
+/]
+
+[query public getJavaType(arg0 : String) : String
+	= invoke('services.UML2Services', 'getJavaType(java.lang.String)', Sequence{arg0})
+/]
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_16_0_17280447_1471464792864_698165_1410" name="InternalDataProfile" metamodelReference="_0metamodelReferenceInternalDataProfile">
+  <eAnnotations xmi:id="_5iVly27nEeaQctnhb3pPrg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_5iVlzG7nEeaQctnhb3pPrg" name="InternalDataProfile" nsURI="http:///schemas/InternalDataProfile/_5iMbYW7nEeaQctnhb3pPrg/0" nsPrefix="InternalDataProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_5iVlzW7nEeaQctnhb3pPrg" name="HardwareDeviceInterface">
+        <eAnnotations xmi:id="_5iVlzm7nEeaQctnhb3pPrg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471461559617_524168_685"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_5iVlz27nEeaQctnhb3pPrg" name="base_Class" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Class"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_5iVl0G7nEeaQctnhb3pPrg" name="HardwareDeviceService">
+        <eAnnotations xmi:id="_5iVl0W7nEeaQctnhb3pPrg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471464420186_578028_1274"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_5iVl0m7nEeaQctnhb3pPrg" name="hardwareDeviceType" ordered="false" lowerBound="1" eType="_5iVl1G7nEeaQctnhb3pPrg"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_5iVl027nEeaQctnhb3pPrg" name="base_Property" ordered="false" lowerBound="1">
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Property"/>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_5iVl1G7nEeaQctnhb3pPrg" name="HardwareDeviceType">
+        <eAnnotations xmi:id="_5iVl1W7nEeaQctnhb3pPrg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471461919537_753650_724"/>
+        <eLiterals xmi:id="_5iVl1m7nEeaQctnhb3pPrg" name="Proximity"/>
+        <eLiterals xmi:id="_5iVl127nEeaQctnhb3pPrg" name="Ambient light" value="1"/>
+        <eLiterals xmi:id="_5iVl2G7nEeaQctnhb3pPrg" name="Accelerometer" value="2"/>
+        <eLiterals xmi:id="_5iVl2W7nEeaQctnhb3pPrg" name="GPS" value="3"/>
+        <eLiterals xmi:id="_5iVl2m7nEeaQctnhb3pPrg" name="Gyroscope" value="4"/>
+        <eLiterals xmi:id="_5iVl227nEeaQctnhb3pPrg" name="Compass" value="5"/>
+        <eLiterals xmi:id="_5iVl3G7nEeaQctnhb3pPrg" name="Camera" value="6"/>
+        <eLiterals xmi:id="_5iVl3W7nEeaQctnhb3pPrg" name="Microphone" value="7"/>
+        <eLiterals xmi:id="_5iVl3m7nEeaQctnhb3pPrg" name="Video" value="8"/>
+      </eClassifiers>
+    </contents>
+  </eAnnotations>
+  <packageImport xmi:id="_0metamodelReferenceInternalDataProfile">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0primitiveTypesInternalDataProfile">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packageImport xmi:id="_0javaPrimitiveTypesInternalDataProfile">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_0_17280447_1471461559617_524168_685" name="HardwareDeviceInterface">
+    <ownedAttribute xmi:id="_16_0_17280447_1471461799444_375990_712" name="base_Class" visibility="private" association="_16_0_17280447_1471461799444_628466_711">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_0_17280447_1471461799444_628466_711" name="" memberEnd="_16_0_17280447_1471461799444_469885_713 _16_0_17280447_1471461799444_375990_712">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_0_17280447_1471461799444_469885_713" name="extension_HardwareDeviceInterface" visibility="private" type="_16_0_17280447_1471461559617_524168_685" aggregation="composite" association="_16_0_17280447_1471461799444_628466_711">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_17280447_1471461799444_856259_715" name="" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_0_17280447_1471461799444_423391_714" name=""/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_0_17280447_1471464420186_578028_1274" name="HardwareDeviceService">
+    <ownedAttribute xmi:id="_16_0_17280447_1471464440919_526348_1302" name="hardwareDeviceType" visibility="private" type="_16_0_17280447_1471461919537_753650_724"/>
+    <ownedAttribute xmi:id="_16_0_17280447_1471487269850_585093_908" name="base_Property" visibility="private" association="_16_0_17280447_1471487269850_815165_907">
+      <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Property"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Enumeration" xmi:id="_16_0_17280447_1471461919537_753650_724" name="HardwareDeviceType">
+    <ownedLiteral xmi:id="_16_0_17280447_1471461945681_894545_745" name="Proximity"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461948409_274894_747" name="Ambient light"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461952225_629743_749" name="Accelerometer"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461970616_778214_753" name="GPS"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461960626_488413_751" name="Gyroscope"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461975344_961747_755" name="Compass"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461977697_379534_757" name="Camera"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461982179_112454_759" name="Microphone"/>
+    <ownedLiteral xmi:id="_16_0_17280447_1471461985158_501129_761" name="Video"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_0_17280447_1471487269850_815165_907" name="" memberEnd="_16_0_17280447_1471487269850_871416_909 _16_0_17280447_1471487269850_585093_908">
+    <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_0_17280447_1471487269850_871416_909" name="extension_HardwareDeviceService" visibility="private" type="_16_0_17280447_1471464420186_578028_1274" aggregation="composite" association="_16_0_17280447_1471487269850_815165_907">
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_17280447_1471487269850_737208_911" name="" value="1"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_0_17280447_1471487269850_64512_910" name=""/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Profile>
