@@ -5,189 +5,148 @@
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
     <imports href="../../../../services/uml2services.emtl#/0"/>
-    <imports href="../../../../common/utils_gen.emtl#/0"/>
+    <imports href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="103" endPosition="177" value=" Se importa el mtl de services para poder utilizar las funciones definidas"/>
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Template" name="createDatabase" visibility="Public">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-      <body xsi:type="mtl:FileBlock">
+      <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package/URI"/>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
-        <body xsi:type="mtl:IfBlock">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tiene persistentEntity&#xA;"/>
-          <ifExpr xsi:type="mtl:QueryInvocation">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <definition href="../../../../services/uml2services.emtl#/0/hasStereotype.1"/>
-            <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-            </argument>
-            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
+        <body xsi:type="mtl:FileBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;//"/>
+          <body xsi:type="mtl:ProtectedAreaBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;//"/>
+            <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="package">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            </argument>
-          </ifExpr>
-          <else>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="no tiene persistentEntity&#xA;"/>
-          </else>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-        <body xsi:type="mtl:IfBlock">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="tiene Mobile Profile::persistentEntity&#xA;"/>
-          <ifExpr xsi:type="mtl:QueryInvocation">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <definition href="../../../../services/uml2services.emtl#/0/hasStereotype.1"/>
-            <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-            </argument>
-            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
+            </marker>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#xA;&#xA;//"/>
+          <body xsi:type="mtl:ProtectedAreaBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;//"/>
+            <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="imports">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            </argument>
-          </ifExpr>
-          <else>
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="no tiene Mobile Profile::persistentEntity&#xA;"/>
-          </else>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;public class MySQLiteHelper extends SQLiteOpenHelper {&#xA;&#xA;    public static final String DATABASE_NAME = &quot;emarket.db&quot;;  ##Nombre de la BD ????????&#xA;    public static final int DATABASE_VERSION = 1;&#xA;&#xA;    public MySQLiteHelper(Context context) {&#xA;        super(context, DATABASE_NAME, null, DATABASE_VERSION);&#xA;    }&#xA;&#xA;    @Override&#xA;    public void onCreate(SQLiteDatabase sqLiteDatabase) {&#xA;        Tools.Logger.i(&quot;Creating database &quot; + DATABASE_NAME + &quot;with version &quot; + DATABASE_VERSION);&#xA;&#xA;"/>
-        <body xsi:type="mtl:ForBlock">
-          <body xsi:type="mtl:IfBlock">
+            </marker>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#xA;&#xA;public class MySQLiteHelper extends SQLiteOpenHelper {&#xA;&#xA;    public static final String DATABASE_NAME = &quot;emarket.db&quot;;  //TODO Nombre de la BD ?&#xA;    public static final int DATABASE_VERSION = 1;&#xA;&#xA;    public MySQLiteHelper(Context context) {&#xA;        super(context, DATABASE_NAME, null, DATABASE_VERSION);&#xA;    }&#xA;&#xA;    @Override&#xA;    public void onCreate(SQLiteDatabase sqLiteDatabase) {&#xA;        Tools.Logger.i(&quot;Creating database &quot; + DATABASE_NAME + &quot;with version &quot; + DATABASE_VERSION);&#xA;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
             <body xsi:type="mtl:IfBlock">
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
-              <body xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-              </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Table.onCreate(sqLiteDatabase);&#xA;"/>
-              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="mtl:QueryInvocation">
+              <body xsi:type="mtl:IfBlock">
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
-                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
+                  <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.1/%.5/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                  </argument>
-                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Table.onCreate(sqLiteDatabase);&#xA;"/>
+                <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="mtl:QueryInvocation">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.1/%.5/aClass">
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                    </argument>
+                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </argument>
+                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentType">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </argument>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Database">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   </argument>
-                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentType">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  </argument>
-                </source>
-                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Database">
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+                </ifExpr>
+              </body>
+              <ifExpr xsi:type="mtl:QueryInvocation">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
+                <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.1/%.5/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </argument>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
               </ifExpr>
             </body>
-            <ifExpr xsi:type="mtl:QueryInvocation">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
-              <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.9/aClass">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-              </argument>
-              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              </argument>
-            </ifExpr>
+            <loopVariable name="aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="aClasses" eType="/6/Set(Class)" referredVariable="/0/createDatabase/%.1/aClasses"/>
           </body>
-          <loopVariable name="aClass">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-          </loopVariable>
-          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/11/Set(Class)" referredOperation="/1/oclstdlib_Collection(T)_Class/filter">
-            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/11/Set(Element)">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    }&#xA;&#xA;&#xA;    @Override&#xA;    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {&#xA;        Tools.Logger.i(&quot;Upgrading database &quot; + DATABASE_NAME + &quot;from  version &quot; + oldVersion + &quot;to version&quot; + newVersion);&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="mtl:IfBlock">
+              <body xsi:type="mtl:IfBlock">
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
+                <body xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.1/%.7/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Table.onUpgrade(sqLiteDatabase, oldVersion, newVersion);&#xA;"/>
+                <ifExpr xsi:type="ocl.ecore:OperationCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                  <source xsi:type="mtl:QueryInvocation">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.1/%.7/aClass">
+                      <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                    </argument>
+                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </argument>
+                    <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentType">
+                      <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                    </argument>
+                  </source>
+                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Database">
+                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  </argument>
+                  <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+                </ifExpr>
+              </body>
+              <ifExpr xsi:type="mtl:QueryInvocation">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
+                <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.1/%.7/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </argument>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+              </ifExpr>
+            </body>
+            <loopVariable name="aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="aClasses" eType="/6/Set(Class)" referredVariable="/0/createDatabase/%.1/aClasses"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;    }&#xA;&#xA;"/>
+          <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="helper/MySQLHelper.java">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </fileUrl>
+        </body>
+        <letVariable name="aClasses" eType="/6/Set(Class)">
+          <initExpression xsi:type="ocl.ecore:OperationCallExp" eType="/6/Set(Class)" referredOperation="/1/oclstdlib_Collection(T)_Class/filter">
+            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/6/Set(Element)">
               <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
               </source>
               <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/ownedElement"/>
             </source>
-            <argument xsi:type="ocl.ecore:TypeExp" eType="/12/Class">
+            <argument xsi:type="ocl.ecore:TypeExp" eType="/7/Class">
               <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
-          </iterSet>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    }&#xA;&#xA;&#xA;    @Override&#xA;    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {&#xA;        Tools.Logger.i(&quot;Upgrading database &quot; + DATABASE_NAME + &quot;from  version &quot; + oldVersion + &quot;to version&quot; + newVersion);&#xA;"/>
-        <body xsi:type="mtl:ForBlock">
-          <body xsi:type="mtl:IfBlock">
-            <body xsi:type="mtl:IfBlock">
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;&#x9;"/>
-              <body xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
-                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
-              </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Table.onUpgrade(sqLiteDatabase, oldVersion, newVersion);&#xA;"/>
-              <ifExpr xsi:type="ocl.ecore:OperationCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <source xsi:type="mtl:QueryInvocation">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
-                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
-                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-                  </argument>
-                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntity">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  </argument>
-                  <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentType">
-                    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  </argument>
-                </source>
-                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Database">
-                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                </argument>
-                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
-              </ifExpr>
-            </body>
-            <ifExpr xsi:type="mtl:QueryInvocation">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
-              <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/createDatabase/%.1/%.11/aClass">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-              </argument>
-              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntity">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              </argument>
-            </ifExpr>
-          </body>
-          <loopVariable name="aClass">
-            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-          </loopVariable>
-          <iterSet xsi:type="ocl.ecore:OperationCallExp" eType="/11/Set(Class)" referredOperation="/1/oclstdlib_Collection(T)_Class/filter">
-            <source xsi:type="ocl.ecore:PropertyCallExp" eType="/11/Set(Element)">
-              <source xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/createDatabase/aPackage">
-                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-              </source>
-              <referredProperty xsi:type="ecore:EReference" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/ownedElement"/>
-            </source>
-            <argument xsi:type="ocl.ecore:TypeExp" eType="/12/Class">
-              <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-            </argument>
-          </iterSet>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;    }&#xA;&#xA;"/>
-        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="helper/MySQLHelper.java">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        </fileUrl>
+          </initExpression>
+        </letVariable>
       </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <parameter name="aPackage">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
       </parameter>
@@ -238,27 +197,12 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
-      <eOperations name="hasStereotype">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="../../../../services/uml2services.emtl#/0/hasStereotype.1"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-        <eParameters name="arg0">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-        </eParameters>
-        <eParameters name="arg1">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        </eParameters>
-      </eOperations>
       <eOperations name="getValueOfStereotypePropertyEnumLit">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -327,21 +271,6 @@
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
   </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-  </ocl.ecore:Variable>
   <ecore:EPackage name="collections">
     <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Element)" instanceClassName="java.util.Set">
       <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
@@ -355,6 +284,18 @@
       <referredType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
     </eClassifiers>
   </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
   </ocl.ecore:Variable>
@@ -408,7 +349,7 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/createDatabase">
       <details key="start" value="243"/>
-      <details key="end" value="2056"/>
+      <details key="end" value="1854"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/createDatabase/%">
@@ -418,355 +359,285 @@
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/createDatabase/%.1">
       <details key="start" value="296"/>
-      <details key="end" value="2043"/>
+      <details key="end" value="1842"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/createDatabase/%.1/%">
-      <details key="start" value="337"/>
-      <details key="end" value="338"/>
+      <details key="start" value="363"/>
+      <details key="end" value="364"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/createDatabase/%.1/%.1">
-      <details key="start" value="339"/>
-      <details key="end" value="351"/>
-      <details key="line" value="0"/>
+      <details key="start" value="364"/>
+      <details key="end" value="1835"/>
+      <details key="line" value="13"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/createDatabase/%.1/%.1/aPackage">
-      <details key="start" value="339"/>
-      <details key="end" value="347"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/createDatabase/%.1/%.2">
-      <details key="start" value="353"/>
-      <details key="end" value="354"/>
+    <eAnnotations source="positions.6" references="/0/createDatabase/%.1/%.1/%">
+      <details key="start" value="405"/>
+      <details key="end" value="408"/>
       <details key="line" value="14"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/createDatabase/%.1/%.3">
-      <details key="start" value="355"/>
-      <details key="end" value="368"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/createDatabase/%.1/%.3/aPackage">
-      <details key="start" value="355"/>
-      <details key="end" value="363"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/createDatabase/%.1/%.4">
-      <details key="start" value="370"/>
-      <details key="end" value="372"/>
+    <eAnnotations source="positions.7" references="/0/createDatabase/%.1/%.1/%.1">
+      <details key="start" value="408"/>
+      <details key="end" value="446"/>
       <details key="line" value="15"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/createDatabase/%.1/%.5">
-      <details key="start" value="372"/>
-      <details key="end" value="482"/>
+    <eAnnotations source="positions.8" references="/0/createDatabase/%.1/%.1/%.1/%">
+      <details key="start" value="431"/>
+      <details key="end" value="434"/>
       <details key="line" value="16"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/createDatabase/%.1/%.5/%">
-      <details key="start" value="421"/>
-      <details key="end" value="444"/>
+    <eAnnotations source="positions.9" references="/0/createDatabase/%.1/%.1/%.1/%.1">
+      <details key="start" value="420"/>
+      <details key="end" value="429"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/createDatabase/%.1/%.1/%.2">
+      <details key="start" value="446"/>
+      <details key="end" value="452"/>
       <details key="line" value="17"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/createDatabase/%.1/%.5/%.1">
-      <details key="start" value="375"/>
-      <details key="end" value="419"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/createDatabase/%.1/%.5/%.1/aPackage">
-      <details key="start" value="376"/>
-      <details key="end" value="384"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/createDatabase/%.1/%.5/%.1/%">
-      <details key="start" value="399"/>
-      <details key="end" value="417"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/createDatabase/%.1/%.5/%.2">
-      <details key="start" value="444"/>
-      <details key="end" value="477"/>
-      <details key="line" value="18"/>
-    </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/createDatabase/%.1/%.5/%.2/%">
-      <details key="start" value="451"/>
-      <details key="end" value="477"/>
+    <eAnnotations source="positions.11" references="/0/createDatabase/%.1/%.1/%.3">
+      <details key="start" value="452"/>
+      <details key="end" value="490"/>
       <details key="line" value="19"/>
     </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/createDatabase/%.1/%.6">
-      <details key="start" value="483"/>
-      <details key="end" value="484"/>
+    <eAnnotations source="positions.12" references="/0/createDatabase/%.1/%.1/%.3/%">
+      <details key="start" value="475"/>
+      <details key="end" value="478"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/createDatabase/%.1/%.1/%.3/%.1">
+      <details key="start" value="464"/>
+      <details key="end" value="473"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/createDatabase/%.1/%.1/%.4">
+      <details key="start" value="490"/>
+      <details key="end" value="975"/>
       <details key="line" value="21"/>
     </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/createDatabase/%.1/%.7">
-      <details key="start" value="484"/>
-      <details key="end" value="642"/>
-      <details key="line" value="22"/>
+    <eAnnotations source="positions.15" references="/0/createDatabase/%.1/%.1/%.5">
+      <details key="start" value="977"/>
+      <details key="end" value="1265"/>
+      <details key="line" value="36"/>
     </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/createDatabase/%.1/%.7/%">
-      <details key="start" value="549"/>
-      <details key="end" value="588"/>
-      <details key="line" value="23"/>
+    <eAnnotations source="positions.16" references="/0/createDatabase/%.1/%.1/%.5/%">
+      <details key="start" value="1016"/>
+      <details key="end" value="1254"/>
+      <details key="line" value="37"/>
     </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/createDatabase/%.1/%.7/%.1">
-      <details key="start" value="487"/>
-      <details key="end" value="547"/>
+    <eAnnotations source="positions.17" references="/0/createDatabase/%.1/%.1/%.5/%/%">
+      <details key="start" value="1068"/>
+      <details key="end" value="1245"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/createDatabase/%.1/%.1/%.5/%/%/%">
+      <details key="start" value="1185"/>
+      <details key="end" value="1190"/>
+      <details key="line" value="39"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.1">
+      <details key="start" value="1191"/>
+      <details key="end" value="1202"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/createDatabase/%.1/%.7/%.1/aPackage">
-      <details key="start" value="488"/>
-      <details key="end" value="496"/>
+    <eAnnotations source="positions.20" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.1/aClass">
+      <details key="start" value="1191"/>
+      <details key="end" value="1197"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/createDatabase/%.1/%.7/%.1/%">
-      <details key="start" value="511"/>
-      <details key="end" value="545"/>
+    <eAnnotations source="positions.21" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.2">
+      <details key="start" value="1204"/>
+      <details key="end" value="1236"/>
+      <details key="line" value="39"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.3">
+      <details key="start" value="1072"/>
+      <details key="end" value="1183"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/createDatabase/%.1/%.7/%.2">
-      <details key="start" value="588"/>
-      <details key="end" value="637"/>
-      <details key="line" value="24"/>
+    <eAnnotations source="positions.23" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.3/%">
+      <details key="start" value="1073"/>
+      <details key="end" value="1169"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/createDatabase/%.1/%.7/%.2/%">
-      <details key="start" value="595"/>
-      <details key="end" value="637"/>
-      <details key="line" value="25"/>
+    <eAnnotations source="positions.24" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.3/%/aClass">
+      <details key="start" value="1073"/>
+      <details key="end" value="1079"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/createDatabase/%.1/%.8">
-      <details key="start" value="643"/>
-      <details key="end" value="1127"/>
-      <details key="line" value="27"/>
+    <eAnnotations source="positions.25" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.3/%/%">
+      <details key="start" value="1116"/>
+      <details key="end" value="1150"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/createDatabase/%.1/%.9">
-      <details key="start" value="1129"/>
-      <details key="end" value="1445"/>
-      <details key="line" value="41"/>
+    <eAnnotations source="positions.26" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.3/%/%.1">
+      <details key="start" value="1152"/>
+      <details key="end" value="1168"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/createDatabase/%.1/%.9/%">
-      <details key="start" value="1196"/>
-      <details key="end" value="1434"/>
-      <details key="line" value="42"/>
+    <eAnnotations source="positions.27" references="/0/createDatabase/%.1/%.1/%.5/%/%/%.3/%.1">
+      <details key="start" value="1172"/>
+      <details key="end" value="1182"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.29" references="/0/createDatabase/%.1/%.9/%/%">
-      <details key="start" value="1248"/>
-      <details key="end" value="1425"/>
+    <eAnnotations source="positions.28" references="/0/createDatabase/%.1/%.1/%.5/%/%.1">
+      <details key="start" value="1020"/>
+      <details key="end" value="1062"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/createDatabase/%.1/%.1/%.5/%/%.1/aClass">
+      <details key="start" value="1021"/>
+      <details key="end" value="1027"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/createDatabase/%.1/%.1/%.5/%/%.1/%">
+      <details key="start" value="1042"/>
+      <details key="end" value="1060"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/createDatabase/%.1/%.1/%.5/aClass">
+      <details key="start" value="983"/>
+      <details key="end" value="997"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/createDatabase/%.1/%.1/%.5/aClasses">
+      <details key="start" value="1000"/>
+      <details key="end" value="1008"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/createDatabase/%.1/%.1/%.6">
+      <details key="start" value="1266"/>
+      <details key="end" value="1502"/>
       <details key="line" value="43"/>
     </eAnnotations>
-    <eAnnotations source="positions.30" references="/0/createDatabase/%.1/%.9/%/%/%">
-      <details key="start" value="1365"/>
-      <details key="end" value="1370"/>
-      <details key="line" value="44"/>
+    <eAnnotations source="positions.34" references="/0/createDatabase/%.1/%.1/%.7">
+      <details key="start" value="1504"/>
+      <details key="end" value="1817"/>
+      <details key="line" value="49"/>
     </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/createDatabase/%.1/%.9/%/%/%.1">
-      <details key="start" value="1371"/>
-      <details key="end" value="1382"/>
+    <eAnnotations source="positions.35" references="/0/createDatabase/%.1/%.1/%.7/%">
+      <details key="start" value="1543"/>
+      <details key="end" value="1806"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/createDatabase/%.1/%.1/%.7/%/%">
+      <details key="start" value="1595"/>
+      <details key="end" value="1797"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/createDatabase/%.1/%.1/%.7/%/%/%">
+      <details key="start" value="1712"/>
+      <details key="end" value="1717"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.1">
+      <details key="start" value="1718"/>
+      <details key="end" value="1729"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.32" references="/0/createDatabase/%.1/%.9/%/%/%.1/aClass">
-      <details key="start" value="1371"/>
-      <details key="end" value="1377"/>
+    <eAnnotations source="positions.39" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.1/aClass">
+      <details key="start" value="1718"/>
+      <details key="end" value="1724"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.33" references="/0/createDatabase/%.1/%.9/%/%/%.2">
-      <details key="start" value="1384"/>
-      <details key="end" value="1416"/>
-      <details key="line" value="44"/>
+    <eAnnotations source="positions.40" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.2">
+      <details key="start" value="1731"/>
+      <details key="end" value="1788"/>
+      <details key="line" value="52"/>
     </eAnnotations>
-    <eAnnotations source="positions.34" references="/0/createDatabase/%.1/%.9/%/%/%.3">
-      <details key="start" value="1252"/>
-      <details key="end" value="1363"/>
+    <eAnnotations source="positions.41" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.3">
+      <details key="start" value="1599"/>
+      <details key="end" value="1710"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.35" references="/0/createDatabase/%.1/%.9/%/%/%.3/%">
-      <details key="start" value="1253"/>
-      <details key="end" value="1349"/>
+    <eAnnotations source="positions.42" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.3/%">
+      <details key="start" value="1600"/>
+      <details key="end" value="1696"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.36" references="/0/createDatabase/%.1/%.9/%/%/%.3/%/aClass">
-      <details key="start" value="1253"/>
-      <details key="end" value="1259"/>
+    <eAnnotations source="positions.43" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.3/%/aClass">
+      <details key="start" value="1600"/>
+      <details key="end" value="1606"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.37" references="/0/createDatabase/%.1/%.9/%/%/%.3/%/%">
-      <details key="start" value="1296"/>
-      <details key="end" value="1330"/>
+    <eAnnotations source="positions.44" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.3/%/%">
+      <details key="start" value="1643"/>
+      <details key="end" value="1677"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.38" references="/0/createDatabase/%.1/%.9/%/%/%.3/%/%.1">
-      <details key="start" value="1332"/>
-      <details key="end" value="1348"/>
+    <eAnnotations source="positions.45" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.3/%/%.1">
+      <details key="start" value="1679"/>
+      <details key="end" value="1695"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.39" references="/0/createDatabase/%.1/%.9/%/%/%.3/%.1">
-      <details key="start" value="1352"/>
-      <details key="end" value="1362"/>
+    <eAnnotations source="positions.46" references="/0/createDatabase/%.1/%.1/%.7/%/%/%.3/%.1">
+      <details key="start" value="1699"/>
+      <details key="end" value="1709"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.40" references="/0/createDatabase/%.1/%.9/%/%.1">
-      <details key="start" value="1200"/>
-      <details key="end" value="1242"/>
+    <eAnnotations source="positions.47" references="/0/createDatabase/%.1/%.1/%.7/%/%.1">
+      <details key="start" value="1547"/>
+      <details key="end" value="1589"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.41" references="/0/createDatabase/%.1/%.9/%/%.1/aClass">
-      <details key="start" value="1201"/>
-      <details key="end" value="1207"/>
+    <eAnnotations source="positions.48" references="/0/createDatabase/%.1/%.1/%.7/%/%.1/aClass">
+      <details key="start" value="1548"/>
+      <details key="end" value="1554"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.42" references="/0/createDatabase/%.1/%.9/%/%.1/%">
-      <details key="start" value="1222"/>
-      <details key="end" value="1240"/>
+    <eAnnotations source="positions.49" references="/0/createDatabase/%.1/%.1/%.7/%/%.1/%">
+      <details key="start" value="1569"/>
+      <details key="end" value="1587"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.43" references="/0/createDatabase/%.1/%.9/aClass">
-      <details key="start" value="1135"/>
-      <details key="end" value="1149"/>
-      <details key="line" value="41"/>
+    <eAnnotations source="positions.50" references="/0/createDatabase/%.1/%.1/%.7/aClass">
+      <details key="start" value="1510"/>
+      <details key="end" value="1524"/>
+      <details key="line" value="49"/>
     </eAnnotations>
-    <eAnnotations source="positions.44" references="/0/createDatabase/%.1/%.9/%.1">
-      <details key="start" value="1152"/>
-      <details key="end" value="1188"/>
+    <eAnnotations source="positions.51" references="/0/createDatabase/%.1/%.1/%.7/aClasses">
+      <details key="start" value="1527"/>
+      <details key="end" value="1535"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.45" references="/0/createDatabase/%.1/%.9/%.1/%">
-      <details key="start" value="1152"/>
-      <details key="end" value="1173"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.46" references="/0/createDatabase/%.1/%.9/%.1/%/aPackage">
-      <details key="start" value="1152"/>
-      <details key="end" value="1160"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.47" references="/0/createDatabase/%.1/%.9/%.1/%.1">
-      <details key="start" value="1182"/>
-      <details key="end" value="1187"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.48" references="/0/createDatabase/%.1/%.10">
-      <details key="start" value="1446"/>
-      <details key="end" value="1682"/>
-      <details key="line" value="48"/>
-    </eAnnotations>
-    <eAnnotations source="positions.49" references="/0/createDatabase/%.1/%.11">
-      <details key="start" value="1684"/>
-      <details key="end" value="2025"/>
-      <details key="line" value="54"/>
-    </eAnnotations>
-    <eAnnotations source="positions.50" references="/0/createDatabase/%.1/%.11/%">
-      <details key="start" value="1751"/>
-      <details key="end" value="2014"/>
+    <eAnnotations source="positions.52" references="/0/createDatabase/%.1/%.1/%.8">
+      <details key="start" value="1820"/>
+      <details key="end" value="1828"/>
       <details key="line" value="55"/>
     </eAnnotations>
-    <eAnnotations source="positions.51" references="/0/createDatabase/%.1/%.11/%/%">
-      <details key="start" value="1803"/>
-      <details key="end" value="2005"/>
-      <details key="line" value="56"/>
-    </eAnnotations>
-    <eAnnotations source="positions.52" references="/0/createDatabase/%.1/%.11/%/%/%">
-      <details key="start" value="1920"/>
-      <details key="end" value="1925"/>
-      <details key="line" value="57"/>
-    </eAnnotations>
-    <eAnnotations source="positions.53" references="/0/createDatabase/%.1/%.11/%/%/%.1">
-      <details key="start" value="1926"/>
-      <details key="end" value="1937"/>
+    <eAnnotations source="positions.53" references="/0/createDatabase/%.1/%.1/%.9">
+      <details key="start" value="371"/>
+      <details key="end" value="396"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.54" references="/0/createDatabase/%.1/%.11/%/%/%.1/aClass">
-      <details key="start" value="1926"/>
-      <details key="end" value="1932"/>
+    <eAnnotations source="positions.54" references="/0/createDatabase/%.1/aClasses">
+      <details key="start" value="301"/>
+      <details key="end" value="360"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/createDatabase/%.1/aClasses/%">
+      <details key="start" value="325"/>
+      <details key="end" value="361"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.55" references="/0/createDatabase/%.1/%.11/%/%/%.2">
-      <details key="start" value="1939"/>
-      <details key="end" value="1996"/>
-      <details key="line" value="57"/>
-    </eAnnotations>
-    <eAnnotations source="positions.56" references="/0/createDatabase/%.1/%.11/%/%/%.3">
-      <details key="start" value="1807"/>
-      <details key="end" value="1918"/>
+    <eAnnotations source="positions.56" references="/0/createDatabase/%.1/aClasses/%/%">
+      <details key="start" value="325"/>
+      <details key="end" value="346"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.57" references="/0/createDatabase/%.1/%.11/%/%/%.3/%">
-      <details key="start" value="1808"/>
-      <details key="end" value="1904"/>
+    <eAnnotations source="positions.57" references="/0/createDatabase/%.1/aClasses/%/%/aPackage">
+      <details key="start" value="325"/>
+      <details key="end" value="333"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.58" references="/0/createDatabase/%.1/%.11/%/%/%.3/%/aClass">
-      <details key="start" value="1808"/>
-      <details key="end" value="1814"/>
+    <eAnnotations source="positions.58" references="/0/createDatabase/%.1/aClasses/%/%.1">
+      <details key="start" value="355"/>
+      <details key="end" value="360"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.59" references="/0/createDatabase/%.1/%.11/%/%/%.3/%/%">
-      <details key="start" value="1851"/>
-      <details key="end" value="1885"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.60" references="/0/createDatabase/%.1/%.11/%/%/%.3/%/%.1">
-      <details key="start" value="1887"/>
-      <details key="end" value="1903"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.61" references="/0/createDatabase/%.1/%.11/%/%/%.3/%.1">
-      <details key="start" value="1907"/>
-      <details key="end" value="1917"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.62" references="/0/createDatabase/%.1/%.11/%/%.1">
-      <details key="start" value="1755"/>
-      <details key="end" value="1797"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.63" references="/0/createDatabase/%.1/%.11/%/%.1/aClass">
-      <details key="start" value="1756"/>
-      <details key="end" value="1762"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.64" references="/0/createDatabase/%.1/%.11/%/%.1/%">
-      <details key="start" value="1777"/>
-      <details key="end" value="1795"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.65" references="/0/createDatabase/%.1/%.11/aClass">
-      <details key="start" value="1690"/>
-      <details key="end" value="1704"/>
-      <details key="line" value="54"/>
-    </eAnnotations>
-    <eAnnotations source="positions.66" references="/0/createDatabase/%.1/%.11/%.1">
-      <details key="start" value="1707"/>
-      <details key="end" value="1743"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.67" references="/0/createDatabase/%.1/%.11/%.1/%">
-      <details key="start" value="1707"/>
-      <details key="end" value="1728"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.68" references="/0/createDatabase/%.1/%.11/%.1/%/aPackage">
-      <details key="start" value="1707"/>
-      <details key="end" value="1715"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.69" references="/0/createDatabase/%.1/%.11/%.1/%.1">
-      <details key="start" value="1737"/>
-      <details key="end" value="1742"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.70" references="/0/createDatabase/%.1/%.12">
-      <details key="start" value="2028"/>
-      <details key="end" value="2036"/>
-      <details key="line" value="60"/>
-    </eAnnotations>
-    <eAnnotations source="positions.71" references="/0/createDatabase/%.1/%.13">
-      <details key="start" value="303"/>
-      <details key="end" value="328"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.72" references="/0/createDatabase/%.2">
-      <details key="start" value="2044"/>
-      <details key="end" value="2045"/>
-      <details key="line" value="65"/>
-    </eAnnotations>
-    <eAnnotations source="positions.73" references="/0/createDatabase/aPackage">
+    <eAnnotations source="positions.59" references="/0/createDatabase/aPackage">
       <details key="start" value="275"/>
       <details key="end" value="292"/>
       <details key="line" value="9"/>

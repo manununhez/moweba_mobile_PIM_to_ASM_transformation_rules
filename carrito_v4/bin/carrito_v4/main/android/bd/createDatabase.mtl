@@ -8,26 +8,21 @@
 
 [template public createDatabase(aPackage: Package)]
 
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
 [file ('helper/MySQLHelper.java', true)]
 
-[aPackage.URI/]
-[aPackage.name/]
+//[protected ('package')]
+//[/protected]
+	
 
-[if(aPackage.hasStereotype('persistentEntity'))]
-tiene persistentEntity
-[else]
-no tiene persistentEntity
-[/if]
-
-[if(aPackage.hasStereotype('Mobile Profile::persistentEntity'))]
-tiene Mobile Profile::persistentEntity
-[else]
-no tiene Mobile Profile::persistentEntity
-[/if]
+//[protected ('imports')]
+//[/protected]
+	
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "emarket.db";  ##Nombre de la BD ????????
+    public static final String DATABASE_NAME = "emarket.db";  //TODO Nombre de la BD ?
     public static final int DATABASE_VERSION = 1;
 
     public MySQLiteHelper(Context context) {
@@ -38,7 +33,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Tools.Logger.i("Creating database " + DATABASE_NAME + "with version " + DATABASE_VERSION);
 
-		[for (aClass : Class | aPackage.ownedElement->filter(Class))]		
+		[for (aClass : Class | aClasses)]		
 			[if (aClass.hasStereotype('persistentEntity'))]
 				[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 					[aClass.name/]Table.onCreate(sqLiteDatabase);
@@ -51,7 +46,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         Tools.Logger.i("Upgrading database " + DATABASE_NAME + "from  version " + oldVersion + "to version" + newVersion);
-		[for (aClass : Class | aPackage.ownedElement->filter(Class))]		
+		[for (aClass : Class | aClasses)]		
 			[if (aClass.hasStereotype('persistentEntity'))]
 				[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 					[aClass.name/]Table.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
@@ -62,5 +57,5 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     }
 
 [/file]
-
+[/let]
 [/template]

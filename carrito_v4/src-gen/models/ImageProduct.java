@@ -1,4 +1,3 @@
-	
 package Carrito de compras.Persistencia
 	
 //Start of user code imports
@@ -18,6 +17,23 @@ public class ImageProduct {
 	*/
 	private String image;
 	
+
+	/**
+	* Empty Constructor.
+	*/
+	public ImageProduct imageProduct (){
+	}
+
+	/**
+	* Constructor.
+	*/
+	public ImageProduct imageProduct (
+	String idImageProduct
+,	String image
+	){
+		this.idImageProduct = idImageProduct;
+		this.image = image;
+	}
  
 	public String getIdImageProduct() {
        return this.idImageProduct;

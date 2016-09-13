@@ -13,11 +13,23 @@
 	= invoke('services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Element, java.lang.String)', Sequence{arg0, arg1})
 /]
 
-[query public classFileName(arg0 : String, arg1 : Class, arg2 : String) : String
-	= invoke('services.UML2Services', 'classFileName(java.lang.String, org.eclipse.uml2.uml.Class, java.lang.String)', Sequence{arg0, arg1, arg2})
+[query public classFileName(arg0 : String, arg1 : Class, arg2 : String, arg3 : String) : String
+	= invoke('services.UML2Services', 'classFileName(java.lang.String, org.eclipse.uml2.uml.Class, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2, arg3})
 /]
 
 [query public getJavaType(arg0 : String) : String
 	= invoke('services.UML2Services', 'getJavaType(java.lang.String)', Sequence{arg0})
+/]
+
+[query public getSqliteType(arg0 : String) : String
+	= invoke('services.UML2Services', 'getSqliteType(java.lang.String)', Sequence{arg0})
+/]
+
+[query public getSqliteProperties(arg0 : String, arg1 : Boolean, arg2 : Integer, arg3 : Boolean, arg4 : String, arg5 : String) : String
+	= invoke('services.UML2Services', 'getSqliteProperties(java.lang.String, java.lang.Boolean, java.lang.Integer, java.lang.Boolean, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2, arg3, arg4, arg5})
+/]
+
+[query public getCursorDescription(arg0 : String, arg1 : Integer) : String
+	= invoke('services.UML2Services', 'getCursorDescription(java.lang.String, java.lang.Integer)', Sequence{arg0, arg1})
 /]
 

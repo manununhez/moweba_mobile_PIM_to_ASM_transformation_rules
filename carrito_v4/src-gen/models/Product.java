@@ -1,4 +1,3 @@
-	
 package Carrito de compras.Persistencia
 	
 //Start of user code imports
@@ -8,21 +7,15 @@ public class Product {
 	
 
 	/**
-	* the idProducto attribute.
+	* the idImageProduct attribute.
 	*/
-	private String idProducto;
+	private String idImageProduct;
 
 
 	/**
-	* the name attribute.
+	* the code attribute.
 	*/
-	private String name;
-
-
-	/**
-	* the description attribute.
-	*/
-	private String description;
+	private String code;
 
 
 	/**
@@ -32,9 +25,9 @@ public class Product {
 
 
 	/**
-	* the idImageProduct attribute.
+	* the name attribute.
 	*/
-	private String idImageProduct;
+	private String name;
 
 
 	/**
@@ -44,65 +37,98 @@ public class Product {
 
 
 	/**
-	* the code attribute.
+	* the idProducto attribute.
 	*/
-	private String code;
+	private String idProducto;
+
+
+	/**
+	* the description attribute.
+	*/
+	private String description;
 	
+
+	/**
+	* Empty Constructor.
+	*/
+	public Product product (){
+	}
+
+	/**
+	* Constructor.
+	*/
+	public Product product (
+	String idImageProduct
+,	String code
+,	String idProvider
+,	String name
+,	String price
+,	String idProducto
+,	String description
+	){
+		this.idImageProduct = idImageProduct;
+		this.code = code;
+		this.idProvider = idProvider;
+		this.name = name;
+		this.price = price;
+		this.idProducto = idProducto;
+		this.description = description;
+	}
  
-	public String getIdProducto() {
-       return this.idProducto;
+	public String getIdImageProduct() {
+       return this.idImageProduct;
      }
 
-	public String getName() {
-       return this.name;
-     }
-
-	public String getDescription() {
-       return this.description;
+	public String getCode() {
+       return this.code;
      }
 
 	public String getIdProvider() {
        return this.idProvider;
      }
 
-	public String getIdImageProduct() {
-       return this.idImageProduct;
+	public String getName() {
+       return this.name;
      }
 
 	public String getPrice() {
        return this.price;
      }
 
-	public String getCode() {
-       return this.code;
+	public String getIdProducto() {
+       return this.idProducto;
+     }
+
+	public String getDescription() {
+       return this.description;
      }
  
-     public void setIdProducto(String idProducto) {
-        this.idProducto = idProducto;
+     public void setIdImageProduct(String idImageProduct) {
+        this.idImageProduct = idImageProduct;
      }
 
-     public void setName(String name) {
-        this.name = name;
-     }
-
-     public void setDescription(String description) {
-        this.description = description;
+     public void setCode(String code) {
+        this.code = code;
      }
 
      public void setIdProvider(String idProvider) {
         this.idProvider = idProvider;
      }
 
-     public void setIdImageProduct(String idImageProduct) {
-        this.idImageProduct = idImageProduct;
+     public void setName(String name) {
+        this.name = name;
      }
 
      public void setPrice(String price) {
         this.price = price;
      }
 
-     public void setCode(String code) {
-        this.code = code;
+     public void setIdProducto(String idProducto) {
+        this.idProducto = idProducto;
+     }
+
+     public void setDescription(String description) {
+        this.description = description;
      }
 
      public String getProductPriceWithCurrency() {

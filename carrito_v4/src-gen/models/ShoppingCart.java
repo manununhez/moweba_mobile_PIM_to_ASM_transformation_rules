@@ -1,4 +1,3 @@
-	
 package Carrito de compras.Persistencia
 	
 //Start of user code imports
@@ -8,9 +7,9 @@ public class ShoppingCart {
 	
 
 	/**
-	* the id attribute.
+	* the syncTime attribute.
 	*/
-	private String id;
+	private String syncTime;
 
 
 	/**
@@ -20,47 +19,52 @@ public class ShoppingCart {
 
 
 	/**
-	* the syncTime attribute.
+	* the idCart attribute.
 	*/
-	private String syncTime;
-
+	private Integer idCart;
+	
 
 	/**
-	* the idProduct attribute.
+	* Empty Constructor.
 	*/
-	private String idProduct;
-	
+	public ShoppingCart shoppingCart (){
+	}
+
+	/**
+	* Constructor.
+	*/
+	public ShoppingCart shoppingCart (
+	String syncTime
+,	String quantity
+,	Integer idCart
+	){
+		this.syncTime = syncTime;
+		this.quantity = quantity;
+		this.idCart = idCart;
+	}
  
-	public String getId() {
-       return this.id;
+	public String getSyncTime() {
+       return this.syncTime;
      }
 
 	public String getQuantity() {
        return this.quantity;
      }
 
-	public String getSyncTime() {
-       return this.syncTime;
-     }
-
-	public String getIdProduct() {
-       return this.idProduct;
+	public Integer getIdCart() {
+       return this.idCart;
      }
  
-     public void setId(String id) {
-        this.id = id;
+     public void setSyncTime(String syncTime) {
+        this.syncTime = syncTime;
      }
 
      public void setQuantity(String quantity) {
         this.quantity = quantity;
      }
 
-     public void setSyncTime(String syncTime) {
-        this.syncTime = syncTime;
-     }
-
-     public void setIdProduct(String idProduct) {
-        this.idProduct = idProduct;
+     public void setIdCart(Integer idCart) {
+        this.idCart = idCart;
      }
 
 

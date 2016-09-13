@@ -31,6 +31,9 @@ getValueOfStereotypeProperty(elem: Element, stereotype_name : String, property_n
 [query public
 getValueOfStereotypePropertyInteger(elem: Element, stereotype_name : String, property_name : String) : Integer = elem.getValue(elem.getAppliedStereotype(stereotype_name), property_name)/]
 
+[query public
+getValueOfStereotypePropertyString(elem: Element, stereotype_name : String, property_name : String) : String = elem.getValue(elem.getAppliedStereotype(stereotype_name), property_name)/]
+
 [**
  * Get the value of a given property - Enumerations
  */]
@@ -39,4 +42,30 @@ getValueOfStereotypePropertyEnumLit(elem: Element, stereotype_name : String, pro
 
 
 [query public
+getValueOfStereotypePropertyBoolean(elem: Element, stereotype_name : String, property_name : String) : Boolean = elem.getValue(elem.getAppliedStereotype(stereotype_name), property_name)/]
+
+
+[query public
 getMatchedTypeForJava(elem: Element, stereotype_name : String, property_name : String) : String = getJavaType(getValueOfStereotypePropertyEnumLit(elem, stereotype_name,property_name))/]
+
+[query public
+getMatchedTypeForSqlite(elem: Element, stereotype_name : String, property_name : String) : String = getSqliteType(getValueOfStereotypePropertyEnumLit(elem, stereotype_name,property_name))/]
+
+[query public
+getPropertiesForSqlite(elem: Element, stereotype_name : String, dataType:String, notNull:Boolean,  
+size:Integer, unique:Boolean, defaultValue:String, checkCondition:String) : String = 
+getSqliteProperties(getMatchedTypeForSqlite(elem, stereotype_name, 'dataType'), 
+notNull,size,unique,defaultValue,checkCondition)/]
+
+[query public
+getJavaCursorDescription(elem: Element, stereotype_name : String, counter : Integer) : String = getCursorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), counter)/]
+
+[comment]getCursorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), counter)[/comment]
+[comment][query public
+getPropertiesForSqlite(elem: Element, stereotype_name : String) : String = getSqliteProperties(
+	getMatchedTypeForSqlite(elem, stereotype_name, 'dataType'),
+	getValueOfStereotypePropertyBoolean(elem, stereotype_name, 'notNull'),
+	getValueOfStereotypePropertyInteger(elem, stereotype_name, 'size'),
+	getValueOfStereotypePropertyBoolean(elem, stereotype_name, 'unique'), 
+	getValueOfStereotypePropertyString(elem, stereotype_name, 'defaultValue'), 
+	getValueOfStereotypePropertyString(elem, stereotype_name, 'checkCondition'))/][/comment]

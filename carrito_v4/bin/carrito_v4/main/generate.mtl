@@ -5,19 +5,22 @@
 [import carrito_v4::main::android::models::modelsGen/]
 [import carrito_v4::main::android::bd::createDatabase/]
 [import carrito_v4::main::android::tables::generateDbTables/]
+[import carrito_v4::main::android::dao::daoGen/]
 
 [import services::uml2services/]
-
 [import common::utils_gen/]
 
 [template public generateElement(aPackage: Package)]
 [comment @main/]
-[createDatabase(aPackage)/]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[for (aClass : Class | aPackage.ownedElement->filter(Class))]
+[createDatabase(aPackage)/]
+[for (aClass : Class | aClasses)]
  	[generateModelsAndroid(aClass)/]
 	[generateDbTables(aClass)/]
+	[generateDaoElement(aClass)/]
 [/for]
 
+[/let]
 [/template]
 
