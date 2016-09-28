@@ -4,10 +4,14 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
+import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
+import org.eclipse.uml2.uml.internal.impl.EnumerationLiteralImpl;
 
 public class UML2Services {
 	public boolean hasStereotype(Class clazz, String stereotypeName) {
@@ -20,8 +24,14 @@ public class UML2Services {
 		return false;
 	}
 
-	public boolean hasStereotype(Package package1, String stereotypeName) {
-		List<Stereotype> stereotypes = package1.getAppliedStereotypes();
+	/*
+	 * Esta funcion recorre los estereotipos de las clases de un paquete. Si un
+	 * paquete contiene clases con el estereotipo deseado, devuelve TRUE, que
+	 * ese paquete contiene ese estereotipo
+	 */
+	public boolean hasStereotype(Package packageT, String stereotypeName) {
+		List<Stereotype> stereotypes = packageT.getAppliedStereotypes();
+
 		for (Stereotype stereotype : stereotypes) {
 			if (stereotype.getName().equals(stereotypeName)) {
 				return true;
@@ -30,8 +40,47 @@ public class UML2Services {
 		return false;
 	}
 
+	public boolean isPackageHasThisClassStereotype(Package packageT, String stereotypeName) {
+		List<Element> elements = packageT.getOwnedElements();
+
+		for (Element element : elements) {
+			if (hasStereotype(element, stereotypeName))
+				return true;
+		}
+		return false;
+	}
+
+	/*Esta funcion es una bandera, que nos indica si dentro del paquete, existe una clase de un estereotipo especifico, 
+	con una propiedad con un valor determinado. 
+	Utilizado para ver si existe por lo menos un tipo de elemento.*/
+	public boolean isPackageHasThisPropertyStereotype(Package packageT, String stereotypeName, String propertyName,
+			String propertyValue) {
+		List<Element> classes = packageT.getOwnedElements();
+
+		for (Element classx : classes) {
+			try {
+				Class classex = (Class) classx;
+				List<Stereotype> stereotypes = classex.getAppliedStereotypes();
+				for (Stereotype stereotype : stereotypes) {
+					if (stereotype.getName().equals(stereotypeName)) {
+						Object object = classex.getValue(stereotype, propertyName);
+						if (((EnumerationLiteralImpl) object).getName().equals(propertyValue)) {
+							return true;
+						}
+					}
+				}
+			} catch (ClassCastException e) {
+				// TODO: handle exception
+				// Puede dar un error de casteo si es que viene un elemento el cual no pueda transformarse a clase
+				//Ignoramos este error
+			}
+		}
+		return false;
+	}
+
 	public boolean hasStereotype(Element element, String stereotypeName) {
 		List<Stereotype> stereotypes = element.getAppliedStereotypes();
+
 		for (Stereotype stereotype : stereotypes) {
 			if (stereotype.getName().equals(stereotypeName)) {
 				return true;
@@ -42,6 +91,11 @@ public class UML2Services {
 
 	public String classFileName(String folderPath, Class clazz, String nameExtension, String extension) {
 		String className = clazz.getName().concat(nameExtension);
+		return folderPath.concat(className.concat(extension));
+	}
+
+	public String classFileNameInvert(String folderPath, Class clazz, String nameExtension, String extension) {
+		String className = nameExtension.concat(clazz.getName().toLowerCase());
 		return folderPath.concat(className.concat(extension));
 	}
 
@@ -101,44 +155,63 @@ public class UML2Services {
 		return returnType;
 	}
 
-	
-		
-	public String getSqliteProperties(String dataType, Boolean notNull, Integer size, 
-			Boolean unique, String defaultValue, String checkCondition) {
+	public String getSqliteProperties(String dataType, Boolean notNull, Integer size, Boolean unique,
+			String defaultValue, String checkCondition) {
+		String result = null;
+
+		result = " " + dataType;
+
+		if (size > 0 && dataType.equals("char")) // solo el tipo CHAR tiene este
+													// formato Char(5)
+			result = result + "(" + String.valueOf(size) + ")";
+
+		if (notNull)
+			result = result + " NOT NULL ";
+
+		if (unique)
+			result = result + " UNIQUE ";
+
+		if (defaultValue != null)
+			result = result + " DEFAULT " + defaultValue + " ";
+
+		if (checkCondition != null)
+			result = result + " CHECK (" + checkCondition + ")";
+
+		return result;
+	}
+
+	public String getCursorDescription(String javaDataType, Integer count) {
+		String result = "cursor.getString(" + count + ")";
+		if (javaDataType.equals("Integer"))
+			result = "Integer.parseInt(" + result + ")";
+
+		if (javaDataType.equals("Float"))
+			result = "Float.parseFloat(" + result + ")";
+
+		if (javaDataType.equals("BigDecimal"))
+			result = "new BigDecimal(" + result + ")";
+
+		return result;
+	}
+
+	public String stringToSpecificTypeAssignment(String type, String value, String propertyName) {
 		String result = "";
-		
-		result = result + dataType;
-		
-		
-		if(size > 0)
-			result = result+ "("+ String.valueOf(size)+")"+" ";
-		
-		if(notNull)
-			result = result+"NOT NULL"+" ";
-		
-		if(unique)
-			result = result+"UNIQUE"+" ";
-		
-		if(defaultValue != null)
-		result = result + "DEFAULT "+defaultValue+" ";
-		
-		if(checkCondition != null)
-			result = result+"CHECK ("+checkCondition+")";
-		
+
+		switch (type) {
+		case "Integer":
+			result = type + " " + propertyName + " = " + "Integer.valueOf(" + value + ")";
+			break;
+		case "BigDecimal":
+			result = type + " " + propertyName + " = " + "new BigDecimal(" + value + ")";
+			break;
+		case "Float":
+			result = type + " " + propertyName + " = " + "Float.valueOf(" + value + ")";
+			break;
+		default:
+
+		}
+
 		return result;
 	}
-		
-	public String getCursorDescription(String javaDataType, Integer count){
-		String result = "cursor.getString("+count+")";
-		if(javaDataType.equals("Integer"))
-			result = "Integer.parseInt("+result+")";
-		
-		if(javaDataType.equals("Float"))
-			result = "Float.parseFloat("+result+")";
-		
-		if(javaDataType.equals("BigDecimal"))
-			result = "new BigDecimal("+result+")";
-		
-		return result;
-	}
+
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_16_0_17280447_1471464683856_181581_1339" name="MobileAppDataProfile" metamodelReference="_0metamodelReferenceMobileAppDataProfile">
-  <eAnnotations xmi:id="_rdwja3jzEeaT1sytCbYq5g" source="http://www.eclipse.org/uml2/2.0.0/UML">
-    <contents xmi:type="ecore:EPackage" xmi:id="_rdwjbHjzEeaT1sytCbYq5g" name="MobileAppDataProfile" nsURI="http:///schemas/MobileAppDataProfile/_rUKhsHjzEeaT1sytCbYq5g/0" nsPrefix="MobileAppDataProfile"/>
+  <eAnnotations xmi:id="_x6eBo4UgEeaeauFtY86JTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_x6eBpIUgEeaeauFtY86JTw" name="MobileAppDataProfile" nsURI="http:///schemas/MobileAppDataProfile/_xvfgAIUgEeaeauFtY86JTw/0" nsPrefix="MobileAppDataProfile"/>
   </eAnnotations>
   <packageImport xmi:id="_0metamodelReferenceMobileAppDataProfile">
     <importedPackage xmi:type="uml:Model" href="pathmap://UML_METAMODELS/UML.metamodel.uml#_0"/>

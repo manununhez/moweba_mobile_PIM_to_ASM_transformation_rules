@@ -4,7 +4,7 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0"/>
+    <imports href="../services/uml2services.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Query" name="containingPackages" visibility="Public" type="/3/Sequence(Package)">
       <documentation xsi:type="mtl:ModuleElementDocumentation">
         <body startPosition="130" endPosition="197" value="***********-------------&#xD;&#xA;QUERIES&#xD;&#xA;-------------*************&#xD;&#xA;"/>
@@ -248,7 +248,7 @@
       </parameter>
       <expression xsi:type="mtl:QueryInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getJavaType"/>
+        <definition href="../services/uml2services.emtl#/0/getJavaType"/>
         <argument xsi:type="mtl:QueryInvocation" definition="/0/getValueOfStereotypePropertyEnumLit">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getMatchedTypeForJava/elem">
@@ -276,7 +276,7 @@
       </parameter>
       <expression xsi:type="mtl:QueryInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getSqliteType"/>
+        <definition href="../services/uml2services.emtl#/0/getSqliteType"/>
         <argument xsi:type="mtl:QueryInvocation" definition="/0/getValueOfStereotypePropertyEnumLit">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getMatchedTypeForSqlite/elem">
@@ -319,7 +319,7 @@
       </parameter>
       <expression xsi:type="mtl:QueryInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getSqliteProperties"/>
+        <definition href="../services/uml2services.emtl#/0/getSqliteProperties"/>
         <argument xsi:type="mtl:QueryInvocation" definition="/0/getMatchedTypeForSqlite">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getPropertiesForSqlite/elem">
@@ -362,7 +362,7 @@
       </parameter>
       <expression xsi:type="mtl:QueryInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getCursorDescription"/>
+        <definition href="../services/uml2services.emtl#/0/getCursorDescription"/>
         <argument xsi:type="mtl:QueryInvocation" definition="/0/getMatchedTypeForJava">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getJavaCursorDescription/elem">
@@ -588,7 +588,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getJavaType"/>
+          <references href="../services/uml2services.emtl#/0/getJavaType"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -600,7 +600,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getSqliteType"/>
+          <references href="../services/uml2services.emtl#/0/getSqliteType"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -612,7 +612,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getSqliteProperties"/>
+          <references href="../services/uml2services.emtl#/0/getSqliteProperties"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -639,7 +639,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/getCursorDescription"/>
+          <references href="../services/uml2services.emtl#/0/getCursorDescription"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">

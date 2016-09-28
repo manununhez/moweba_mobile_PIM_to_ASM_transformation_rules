@@ -1,0 +1,15 @@
+[comment encoding = UTF-8 /]
+[module createSharedHelper('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+
+[template public createSharedHelper(aPackage : Package)]
+[file ('sharedPreferences/MySharedPreferencesHelper.java', false)]
+//[protected ('imports')]
+//[/protected]
+	
+public class MySharedPreferencesHelper {
+    
+	
+}
+[/file]
+[/template]

@@ -1,0 +1,38 @@
+[comment encoding = UTF-8 /]
+[module generateConfigFiles('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateConfigFiles(aPackage : Package)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+[file ('AndroidManifest.xml', false)]
+   <application
+        android:allowBackup="true"
+        android:exported="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activities.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+		[if (aPackage.hasStereotype('DataPersistence'))]
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
+		<activity android:name=".activities.[aClass.name.toUpperFirst()/]FormActivity" />
+		[/if]
+		[/if]		
+		[/for]
+		[/if]
+    </application>
+[/file]
+[/let]
+[/template]

@@ -9,12 +9,24 @@
 	= invoke('services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Package, java.lang.String)', Sequence{arg0, arg1})
 /]
 
+[query public isPackageHasThisClassStereotype(arg0 : Package, arg1 : String) : Boolean
+	= invoke('services.UML2Services', 'isPackageHasThisClassStereotype(org.eclipse.uml2.uml.Package, java.lang.String)', Sequence{arg0, arg1})
+/]
+
+[query public isPackageHasThisPropertyStereotype(arg0 : Package, arg1 : String, arg2 : String, arg3 : String) : Boolean
+	= invoke('services.UML2Services', 'isPackageHasThisPropertyStereotype(org.eclipse.uml2.uml.Package, java.lang.String, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2, arg3})
+/]
+
 [query public hasStereotype(arg0 : Element, arg1 : String) : Boolean
 	= invoke('services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Element, java.lang.String)', Sequence{arg0, arg1})
 /]
 
 [query public classFileName(arg0 : String, arg1 : Class, arg2 : String, arg3 : String) : String
 	= invoke('services.UML2Services', 'classFileName(java.lang.String, org.eclipse.uml2.uml.Class, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2, arg3})
+/]
+
+[query public classFileNameInvert(arg0 : String, arg1 : Class, arg2 : String, arg3 : String) : String
+	= invoke('services.UML2Services', 'classFileNameInvert(java.lang.String, org.eclipse.uml2.uml.Class, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2, arg3})
 /]
 
 [query public getJavaType(arg0 : String) : String
@@ -31,5 +43,9 @@
 
 [query public getCursorDescription(arg0 : String, arg1 : Integer) : String
 	= invoke('services.UML2Services', 'getCursorDescription(java.lang.String, java.lang.Integer)', Sequence{arg0, arg1})
+/]
+
+[query public stringToSpecificTypeAssignment(arg0 : String, arg1 : String, arg2 : String) : String
+	= invoke('services.UML2Services', 'stringToSpecificTypeAssignment(java.lang.String, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2})
 /]
 

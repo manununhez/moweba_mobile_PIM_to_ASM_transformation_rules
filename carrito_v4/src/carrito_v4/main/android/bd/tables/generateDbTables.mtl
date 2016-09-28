@@ -1,0 +1,58 @@
+[comment encoding = UTF-8 /]
+[module generateDbTables('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateDbTables(aClass : Class)]
+[if (aClass.hasStereotype('persistentEntity'))]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('bd/tables/', aClass, 'Table', '.java'), false)]
+//[protected ('imports')]
+import android.content.ContentResolver;
+import android.database.sqlite.SQLiteDatabase;
+//[/protected]
+
+public class [aClass.name.toUpperFirst()/]Table {
+	private ContentResolver contentResolver;
+	
+	//    DATABASE TABLE
+	public static final String TABLE_NAME = "[aClass.name.toLowerFirst()/]"; 
+	
+	public static final String COLUMN_ID = "_id";
+	[for (p : Property | persistentEntityProperties)]
+		public static final String COLUMN_[p.name.toUpper()/] = "[p.name.toLowerFirst()/]"; 
+	[/for]
+	
+	//    DATABASE CREATION SQL STATEMENT
+	private static final String CREATE_TABLE = "create table "
+			+ TABLE_NAME
+			+ "("
+			+ COLUMN_ID + " integer primary key autoincrement,"
+			[for (p : Property | persistentEntityProperties)separator(',"\n')]+ COLUMN_[p.name.toUpper()/] + "[p.getPropertiesForSqlite('Mobile Profile::persistentEntityProperty',p.getMatchedTypeForSqlite('Mobile Profile::persistentEntityProperty', 'dataType'),p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'notNull'),p.getValueOfStereotypePropertyInteger('Mobile Profile::persistentEntityProperty', 'size'),p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'unique'),p.getValueOfStereotypePropertyString('Mobile Profile::persistentEntityProperty', 'defaultValue'),p.getValueOfStereotypePropertyString('Mobile Profile::persistentEntityProperty', 'checkCondition'))/][/for]);";  
+
+	
+	public [aClass.name.toUpperFirst()/]Table(ContentResolver contentResolver) {
+		this.contentResolver = contentResolver;
+	}
+	
+	public static void onCreate(SQLiteDatabase database) {
+		database.execSQL(CREATE_TABLE);
+	}
+	
+	public static void onUpgrade(SQLiteDatabase database, int oldVersion, int newVersion) {
+		database.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+		onCreate(database);
+	}
+		
+}
+
+[/file]
+[/let]
+[/if]
+[/if]
+[/template]
