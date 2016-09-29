@@ -4,25 +4,31 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/config/generateConfigFiles.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/beans/beansGen.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/createDatabase.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/tables/generateDbTables.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/dao/daoGen.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/adapter/generateAdapters.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/adapter/layout/generateAdapterLayout.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateMainActivity.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateBDActivities.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateFileActivities.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateBDFormActivities.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateMainActivityLayout.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateBDActivitiesLayout.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateFileActivitiesLayout.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateBDFormActivitiesLayout.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/files/createFileHelper.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/keyvalue/createSharedHelper.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0"/>
+    <imports href="android/config/generateConfigFiles.emtl#/0"/>
+    <imports href="android/beans/beansGen.emtl#/0"/>
+    <imports href="android/bd/createDatabase.emtl#/0"/>
+    <imports href="android/bd/tables/generateDbTables.emtl#/0"/>
+    <imports href="android/bd/dao/daoGen.emtl#/0"/>
+    <imports href="android/files/createFileHelper.emtl#/0"/>
+    <imports href="android/keyvalue/createSharedHelper.emtl#/0"/>
+    <imports href="android/adapter/generateBDAdapters.emtl#/0"/>
+    <imports href="android/adapter/generateKVAdapters.emtl#/0"/>
+    <imports href="android/adapter/layout/generateBDAdapterLayout.emtl#/0"/>
+    <imports href="android/adapter/layout/generateKVAdapterLayout.emtl#/0"/>
+    <imports href="android/activities/generateMainActivity.emtl#/0"/>
+    <imports href="android/activities/generateBDActivities.emtl#/0"/>
+    <imports href="android/activities/generateFileActivities.emtl#/0"/>
+    <imports href="android/activities/generateKVActivities.emtl#/0"/>
+    <imports href="android/activities/generateBDFormActivities.emtl#/0"/>
+    <imports href="android/activities/generateKVFormActivities.emtl#/0"/>
+    <imports href="android/activities/layout/generateMainActivityLayout.emtl#/0"/>
+    <imports href="android/activities/layout/generateBDActivitiesLayout.emtl#/0"/>
+    <imports href="android/activities/layout/generateFileActivitiesLayout.emtl#/0"/>
+    <imports href="android/activities/layout/generateKVActivitiesLayout.emtl#/0"/>
+    <imports href="android/activities/layout/generateBDFormActivitiesLayout.emtl#/0"/>
+    <imports href="android/activities/layout/generateKVFormActivitiesLayout.emtl#/0"/>
+    <imports href="../../services/uml2services.emtl#/0"/>
+    <imports href="../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -30,7 +36,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
+            <definition href="android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
             </argument>
@@ -38,7 +44,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateMainActivityLayout.emtl#/0/generateMainActivityLayout"/>
+            <definition href="android/activities/layout/generateMainActivityLayout.emtl#/0/generateMainActivityLayout"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
             </argument>
@@ -46,7 +52,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
+            <definition href="android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
             </argument>
@@ -55,7 +61,7 @@
           <body xsi:type="mtl:IfBlock">
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/beans/beansGen.emtl#/0/beansGen"/>
+              <definition href="android/beans/beansGen.emtl#/0/beansGen"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
               </argument>
@@ -65,7 +71,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/createDatabase.emtl#/0/createDatabase"/>
+                <definition href="android/bd/createDatabase.emtl#/0/createDatabase"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                 </argument>
@@ -75,7 +81,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
+                  <definition href="android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -83,7 +89,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateBDActivitiesLayout.emtl#/0/generateaBDActivitiesLayout"/>
+                  <definition href="android/activities/layout/generateBDActivitiesLayout.emtl#/0/generateaBDActivitiesLayout"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -91,7 +97,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
+                  <definition href="android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -99,7 +105,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateBDFormActivitiesLayout.emtl#/0/generateBDFormActivitiesLayout"/>
+                  <definition href="android/activities/layout/generateBDFormActivitiesLayout.emtl#/0/generateBDFormActivitiesLayout"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -107,7 +113,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/adapter/generateAdapters.emtl#/0/generateAdapters"/>
+                  <definition href="android/adapter/generateBDAdapters.emtl#/0/generateBDAdapters"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -115,7 +121,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/adapter/layout/generateAdapterLayout.emtl#/0/generateAdapterLayout"/>
+                  <definition href="android/adapter/layout/generateBDAdapterLayout.emtl#/0/generateBDAdapterLayout"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -123,7 +129,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
+                  <definition href="android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -131,7 +137,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/dao/daoGen.emtl#/0/generateDaoElement"/>
+                  <definition href="android/bd/dao/daoGen.emtl#/0/generateDaoElement"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -144,7 +150,7 @@
               </body>
               <ifExpr xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+                <definition href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                 </argument>
@@ -164,7 +170,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/files/createFileHelper.emtl#/0/createFileHelper"/>
+                <definition href="android/files/createFileHelper.emtl#/0/createFileHelper"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                 </argument>
@@ -174,7 +180,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
+                  <definition href="android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.4/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -182,7 +188,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateFileActivitiesLayout.emtl#/0/generateFileActivitiesLayout"/>
+                  <definition href="android/activities/layout/generateFileActivitiesLayout.emtl#/0/generateFileActivitiesLayout"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.4/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -195,7 +201,7 @@
               </body>
               <ifExpr xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+                <definition href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                 </argument>
@@ -215,15 +221,70 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
+                <definition href="android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                 </argument>
               </body>
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+              <body xsi:type="mtl:ForBlock">
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
+                <body xsi:type="mtl:TemplateInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="android/activities/generateKVActivities.emtl#/0/generateKVActivities"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.6/%.3/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
+                <body xsi:type="mtl:TemplateInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="android/activities/layout/generateKVActivitiesLayout.emtl#/0/generateKVActivitiesLayout"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.6/%.3/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;&#x9;&#x9;&#x9;"/>
+                <body xsi:type="mtl:TemplateInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivities"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.6/%.3/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
+                <body xsi:type="mtl:TemplateInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="android/activities/layout/generateKVFormActivitiesLayout.emtl#/0/generateKVFormActivitiesLayout"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.6/%.3/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;"/>
+                <body xsi:type="mtl:TemplateInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="android/adapter/generateKVAdapters.emtl#/0/generateKVAdapters"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.6/%.3/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#x9;&#x9;"/>
+                <body xsi:type="mtl:TemplateInvocation">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <definition href="android/adapter/layout/generateKVAdapterLayout.emtl#/0/generateKVAdapterLayout"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.1/%.7/%.6/%.3/aClass">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                  </argument>
+                </body>
+                <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+                <loopVariable name="aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </loopVariable>
+                <iterSet xsi:type="ocl.ecore:VariableExp" name="aClasses" eType="/6/Set(Class)" referredVariable="/0/generateElement/%/aClasses"/>
+              </body>
               <ifExpr xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+                <definition href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                 </argument>
@@ -241,7 +302,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;"/>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+              <definition href="../../services/uml2services.emtl#/0/hasStereotype.1"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
               </argument>
@@ -254,7 +315,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
             <source xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+              <definition href="../../services/uml2services.emtl#/0/hasStereotype.1"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
               </argument>
@@ -264,7 +325,7 @@
             </source>
             <argument xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+              <definition href="../../services/uml2services.emtl#/0/hasStereotype.1"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/aPackage">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
               </argument>
@@ -329,7 +390,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
+          <references href="android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -341,7 +402,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/beans/beansGen.emtl#/0/beansGen"/>
+          <references href="android/beans/beansGen.emtl#/0/beansGen"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -353,7 +414,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/createDatabase.emtl#/0/createDatabase"/>
+          <references href="android/bd/createDatabase.emtl#/0/createDatabase"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -365,7 +426,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
+          <references href="android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -377,127 +438,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/bd/dao/daoGen.emtl#/0/generateDaoElement"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateAdapters">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/adapter/generateAdapters.emtl#/0/generateAdapters"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateAdapterLayout">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/adapter/layout/generateAdapterLayout.emtl#/0/generateAdapterLayout"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateMainActivity">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aPackage">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateBDActivities">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateFileActivities">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateBDFormActivities">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateMainActivityLayout">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateMainActivityLayout.emtl#/0/generateMainActivityLayout"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aPackage">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateaBDActivitiesLayout">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateBDActivitiesLayout.emtl#/0/generateaBDActivitiesLayout"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateFileActivitiesLayout">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateFileActivitiesLayout.emtl#/0/generateFileActivitiesLayout"/>
-        </eAnnotations>
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aClass">
-          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
-        </eParameters>
-      </eOperations>
-      <eOperations name="generateBDFormActivitiesLayout">
-        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-          <contents xsi:type="ocl.ecore:Constraint"/>
-        </eAnnotations>
-        <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/activities/layout/generateBDFormActivitiesLayout.emtl#/0/generateBDFormActivitiesLayout"/>
+          <references href="android/bd/dao/daoGen.emtl#/0/generateDaoElement"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -509,7 +450,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/files/createFileHelper.emtl#/0/createFileHelper"/>
+          <references href="android/files/createFileHelper.emtl#/0/createFileHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -521,11 +462,203 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
+          <references href="android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateBDAdapters">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/adapter/generateBDAdapters.emtl#/0/generateBDAdapters"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateKVAdapters">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/adapter/generateKVAdapters.emtl#/0/generateKVAdapters"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateBDAdapterLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/adapter/layout/generateBDAdapterLayout.emtl#/0/generateBDAdapterLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateKVAdapterLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/adapter/layout/generateKVAdapterLayout.emtl#/0/generateKVAdapterLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateMainActivity">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPackage">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateBDActivities">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateFileActivities">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateKVActivities">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/generateKVActivities.emtl#/0/generateKVActivities"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateBDFormActivities">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateKVFormActivities">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivities"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateMainActivityLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/layout/generateMainActivityLayout.emtl#/0/generateMainActivityLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPackage">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateaBDActivitiesLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/layout/generateBDActivitiesLayout.emtl#/0/generateaBDActivitiesLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateFileActivitiesLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/layout/generateFileActivitiesLayout.emtl#/0/generateFileActivitiesLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateKVActivitiesLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/layout/generateKVActivitiesLayout.emtl#/0/generateKVActivitiesLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateBDFormActivitiesLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/layout/generateBDFormActivitiesLayout.emtl#/0/generateBDFormActivitiesLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateKVFormActivitiesLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="android/activities/layout/generateKVFormActivitiesLayout.emtl#/0/generateKVFormActivitiesLayout"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eParameters>
       </eOperations>
       <eOperations name="hasStereotype">
@@ -533,7 +666,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
+          <references href="../../services/uml2services.emtl#/0/hasStereotype.1"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -548,7 +681,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+          <references href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -727,533 +860,673 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateElement">
-      <details key="start" value="1348"/>
-      <details key="end" value="3160"/>
-      <details key="line" value="34"/>
+      <details key="start" value="1815"/>
+      <details key="end" value="3912"/>
+      <details key="line" value="44"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateElement/%">
-      <details key="start" value="1418"/>
-      <details key="end" value="3148"/>
-      <details key="line" value="36"/>
+      <details key="start" value="1885"/>
+      <details key="end" value="3900"/>
+      <details key="line" value="46"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateElement/%/%">
-      <details key="start" value="1485"/>
-      <details key="end" value="1486"/>
-      <details key="line" value="37"/>
+      <details key="start" value="1952"/>
+      <details key="end" value="1953"/>
+      <details key="line" value="47"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateElement/%/%.1">
-      <details key="start" value="1486"/>
-      <details key="end" value="3141"/>
-      <details key="line" value="38"/>
+      <details key="start" value="1953"/>
+      <details key="end" value="3893"/>
+      <details key="line" value="48"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateElement/%/%.1/%">
-      <details key="start" value="1635"/>
-      <details key="end" value="1636"/>
-      <details key="line" value="40"/>
+      <details key="start" value="2102"/>
+      <details key="end" value="2103"/>
+      <details key="line" value="50"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateElement/%/%.1/%.1">
-      <details key="start" value="1637"/>
-      <details key="end" value="1667"/>
+      <details key="start" value="2104"/>
+      <details key="end" value="2134"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateElement/%/%.1/%.1/aPackage">
-      <details key="start" value="1658"/>
-      <details key="end" value="1666"/>
+      <details key="start" value="2125"/>
+      <details key="end" value="2133"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateElement/%/%.1/%.2">
-      <details key="start" value="1669"/>
-      <details key="end" value="1670"/>
-      <details key="line" value="42"/>
+      <details key="start" value="2136"/>
+      <details key="end" value="2137"/>
+      <details key="line" value="52"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateElement/%/%.1/%.3">
-      <details key="start" value="1671"/>
-      <details key="end" value="1707"/>
+      <details key="start" value="2138"/>
+      <details key="end" value="2174"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateElement/%/%.1/%.3/aPackage">
-      <details key="start" value="1698"/>
-      <details key="end" value="1706"/>
+      <details key="start" value="2165"/>
+      <details key="end" value="2173"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/generateElement/%/%.1/%.4">
-      <details key="start" value="1709"/>
-      <details key="end" value="1710"/>
-      <details key="line" value="43"/>
+      <details key="start" value="2176"/>
+      <details key="end" value="2177"/>
+      <details key="line" value="53"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/generateElement/%/%.1/%.5">
-      <details key="start" value="1711"/>
-      <details key="end" value="1740"/>
+      <details key="start" value="2178"/>
+      <details key="end" value="2207"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/generateElement/%/%.1/%.5/aPackage">
-      <details key="start" value="1731"/>
-      <details key="end" value="1739"/>
+      <details key="start" value="2198"/>
+      <details key="end" value="2206"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/generateElement/%/%.1/%.6">
-      <details key="start" value="1742"/>
-      <details key="end" value="1744"/>
-      <details key="line" value="44"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/generateElement/%/%.1/%.7">
-      <details key="start" value="1744"/>
-      <details key="end" value="3135"/>
-      <details key="line" value="45"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/generateElement/%/%.1/%.7/%">
-      <details key="start" value="1794"/>
-      <details key="end" value="1812"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/generateElement/%/%.1/%.7/%/aPackage">
-      <details key="start" value="1803"/>
-      <details key="end" value="1811"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/generateElement/%/%.1/%.7/%.1">
-      <details key="start" value="1874"/>
-      <details key="end" value="1875"/>
-      <details key="line" value="47"/>
-    </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/generateElement/%/%.1/%.7/%.2">
-      <details key="start" value="1997"/>
-      <details key="end" value="2481"/>
-      <details key="line" value="49"/>
-    </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/generateElement/%/%.1/%.7/%.2/%">
-      <details key="start" value="2098"/>
-      <details key="end" value="2100"/>
-      <details key="line" value="50"/>
-    </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/generateElement/%/%.1/%.7/%.2/%.1">
-      <details key="start" value="2101"/>
-      <details key="end" value="2125"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/generateElement/%/%.1/%.7/%.2/%.1/aPackage">
-      <details key="start" value="2116"/>
-      <details key="end" value="2124"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/generateElement/%/%.1/%.7/%.2/%.2">
-      <details key="start" value="2127"/>
-      <details key="end" value="2128"/>
-      <details key="line" value="51"/>
-    </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/generateElement/%/%.1/%.7/%.2/%.3">
-      <details key="start" value="2130"/>
-      <details key="end" value="2474"/>
-      <details key="line" value="51"/>
-    </eAnnotations>
-    <eAnnotations source="positions.24" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%">
-      <details key="start" value="2164"/>
-      <details key="end" value="2167"/>
-      <details key="line" value="52"/>
-    </eAnnotations>
-    <eAnnotations source="positions.25" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.1">
-      <details key="start" value="2168"/>
-      <details key="end" value="2196"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.26" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.1/aClass">
-      <details key="start" value="2189"/>
-      <details key="end" value="2195"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.27" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.2">
-      <details key="start" value="2198"/>
-      <details key="end" value="2202"/>
-      <details key="line" value="53"/>
-    </eAnnotations>
-    <eAnnotations source="positions.28" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.3">
-      <details key="start" value="2203"/>
-      <details key="end" value="2238"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.29" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.3/aClass">
-      <details key="start" value="2231"/>
-      <details key="end" value="2237"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.30" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.4">
-      <details key="start" value="2240"/>
-      <details key="end" value="2247"/>
+      <details key="start" value="2209"/>
+      <details key="end" value="2211"/>
       <details key="line" value="54"/>
     </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.5">
-      <details key="start" value="2248"/>
-      <details key="end" value="2280"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.14" references="/0/generateElement/%/%.1/%.7">
+      <details key="start" value="2211"/>
+      <details key="end" value="3887"/>
+      <details key="line" value="55"/>
     </eAnnotations>
-    <eAnnotations source="positions.32" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.5/aClass">
-      <details key="start" value="2273"/>
+    <eAnnotations source="positions.15" references="/0/generateElement/%/%.1/%.7/%">
+      <details key="start" value="2261"/>
       <details key="end" value="2279"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateElement/%/%.1/%.7/%/aPackage">
+      <details key="start" value="2270"/>
+      <details key="end" value="2278"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateElement/%/%.1/%.7/%.1">
+      <details key="start" value="2341"/>
+      <details key="end" value="2342"/>
+      <details key="line" value="57"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateElement/%/%.1/%.7/%.2">
+      <details key="start" value="2464"/>
+      <details key="end" value="2952"/>
+      <details key="line" value="59"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateElement/%/%.1/%.7/%.2/%">
+      <details key="start" value="2565"/>
+      <details key="end" value="2567"/>
+      <details key="line" value="60"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateElement/%/%.1/%.7/%.2/%.1">
+      <details key="start" value="2568"/>
+      <details key="end" value="2592"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateElement/%/%.1/%.7/%.2/%.1/aPackage">
+      <details key="start" value="2583"/>
+      <details key="end" value="2591"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateElement/%/%.1/%.7/%.2/%.2">
+      <details key="start" value="2594"/>
+      <details key="end" value="2595"/>
+      <details key="line" value="61"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateElement/%/%.1/%.7/%.2/%.3">
+      <details key="start" value="2597"/>
+      <details key="end" value="2945"/>
+      <details key="line" value="61"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%">
+      <details key="start" value="2631"/>
+      <details key="end" value="2634"/>
+      <details key="line" value="62"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.1">
+      <details key="start" value="2635"/>
+      <details key="end" value="2663"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.1/aClass">
+      <details key="start" value="2656"/>
+      <details key="end" value="2662"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.2">
+      <details key="start" value="2665"/>
+      <details key="end" value="2669"/>
+      <details key="line" value="63"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.3">
+      <details key="start" value="2670"/>
+      <details key="end" value="2705"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.3/aClass">
+      <details key="start" value="2698"/>
+      <details key="end" value="2704"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.4">
+      <details key="start" value="2707"/>
+      <details key="end" value="2714"/>
+      <details key="line" value="64"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.5">
+      <details key="start" value="2715"/>
+      <details key="end" value="2747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.5/aClass">
+      <details key="start" value="2740"/>
+      <details key="end" value="2746"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.33" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.6">
-      <details key="start" value="2282"/>
-      <details key="end" value="2286"/>
-      <details key="line" value="56"/>
+      <details key="start" value="2749"/>
+      <details key="end" value="2753"/>
+      <details key="line" value="66"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.7">
-      <details key="start" value="2287"/>
-      <details key="end" value="2325"/>
+      <details key="start" value="2754"/>
+      <details key="end" value="2792"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.7/aClass">
-      <details key="start" value="2318"/>
-      <details key="end" value="2324"/>
+      <details key="start" value="2785"/>
+      <details key="end" value="2791"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.8">
-      <details key="start" value="2327"/>
-      <details key="end" value="2334"/>
-      <details key="line" value="57"/>
+      <details key="start" value="2794"/>
+      <details key="end" value="2801"/>
+      <details key="line" value="67"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.9">
-      <details key="start" value="2335"/>
-      <details key="end" value="2359"/>
+      <details key="start" value="2802"/>
+      <details key="end" value="2828"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.38" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.9/aClass">
-      <details key="start" value="2352"/>
-      <details key="end" value="2358"/>
+      <details key="start" value="2821"/>
+      <details key="end" value="2827"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.10">
-      <details key="start" value="2361"/>
-      <details key="end" value="2365"/>
-      <details key="line" value="59"/>
+      <details key="start" value="2830"/>
+      <details key="end" value="2834"/>
+      <details key="line" value="69"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.11">
-      <details key="start" value="2366"/>
-      <details key="end" value="2395"/>
+      <details key="start" value="2835"/>
+      <details key="end" value="2866"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.11/aClass">
-      <details key="start" value="2388"/>
-      <details key="end" value="2394"/>
+      <details key="start" value="2859"/>
+      <details key="end" value="2865"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.42" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.12">
-      <details key="start" value="2397"/>
-      <details key="end" value="2404"/>
-      <details key="line" value="60"/>
+      <details key="start" value="2868"/>
+      <details key="end" value="2875"/>
+      <details key="line" value="70"/>
     </eAnnotations>
     <eAnnotations source="positions.43" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.13">
-      <details key="start" value="2405"/>
-      <details key="end" value="2429"/>
+      <details key="start" value="2876"/>
+      <details key="end" value="2900"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.44" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.13/aClass">
-      <details key="start" value="2422"/>
-      <details key="end" value="2428"/>
+      <details key="start" value="2893"/>
+      <details key="end" value="2899"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.45" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.14">
-      <details key="start" value="2431"/>
-      <details key="end" value="2436"/>
-      <details key="line" value="62"/>
+      <details key="start" value="2902"/>
+      <details key="end" value="2907"/>
+      <details key="line" value="72"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.15">
-      <details key="start" value="2437"/>
-      <details key="end" value="2463"/>
+      <details key="start" value="2908"/>
+      <details key="end" value="2934"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.15/aClass">
-      <details key="start" value="2456"/>
-      <details key="end" value="2462"/>
+      <details key="start" value="2927"/>
+      <details key="end" value="2933"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/generateElement/%/%.1/%.7/%.2/%.3/%.16">
-      <details key="start" value="2465"/>
-      <details key="end" value="2466"/>
-      <details key="line" value="64"/>
+      <details key="start" value="2936"/>
+      <details key="end" value="2937"/>
+      <details key="line" value="74"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/generateElement/%/%.1/%.7/%.2/%.3/aClass">
-      <details key="start" value="2136"/>
-      <details key="end" value="2150"/>
-      <details key="line" value="51"/>
+      <details key="start" value="2603"/>
+      <details key="end" value="2617"/>
+      <details key="line" value="61"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/generateElement/%/%.1/%.7/%.2/%.3/aClasses">
-      <details key="start" value="2153"/>
-      <details key="end" value="2161"/>
+      <details key="start" value="2620"/>
+      <details key="end" value="2628"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/generateElement/%/%.1/%.7/%.2/%.4">
-      <details key="start" value="2001"/>
-      <details key="end" value="2096"/>
+      <details key="start" value="2468"/>
+      <details key="end" value="2563"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/generateElement/%/%.1/%.7/%.2/%.4/aPackage">
-      <details key="start" value="2002"/>
-      <details key="end" value="2010"/>
+      <details key="start" value="2469"/>
+      <details key="end" value="2477"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/generateElement/%/%.1/%.7/%.2/%.4/%">
-      <details key="start" value="2046"/>
-      <details key="end" value="2064"/>
+      <details key="start" value="2513"/>
+      <details key="end" value="2531"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/generateElement/%/%.1/%.7/%.2/%.4/%.1">
-      <details key="start" value="2066"/>
-      <details key="end" value="2082"/>
+      <details key="start" value="2533"/>
+      <details key="end" value="2549"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/generateElement/%/%.1/%.7/%.2/%.4/%.2">
-      <details key="start" value="2084"/>
-      <details key="end" value="2094"/>
+      <details key="start" value="2551"/>
+      <details key="end" value="2561"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/generateElement/%/%.1/%.7/%.3">
-      <details key="start" value="2482"/>
-      <details key="end" value="2483"/>
-      <details key="line" value="66"/>
+      <details key="start" value="2953"/>
+      <details key="end" value="2954"/>
+      <details key="line" value="76"/>
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/generateElement/%/%.1/%.7/%.4">
-      <details key="start" value="2601"/>
-      <details key="end" value="2859"/>
-      <details key="line" value="69"/>
+      <details key="start" value="3072"/>
+      <details key="end" value="3331"/>
+      <details key="line" value="79"/>
     </eAnnotations>
     <eAnnotations source="positions.58" references="/0/generateElement/%/%.1/%.7/%.4/%">
-      <details key="start" value="2698"/>
-      <details key="end" value="2699"/>
-      <details key="line" value="70"/>
+      <details key="start" value="3169"/>
+      <details key="end" value="3170"/>
+      <details key="line" value="80"/>
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/generateElement/%/%.1/%.7/%.4/%.1">
-      <details key="start" value="2700"/>
-      <details key="end" value="2726"/>
+      <details key="start" value="3171"/>
+      <details key="end" value="3197"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/generateElement/%/%.1/%.7/%.4/%.1/aPackage">
-      <details key="start" value="2717"/>
-      <details key="end" value="2725"/>
+      <details key="start" value="3188"/>
+      <details key="end" value="3196"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/generateElement/%/%.1/%.7/%.4/%.2">
-      <details key="start" value="2728"/>
-      <details key="end" value="2729"/>
-      <details key="line" value="71"/>
+      <details key="start" value="3199"/>
+      <details key="end" value="3200"/>
+      <details key="line" value="81"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/generateElement/%/%.1/%.7/%.4/%.3">
-      <details key="start" value="2730"/>
-      <details key="end" value="2852"/>
-      <details key="line" value="71"/>
+      <details key="start" value="3202"/>
+      <details key="end" value="3324"/>
+      <details key="line" value="81"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/generateElement/%/%.1/%.7/%.4/%.3/%">
-      <details key="start" value="2764"/>
-      <details key="end" value="2767"/>
-      <details key="line" value="72"/>
+      <details key="start" value="3236"/>
+      <details key="end" value="3239"/>
+      <details key="line" value="82"/>
     </eAnnotations>
     <eAnnotations source="positions.64" references="/0/generateElement/%/%.1/%.7/%.4/%.3/%.1">
-      <details key="start" value="2768"/>
-      <details key="end" value="2798"/>
+      <details key="start" value="3240"/>
+      <details key="end" value="3270"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.65" references="/0/generateElement/%/%.1/%.7/%.4/%.3/%.1/aClass">
-      <details key="start" value="2791"/>
-      <details key="end" value="2797"/>
+      <details key="start" value="3263"/>
+      <details key="end" value="3269"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.66" references="/0/generateElement/%/%.1/%.7/%.4/%.3/%.2">
-      <details key="start" value="2800"/>
-      <details key="end" value="2804"/>
-      <details key="line" value="73"/>
+      <details key="start" value="3272"/>
+      <details key="end" value="3276"/>
+      <details key="line" value="83"/>
     </eAnnotations>
     <eAnnotations source="positions.67" references="/0/generateElement/%/%.1/%.7/%.4/%.3/%.3">
-      <details key="start" value="2805"/>
-      <details key="end" value="2841"/>
+      <details key="start" value="3277"/>
+      <details key="end" value="3313"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.68" references="/0/generateElement/%/%.1/%.7/%.4/%.3/%.3/aClass">
-      <details key="start" value="2834"/>
-      <details key="end" value="2840"/>
+      <details key="start" value="3306"/>
+      <details key="end" value="3312"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.69" references="/0/generateElement/%/%.1/%.7/%.4/%.3/%.4">
-      <details key="start" value="2843"/>
-      <details key="end" value="2844"/>
-      <details key="line" value="74"/>
+      <details key="start" value="3315"/>
+      <details key="end" value="3316"/>
+      <details key="line" value="84"/>
     </eAnnotations>
     <eAnnotations source="positions.70" references="/0/generateElement/%/%.1/%.7/%.4/%.3/aClass">
-      <details key="start" value="2736"/>
-      <details key="end" value="2750"/>
-      <details key="line" value="71"/>
+      <details key="start" value="3208"/>
+      <details key="end" value="3222"/>
+      <details key="line" value="81"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/generateElement/%/%.1/%.7/%.4/%.3/aClasses">
-      <details key="start" value="2753"/>
-      <details key="end" value="2761"/>
+      <details key="start" value="3225"/>
+      <details key="end" value="3233"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.72" references="/0/generateElement/%/%.1/%.7/%.4/%.4">
-      <details key="start" value="2605"/>
-      <details key="end" value="2696"/>
+      <details key="start" value="3076"/>
+      <details key="end" value="3167"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.73" references="/0/generateElement/%/%.1/%.7/%.4/%.4/aPackage">
-      <details key="start" value="2606"/>
-      <details key="end" value="2614"/>
+      <details key="start" value="3077"/>
+      <details key="end" value="3085"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/generateElement/%/%.1/%.7/%.4/%.4/%">
-      <details key="start" value="2650"/>
-      <details key="end" value="2668"/>
+      <details key="start" value="3121"/>
+      <details key="end" value="3139"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/generateElement/%/%.1/%.7/%.4/%.4/%.1">
-      <details key="start" value="2670"/>
-      <details key="end" value="2686"/>
+      <details key="start" value="3141"/>
+      <details key="end" value="3157"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.76" references="/0/generateElement/%/%.1/%.7/%.4/%.4/%.2">
-      <details key="start" value="2688"/>
-      <details key="end" value="2694"/>
+      <details key="start" value="3159"/>
+      <details key="end" value="3165"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.77" references="/0/generateElement/%/%.1/%.7/%.5">
-      <details key="start" value="2860"/>
-      <details key="end" value="2861"/>
-      <details key="line" value="76"/>
+      <details key="start" value="3332"/>
+      <details key="end" value="3333"/>
+      <details key="line" value="86"/>
     </eAnnotations>
     <eAnnotations source="positions.78" references="/0/generateElement/%/%.1/%.7/%.6">
-      <details key="start" value="2987"/>
-      <details key="end" value="3127"/>
-      <details key="line" value="79"/>
+      <details key="start" value="3459"/>
+      <details key="end" value="3879"/>
+      <details key="line" value="89"/>
     </eAnnotations>
     <eAnnotations source="positions.79" references="/0/generateElement/%/%.1/%.7/%.6/%">
-      <details key="start" value="3088"/>
-      <details key="end" value="3089"/>
-      <details key="line" value="80"/>
+      <details key="start" value="3560"/>
+      <details key="end" value="3561"/>
+      <details key="line" value="90"/>
     </eAnnotations>
     <eAnnotations source="positions.80" references="/0/generateElement/%/%.1/%.7/%.6/%.1">
-      <details key="start" value="3090"/>
-      <details key="end" value="3118"/>
+      <details key="start" value="3562"/>
+      <details key="end" value="3590"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.81" references="/0/generateElement/%/%.1/%.7/%.6/%.1/aPackage">
-      <details key="start" value="3109"/>
-      <details key="end" value="3117"/>
+      <details key="start" value="3581"/>
+      <details key="end" value="3589"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.82" references="/0/generateElement/%/%.1/%.7/%.6/%.2">
-      <details key="start" value="3120"/>
-      <details key="end" value="3121"/>
-      <details key="line" value="81"/>
+      <details key="start" value="3592"/>
+      <details key="end" value="3593"/>
+      <details key="line" value="91"/>
     </eAnnotations>
     <eAnnotations source="positions.83" references="/0/generateElement/%/%.1/%.7/%.6/%.3">
-      <details key="start" value="2991"/>
-      <details key="end" value="3086"/>
+      <details key="start" value="3595"/>
+      <details key="end" value="3872"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%">
+      <details key="start" value="3629"/>
+      <details key="end" value="3632"/>
+      <details key="line" value="92"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.1">
+      <details key="start" value="3633"/>
+      <details key="end" value="3661"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.84" references="/0/generateElement/%/%.1/%.7/%.6/%.3/aPackage">
-      <details key="start" value="2992"/>
-      <details key="end" value="3000"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.85" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%">
-      <details key="start" value="3036"/>
-      <details key="end" value="3054"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.86" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.1">
-      <details key="start" value="3056"/>
-      <details key="end" value="3072"/>
+    <eAnnotations source="positions.86" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.1/aClass">
+      <details key="start" value="3654"/>
+      <details key="end" value="3660"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.87" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.2">
-      <details key="start" value="3074"/>
-      <details key="end" value="3084"/>
+      <details key="start" value="3663"/>
+      <details key="end" value="3667"/>
+      <details key="line" value="93"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.3">
+      <details key="start" value="3668"/>
+      <details key="end" value="3702"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.88" references="/0/generateElement/%/%.1/%.7/%.7">
-      <details key="start" value="3128"/>
-      <details key="end" value="3130"/>
-      <details key="line" value="82"/>
-    </eAnnotations>
-    <eAnnotations source="positions.89" references="/0/generateElement/%/%.1/%.7/%.8">
-      <details key="start" value="1748"/>
-      <details key="end" value="1791"/>
+    <eAnnotations source="positions.89" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.3/aClass">
+      <details key="start" value="3695"/>
+      <details key="end" value="3701"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.90" references="/0/generateElement/%/%.1/%.7/%.8/aPackage">
-      <details key="start" value="1749"/>
-      <details key="end" value="1757"/>
+    <eAnnotations source="positions.90" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.4">
+      <details key="start" value="3704"/>
+      <details key="end" value="3709"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.5">
+      <details key="start" value="3710"/>
+      <details key="end" value="3742"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.91" references="/0/generateElement/%/%.1/%.7/%.8/%">
-      <details key="start" value="1772"/>
-      <details key="end" value="1789"/>
+    <eAnnotations source="positions.92" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.5/aClass">
+      <details key="start" value="3735"/>
+      <details key="end" value="3741"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.92" references="/0/generateElement/%/%.1/%.8">
-      <details key="start" value="1490"/>
-      <details key="end" value="1575"/>
+    <eAnnotations source="positions.93" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.6">
+      <details key="start" value="3744"/>
+      <details key="end" value="3748"/>
+      <details key="line" value="96"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.7">
+      <details key="start" value="3749"/>
+      <details key="end" value="3787"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.93" references="/0/generateElement/%/%.1/%.8/%">
-      <details key="start" value="1491"/>
-      <details key="end" value="1532"/>
+    <eAnnotations source="positions.95" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.7/aClass">
+      <details key="start" value="3780"/>
+      <details key="end" value="3786"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.94" references="/0/generateElement/%/%.1/%.8/%/aPackage">
-      <details key="start" value="1491"/>
-      <details key="end" value="1499"/>
+    <eAnnotations source="positions.96" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.8">
+      <details key="start" value="3789"/>
+      <details key="end" value="3796"/>
+      <details key="line" value="97"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.9">
+      <details key="start" value="3797"/>
+      <details key="end" value="3823"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.95" references="/0/generateElement/%/%.1/%.8/%/%">
-      <details key="start" value="1514"/>
-      <details key="end" value="1531"/>
+    <eAnnotations source="positions.98" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.9/aClass">
+      <details key="start" value="3816"/>
+      <details key="end" value="3822"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.96" references="/0/generateElement/%/%.1/%.8/%.1">
-      <details key="start" value="1536"/>
-      <details key="end" value="1574"/>
+    <eAnnotations source="positions.99" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.10">
+      <details key="start" value="3825"/>
+      <details key="end" value="3829"/>
+      <details key="line" value="99"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.11">
+      <details key="start" value="3830"/>
+      <details key="end" value="3861"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.97" references="/0/generateElement/%/%.1/%.8/%.1/aPackage">
-      <details key="start" value="1536"/>
-      <details key="end" value="1544"/>
+    <eAnnotations source="positions.101" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.11/aClass">
+      <details key="start" value="3854"/>
+      <details key="end" value="3860"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.98" references="/0/generateElement/%/%.1/%.8/%.1/%">
-      <details key="start" value="1559"/>
-      <details key="end" value="1573"/>
+    <eAnnotations source="positions.102" references="/0/generateElement/%/%.1/%.7/%.6/%.3/%.12">
+      <details key="start" value="3863"/>
+      <details key="end" value="3864"/>
+      <details key="line" value="100"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateElement/%/%.1/%.7/%.6/%.3/aClass">
+      <details key="start" value="3601"/>
+      <details key="end" value="3615"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateElement/%/%.1/%.7/%.6/%.3/aClasses">
+      <details key="start" value="3618"/>
+      <details key="end" value="3626"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.99" references="/0/generateElement/%/aClasses">
-      <details key="start" value="1423"/>
-      <details key="end" value="1482"/>
-      <details key="line" value="36"/>
-    </eAnnotations>
-    <eAnnotations source="positions.100" references="/0/generateElement/%/aClasses/%">
-      <details key="start" value="1447"/>
-      <details key="end" value="1483"/>
+    <eAnnotations source="positions.105" references="/0/generateElement/%/%.1/%.7/%.6/%.4">
+      <details key="start" value="3463"/>
+      <details key="end" value="3558"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.101" references="/0/generateElement/%/aClasses/%/%">
-      <details key="start" value="1447"/>
-      <details key="end" value="1468"/>
+    <eAnnotations source="positions.106" references="/0/generateElement/%/%.1/%.7/%.6/%.4/aPackage">
+      <details key="start" value="3464"/>
+      <details key="end" value="3472"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.102" references="/0/generateElement/%/aClasses/%/%/aPackage">
-      <details key="start" value="1447"/>
-      <details key="end" value="1455"/>
+    <eAnnotations source="positions.107" references="/0/generateElement/%/%.1/%.7/%.6/%.4/%">
+      <details key="start" value="3508"/>
+      <details key="end" value="3526"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.103" references="/0/generateElement/%/aClasses/%/%.1">
-      <details key="start" value="1477"/>
-      <details key="end" value="1482"/>
+    <eAnnotations source="positions.108" references="/0/generateElement/%/%.1/%.7/%.6/%.4/%.1">
+      <details key="start" value="3528"/>
+      <details key="end" value="3544"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.104" references="/0/generateElement/aPackage">
-      <details key="start" value="1381"/>
-      <details key="end" value="1398"/>
-      <details key="line" value="34"/>
+    <eAnnotations source="positions.109" references="/0/generateElement/%/%.1/%.7/%.6/%.4/%.2">
+      <details key="start" value="3546"/>
+      <details key="end" value="3556"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateElement/%/%.1/%.7/%.7">
+      <details key="start" value="3880"/>
+      <details key="end" value="3882"/>
+      <details key="line" value="102"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateElement/%/%.1/%.7/%.8">
+      <details key="start" value="2215"/>
+      <details key="end" value="2258"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateElement/%/%.1/%.7/%.8/aPackage">
+      <details key="start" value="2216"/>
+      <details key="end" value="2224"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateElement/%/%.1/%.7/%.8/%">
+      <details key="start" value="2239"/>
+      <details key="end" value="2256"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateElement/%/%.1/%.8">
+      <details key="start" value="1957"/>
+      <details key="end" value="2042"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateElement/%/%.1/%.8/%">
+      <details key="start" value="1958"/>
+      <details key="end" value="1999"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateElement/%/%.1/%.8/%/aPackage">
+      <details key="start" value="1958"/>
+      <details key="end" value="1966"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateElement/%/%.1/%.8/%/%">
+      <details key="start" value="1981"/>
+      <details key="end" value="1998"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateElement/%/%.1/%.8/%.1">
+      <details key="start" value="2003"/>
+      <details key="end" value="2041"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateElement/%/%.1/%.8/%.1/aPackage">
+      <details key="start" value="2003"/>
+      <details key="end" value="2011"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateElement/%/%.1/%.8/%.1/%">
+      <details key="start" value="2026"/>
+      <details key="end" value="2040"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateElement/%/aClasses">
+      <details key="start" value="1890"/>
+      <details key="end" value="1949"/>
+      <details key="line" value="46"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateElement/%/aClasses/%">
+      <details key="start" value="1914"/>
+      <details key="end" value="1950"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateElement/%/aClasses/%/%">
+      <details key="start" value="1914"/>
+      <details key="end" value="1935"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateElement/%/aClasses/%/%/aPackage">
+      <details key="start" value="1914"/>
+      <details key="end" value="1922"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateElement/%/aClasses/%/%.1">
+      <details key="start" value="1944"/>
+      <details key="end" value="1949"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateElement/aPackage">
+      <details key="start" value="1848"/>
+      <details key="end" value="1865"/>
+      <details key="line" value="44"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

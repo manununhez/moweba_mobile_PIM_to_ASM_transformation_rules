@@ -12,12 +12,12 @@ import android.widget.EditText;
 
 public class ProductActivity extends AppCompatActivity {
 
-	private TextInputEditText tiePrice; 
-	private TextInputEditText tieDescription; 
-	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tieIdImageProduct; 
-	private TextInputEditText tieName; 
 	private TextInputEditText tieCode; 
+	private TextInputEditText tieIdProvider; 
+	private TextInputEditText tieName; 
+	private TextInputEditText tieDescription; 
+	private TextInputEditText tieIdImageProduct; 
+	private TextInputEditText tiePrice; 
 	private TextInputEditText tieIdProducto; 
 
     @Override
@@ -31,12 +31,12 @@ public class ProductActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tiePrice =  (TextInputEditText) findViewById(R.id.tiePrice); 
-		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
-		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tieIdImageProduct =  (TextInputEditText) findViewById(R.id.tieIdImageProduct); 
-		tieName =  (TextInputEditText) findViewById(R.id.tieName); 
 		tieCode =  (TextInputEditText) findViewById(R.id.tieCode); 
+		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
+		tieName =  (TextInputEditText) findViewById(R.id.tieName); 
+		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
+		tieIdImageProduct =  (TextInputEditText) findViewById(R.id.tieIdImageProduct); 
+		tiePrice =  (TextInputEditText) findViewById(R.id.tiePrice); 
 		tieIdProducto =  (TextInputEditText) findViewById(R.id.tieIdProducto); 
 
 		Button btnWriteToFile = (Button) findViewById(R.id.btnWriteToFile);
@@ -61,7 +61,7 @@ public class ProductActivity extends AppCompatActivity {
     }
 
      private String getContent() {
-		return tiePrice.getText() + "," + tieDescription.getText() + "," + tieIdProvider.getText() + "," + tieIdImageProduct.getText() + "," + tieName.getText() + "," + tieCode.getText() + "," + tieIdProducto.getText();
+		return tieCode.getText() + "," + tieIdProvider.getText() + "," + tieName.getText() + "," + tieDescription.getText() + "," + tieIdImageProduct.getText() + "," + tiePrice.getText() + "," + tieIdProducto.getText();
     }
 
     @Override

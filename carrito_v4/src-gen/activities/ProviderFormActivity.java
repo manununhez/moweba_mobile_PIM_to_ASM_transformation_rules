@@ -14,10 +14,10 @@ import android.widget.Button;
 public class ProviderFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tieDescription; 
-	private TextInputEditText tieNombre; 
 	private TextInputEditText tieRuc; 
+	private TextInputEditText tieIdProvider; 
+	private TextInputEditText tieNombre; 
+	private TextInputEditText tieDescription; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +35,17 @@ public class ProviderFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
-		tieNombre =  (TextInputEditText) findViewById(R.id.tieNombre); 
 		tieRuc =  (TextInputEditText) findViewById(R.id.tieRuc); 
+		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
+		tieNombre =  (TextInputEditText) findViewById(R.id.tieNombre); 
+		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
 
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
-            Provider provider = (Provider) intent.getSerializableExtra("provider");
-			tieIdProvider.setText(provider.getIdProvider());
-			tieDescription.setText(provider.getDescription());
-			tieNombre.setText(provider.getNombre());
-			tieRuc.setText(provider.getRuc());
+            loadProviderData();
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
@@ -66,20 +62,28 @@ public class ProviderFormActivity extends AppCompatActivity {
                 }
 
                 Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK,returnIntent);
+                setResult(Activity.RESULT_OK, returnIntent);
                 finish();
             }
         });
 
     }
 
+	private void loadProviderData(){
+		Provider provider = (Provider) intent.getSerializableExtra("provider");
+		tieRuc.setText(provider.getRuc());
+		tieIdProvider.setText(provider.getIdProvider());
+		tieNombre.setText(provider.getNombre());
+		tieDescription.setText(provider.getDescription());
+	}
+
     private Provider getProviderFromEditext() {
-		String idProvider = tieIdProvider.getText().toString();
-		String description = tieDescription.getText().toString();
-		String nombre = tieNombre.getText().toString();
 		String ruc = tieRuc.getText().toString();
+		String idProvider = tieIdProvider.getText().toString();
+		String nombre = tieNombre.getText().toString();
+		String description = tieDescription.getText().toString();
         
-        return new Provider(idProvider, description, nombre, ruc);
+        return new Provider(ruc, idProvider, nombre, description);
     }
 
     @Override

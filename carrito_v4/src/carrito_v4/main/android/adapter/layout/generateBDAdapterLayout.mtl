@@ -1,10 +1,10 @@
 [comment encoding = UTF-8 /]
-[module generateAdapterLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module generateBDAdapterLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateAdapterLayout(aClass : Class)]
+[template public generateBDAdapterLayout(aClass : Class)]
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	

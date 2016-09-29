@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_16_0_17280447_1471464792864_698165_1410" name="InternalDataProfile" metamodelReference="_0metamodelReferenceInternalDataProfile">
-  <eAnnotations xmi:id="_qJYVZ4XiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML">
-    <contents xmi:type="ecore:EPackage" xmi:id="_qJYVaIXiEeaho7S2DPP7Ng" name="InternalDataProfile" nsURI="http:///schemas/InternalDataProfile/_p-JVcYXiEeaho7S2DPP7Ng/0" nsPrefix="InternalDataProfile">
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJYVaYXiEeaho7S2DPP7Ng" name="HardwareDeviceInterface">
-        <eAnnotations xmi:id="_qJYVaoXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471461559617_524168_685"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJYVa4XiEeaho7S2DPP7Ng" name="base_Class" ordered="false" lowerBound="1">
+  <eAnnotations xmi:id="_pBswoYZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_pBswooZxEeaho7S2DPP7Ng" name="InternalDataProfile" nsURI="http:///schemas/InternalDataProfile/_ozkLsIZxEeaho7S2DPP7Ng/0" nsPrefix="InternalDataProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBswo4ZxEeaho7S2DPP7Ng" name="HardwareDeviceInterface">
+        <eAnnotations xmi:id="_pBswpIZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471461559617_524168_685"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBswpYZxEeaho7S2DPP7Ng" name="base_Class" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Class"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJYVbIXiEeaho7S2DPP7Ng" name="HardwareDeviceService">
-        <eAnnotations xmi:id="_qJYVbYXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471464420186_578028_1274"/>
-        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_qJYVboXiEeaho7S2DPP7Ng" name="hardwareDeviceType" ordered="false" lowerBound="1" eType="_qJYVcIXiEeaho7S2DPP7Ng"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJYVb4XiEeaho7S2DPP7Ng" name="base_Property" ordered="false" lowerBound="1">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBswpoZxEeaho7S2DPP7Ng" name="HardwareDeviceService">
+        <eAnnotations xmi:id="_pBswp4ZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471464420186_578028_1274"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_pBswqIZxEeaho7S2DPP7Ng" name="hardwareDeviceType" ordered="false" lowerBound="1" eType="_pBswqoZxEeaho7S2DPP7Ng"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBswqYZxEeaho7S2DPP7Ng" name="base_Property" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Property"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_qJYVcIXiEeaho7S2DPP7Ng" name="HardwareDeviceType">
-        <eAnnotations xmi:id="_qJYVcYXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471461919537_753650_724"/>
-        <eLiterals xmi:id="_qJYVcoXiEeaho7S2DPP7Ng" name="Proximity"/>
-        <eLiterals xmi:id="_qJYVc4XiEeaho7S2DPP7Ng" name="Ambient light" value="1"/>
-        <eLiterals xmi:id="_qJYVdIXiEeaho7S2DPP7Ng" name="Accelerometer" value="2"/>
-        <eLiterals xmi:id="_qJYVdYXiEeaho7S2DPP7Ng" name="GPS" value="3"/>
-        <eLiterals xmi:id="_qJYVdoXiEeaho7S2DPP7Ng" name="Gyroscope" value="4"/>
-        <eLiterals xmi:id="_qJYVd4XiEeaho7S2DPP7Ng" name="Compass" value="5"/>
-        <eLiterals xmi:id="_qJYVeIXiEeaho7S2DPP7Ng" name="Camera" value="6"/>
-        <eLiterals xmi:id="_qJYVeYXiEeaho7S2DPP7Ng" name="Microphone" value="7"/>
-        <eLiterals xmi:id="_qJYVeoXiEeaho7S2DPP7Ng" name="Video" value="8"/>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_pBswqoZxEeaho7S2DPP7Ng" name="HardwareDeviceType">
+        <eAnnotations xmi:id="_pBswq4ZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471461919537_753650_724"/>
+        <eLiterals xmi:id="_pBswrIZxEeaho7S2DPP7Ng" name="Proximity"/>
+        <eLiterals xmi:id="_pBswrYZxEeaho7S2DPP7Ng" name="Ambient light" value="1"/>
+        <eLiterals xmi:id="_pBswroZxEeaho7S2DPP7Ng" name="Accelerometer" value="2"/>
+        <eLiterals xmi:id="_pBswr4ZxEeaho7S2DPP7Ng" name="GPS" value="3"/>
+        <eLiterals xmi:id="_pBswsIZxEeaho7S2DPP7Ng" name="Gyroscope" value="4"/>
+        <eLiterals xmi:id="_pBswsYZxEeaho7S2DPP7Ng" name="Compass" value="5"/>
+        <eLiterals xmi:id="_pBswsoZxEeaho7S2DPP7Ng" name="Camera" value="6"/>
+        <eLiterals xmi:id="_pBsws4ZxEeaho7S2DPP7Ng" name="Microphone" value="7"/>
+        <eLiterals xmi:id="_pBswtIZxEeaho7S2DPP7Ng" name="Video" value="8"/>
       </eClassifiers>
     </contents>
   </eAnnotations>

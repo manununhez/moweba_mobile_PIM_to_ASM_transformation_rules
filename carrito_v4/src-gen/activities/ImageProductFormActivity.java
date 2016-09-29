@@ -41,9 +41,7 @@ public class ImageProductFormActivity extends AppCompatActivity {
 
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
-            ImageProduct imageProduct = (ImageProduct) intent.getSerializableExtra("imageProduct");
-			tieImage.setText(imageProduct.getImage());
-			tieIdImageProduct.setText(imageProduct.getIdImageProduct());
+            loadImageProductData();
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
@@ -60,12 +58,18 @@ public class ImageProductFormActivity extends AppCompatActivity {
                 }
 
                 Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK,returnIntent);
+                setResult(Activity.RESULT_OK, returnIntent);
                 finish();
             }
         });
 
     }
+
+	private void loadImageProductData(){
+		ImageProduct imageProduct = (ImageProduct) intent.getSerializableExtra("imageProduct");
+		tieImage.setText(imageProduct.getImage());
+		tieIdImageProduct.setText(imageProduct.getIdImageProduct());
+	}
 
     private ImageProduct getImageProductFromEditext() {
 		String image = tieImage.getText().toString();

@@ -12,66 +12,55 @@ import android.widget.Button;
 //End of user code
 
 public class UserFormActivity extends AppCompatActivity {
-    private Boolean booleanEditMode = false;
-
-	private TextInputEditText tiePassword; 
 	private TextInputEditText tieUsername; 
+	private TextInputEditText tiePassword; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_user);
 
-        Intent intent = getIntent();
-        if (intent.getStringExtra("typeOperation").equals("edit")) {
-            booleanEditMode = true;
-        }
-
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(booleanEditMode ? "Edit User" : "Add User");
+            actionBar.setTitle("Edit User");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tiePassword =  (TextInputEditText) findViewById(R.id.tiePassword); 
 		tieUsername =  (TextInputEditText) findViewById(R.id.tieUsername); 
+		tiePassword =  (TextInputEditText) findViewById(R.id.tiePassword); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
 
-        if (booleanEditMode) {
-            btnSave.setText("Save Changes");
-            User user = (User) intent.getSerializableExtra("user");
-			tiePassword.setText(user.getPassword());
-			tieUsername.setText(user.getUsername());
-        }
-
-        MySQLiteHelper db = new MySQLiteHelper(this);
-        final UserDAO userDAO = new UserDAO(db);
-
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               User user = getUserFromEditext();
-                if (booleanEditMode) {
-                    userDAO.updateUser(user);
-                }else{
-                    userDAO.addUser(user);
-                }
+                saveData();
 
                 Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK,returnIntent);
+                setResult(Activity.RESULT_OK, returnIntent);
                 finish();
             }
         });
 
+		loadData();
+
     }
 
-    private User getUserFromEditext() {
-		String password = tiePassword.getText().toString();
-		String username = tieUsername.getText().toString();
-        
-        return new User(password, username);
+    private void loadData() {
+		String username = MySharedPreferencesHelper.getValue(UserFormActivity.this, "username"); 
+		String password = MySharedPreferencesHelper.getValue(UserFormActivity.this, "password"); 
+
+		tieUsername.setText(username == null ? "" : username); 
+		tiePassword.setText(password == null ? "" : password); 
+    }
+
+    private void saveData() {
+		String username = tieUsername.getText().toString(); 
+		String password = tiePassword.getText().toString(); 
+
+		MySharedPreferencesHelper.save(UserFormActivity.this, "username", username); 
+		MySharedPreferencesHelper.save(UserFormActivity.this, "password", password); 
     }
 
     @Override

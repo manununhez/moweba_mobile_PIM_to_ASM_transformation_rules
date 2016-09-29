@@ -13,19 +13,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//DATABASE		Button btnImageProduct = (Button) findViewById(R.id.btnImageProduct);
+//DATABASE		Button btnShoppingCart = (Button) findViewById(R.id.btnShoppingCart);
+		btnShoppingCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ShoppingCartActivity.class));
+            }
+        });
+
+		Button btnImageProduct = (Button) findViewById(R.id.btnImageProduct);
 		btnImageProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ImageProductActivity.class));
-            }
-        });
-
-		Button btnUser = (Button) findViewById(R.id.btnUser);
-		btnUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, UserActivity.class));
             }
         });
 
@@ -38,13 +38,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-		Button btnShoppingCart = (Button) findViewById(R.id.btnShoppingCart);
-		btnShoppingCart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ShoppingCartActivity.class));
-            }
-        });
 //FILE
 
 
@@ -62,5 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+		Button btnUser = (Button) findViewById(R.id.btnUser);
+		btnUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, UserActivity.class));
+            }
+        });
     }
 }

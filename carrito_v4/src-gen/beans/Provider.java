@@ -6,15 +6,15 @@ public class Provider  implements Serializable{
 	
 
 	/**
-	* the idProvider attribute.
+	* the ruc attribute.
 	*/
-	private String idProvider;
+	private String ruc;
 
 
 	/**
-	* the description attribute.
+	* the idProvider attribute.
 	*/
-	private String description;
+	private String idProvider;
 
 
 	/**
@@ -24,9 +24,9 @@ public class Provider  implements Serializable{
 
 
 	/**
-	* the ruc attribute.
+	* the description attribute.
 	*/
-	private String ruc;
+	private String description;
 	
 
 	/**
@@ -38,43 +38,43 @@ public class Provider  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public Provider (String idProvider, String description, String nombre, String ruc){
-		this.idProvider = idProvider;
-		this.description = description;
-		this.nombre = nombre;
+	public Provider (String ruc, String idProvider, String nombre, String description){
 		this.ruc = ruc;
+		this.idProvider = idProvider;
+		this.nombre = nombre;
+		this.description = description;
 	}
  
-	public String getIdProvider() {
-       return this.idProvider;
+	public String getRuc() {
+       return this.ruc;
      }
 
-	public String getDescription() {
-       return this.description;
+	public String getIdProvider() {
+       return this.idProvider;
      }
 
 	public String getNombre() {
        return this.nombre;
      }
 
-	public String getRuc() {
-       return this.ruc;
+	public String getDescription() {
+       return this.description;
      }
  
-     public void setIdProvider(String idProvider) {
-        this.idProvider = idProvider;
+     public void setRuc(String ruc) {
+        this.ruc = ruc;
      }
 
-     public void setDescription(String description) {
-        this.description = description;
+     public void setIdProvider(String idProvider) {
+        this.idProvider = idProvider;
      }
 
      public void setNombre(String nombre) {
         this.nombre = nombre;
      }
 
-     public void setRuc(String ruc) {
-        this.ruc = ruc;
+     public void setDescription(String description) {
+        this.description = description;
      }
 
 

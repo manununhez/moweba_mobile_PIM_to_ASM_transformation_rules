@@ -54,15 +54,6 @@ public class ImageProductAdapter extends RecyclerView.Adapter<ImageProductAdapte
 		holder.tvImage.setText(imageProduct.getImage());
 		holder.tvIdImageProduct.setText(imageProduct.getIdImageProduct());
 
-        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                imageProductDAO.deleteImageProduct(imageProduct);
-                imageProductList.remove(holder.getAdapterPosition());
-                notifyDataSetChanged();
-                ((ImageProductActivity) context).getImageProductCount();
-            }
-        });
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +62,16 @@ public class ImageProductAdapter extends RecyclerView.Adapter<ImageProductAdapte
                 intent.putExtra("typeOperation", "edit");
                 intent.putExtra("imageProduct", imageProduct);
                 ((ImageProductActivity) context).startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imageProductDAO.deleteImageProduct(imageProduct);
+                imageProductList.remove(holder.getAdapterPosition());
+                notifyDataSetChanged();
+                ((ImageProductActivity) context).getImageProductCount();
             }
         });
     }

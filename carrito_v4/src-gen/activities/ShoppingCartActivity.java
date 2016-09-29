@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
@@ -53,30 +54,9 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
 		setupRecyclerView();
 
-        getShoppingCartCount();
-		getShoppingCart();
+        loadShoppingCartData();
         
 		
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE) {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-                // The user picked a contact.
-                // The Intent's data Uri identifies which contact was selected.
-                shoppingCartList.clear();
-                shoppingCartList.addAll(shoppingCartDAO.getAllShoppingCart());
-                mAdapter.notifyDataSetChanged();
-                getShoppingCartCount();
-                // Do something with the contact here (bigger example below)
-            }
-        }
-    }
-
-    public void getShoppingCartCount() {
-        tvDataCount.setText(String.valueOf(shoppingCartDAO.getShoppingCartCount()));
     }
 
     private void setupRecyclerView() {
@@ -84,8 +64,18 @@ public class ShoppingCartActivity extends AppCompatActivity {
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
-
+		recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
+    }
+
+	private void loadShoppingCartData() {
+		getShoppingCartCount();
+		getShoppingCart();
+	}
+
+
+    public void getShoppingCartCount() {
+        tvDataCount.setText(String.valueOf(shoppingCartDAO.getShoppingCartCount()));
     }
 
     private void getShoppingCart() {
@@ -96,6 +86,17 @@ public class ShoppingCartActivity extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                shoppingCartList.clear();
+                
+				loadShoppingCartData();
+            }
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

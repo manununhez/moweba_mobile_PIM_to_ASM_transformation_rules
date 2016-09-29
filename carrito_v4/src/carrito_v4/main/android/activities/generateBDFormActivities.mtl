@@ -56,14 +56,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
-            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = ([aClass.name.toUpperFirst()/]) intent.getSerializableExtra("[aClass.name.toLowerFirst()/]");
-            [for (p : Property | persistentEntityProperties)]
-			[if(p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType') <> 'String')]
-			tie[p.name.toUpperFirst()/].setText(String.valueOf([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]()));
-			[else]
-			tie[p.name.toUpperFirst()/].setText([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]());
-			[/if] 
-			[/for]
+            load[aClass.name.toUpperFirst()/]Data();
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
@@ -80,12 +73,23 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
                 }
 
                 Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK,returnIntent);
+                setResult(Activity.RESULT_OK, returnIntent);
                 finish();
             }
         });
 
     }
+
+	private void load[aClass.name.toUpperFirst()/]Data(){
+		[aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = ([aClass.name.toUpperFirst()/]) intent.getSerializableExtra("[aClass.name.toLowerFirst()/]");
+        [for (p : Property | persistentEntityProperties)]
+		[if(p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType') <> 'String')]
+		tie[p.name.toUpperFirst()/].setText(String.valueOf([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]()));
+		[else]
+		tie[p.name.toUpperFirst()/].setText([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]());
+		[/if] 
+		[/for]
+	}
 
     private [aClass.name.toUpperFirst()/] get[aClass.name.toUpperFirst()/]FromEditext() {
 		[for (p : Property | persistentEntityProperties)]

@@ -60,6 +60,10 @@ notNull,size,unique,defaultValue,checkCondition)/]
 [query public
 getJavaCursorDescription(elem: Element, stereotype_name : String, counter : Integer) : String = getCursorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), counter)/]
 
+[query public
+getJavaKVConstructorDescription(elem: Element, stereotype_name : String, propertyName : String) : String = getKVConstructorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), propertyName)/]
+
+
 [comment]getCursorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), counter)[/comment]
 [comment][query public
 getPropertiesForSqlite(elem: Element, stereotype_name : String) : String = getSqliteProperties(

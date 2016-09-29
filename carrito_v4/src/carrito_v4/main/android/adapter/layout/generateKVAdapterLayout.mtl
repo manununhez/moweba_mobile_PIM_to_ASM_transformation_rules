@@ -1,3 +1,15 @@
+[comment encoding = UTF-8 /]
+[module generateKVAdapterLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateKVAdapterLayout(aClass : Class)]
+[if (aClass.hasStereotype('persistentEntity'))]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileNameInvert('layout/', aClass, 'list_row_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -32,6 +44,7 @@
         android:layout_toStartOf="@+id/ivEdit"
         android:orientation="vertical">
 
+		[for (p : Property | persistentEntityProperties)separator('\n')]
 		<LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,38 +53,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="username:"
+                android:text="[p.name.toLowerFirst()/]:"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvUsername"
+                android:id="@+id/tv[p.name.toUpperFirst()/]"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp" />
         </LinearLayout>
-
-		<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="password:"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:textSize="16sp" />
-        </LinearLayout>
+		[/for]
     </LinearLayout>
 </RelativeLayout>
+[/file]
+[/let]
+[/if]
+[/if]
+
+[/template]

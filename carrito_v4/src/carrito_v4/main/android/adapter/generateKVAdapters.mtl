@@ -1,0 +1,108 @@
+[comment encoding = UTF-8 /]
+[module generateKVAdapters('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateKVAdapters(aClass : Class)]
+[if (aClass.hasStereotype('persistentEntity'))]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('adapters/', aClass, 'Adapter','.java'), false)]
+//[protected ('imports')]
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.List;
+//[/protected]
+
+public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[aClass.name.toUpperFirst()/]Adapter.MyViewHolder> {
+
+    private List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List;
+    private Context context;
+    private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO;
+    private int REQUEST_CODE = 1;
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        [for (p : Property | persistentEntityProperties)]
+		private TextView tv[p.name.toUpperFirst()/];
+		[/for]
+        private ImageView ivDelete;
+        private ImageView ivEdit;
+
+
+        public MyViewHolder(View view) {
+            super(view);
+			[for (p : Property | persistentEntityProperties)]
+			tv[p.name.toUpperFirst()/] = (TextView) view.findViewById(R.id.tv[p.name.toUpperFirst()/]);
+			[/for]
+            ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
+            ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
+        }
+    }
+
+
+    public [aClass.name.toUpperFirst()/]Adapter(Context context, List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List, [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO) {
+        this.context = context;
+		this.[aClass.name.toLowerFirst()/]List = [aClass.name.toLowerFirst()/]List;
+        this.[aClass.name.toLowerFirst()/]DAO = [aClass.name.toLowerFirst()/]DAO;
+    }
+
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_[aClass.name.toLowerCase()/], parent, false);
+
+        return new MyViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+        final [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = [aClass.name.toLowerFirst()/]List.get(position);
+        [for (p : Property | persistentEntityProperties)]
+		[if(p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType') <> 'String')]
+		holder.tv[p.name.toUpperFirst()/].setText(String.valueOf([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]()));
+		[else]
+		holder.tv[p.name.toUpperFirst()/].setText([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]());
+		[/if] 
+		[/for]
+
+        holder.ivEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, [aClass.name.toUpperFirst()/]FormActivity.class);
+                (([aClass.name.toUpperFirst()/]Activity) context).startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+				[for (p : Property | persistentEntityProperties)]
+				MySharedPreferencesHelper.removeValue(context, "[p.name.toLowerFirst()/]");
+				[/for]             
+				[aClass.name.toLowerFirst()/]List.remove(holder.getAdapterPosition());
+                notifyDataSetChanged();
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return [aClass.name.toLowerFirst()/]List.size();
+    }
+}
+
+[/file]
+[/let]
+[/if]
+[/if]
+
+[/template]

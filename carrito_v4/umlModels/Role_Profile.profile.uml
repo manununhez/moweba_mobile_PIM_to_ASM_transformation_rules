@@ -1,40 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_16_0_879026c_1272985092919_576045_1541" name="Role Profile" metamodelReference="_0metamodelReferenceRole_Profile">
-  <eAnnotations xmi:id="_qJXIhoXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML">
-    <contents xmi:type="ecore:EPackage" xmi:id="_qJXIh4XiEeaho7S2DPP7Ng" name="RoleProfile" nsURI="http:///schemas/RoleProfile/_p-JVcIXiEeaho7S2DPP7Ng/0" nsPrefix="RoleProfile">
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJXIiIXiEeaho7S2DPP7Ng" name="zone">
-        <eAnnotations xmi:id="_qJXIiYXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1272985649744_551259_1584"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIioXiEeaho7S2DPP7Ng" name="base_Package" ordered="false" lowerBound="1">
+  <eAnnotations xmi:id="_pBsv54ZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_pBsv6IZxEeaho7S2DPP7Ng" name="RoleProfile" nsURI="http:///schemas/RoleProfile/_ozjkoIZxEeaho7S2DPP7Ng/0" nsPrefix="RoleProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBsv6YZxEeaho7S2DPP7Ng" name="zone">
+        <eAnnotations xmi:id="_pBsv6oZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1272985649744_551259_1584"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv64ZxEeaho7S2DPP7Ng" name="base_Package" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Package"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIi4XiEeaho7S2DPP7Ng" name="accessZonePriv" ordered="false" upperBound="-1">
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv7IZxEeaho7S2DPP7Ng" name="accessZonePriv" ordered="false" upperBound="-1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//UseCase"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJXIjIXiEeaho7S2DPP7Ng" name="role">
-        <eAnnotations xmi:id="_qJXIjYXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1272985730636_271433_1643"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIjoXiEeaho7S2DPP7Ng" name="base_Actor" ordered="false" lowerBound="1">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBsv7YZxEeaho7S2DPP7Ng" name="role">
+        <eAnnotations xmi:id="_pBsv7oZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1272985730636_271433_1643"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv74ZxEeaho7S2DPP7Ng" name="base_Actor" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Actor"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIj4XiEeaho7S2DPP7Ng" name="roleAttribute" ordered="false" upperBound="-1" containment="true" eOpposite="_qJXIlIXiEeaho7S2DPP7Ng">
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv8IZxEeaho7S2DPP7Ng" name="roleAttribute" ordered="false" upperBound="-1" containment="true" eOpposite="_pBsv9YZxEeaho7S2DPP7Ng">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Class"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIkIXiEeaho7S2DPP7Ng" name="accessRolePriv" ordered="false" upperBound="-1">
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv8YZxEeaho7S2DPP7Ng" name="accessRolePriv" ordered="false" upperBound="-1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//UseCase"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJXIkYXiEeaho7S2DPP7Ng" name="roleIAttribute">
-        <eAnnotations xmi:id="_qJXIkoXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1274121545470_744740_1001"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIk4XiEeaho7S2DPP7Ng" name="base_Class" ordered="false" lowerBound="1">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBsv8oZxEeaho7S2DPP7Ng" name="roleIAttribute">
+        <eAnnotations xmi:id="_pBsv84ZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1274121545470_744740_1001"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv9IZxEeaho7S2DPP7Ng" name="base_Class" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Class"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIlIXiEeaho7S2DPP7Ng" name="_" ordered="false" lowerBound="1" eOpposite="_qJXIj4XiEeaho7S2DPP7Ng">
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv9YZxEeaho7S2DPP7Ng" name="_" ordered="false" lowerBound="1" eOpposite="_pBsv8IZxEeaho7S2DPP7Ng">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Actor"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJXIlYXiEeaho7S2DPP7Ng" name="roleAttributeType">
-        <eAnnotations xmi:id="_qJXIloXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1273695978590_884325_1075"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXIl4XiEeaho7S2DPP7Ng" name="base_Enumeration" ordered="false" lowerBound="1">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBsv9oZxEeaho7S2DPP7Ng" name="roleAttributeType">
+        <eAnnotations xmi:id="_pBsv94ZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1273695978590_884325_1075"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsv-IZxEeaho7S2DPP7Ng" name="base_Enumeration" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Enumeration"/>
         </eStructuralFeatures>
       </eClassifiers>
@@ -102,8 +102,8 @@
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Class"/>
     </ownedAttribute>
     <ownedAttribute xmi:id="_16_0_879026c_1274121566793_888617_1029" name="_" visibility="private" association="_16_0_879026c_1274121566792_804772_1027">
-      <eAnnotations xmi:id="_qJXIuYXiEeaho7S2DPP7Ng" source="MagicDraw">
-        <details xmi:id="_qJXIuoXiEeaho7S2DPP7Ng" key="md_property_name" value=""/>
+      <eAnnotations xmi:id="_pBswGoZxEeaho7S2DPP7Ng" source="MagicDraw">
+        <details xmi:id="_pBswG4ZxEeaho7S2DPP7Ng" key="md_property_name" value=""/>
       </eAnnotations>
       <type xmi:type="uml:Class" href="pathmap://UML_METAMODELS/UML.metamodel.uml#Actor"/>
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_879026c_1274121566793_182051_1033" name="" value="1"/>

@@ -10,15 +10,15 @@
     android:orientation="vertical">
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilSyncTime"
+        android:id="@+id/tilQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieSyncTime"
+            android:id="@+id/tieQuantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="syncTime" />
+            android:hint="quantity" />
     </android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
@@ -34,15 +34,15 @@
     </android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilQuantity"
+        android:id="@+id/tilSyncTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieQuantity"
+            android:id="@+id/tieSyncTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="quantity" />
+            android:hint="syncTime" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

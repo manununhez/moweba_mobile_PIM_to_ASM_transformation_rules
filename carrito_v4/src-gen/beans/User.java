@@ -6,15 +6,15 @@ public class User  implements Serializable{
 	
 
 	/**
-	* the password attribute.
-	*/
-	private String password;
-
-
-	/**
 	* the username attribute.
 	*/
 	private String username;
+
+
+	/**
+	* the password attribute.
+	*/
+	private String password;
 	
 
 	/**
@@ -26,25 +26,25 @@ public class User  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public User (String password, String username){
-		this.password = password;
+	public User (String username, String password){
 		this.username = username;
+		this.password = password;
 	}
  
-	public String getPassword() {
-       return this.password;
-     }
-
 	public String getUsername() {
        return this.username;
      }
- 
-     public void setPassword(String password) {
-        this.password = password;
-     }
 
+	public String getPassword() {
+       return this.password;
+     }
+ 
      public void setUsername(String username) {
         this.username = username;
+     }
+
+     public void setPassword(String password) {
+        this.password = password;
      }
 
 

@@ -1,3 +1,16 @@
+[comment encoding = UTF-8 /]
+[module generateKVActivitiesLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateKVActivitiesLayout(aClass : Class)]
+
+[if (aClass.hasStereotype('persistentEntity'))]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+
+[file (aClass.classFileNameInvert('layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,3 +29,7 @@
         android:scrollbars="vertical" />
 </LinearLayout>
 
+[/file]
+[/if]
+[/if]
+[/template]

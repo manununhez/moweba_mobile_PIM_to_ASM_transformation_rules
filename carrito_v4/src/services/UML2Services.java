@@ -179,6 +179,8 @@ public class UML2Services {
 
 		return result;
 	}
+	
+	//--- Crea la inicializacion de los constructores, recibiendo como parametros de entrada los cursores. Utilizado en los DAOs
 
 	public String getCursorDescription(String javaDataType, Integer count) {
 		String result = "cursor.getString(" + count + ")";
@@ -193,6 +195,23 @@ public class UML2Services {
 
 		return result;
 	}
+	
+	//--- Permite la inicializacion de los constructores tomando como parametro de entrada los valores recibidos del sharedpreferences
+	
+	public String getKVConstructorDescription(String javaDataType, String propertyName) {
+		String result = propertyName+" == null ? \"\" : ";
+		if (javaDataType.equals("Integer"))
+			result += "Integer.parseInt(" + propertyName + ")";
+		else if (javaDataType.equals("Float"))
+			result += "Float.parseFloat(" + propertyName + ")";
+		else if (javaDataType.equals("BigDecimal"))
+			result += "new BigDecimal(" + propertyName + ")";
+		else //tipo string
+			result += propertyName;
+
+		return result;
+	}
+	
 
 	public String stringToSpecificTypeAssignment(String type, String value, String propertyName) {
 		String result = "";

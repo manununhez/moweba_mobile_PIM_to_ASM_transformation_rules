@@ -19,18 +19,18 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     private int REQUEST_CODE = 1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-		private TextView tvSyncTime;
-		private TextView tvIdCart;
 		private TextView tvQuantity;
+		private TextView tvIdCart;
+		private TextView tvSyncTime;
         private ImageView ivDelete;
         private ImageView ivEdit;
 
 
         public MyViewHolder(View view) {
             super(view);
-			tvSyncTime = (TextView) view.findViewById(R.id.tvSyncTime);
-			tvIdCart = (TextView) view.findViewById(R.id.tvIdCart);
 			tvQuantity = (TextView) view.findViewById(R.id.tvQuantity);
+			tvIdCart = (TextView) view.findViewById(R.id.tvIdCart);
+			tvSyncTime = (TextView) view.findViewById(R.id.tvSyncTime);
             ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
             ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
         }
@@ -53,19 +53,10 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final ShoppingCart shoppingCart = shoppingCartList.get(position);
-		holder.tvSyncTime.setText(shoppingCart.getSyncTime());
-		holder.tvIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
 		holder.tvQuantity.setText(shoppingCart.getQuantity());
+		holder.tvIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
+		holder.tvSyncTime.setText(shoppingCart.getSyncTime());
 
-        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                shoppingCartDAO.deleteShoppingCart(shoppingCart);
-                shoppingCartList.remove(holder.getAdapterPosition());
-                notifyDataSetChanged();
-                ((ShoppingCartActivity) context).getShoppingCartCount();
-            }
-        });
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +65,16 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                 intent.putExtra("typeOperation", "edit");
                 intent.putExtra("shoppingCart", shoppingCart);
                 ((ShoppingCartActivity) context).startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                shoppingCartDAO.deleteShoppingCart(shoppingCart);
+                shoppingCartList.remove(holder.getAdapterPosition());
+                notifyDataSetChanged();
+                ((ShoppingCartActivity) context).getShoppingCartCount();
             }
         });
     }

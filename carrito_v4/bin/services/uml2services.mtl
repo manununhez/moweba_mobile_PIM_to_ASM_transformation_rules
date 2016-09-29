@@ -45,6 +45,10 @@
 	= invoke('services.UML2Services', 'getCursorDescription(java.lang.String, java.lang.Integer)', Sequence{arg0, arg1})
 /]
 
+[query public getKVConstructorDescription(arg0 : String, arg1 : String) : String
+	= invoke('services.UML2Services', 'getKVConstructorDescription(java.lang.String, java.lang.String)', Sequence{arg0, arg1})
+/]
+
 [query public stringToSpecificTypeAssignment(arg0 : String, arg1 : String, arg2 : String) : String
 	= invoke('services.UML2Services', 'stringToSpecificTypeAssignment(java.lang.String, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2})
 /]

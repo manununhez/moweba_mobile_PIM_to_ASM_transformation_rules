@@ -19,19 +19,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         Log.d(TAG,"Creating database " + DATABASE_NAME + "with version " + DATABASE_VERSION);
-		ImageProductTable.onCreate(sqLiteDatabase);
-		UserTable.onCreate(sqLiteDatabase);
-		ProviderTable.onCreate(sqLiteDatabase);
 		ShoppingCartTable.onCreate(sqLiteDatabase);
+		ImageProductTable.onCreate(sqLiteDatabase);
+		ProviderTable.onCreate(sqLiteDatabase);
     }
 
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         Log.d(TAG,"Upgrading database " + DATABASE_NAME + "from  version " + oldVersion + "to version" + newVersion);
-		ImageProductTable.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
-		UserTable.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
-		ProviderTable.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
 		ShoppingCartTable.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
+		ImageProductTable.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
+		ProviderTable.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
     }
 }

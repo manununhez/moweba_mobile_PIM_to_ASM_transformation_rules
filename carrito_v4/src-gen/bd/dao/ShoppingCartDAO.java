@@ -20,9 +20,9 @@ public class ShoppingCartDAO {
 			SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 			ContentValues values = new ContentValues();
-			values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime());		
-			values.put(ShoppingCartTable.COLUMN_IDCART, shoppingCart.getIdCart());		
 			values.put(ShoppingCartTable.COLUMN_QUANTITY, shoppingCart.getQuantity());		
+			values.put(ShoppingCartTable.COLUMN_IDCART, shoppingCart.getIdCart());		
+			values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime());		
 			
 			// Inserting Row
 			db.insert(ShoppingCartTable.TABLE_NAME, null, values);
@@ -36,7 +36,7 @@ public class ShoppingCartDAO {
 			ShoppingCart shoppingCart = new ShoppingCart();
 
 			Cursor cursor = db.query(ShoppingCartTable.TABLE_NAME, new String[] {
-					ShoppingCartTable.COLUMN_SYNCTIME, ShoppingCartTable.COLUMN_IDCART, ShoppingCartTable.COLUMN_QUANTITY
+					ShoppingCartTable.COLUMN_QUANTITY, ShoppingCartTable.COLUMN_IDCART, ShoppingCartTable.COLUMN_SYNCTIME
 					},		ShoppingCartTable.COLUMN_IDCART + "=?",		
 					new String[] { String.valueOf(id) }, null, null, null, null);
 			
@@ -105,9 +105,9 @@ public class ShoppingCartDAO {
 				SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 				ContentValues values = new ContentValues();
-				values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime());		
-				values.put(ShoppingCartTable.COLUMN_IDCART, shoppingCart.getIdCart());		
 				values.put(ShoppingCartTable.COLUMN_QUANTITY, shoppingCart.getQuantity());		
+				values.put(ShoppingCartTable.COLUMN_IDCART, shoppingCart.getIdCart());		
+				values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime());		
 
 				// updating row
 				return db.update(ShoppingCartTable.TABLE_NAME, values,

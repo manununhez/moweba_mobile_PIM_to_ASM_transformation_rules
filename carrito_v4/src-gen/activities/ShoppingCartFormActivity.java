@@ -14,9 +14,9 @@ import android.widget.Button;
 public class ShoppingCartFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieSyncTime; 
-	private TextInputEditText tieIdCart; 
 	private TextInputEditText tieQuantity; 
+	private TextInputEditText tieIdCart; 
+	private TextInputEditText tieSyncTime; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +34,16 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieSyncTime =  (TextInputEditText) findViewById(R.id.tieSyncTime); 
-		tieIdCart =  (TextInputEditText) findViewById(R.id.tieIdCart); 
 		tieQuantity =  (TextInputEditText) findViewById(R.id.tieQuantity); 
+		tieIdCart =  (TextInputEditText) findViewById(R.id.tieIdCart); 
+		tieSyncTime =  (TextInputEditText) findViewById(R.id.tieSyncTime); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
 
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
-            ShoppingCart shoppingCart = (ShoppingCart) intent.getSerializableExtra("shoppingCart");
-			tieSyncTime.setText(shoppingCart.getSyncTime());
-			tieIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
-			tieQuantity.setText(shoppingCart.getQuantity());
+            loadShoppingCartData();
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
@@ -63,19 +60,26 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
                 }
 
                 Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK,returnIntent);
+                setResult(Activity.RESULT_OK, returnIntent);
                 finish();
             }
         });
 
     }
 
+	private void loadShoppingCartData(){
+		ShoppingCart shoppingCart = (ShoppingCart) intent.getSerializableExtra("shoppingCart");
+		tieQuantity.setText(shoppingCart.getQuantity());
+		tieIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
+		tieSyncTime.setText(shoppingCart.getSyncTime());
+	}
+
     private ShoppingCart getShoppingCartFromEditext() {
-		String syncTime = tieSyncTime.getText().toString();
-		Integer idCart = Integer.valueOf(tieIdCart.getText().toString());
 		String quantity = tieQuantity.getText().toString();
+		Integer idCart = Integer.valueOf(tieIdCart.getText().toString());
+		String syncTime = tieSyncTime.getText().toString();
         
-        return new ShoppingCart(syncTime, idCart, quantity);
+        return new ShoppingCart(quantity, idCart, syncTime);
     }
 
     @Override

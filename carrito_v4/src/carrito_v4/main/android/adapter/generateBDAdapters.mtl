@@ -1,11 +1,11 @@
 [comment encoding = UTF-8 /]
-[module generateAdapters('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module generateBDAdapters('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import services::uml2services/]
 [import common::utils_gen/]
 
 
-[template public generateAdapters(aClass : Class)]
+[template public generateBDAdapters(aClass : Class)]
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
@@ -74,15 +74,6 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
 		[/if] 
 		[/for]
 
-        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
-                [aClass.name.toLowerFirst()/]List.remove(holder.getAdapterPosition());
-                notifyDataSetChanged();
-                (([aClass.name.toUpperFirst()/]Activity) context).get[aClass.name.toUpperFirst()/]Count();
-            }
-        });
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,6 +82,16 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
                 intent.putExtra("typeOperation", "edit");
                 intent.putExtra("[aClass.name.toLowerFirst()/]", [aClass.name.toLowerFirst()/]);
                 (([aClass.name.toUpperFirst()/]Activity) context).startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
+                [aClass.name.toLowerFirst()/]List.remove(holder.getAdapterPosition());
+                notifyDataSetChanged();
+                (([aClass.name.toUpperFirst()/]Activity) context).get[aClass.name.toUpperFirst()/]Count();
             }
         });
     }
