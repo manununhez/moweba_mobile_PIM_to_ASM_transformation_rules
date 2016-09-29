@@ -6,21 +6,9 @@ public class Product  implements Serializable{
 	
 
 	/**
-	* the code attribute.
+	* the price attribute.
 	*/
-	private String code;
-
-
-	/**
-	* the idProvider attribute.
-	*/
-	private String idProvider;
-
-
-	/**
-	* the name attribute.
-	*/
-	private String name;
+	private String price;
 
 
 	/**
@@ -30,15 +18,27 @@ public class Product  implements Serializable{
 
 
 	/**
+	* the idProvider attribute.
+	*/
+	private String idProvider;
+
+
+	/**
 	* the idImageProduct attribute.
 	*/
 	private String idImageProduct;
 
 
 	/**
-	* the price attribute.
+	* the name attribute.
 	*/
-	private String price;
+	private String name;
+
+
+	/**
+	* the code attribute.
+	*/
+	private String code;
 
 
 	/**
@@ -56,66 +56,66 @@ public class Product  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public Product (String code, String idProvider, String name, String description, String idImageProduct, String price, String idProducto){
-		this.code = code;
-		this.idProvider = idProvider;
-		this.name = name;
-		this.description = description;
-		this.idImageProduct = idImageProduct;
+	public Product (String price, String description, String idProvider, String idImageProduct, String name, String code, String idProducto){
 		this.price = price;
+		this.description = description;
+		this.idProvider = idProvider;
+		this.idImageProduct = idImageProduct;
+		this.name = name;
+		this.code = code;
 		this.idProducto = idProducto;
 	}
  
-	public String getCode() {
-       return this.code;
-     }
-
-	public String getIdProvider() {
-       return this.idProvider;
-     }
-
-	public String getName() {
-       return this.name;
+	public String getPrice() {
+       return this.price;
      }
 
 	public String getDescription() {
        return this.description;
      }
 
+	public String getIdProvider() {
+       return this.idProvider;
+     }
+
 	public String getIdImageProduct() {
        return this.idImageProduct;
      }
 
-	public String getPrice() {
-       return this.price;
+	public String getName() {
+       return this.name;
+     }
+
+	public String getCode() {
+       return this.code;
      }
 
 	public String getIdProducto() {
        return this.idProducto;
      }
  
-     public void setCode(String code) {
-        this.code = code;
-     }
-
-     public void setIdProvider(String idProvider) {
-        this.idProvider = idProvider;
-     }
-
-     public void setName(String name) {
-        this.name = name;
+     public void setPrice(String price) {
+        this.price = price;
      }
 
      public void setDescription(String description) {
         this.description = description;
      }
 
+     public void setIdProvider(String idProvider) {
+        this.idProvider = idProvider;
+     }
+
      public void setIdImageProduct(String idImageProduct) {
         this.idImageProduct = idImageProduct;
      }
 
-     public void setPrice(String price) {
-        this.price = price;
+     public void setName(String name) {
+        this.name = name;
+     }
+
+     public void setCode(String code) {
+        this.code = code;
      }
 
      public void setIdProducto(String idProducto) {

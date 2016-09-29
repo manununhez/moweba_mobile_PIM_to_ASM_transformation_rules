@@ -11,73 +11,73 @@ import android.widget.TextView;
 import java.util.List;
 //End of user code
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> {
+public class ImageProductAdapter extends RecyclerView.Adapter<ImageProductAdapter.MyViewHolder> {
 
-    private List<User> userList;
+    private List<ImageProduct> imageProductList;
     private Context context;
-    private UserDAO userDAO;
+    private ImageProductDAO imageProductDAO;
     private int REQUEST_CODE = 1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-		private TextView tvPassword;
-		private TextView tvUsername;
+		private TextView tvImage;
+		private TextView tvIdImageProduct;
         private ImageView ivDelete;
         private ImageView ivEdit;
 
 
         public MyViewHolder(View view) {
             super(view);
-			tvPassword = (TextView) view.findViewById(R.id.tvPassword);
-			tvUsername = (TextView) view.findViewById(R.id.tvUsername);
+			tvImage = (TextView) view.findViewById(R.id.tvImage);
+			tvIdImageProduct = (TextView) view.findViewById(R.id.tvIdImageProduct);
             ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
             ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
         }
     }
 
 
-    public UserAdapter(Context context, List<User> userList, UserDAO userDAO) {
+    public ImageProductAdapter(Context context, List<ImageProduct> imageProductList, ImageProductDAO imageProductDAO) {
         this.context = context;
-		this.userList = userList;
-        this.userDAO = userDAO;
+		this.imageProductList = imageProductList;
+        this.imageProductDAO = imageProductDAO;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_user, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_imageproduct, parent, false);
 
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
-        final User user = userList.get(position);
-		holder.tvPassword.setText(user.getPassword());
-		holder.tvUsername.setText(user.getUsername());
+        final ImageProduct imageProduct = imageProductList.get(position);
+		holder.tvImage.setText(imageProduct.getImage());
+		holder.tvIdImageProduct.setText(imageProduct.getIdImageProduct());
 
         holder.ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userDAO.deleteUser(user);
-                userList.remove(holder.getAdapterPosition());
+                imageProductDAO.deleteImageProduct(imageProduct);
+                imageProductList.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
-                ((UserActivity) context).getUserCount();
+                ((ImageProductActivity) context).getImageProductCount();
             }
         });
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, UserFormActivity.class);
+                Intent intent = new Intent(context, ImageProductFormActivity.class);
                 intent.putExtra("typeOperation", "edit");
-                intent.putExtra("user", user);
-                ((UserActivity) context).startActivityForResult(intent, REQUEST_CODE);
+                intent.putExtra("imageProduct", imageProduct);
+                ((ImageProductActivity) context).startActivityForResult(intent, REQUEST_CODE);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return userList.size();
+        return imageProductList.size();
     }
 }
 

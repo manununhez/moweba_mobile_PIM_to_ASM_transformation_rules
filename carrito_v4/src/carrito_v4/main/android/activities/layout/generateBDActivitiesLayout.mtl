@@ -1,11 +1,11 @@
 [comment encoding = UTF-8 /]
-[module generateActivitiesLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module generateBDActivitiesLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import services::uml2services/]
 [import common::utils_gen/]
 
 
-[template public generateaActivitiesLayout(aClass : Class)]
+[template public generateaBDActivitiesLayout(aClass : Class)]
 
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]

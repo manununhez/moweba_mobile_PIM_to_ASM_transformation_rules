@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_16_0_17280447_1471464766829_593252_1388" name="ExternalDataProfile" metamodelReference="_0metamodelReferenceExternalDataProfile">
-  <eAnnotations xmi:id="_x6bk8YUgEeaeauFtY86JTw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-    <contents xmi:type="ecore:EPackage" xmi:id="_x6bk8oUgEeaeauFtY86JTw" name="ExternalDataProfile" nsURI="http:///schemas/ExternalDataProfile/_xvrtQIUgEeaeauFtY86JTw/0" nsPrefix="ExternalDataProfile">
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_x6bk84UgEeaeauFtY86JTw" name="WebInterface">
-        <eAnnotations xmi:id="_x6bk9IUgEeaeauFtY86JTw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471460316593_96261_443"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_x6bk9YUgEeaeauFtY86JTw" name="base_Class" ordered="false" lowerBound="1">
+  <eAnnotations xmi:id="_qJXwNoXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_qJXwN4XiEeaho7S2DPP7Ng" name="ExternalDataProfile" nsURI="http:///schemas/ExternalDataProfile/_p-IHUIXiEeaho7S2DPP7Ng/0" nsPrefix="ExternalDataProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJXwOIXiEeaho7S2DPP7Ng" name="WebInterface">
+        <eAnnotations xmi:id="_qJXwOYXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471460316593_96261_443"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXwOoXiEeaho7S2DPP7Ng" name="base_Class" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Class"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_x6bk9oUgEeaeauFtY86JTw" name="name" ordered="false" lowerBound="1">
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_qJXwO4XiEeaho7S2DPP7Ng" name="name" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_x6bk94UgEeaeauFtY86JTw" name="protocol" ordered="false" lowerBound="1">
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_qJXwPIXiEeaho7S2DPP7Ng" name="protocol" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_x6bk-IUgEeaeauFtY86JTw" name="domain" ordered="false" lowerBound="1">
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_qJXwPYXiEeaho7S2DPP7Ng" name="domain" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_x6bk-YUgEeaeauFtY86JTw" name="WebService">
-        <eAnnotations xmi:id="_x6bk-oUgEeaeauFtY86JTw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471460635679_734078_582"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_x6bk-4UgEeaeauFtY86JTw" name="base_Operation" ordered="false" lowerBound="1">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_qJXwPoXiEeaho7S2DPP7Ng" name="WebService">
+        <eAnnotations xmi:id="_qJXwP4XiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471460635679_734078_582"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_qJXwQIXiEeaho7S2DPP7Ng" name="base_Operation" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Operation"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_x6bk_IUgEeaeauFtY86JTw" name="path" ordered="false" lowerBound="1">
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_qJXwQYXiEeaho7S2DPP7Ng" name="path" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_x6bk_YUgEeaeauFtY86JTw" name="method" ordered="false" lowerBound="1" eType="_x6bk_oUgEeaeauFtY86JTw"/>
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_qJXwQoXiEeaho7S2DPP7Ng" name="method" ordered="false" lowerBound="1" eType="_qJXwQ4XiEeaho7S2DPP7Ng"/>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_x6bk_oUgEeaeauFtY86JTw" name="HttpMethod">
-        <eAnnotations xmi:id="_x6bk_4UgEeaeauFtY86JTw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1470360656432_824785_323"/>
-        <eLiterals xmi:id="_x6blAIUgEeaeauFtY86JTw" name="POST"/>
-        <eLiterals xmi:id="_x6blAYUgEeaeauFtY86JTw" name="GET" value="1"/>
-        <eLiterals xmi:id="_x6blAoUgEeaeauFtY86JTw" name="PUT" value="2"/>
-        <eLiterals xmi:id="_x6blA4UgEeaeauFtY86JTw" name="DELETE" value="3"/>
-        <eLiterals xmi:id="_x6blBIUgEeaeauFtY86JTw" name="PATCH" value="4"/>
+      <eClassifiers xmi:type="ecore:EEnum" xmi:id="_qJXwQ4XiEeaho7S2DPP7Ng" name="HttpMethod">
+        <eAnnotations xmi:id="_qJXwRIXiEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1470360656432_824785_323"/>
+        <eLiterals xmi:id="_qJXwRYXiEeaho7S2DPP7Ng" name="POST"/>
+        <eLiterals xmi:id="_qJXwRoXiEeaho7S2DPP7Ng" name="GET" value="1"/>
+        <eLiterals xmi:id="_qJXwR4XiEeaho7S2DPP7Ng" name="PUT" value="2"/>
+        <eLiterals xmi:id="_qJXwSIXiEeaho7S2DPP7Ng" name="DELETE" value="3"/>
+        <eLiterals xmi:id="_qJXwSYXiEeaho7S2DPP7Ng" name="PATCH" value="4"/>
       </eClassifiers>
     </contents>
   </eAnnotations>

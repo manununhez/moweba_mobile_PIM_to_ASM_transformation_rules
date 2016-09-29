@@ -15,7 +15,17 @@
 	        android:layout_height="wrap_content"
 	        android:text="DATA MANAGEMENT"
 	        android:textStyle="bold" />
+		<Button
+	        android:id="@+id/btnImageProduct"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="ImageProduct" />	
 
+		<Button
+	        android:id="@+id/btnUser"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="User" />	
 
 
 		<Button
@@ -25,8 +35,8 @@
 	        android:text="Provider" />	
 
 		<Button
-	        android:id="@+id/btnUser"
+	        android:id="@+id/btnShoppingCart"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="User" />	
+	        android:text="ShoppingCart" />	
 </LinearLayout>

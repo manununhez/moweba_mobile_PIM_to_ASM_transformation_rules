@@ -12,8 +12,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-		<activity android:name=".activities.ProviderActivity" />
-		<activity android:name=".activities.ProviderFormActivity" />
+		<activity android:name=".activities.ImageProductActivity" />
+		<activity android:name=".activities.ImageProductFormActivity" />
 		<activity android:name=".activities.UserActivity" />
 		<activity android:name=".activities.UserFormActivity" />
+		<activity android:name=".activities.ProviderActivity" />
+		<activity android:name=".activities.ProviderFormActivity" />
+		<activity android:name=".activities.ShoppingCartActivity" />
+		<activity android:name=".activities.ShoppingCartFormActivity" />
     </application>

@@ -25,9 +25,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 [if (aPackage.hasStereotype('DataPersistence'))]
+//DATABASE[comment]DATABASE[/comment]
 [for (aClass : Class | aClasses) separator('\n')]		
 	[if (aClass.hasStereotype('persistentEntity'))]
 		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+		Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
+		btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, [aClass.name.toUpperFirst()/]Activity.class));
+            }
+        });
+		[/if]
+	[/if]		
+[/for]
+//FILE[comment]FILE[/comment]
+[for (aClass : Class | aClasses) separator('\n')]		
+	[if (aClass.hasStereotype('persistentEntity'))]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
+		Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
+		btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, [aClass.name.toUpperFirst()/]Activity.class));
+            }
+        });
+		[/if]
+	[/if]		
+[/for]
+//KEY_VALUE[comment]KeyValue[/comment]
+[for (aClass : Class | aClasses) separator('\n')]		
+	[if (aClass.hasStereotype('persistentEntity'))]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 		Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
 		btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
             @Override

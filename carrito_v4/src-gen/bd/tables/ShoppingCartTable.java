@@ -3,30 +3,28 @@ import android.content.ContentResolver;
 import android.database.sqlite.SQLiteDatabase;
 //End of user code
 
-public class ProviderTable {
+public class ShoppingCartTable {
 	private ContentResolver contentResolver;
 	
 	//    DATABASE TABLE
-	public static final String TABLE_NAME = "provider"; 
+	public static final String TABLE_NAME = "shoppingCart"; 
 	
 	public static final String COLUMN_ID = "_id";
-		public static final String COLUMN_IDPROVIDER = "idProvider"; 
-		public static final String COLUMN_DESCRIPTION = "description"; 
-		public static final String COLUMN_NOMBRE = "nombre"; 
-		public static final String COLUMN_RUC = "ruc"; 
+		public static final String COLUMN_SYNCTIME = "syncTime"; 
+		public static final String COLUMN_IDCART = "idCart"; 
+		public static final String COLUMN_QUANTITY = "quantity"; 
 	
 	//    DATABASE CREATION SQL STATEMENT
 	private static final String CREATE_TABLE = "create table "
 			+ TABLE_NAME
 			+ "("
 			+ COLUMN_ID + " integer primary key autoincrement,"
-			+ COLUMN_IDPROVIDER + " text,"
-+ COLUMN_DESCRIPTION + " text,"
-+ COLUMN_NOMBRE + " text,"
-+ COLUMN_RUC + " text);";  
+			+ COLUMN_SYNCTIME + " text,"
++ COLUMN_IDCART + " integer NOT NULL  UNIQUE  DEFAULT Prueba  CHECK (idCart > 0),"
++ COLUMN_QUANTITY + " text);";  
 
 	
-	public ProviderTable(ContentResolver contentResolver) {
+	public ShoppingCartTable(ContentResolver contentResolver) {
 		this.contentResolver = contentResolver;
 	}
 	

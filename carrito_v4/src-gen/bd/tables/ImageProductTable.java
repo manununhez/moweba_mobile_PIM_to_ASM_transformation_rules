@@ -3,30 +3,26 @@ import android.content.ContentResolver;
 import android.database.sqlite.SQLiteDatabase;
 //End of user code
 
-public class ProviderTable {
+public class ImageProductTable {
 	private ContentResolver contentResolver;
 	
 	//    DATABASE TABLE
-	public static final String TABLE_NAME = "provider"; 
+	public static final String TABLE_NAME = "imageProduct"; 
 	
 	public static final String COLUMN_ID = "_id";
-		public static final String COLUMN_IDPROVIDER = "idProvider"; 
-		public static final String COLUMN_DESCRIPTION = "description"; 
-		public static final String COLUMN_NOMBRE = "nombre"; 
-		public static final String COLUMN_RUC = "ruc"; 
+		public static final String COLUMN_IMAGE = "image"; 
+		public static final String COLUMN_IDIMAGEPRODUCT = "idImageProduct"; 
 	
 	//    DATABASE CREATION SQL STATEMENT
 	private static final String CREATE_TABLE = "create table "
 			+ TABLE_NAME
 			+ "("
 			+ COLUMN_ID + " integer primary key autoincrement,"
-			+ COLUMN_IDPROVIDER + " text,"
-+ COLUMN_DESCRIPTION + " text,"
-+ COLUMN_NOMBRE + " text,"
-+ COLUMN_RUC + " text);";  
+			+ COLUMN_IMAGE + " text,"
++ COLUMN_IDIMAGEPRODUCT + " text);";  
 
 	
-	public ProviderTable(ContentResolver contentResolver) {
+	public ImageProductTable(ContentResolver contentResolver) {
 		this.contentResolver = contentResolver;
 	}
 	

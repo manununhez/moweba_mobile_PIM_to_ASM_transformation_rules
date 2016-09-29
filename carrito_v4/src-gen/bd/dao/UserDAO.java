@@ -20,8 +20,8 @@ public class UserDAO {
 			SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 			ContentValues values = new ContentValues();
-			values.put(UserTable.COLUMN_USERNAME, user.getUsername());		
 			values.put(UserTable.COLUMN_PASSWORD, user.getPassword());		
+			values.put(UserTable.COLUMN_USERNAME, user.getUsername());		
 			
 			// Inserting Row
 			db.insert(UserTable.TABLE_NAME, null, values);
@@ -35,7 +35,7 @@ public class UserDAO {
 			User user = new User();
 
 			Cursor cursor = db.query(UserTable.TABLE_NAME, new String[] {
-					UserTable.COLUMN_USERNAME, UserTable.COLUMN_PASSWORD
+					UserTable.COLUMN_PASSWORD, UserTable.COLUMN_USERNAME
 					},		
 					new String[] { String.valueOf(id) }, null, null, null, null);
 			
@@ -104,8 +104,8 @@ public class UserDAO {
 				SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 				ContentValues values = new ContentValues();
-				values.put(UserTable.COLUMN_USERNAME, user.getUsername());		
 				values.put(UserTable.COLUMN_PASSWORD, user.getPassword());		
+				values.put(UserTable.COLUMN_USERNAME, user.getUsername());		
 
 				// updating row
 				return db.update(UserTable.TABLE_NAME, values,

@@ -10,16 +10,16 @@ public class UserTable {
 	public static final String TABLE_NAME = "user"; 
 	
 	public static final String COLUMN_ID = "_id";
-		public static final String COLUMN_USERNAME = "username"; 
 		public static final String COLUMN_PASSWORD = "password"; 
+		public static final String COLUMN_USERNAME = "username"; 
 	
 	//    DATABASE CREATION SQL STATEMENT
 	private static final String CREATE_TABLE = "create table "
 			+ TABLE_NAME
 			+ "("
 			+ COLUMN_ID + " integer primary key autoincrement,"
-			+ COLUMN_USERNAME + " text,"
-+ COLUMN_PASSWORD + " text);";  
+			+ COLUMN_PASSWORD + " text,"
++ COLUMN_USERNAME + " text);";  
 
 	
 	public UserTable(ContentResolver contentResolver) {

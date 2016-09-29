@@ -10,51 +10,27 @@
     android:orientation="vertical">
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilIdProvider"
+        android:id="@+id/tilImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieIdProvider"
+            android:id="@+id/tieImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="idProvider" />
+            android:hint="image" />
     </android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilDescription"
+        android:id="@+id/tilIdImageProduct"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieDescription"
+            android:id="@+id/tieIdImageProduct"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="description" />
-    </android.support.design.widget.TextInputLayout>
-
-	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="nombre" />
-    </android.support.design.widget.TextInputLayout>
-
-	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilRuc"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieRuc"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="ruc" />
+            android:hint="idImageProduct" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

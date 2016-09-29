@@ -11,18 +11,17 @@ import android.view.View;
 import android.widget.Button;
 //End of user code
 
-public class ProviderFormActivity extends AppCompatActivity {
+public class ShoppingCartFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tieDescription; 
-	private TextInputEditText tieNombre; 
-	private TextInputEditText tieRuc; 
+	private TextInputEditText tieSyncTime; 
+	private TextInputEditText tieIdCart; 
+	private TextInputEditText tieQuantity; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_provider);
+        setContentView(R.layout.activity_form_shoppingcart);
 
         Intent intent = getIntent();
         if (intent.getStringExtra("typeOperation").equals("edit")) {
@@ -31,38 +30,36 @@ public class ProviderFormActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(booleanEditMode ? "Edit Provider" : "Add Provider");
+            actionBar.setTitle(booleanEditMode ? "Edit ShoppingCart" : "Add ShoppingCart");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
-		tieNombre =  (TextInputEditText) findViewById(R.id.tieNombre); 
-		tieRuc =  (TextInputEditText) findViewById(R.id.tieRuc); 
+		tieSyncTime =  (TextInputEditText) findViewById(R.id.tieSyncTime); 
+		tieIdCart =  (TextInputEditText) findViewById(R.id.tieIdCart); 
+		tieQuantity =  (TextInputEditText) findViewById(R.id.tieQuantity); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
 
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
-            Provider provider = (Provider) intent.getSerializableExtra("provider");
-			tieIdProvider.setText(provider.getIdProvider());
-			tieDescription.setText(provider.getDescription());
-			tieNombre.setText(provider.getNombre());
-			tieRuc.setText(provider.getRuc());
+            ShoppingCart shoppingCart = (ShoppingCart) intent.getSerializableExtra("shoppingCart");
+			tieSyncTime.setText(shoppingCart.getSyncTime());
+			tieIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
+			tieQuantity.setText(shoppingCart.getQuantity());
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
-        final ProviderDAO providerDAO = new ProviderDAO(db);
+        final ShoppingCartDAO shoppingCartDAO = new ShoppingCartDAO(db);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Provider provider = getProviderFromEditext();
+               ShoppingCart shoppingCart = getShoppingCartFromEditext();
                 if (booleanEditMode) {
-                    providerDAO.updateProvider(provider);
+                    shoppingCartDAO.updateShoppingCart(shoppingCart);
                 }else{
-                    providerDAO.addProvider(provider);
+                    shoppingCartDAO.addShoppingCart(shoppingCart);
                 }
 
                 Intent returnIntent = new Intent();
@@ -73,13 +70,12 @@ public class ProviderFormActivity extends AppCompatActivity {
 
     }
 
-    private Provider getProviderFromEditext() {
-		String idProvider = tieIdProvider.getText().toString();
-		String description = tieDescription.getText().toString();
-		String nombre = tieNombre.getText().toString();
-		String ruc = tieRuc.getText().toString();
+    private ShoppingCart getShoppingCartFromEditext() {
+		String syncTime = tieSyncTime.getText().toString();
+		Integer idCart = Integer.valueOf(tieIdCart.getText().toString());
+		String quantity = tieQuantity.getText().toString();
         
-        return new Provider(idProvider, description, nombre, ruc);
+        return new ShoppingCart(syncTime, idCart, quantity);
     }
 
     @Override

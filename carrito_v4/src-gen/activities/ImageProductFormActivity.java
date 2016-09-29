@@ -11,18 +11,16 @@ import android.view.View;
 import android.widget.Button;
 //End of user code
 
-public class ProviderFormActivity extends AppCompatActivity {
+public class ImageProductFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tieDescription; 
-	private TextInputEditText tieNombre; 
-	private TextInputEditText tieRuc; 
+	private TextInputEditText tieImage; 
+	private TextInputEditText tieIdImageProduct; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_provider);
+        setContentView(R.layout.activity_form_imageproduct);
 
         Intent intent = getIntent();
         if (intent.getStringExtra("typeOperation").equals("edit")) {
@@ -31,38 +29,34 @@ public class ProviderFormActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(booleanEditMode ? "Edit Provider" : "Add Provider");
+            actionBar.setTitle(booleanEditMode ? "Edit ImageProduct" : "Add ImageProduct");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
-		tieNombre =  (TextInputEditText) findViewById(R.id.tieNombre); 
-		tieRuc =  (TextInputEditText) findViewById(R.id.tieRuc); 
+		tieImage =  (TextInputEditText) findViewById(R.id.tieImage); 
+		tieIdImageProduct =  (TextInputEditText) findViewById(R.id.tieIdImageProduct); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
 
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
-            Provider provider = (Provider) intent.getSerializableExtra("provider");
-			tieIdProvider.setText(provider.getIdProvider());
-			tieDescription.setText(provider.getDescription());
-			tieNombre.setText(provider.getNombre());
-			tieRuc.setText(provider.getRuc());
+            ImageProduct imageProduct = (ImageProduct) intent.getSerializableExtra("imageProduct");
+			tieImage.setText(imageProduct.getImage());
+			tieIdImageProduct.setText(imageProduct.getIdImageProduct());
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
-        final ProviderDAO providerDAO = new ProviderDAO(db);
+        final ImageProductDAO imageProductDAO = new ImageProductDAO(db);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Provider provider = getProviderFromEditext();
+               ImageProduct imageProduct = getImageProductFromEditext();
                 if (booleanEditMode) {
-                    providerDAO.updateProvider(provider);
+                    imageProductDAO.updateImageProduct(imageProduct);
                 }else{
-                    providerDAO.addProvider(provider);
+                    imageProductDAO.addImageProduct(imageProduct);
                 }
 
                 Intent returnIntent = new Intent();
@@ -73,13 +67,11 @@ public class ProviderFormActivity extends AppCompatActivity {
 
     }
 
-    private Provider getProviderFromEditext() {
-		String idProvider = tieIdProvider.getText().toString();
-		String description = tieDescription.getText().toString();
-		String nombre = tieNombre.getText().toString();
-		String ruc = tieRuc.getText().toString();
+    private ImageProduct getImageProductFromEditext() {
+		String image = tieImage.getText().toString();
+		String idImageProduct = tieIdImageProduct.getText().toString();
         
-        return new Provider(idProvider, description, nombre, ruc);
+        return new ImageProduct(image, idImageProduct);
     }
 
     @Override

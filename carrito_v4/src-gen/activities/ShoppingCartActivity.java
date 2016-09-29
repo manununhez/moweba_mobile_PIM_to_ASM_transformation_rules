@@ -1,16 +1,5 @@
-[comment encoding = UTF-8 /]
-[module generateActivities('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[import services::uml2services/]
-[import common::utils_gen/]
-
-[template public generateActivities(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
-
-[file (aClass.classFileName('activities/', aClass, 'Activity','.java'), false)]
-
-//[protected ('imports')]
+//Start of user code imports
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -25,30 +14,30 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-//[/protected]
+//End of user code
 
-public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
+public class ShoppingCartActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private [aClass.name.toUpperFirst()/]Adapter mAdapter;
-    private List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new ArrayList<>();
+    private ShoppingCartAdapter mAdapter;
+    private List<ShoppingCart> shoppingCartList = new ArrayList<>();
     private MySQLiteHelper db;
     private TextView tvDataCount;
-    private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO;
+    private ShoppingCartDAO shoppingCartDAO;
 
     private int REQUEST_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_[aClass.name.toLowerCase()/]);
+        setContentView(R.layout.activity_shoppingcart);
 
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {
-            actionBar.setTitle("[aClass.name.toUpperFirst()/]");
+            actionBar.setTitle("ShoppingCart");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
         db = new MySQLiteHelper(this);
-        [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO(db);
+        shoppingCartDAO = new ShoppingCartDAO(db);
 
         tvDataCount = (TextView) findViewById(R.id.tvDataCount);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -56,7 +45,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 		ivNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent([aClass.name.toUpperFirst()/]Activity.this, [aClass.name.toUpperFirst()/]FormActivity.class);
+                Intent intent = new Intent(ShoppingCartActivity.this, ShoppingCartFormActivity.class);
                 intent.putExtra("typeOperation","add");
                 startActivityForResult(intent, REQUEST_CODE);
             }
@@ -64,8 +53,8 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 		setupRecyclerView();
 
-        get[aClass.name.toUpperFirst()/]Count();
-		get[aClass.name.toUpperFirst()/]();
+        getShoppingCartCount();
+		getShoppingCart();
         
 		
     }
@@ -77,21 +66,21 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             if (resultCode == RESULT_OK) {
                 // The user picked a contact.
                 // The Intent's data Uri identifies which contact was selected.
-                [aClass.name.toLowerFirst()/]List.clear();
-                [aClass.name.toLowerFirst()/]List.addAll([aClass.name.toLowerFirst()/]DAO.getAll[aClass.name.toUpperFirst()/]());
+                shoppingCartList.clear();
+                shoppingCartList.addAll(shoppingCartDAO.getAllShoppingCart());
                 mAdapter.notifyDataSetChanged();
-                get[aClass.name.toUpperFirst()/]Count();
+                getShoppingCartCount();
                 // Do something with the contact here (bigger example below)
             }
         }
     }
 
-    public void get[aClass.name.toUpperFirst()/]Count() {
-        tvDataCount.setText(String.valueOf([aClass.name.toLowerFirst()/]DAO.get[aClass.name.toUpperFirst()/]Count()));
+    public void getShoppingCartCount() {
+        tvDataCount.setText(String.valueOf(shoppingCartDAO.getShoppingCartCount()));
     }
 
     private void setupRecyclerView() {
-        mAdapter = new [aClass.name.toUpperFirst()/]Adapter(this, [aClass.name.toLowerFirst()/]List, [aClass.name.toLowerFirst()/]DAO);
+        mAdapter = new ShoppingCartAdapter(this, shoppingCartList, shoppingCartDAO);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -99,10 +88,10 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
-    private void get[aClass.name.toUpperFirst()/]() {
-        Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Retrieving data from database", Toast.LENGTH_SHORT).show();
+    private void getShoppingCart() {
+        Toast.makeText(ShoppingCartActivity.this, "Retrieving data from database", Toast.LENGTH_SHORT).show();
 
-        [aClass.name.toLowerFirst()/]List.addAll([aClass.name.toLowerFirst()/]DAO.getAll[aClass.name.toUpperFirst()/]());
+        shoppingCartList.addAll(shoppingCartDAO.getAllShoppingCart());
 
         mAdapter.notifyDataSetChanged();
     }
@@ -121,7 +110,3 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     }
 }
 
-[/file]
-[/if]
-[/if]
-[/template]

@@ -14,8 +14,8 @@ import android.widget.Button;
 public class UserFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieUsername; 
 	private TextInputEditText tiePassword; 
+	private TextInputEditText tieUsername; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +33,8 @@ public class UserFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieUsername =  (TextInputEditText) findViewById(R.id.tieUsername); 
 		tiePassword =  (TextInputEditText) findViewById(R.id.tiePassword); 
+		tieUsername =  (TextInputEditText) findViewById(R.id.tieUsername); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -42,8 +42,8 @@ public class UserFormActivity extends AppCompatActivity {
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
             User user = (User) intent.getSerializableExtra("user");
-			tieUsername.setText(user.getUsername());
 			tiePassword.setText(user.getPassword());
+			tieUsername.setText(user.getUsername());
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
@@ -68,10 +68,10 @@ public class UserFormActivity extends AppCompatActivity {
     }
 
     private User getUserFromEditext() {
-		String username = tieUsername.getText().toString();
 		String password = tiePassword.getText().toString();
+		String username = tieUsername.getText().toString();
         
-        return new User(username, password);
+        return new User(password, username);
     }
 
     @Override
