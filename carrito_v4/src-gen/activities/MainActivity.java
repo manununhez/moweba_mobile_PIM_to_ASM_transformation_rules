@@ -13,7 +13,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//DATABASE		Button btnShoppingCart = (Button) findViewById(R.id.btnShoppingCart);
+
+		Button btnShoppingCart = (Button) findViewById(R.id.btnShoppingCart);
 		btnShoppingCart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -29,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+		Button btnProduct = (Button) findViewById(R.id.btnProduct);
+		btnProduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, ProductActivity.class));
+            }
+        });
 
 		Button btnProvider = (Button) findViewById(R.id.btnProvider);
 		btnProvider.setOnClickListener(new View.OnClickListener() {
@@ -38,23 +46,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//FILE
-
-
-		Button btnProduct = (Button) findViewById(R.id.btnProduct);
-		btnProduct.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ProductActivity.class));
-            }
-        });
-
-
-//KEY_VALUE
-
-
-
-
 		Button btnUser = (Button) findViewById(R.id.btnUser);
 		btnUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,5 +53,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, UserActivity.class));
             }
         });
+
     }
 }

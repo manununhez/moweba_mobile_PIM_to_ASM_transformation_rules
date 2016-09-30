@@ -27,6 +27,11 @@
 	        android:layout_height="wrap_content"
 	        android:text="ImageProduct" />	
 
+		<Button
+	        android:id="@+id/btnProduct"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="Product" />	
 
 		<Button
 	        android:id="@+id/btnProvider"
@@ -34,4 +39,9 @@
 	        android:layout_height="wrap_content"
 	        android:text="Provider" />	
 
+		<Button
+	        android:id="@+id/btnUser"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="User" />	
 </LinearLayout>

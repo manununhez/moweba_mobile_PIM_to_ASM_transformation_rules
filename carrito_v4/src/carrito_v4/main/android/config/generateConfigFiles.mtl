@@ -8,6 +8,19 @@
 [template public generateConfigFiles(aPackage : Package)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 [file ('AndroidManifest.xml', false)]
+[comment]	PERMISOS[/comment]
+[if (aPackage.hasStereotype('DataPersistence'))]
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
+	<!-- External storage for files. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+		[/if]
+		[/if]		
+		[/for]
+		[/if]
+
    <application
         android:allowBackup="true"
         android:exported="false"
@@ -25,7 +38,9 @@
 		[if (aPackage.hasStereotype('DataPersistence'))]
 		[for (aClass : Class | aClasses)]		
 		[if (aClass.hasStereotype('persistentEntity'))]
-		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database') 
+			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') 
+			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]FormActivity" />
 		[/if]

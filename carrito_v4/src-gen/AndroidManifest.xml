@@ -1,3 +1,8 @@
+
+	<!-- External storage for files. -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
    <application
         android:allowBackup="true"
         android:exported="false"
@@ -16,6 +21,10 @@
 		<activity android:name=".activities.ShoppingCartFormActivity" />
 		<activity android:name=".activities.ImageProductActivity" />
 		<activity android:name=".activities.ImageProductFormActivity" />
+		<activity android:name=".activities.ProductActivity" />
+		<activity android:name=".activities.ProductFormActivity" />
 		<activity android:name=".activities.ProviderActivity" />
 		<activity android:name=".activities.ProviderFormActivity" />
+		<activity android:name=".activities.UserActivity" />
+		<activity android:name=".activities.UserFormActivity" />
     </application>
