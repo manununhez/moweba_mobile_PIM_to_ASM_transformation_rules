@@ -10,7 +10,7 @@
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 
-[file (aClass.classFileNameInvert('layout/', aClass, 'activity_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

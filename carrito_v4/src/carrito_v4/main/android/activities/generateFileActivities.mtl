@@ -9,7 +9,7 @@
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
-[file (aClass.classFileName('activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
 
 //[protected ('imports')]
 import android.support.design.widget.TextInputEditText;

@@ -1,0 +1,100 @@
+[comment encoding = UTF-8 /]
+[module generateBDPages('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateBDPages(aClass : Class, modelName : String)]
+[if (aClass.hasStereotype('persistentEntity'))]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
+
+//[protected ('imports')]
+using [modelName/].Common;
+using [modelName/].Model;
+using [modelName/].ViewModels;
+using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+namespace [modelName/].Views
+{
+
+    public sealed partial class [aClass.name.toUpperFirst()/]View : Page
+    {
+        private NavigationHelper navigationHelper;
+        private ObservableCollection<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List;
+        private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]DAO();
+        
+		public [aClass.name.toUpperFirst()/]View()
+        {
+            this.InitializeComponent();
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+
+        private void ReadAll[aClass.name.toUpperFirst()/]_Loaded(object sender, RoutedEventArgs e)
+        {        
+            [aClass.name.toLowerFirst()/]List = [aClass.name.toLowerFirst()/].getAll[aClass.name.toUpperFirst()/]();//Get all DB [aClass.name.toLowerFirst()/]  
+            listBoxobj.ItemsSource = [aClass.name.toLowerFirst()/]List.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest [aClass.name.toLowerFirst()/] ID can Display first.  
+            loadedElementsCount();
+        }
+
+        private void btnAdd[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]FormNew));
+        }
+
+        private void listBoxobj_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxobj.SelectedIndex != -1)
+            {
+                [aClass.name.toUpperFirst()/] listItem = listBoxobj.SelectedItem as [aClass.name.toUpperFirst()/];//Get selected listbox item contact ID 
+                Frame.Navigate(typeof([aClass.name.toUpperFirst()/]FormDeleteUpdate), listItem);
+            }
+        }
+
+        private void loadedElementsCount()
+        {
+            txbQuantity.Text = Convert.ToString([aClass.name.toLowerFirst()/]List.Count);//Text should not be empty 
+        }
+
+
+    }
+}
+
+
+[/file]
+[/if]
+[/if]
+[/template]

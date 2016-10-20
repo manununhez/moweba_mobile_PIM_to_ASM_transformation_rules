@@ -4,11 +4,10 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateMainActivityLayout(aPackage : Package)]
-[comment]deberiamos buscar en el modelo de datos y de proveedores. Ahora, solo busca en el modelo de datos (persistentEntity)[/comment]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+[template public generateMainActivityLayout(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
 
-[file ('layout/activity_main.xml', false)]
+[file ('android/layout/activity_main.xml', false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -21,26 +20,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".activities.MainActivity">
 
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+	[if (aPackage.hasStereotype('DataPersistence'))]
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:text="DATA MANAGEMENT"
 	        android:textStyle="bold" />
-[if (aPackage.hasStereotype('DataPersistence'))]
-[for (aClass : Class | aClasses) separator('\n')]		
-	[if (aClass.hasStereotype('persistentEntity'))]
-		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')
-		or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')
-		or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
-		<Button
-	        android:id="@+id/btn[aClass.name.toUpperFirst()/]"
+	[for (aClass : Class | aClasses) separator('\n')]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')
+			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')
+			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+			<Button
+		        android:id="@+id/btn[aClass.name.toUpperFirst()/]"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:textAllCaps="false"
+		        android:text="[aClass.name.toUpperFirst()/]" />	
+			[/if]
+		[/if]		
+	[/for]	
+	[/if]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="[aClass.name.toUpperFirst()/]" />	
+	        android:text="DATA PROVIDER"
+	        android:textStyle="bold" />
+	[for (aClass : Class | aClasses) separator('\n')]
+	[if (aClass.hasStereotype('WebInterface'))]
+			<Button
+		        android:id="@+id/btn[aClass.name.toUpperFirst()/]"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:text="[aClass.name.toUpperFirst()/]" />
+			
 		[/if]
-	[/if]		
+	[/for]
+	[/if]
+[/let]
 [/for]
-[/if]
 </LinearLayout>
 [/file]
 [/let]

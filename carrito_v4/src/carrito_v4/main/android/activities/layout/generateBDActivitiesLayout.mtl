@@ -10,7 +10,7 @@
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 
-[file (aClass.classFileNameInvert('layout/', aClass, 'activity_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toStartOf="@+id/tvText"
-            android:src="@drawable/ic_add" />
+            android:src="@android:drawable/ic_menu_add" />
 
         <TextView
             android:id="@+id/tvText"

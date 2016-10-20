@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_16_0_17280447_1471464766829_593252_1388" name="ExternalDataProfile" metamodelReference="_0metamodelReferenceExternalDataProfile">
+<uml:Profile xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_16_0_17280447_1471464766829_593252_1388" name="ExternalDataProfile" metamodelReference="_0metamodelReferenceExternalDataProfile">
   <eAnnotations xmi:id="_pBsH-oZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML">
     <contents xmi:type="ecore:EPackage" xmi:id="_pBsH-4ZxEeaho7S2DPP7Ng" name="ExternalDataProfile" nsURI="http:///schemas/ExternalDataProfile/_oziWgYZxEeaho7S2DPP7Ng/0" nsPrefix="ExternalDataProfile">
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBsH_IZxEeaho7S2DPP7Ng" name="WebInterface">
         <eAnnotations xmi:id="_pBsH_YZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471460316593_96261_443"/>
         <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsH_oZxEeaho7S2DPP7Ng" name="base_Class" ordered="false" lowerBound="1">
-          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Class"/>
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </eStructuralFeatures>
         <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_pBsH_4ZxEeaho7S2DPP7Ng" name="name" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -20,7 +20,7 @@
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_pBsIAoZxEeaho7S2DPP7Ng" name="WebService">
         <eAnnotations xmi:id="_pBsIA4ZxEeaho7S2DPP7Ng" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_17280447_1471460635679_734078_582"/>
         <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_pBsIBIZxEeaho7S2DPP7Ng" name="base_Operation" ordered="false" lowerBound="1">
-          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Operation"/>
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
         </eStructuralFeatures>
         <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_pBsIBYZxEeaho7S2DPP7Ng" name="path" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -62,8 +62,8 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Extension" xmi:id="_16_0_17280447_1471460322115_156845_445" name="" memberEnd="_16_0_17280447_1471460322115_961187_447 _16_0_17280447_1471460322115_527575_446">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_0_17280447_1471460322115_961187_447" name="extension_" visibility="private" type="_16_0_17280447_1471460316593_96261_443" aggregation="composite" association="_16_0_17280447_1471460322115_156845_445">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_17280447_1471460322116_1468_449" name="" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_0_17280447_1471460322116_722918_448" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_17280447_1471460322116_1468_449" name="" value="1"/>
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Stereotype" xmi:id="_16_0_17280447_1471460635679_734078_582" name="WebService">
@@ -77,8 +77,8 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Extension" xmi:id="_16_0_17280447_1471460640103_773972_584" name="" memberEnd="_16_0_17280447_1471460640103_512936_586 _16_0_17280447_1471460640103_21067_585">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_0_17280447_1471460640103_512936_586" name="extension_" visibility="private" type="_16_0_17280447_1471460635679_734078_582" aggregation="composite" association="_16_0_17280447_1471460640103_773972_584">
-      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_17280447_1471460640103_128680_588" name="" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_0_17280447_1471460640103_366796_587" name=""/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_17280447_1471460640103_128680_588" name="" value="1"/>
     </ownedEnd>
   </packagedElement>
   <packagedElement xmi:type="uml:Enumeration" xmi:id="_16_0_17280447_1470360656432_824785_323" name="HttpMethod">

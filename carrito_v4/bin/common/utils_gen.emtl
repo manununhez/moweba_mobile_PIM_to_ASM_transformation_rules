@@ -264,6 +264,34 @@
       </expression>
       <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
     </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getMatchedTypeForCSharp" visibility="Public">
+      <parameter name="elem">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+      </parameter>
+      <parameter name="stereotype_name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="property_name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="mtl:QueryInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="../services/uml2services.emtl#/0/getCSharpType"/>
+        <argument xsi:type="mtl:QueryInvocation" definition="/0/getValueOfStereotypePropertyEnumLit">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getMatchedTypeForCSharp/elem">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+          </argument>
+          <argument xsi:type="ocl.ecore:VariableExp" name="stereotype_name" referredVariable="/0/getMatchedTypeForCSharp/stereotype_name">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+          <argument xsi:type="ocl.ecore:VariableExp" name="property_name" referredVariable="/0/getMatchedTypeForCSharp/property_name">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Query" name="getMatchedTypeForSqlite" visibility="Public">
       <parameter name="elem">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
@@ -350,33 +378,64 @@
       </expression>
       <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
     </ownedModuleElement>
-    <ownedModuleElement xsi:type="mtl:Query" name="getJavaCursorDescription" visibility="Public">
+    <ownedModuleElement xsi:type="mtl:Query" name="getJavaConstructorDescription" visibility="Public">
       <parameter name="elem">
         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
       </parameter>
       <parameter name="stereotype_name">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </parameter>
-      <parameter name="counter">
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      <parameter name="value">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
       </parameter>
       <expression xsi:type="mtl:QueryInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="../services/uml2services.emtl#/0/getCursorDescription"/>
+        <definition href="../services/uml2services.emtl#/0/getConstructorDescription"/>
         <argument xsi:type="mtl:QueryInvocation" definition="/0/getMatchedTypeForJava">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getJavaCursorDescription/elem">
+          <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getJavaConstructorDescription/elem">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
           </argument>
-          <argument xsi:type="ocl.ecore:VariableExp" name="stereotype_name" referredVariable="/0/getJavaCursorDescription/stereotype_name">
+          <argument xsi:type="ocl.ecore:VariableExp" name="stereotype_name" referredVariable="/0/getJavaConstructorDescription/stereotype_name">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </argument>
           <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="dataType">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </argument>
         </argument>
-        <argument xsi:type="ocl.ecore:VariableExp" name="counter" referredVariable="/0/getJavaCursorDescription/counter">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <argument xsi:type="ocl.ecore:VariableExp" name="value" referredVariable="/0/getJavaConstructorDescription/value">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </argument>
+      </expression>
+      <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Query" name="getCSharpConstructorDescription" visibility="Public">
+      <parameter name="elem">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+      </parameter>
+      <parameter name="stereotype_name">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <parameter name="value">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+      <expression xsi:type="mtl:QueryInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="../services/uml2services.emtl#/0/getConstructorDescription"/>
+        <argument xsi:type="mtl:QueryInvocation" definition="/0/getMatchedTypeForCSharp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="elem" referredVariable="/0/getCSharpConstructorDescription/elem">
+            <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+          </argument>
+          <argument xsi:type="ocl.ecore:VariableExp" name="stereotype_name" referredVariable="/0/getCSharpConstructorDescription/stereotype_name">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="dataType">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </argument>
+        <argument xsi:type="ocl.ecore:VariableExp" name="value" referredVariable="/0/getCSharpConstructorDescription/value">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </argument>
       </expression>
       <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
@@ -413,10 +472,10 @@
       <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="3238" endPosition="3325" value="getCursorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), counter)"/>
+      <body startPosition="3658" endPosition="3745" value="getCursorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), counter)"/>
     </ownedModuleElement>
     <ownedModuleElement xsi:type="mtl:Comment">
-      <body startPosition="3345" endPosition="3885" value="[query public&#xA;getPropertiesForSqlite(elem: Element, stereotype_name : String) : String = getSqliteProperties(&#xA;&#x9;getMatchedTypeForSqlite(elem, stereotype_name, 'dataType'),&#xA;&#x9;getValueOfStereotypePropertyBoolean(elem, stereotype_name, 'notNull'),&#xA;&#x9;getValueOfStereotypePropertyInteger(elem, stereotype_name, 'size'),&#xA;&#x9;getValueOfStereotypePropertyBoolean(elem, stereotype_name, 'unique'), &#xA;&#x9;getValueOfStereotypePropertyString(elem, stereotype_name, 'defaultValue'), &#xA;&#x9;getValueOfStereotypePropertyString(elem, stereotype_name, 'checkCondition'))/]"/>
+      <body startPosition="3765" endPosition="4305" value="[query public&#xA;getPropertiesForSqlite(elem: Element, stereotype_name : String) : String = getSqliteProperties(&#xA;&#x9;getMatchedTypeForSqlite(elem, stereotype_name, 'dataType'),&#xA;&#x9;getValueOfStereotypePropertyBoolean(elem, stereotype_name, 'notNull'),&#xA;&#x9;getValueOfStereotypePropertyInteger(elem, stereotype_name, 'size'),&#xA;&#x9;getValueOfStereotypePropertyBoolean(elem, stereotype_name, 'unique'), &#xA;&#x9;getValueOfStereotypePropertyString(elem, stereotype_name, 'defaultValue'), &#xA;&#x9;getValueOfStereotypePropertyString(elem, stereotype_name, 'checkCondition'))/]"/>
     </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
@@ -551,6 +610,22 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
+      <eOperations name="getMatchedTypeForCSharp">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getMatchedTypeForCSharp"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="elem">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        </eParameters>
+        <eParameters name="stereotype_name">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="property_name">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
       <eOperations name="getMatchedTypeForSqlite">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
@@ -598,11 +673,11 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
-      <eOperations name="getJavaCursorDescription">
+      <eOperations name="getJavaConstructorDescription">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
-        <eAnnotations source="MTL" references="/0/getJavaCursorDescription"/>
+        <eAnnotations source="MTL" references="/0/getJavaConstructorDescription"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
@@ -610,8 +685,24 @@
         <eParameters name="stereotype_name">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
-        <eParameters name="counter">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+        <eParameters name="value">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCSharpConstructorDescription">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/getCSharpConstructorDescription"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="elem">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        </eParameters>
+        <eParameters name="stereotype_name">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="value">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
       <eOperations name="getJavaKVConstructorDescription">
@@ -627,6 +718,18 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
         <eParameters name="propertyName">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getCSharpType">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../services/uml2services.emtl#/0/getCSharpType"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
@@ -681,19 +784,19 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
-      <eOperations name="getCursorDescription">
+      <eOperations name="getConstructorDescription">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../services/uml2services.emtl#/0/getCursorDescription"/>
+          <references href="../services/uml2services.emtl#/0/getConstructorDescription"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
         <eParameters name="arg1">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </eParameters>
       </eOperations>
       <eOperations name="getKVConstructorDescription">
@@ -779,6 +882,24 @@
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -1289,254 +1410,349 @@
       <details key="end" value="2259"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.83" references="/0/getMatchedTypeForSqlite">
+    <eAnnotations source="positions.83" references="/0/getMatchedTypeForCSharp">
       <details key="start" value="2265"/>
       <details key="end" value="2468"/>
       <details key="line" value="51"/>
     </eAnnotations>
-    <eAnnotations source="positions.84" references="/0/getMatchedTypeForSqlite/elem">
+    <eAnnotations source="positions.84" references="/0/getMatchedTypeForCSharp/elem">
       <details key="start" value="2303"/>
       <details key="end" value="2316"/>
       <details key="line" value="52"/>
     </eAnnotations>
-    <eAnnotations source="positions.85" references="/0/getMatchedTypeForSqlite/stereotype_name">
+    <eAnnotations source="positions.85" references="/0/getMatchedTypeForCSharp/stereotype_name">
       <details key="start" value="2318"/>
       <details key="end" value="2342"/>
       <details key="line" value="52"/>
     </eAnnotations>
-    <eAnnotations source="positions.86" references="/0/getMatchedTypeForSqlite/property_name">
+    <eAnnotations source="positions.86" references="/0/getMatchedTypeForCSharp/property_name">
       <details key="start" value="2344"/>
       <details key="end" value="2366"/>
       <details key="line" value="52"/>
     </eAnnotations>
-    <eAnnotations source="positions.87" references="/0/getMatchedTypeForSqlite/%">
+    <eAnnotations source="positions.87" references="/0/getMatchedTypeForCSharp/%">
       <details key="start" value="2379"/>
       <details key="end" value="2466"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.88" references="/0/getMatchedTypeForSqlite/%/%">
+    <eAnnotations source="positions.88" references="/0/getMatchedTypeForCSharp/%/%">
       <details key="start" value="2393"/>
       <details key="end" value="2465"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.89" references="/0/getMatchedTypeForSqlite/%/%/elem">
+    <eAnnotations source="positions.89" references="/0/getMatchedTypeForCSharp/%/%/elem">
       <details key="start" value="2429"/>
       <details key="end" value="2433"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.90" references="/0/getMatchedTypeForSqlite/%/%/stereotype_name">
+    <eAnnotations source="positions.90" references="/0/getMatchedTypeForCSharp/%/%/stereotype_name">
       <details key="start" value="2435"/>
       <details key="end" value="2450"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.91" references="/0/getMatchedTypeForSqlite/%/%/property_name">
+    <eAnnotations source="positions.91" references="/0/getMatchedTypeForCSharp/%/%/property_name">
       <details key="start" value="2451"/>
       <details key="end" value="2464"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.92" references="/0/getPropertiesForSqlite">
+    <eAnnotations source="positions.92" references="/0/getMatchedTypeForSqlite">
       <details key="start" value="2470"/>
-      <details key="end" value="2801"/>
+      <details key="end" value="2673"/>
       <details key="line" value="54"/>
     </eAnnotations>
-    <eAnnotations source="positions.93" references="/0/getPropertiesForSqlite/elem">
-      <details key="start" value="2507"/>
-      <details key="end" value="2520"/>
+    <eAnnotations source="positions.93" references="/0/getMatchedTypeForSqlite/elem">
+      <details key="start" value="2508"/>
+      <details key="end" value="2521"/>
       <details key="line" value="55"/>
     </eAnnotations>
-    <eAnnotations source="positions.94" references="/0/getPropertiesForSqlite/stereotype_name">
-      <details key="start" value="2522"/>
-      <details key="end" value="2546"/>
+    <eAnnotations source="positions.94" references="/0/getMatchedTypeForSqlite/stereotype_name">
+      <details key="start" value="2523"/>
+      <details key="end" value="2547"/>
       <details key="line" value="55"/>
     </eAnnotations>
-    <eAnnotations source="positions.95" references="/0/getPropertiesForSqlite/dataType">
-      <details key="start" value="2548"/>
-      <details key="end" value="2563"/>
+    <eAnnotations source="positions.95" references="/0/getMatchedTypeForSqlite/property_name">
+      <details key="start" value="2549"/>
+      <details key="end" value="2571"/>
       <details key="line" value="55"/>
     </eAnnotations>
-    <eAnnotations source="positions.96" references="/0/getPropertiesForSqlite/notNull">
-      <details key="start" value="2565"/>
-      <details key="end" value="2580"/>
-      <details key="line" value="55"/>
-    </eAnnotations>
-    <eAnnotations source="positions.97" references="/0/getPropertiesForSqlite/size">
+    <eAnnotations source="positions.96" references="/0/getMatchedTypeForSqlite/%">
       <details key="start" value="2584"/>
-      <details key="end" value="2596"/>
-      <details key="line" value="56"/>
+      <details key="end" value="2671"/>
+      <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.98" references="/0/getPropertiesForSqlite/unique">
+    <eAnnotations source="positions.97" references="/0/getMatchedTypeForSqlite/%/%">
       <details key="start" value="2598"/>
-      <details key="end" value="2612"/>
-      <details key="line" value="56"/>
-    </eAnnotations>
-    <eAnnotations source="positions.99" references="/0/getPropertiesForSqlite/defaultValue">
-      <details key="start" value="2614"/>
-      <details key="end" value="2633"/>
-      <details key="line" value="56"/>
-    </eAnnotations>
-    <eAnnotations source="positions.100" references="/0/getPropertiesForSqlite/checkCondition">
-      <details key="start" value="2635"/>
-      <details key="end" value="2656"/>
-      <details key="line" value="56"/>
-    </eAnnotations>
-    <eAnnotations source="positions.101" references="/0/getPropertiesForSqlite/%">
-      <details key="start" value="2670"/>
-      <details key="end" value="2799"/>
+      <details key="end" value="2670"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.102" references="/0/getPropertiesForSqlite/%/%">
-      <details key="start" value="2690"/>
-      <details key="end" value="2748"/>
+    <eAnnotations source="positions.98" references="/0/getMatchedTypeForSqlite/%/%/elem">
+      <details key="start" value="2634"/>
+      <details key="end" value="2638"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.103" references="/0/getPropertiesForSqlite/%/%/elem">
-      <details key="start" value="2714"/>
-      <details key="end" value="2718"/>
+    <eAnnotations source="positions.99" references="/0/getMatchedTypeForSqlite/%/%/stereotype_name">
+      <details key="start" value="2640"/>
+      <details key="end" value="2655"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.104" references="/0/getPropertiesForSqlite/%/%/stereotype_name">
-      <details key="start" value="2720"/>
-      <details key="end" value="2735"/>
+    <eAnnotations source="positions.100" references="/0/getMatchedTypeForSqlite/%/%/property_name">
+      <details key="start" value="2656"/>
+      <details key="end" value="2669"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.105" references="/0/getPropertiesForSqlite/%/%/%">
-      <details key="start" value="2737"/>
-      <details key="end" value="2747"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.101" references="/0/getPropertiesForSqlite">
+      <details key="start" value="2675"/>
+      <details key="end" value="3006"/>
+      <details key="line" value="57"/>
     </eAnnotations>
-    <eAnnotations source="positions.106" references="/0/getPropertiesForSqlite/%/notNull">
-      <details key="start" value="2751"/>
-      <details key="end" value="2758"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.102" references="/0/getPropertiesForSqlite/elem">
+      <details key="start" value="2712"/>
+      <details key="end" value="2725"/>
+      <details key="line" value="58"/>
     </eAnnotations>
-    <eAnnotations source="positions.107" references="/0/getPropertiesForSqlite/%/size">
-      <details key="start" value="2759"/>
-      <details key="end" value="2763"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.103" references="/0/getPropertiesForSqlite/stereotype_name">
+      <details key="start" value="2727"/>
+      <details key="end" value="2751"/>
+      <details key="line" value="58"/>
     </eAnnotations>
-    <eAnnotations source="positions.108" references="/0/getPropertiesForSqlite/%/unique">
-      <details key="start" value="2764"/>
-      <details key="end" value="2770"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.104" references="/0/getPropertiesForSqlite/dataType">
+      <details key="start" value="2753"/>
+      <details key="end" value="2768"/>
+      <details key="line" value="58"/>
     </eAnnotations>
-    <eAnnotations source="positions.109" references="/0/getPropertiesForSqlite/%/defaultValue">
-      <details key="start" value="2771"/>
-      <details key="end" value="2783"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.105" references="/0/getPropertiesForSqlite/notNull">
+      <details key="start" value="2770"/>
+      <details key="end" value="2785"/>
+      <details key="line" value="58"/>
     </eAnnotations>
-    <eAnnotations source="positions.110" references="/0/getPropertiesForSqlite/%/checkCondition">
-      <details key="start" value="2784"/>
-      <details key="end" value="2798"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.106" references="/0/getPropertiesForSqlite/size">
+      <details key="start" value="2789"/>
+      <details key="end" value="2801"/>
+      <details key="line" value="59"/>
     </eAnnotations>
-    <eAnnotations source="positions.111" references="/0/getJavaCursorDescription">
+    <eAnnotations source="positions.107" references="/0/getPropertiesForSqlite/unique">
       <details key="start" value="2803"/>
-      <details key="end" value="3002"/>
-      <details key="line" value="60"/>
+      <details key="end" value="2817"/>
+      <details key="line" value="59"/>
     </eAnnotations>
-    <eAnnotations source="positions.112" references="/0/getJavaCursorDescription/elem">
-      <details key="start" value="2842"/>
-      <details key="end" value="2855"/>
-      <details key="line" value="61"/>
+    <eAnnotations source="positions.108" references="/0/getPropertiesForSqlite/defaultValue">
+      <details key="start" value="2819"/>
+      <details key="end" value="2838"/>
+      <details key="line" value="59"/>
     </eAnnotations>
-    <eAnnotations source="positions.113" references="/0/getJavaCursorDescription/stereotype_name">
-      <details key="start" value="2857"/>
-      <details key="end" value="2881"/>
-      <details key="line" value="61"/>
+    <eAnnotations source="positions.109" references="/0/getPropertiesForSqlite/checkCondition">
+      <details key="start" value="2840"/>
+      <details key="end" value="2861"/>
+      <details key="line" value="59"/>
     </eAnnotations>
-    <eAnnotations source="positions.114" references="/0/getJavaCursorDescription/counter">
-      <details key="start" value="2883"/>
-      <details key="end" value="2900"/>
-      <details key="line" value="61"/>
-    </eAnnotations>
-    <eAnnotations source="positions.115" references="/0/getJavaCursorDescription/%">
-      <details key="start" value="2913"/>
-      <details key="end" value="3000"/>
+    <eAnnotations source="positions.110" references="/0/getPropertiesForSqlite/%">
+      <details key="start" value="2875"/>
+      <details key="end" value="3004"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.116" references="/0/getJavaCursorDescription/%/%">
-      <details key="start" value="2934"/>
-      <details key="end" value="2990"/>
+    <eAnnotations source="positions.111" references="/0/getPropertiesForSqlite/%/%">
+      <details key="start" value="2895"/>
+      <details key="end" value="2953"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.117" references="/0/getJavaCursorDescription/%/%/elem">
+    <eAnnotations source="positions.112" references="/0/getPropertiesForSqlite/%/%/elem">
+      <details key="start" value="2919"/>
+      <details key="end" value="2923"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/getPropertiesForSqlite/%/%/stereotype_name">
+      <details key="start" value="2925"/>
+      <details key="end" value="2940"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/getPropertiesForSqlite/%/%/%">
+      <details key="start" value="2942"/>
+      <details key="end" value="2952"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/getPropertiesForSqlite/%/notNull">
       <details key="start" value="2956"/>
-      <details key="end" value="2960"/>
+      <details key="end" value="2963"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.118" references="/0/getJavaCursorDescription/%/%/stereotype_name">
-      <details key="start" value="2962"/>
-      <details key="end" value="2977"/>
+    <eAnnotations source="positions.116" references="/0/getPropertiesForSqlite/%/size">
+      <details key="start" value="2964"/>
+      <details key="end" value="2968"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.119" references="/0/getJavaCursorDescription/%/%/%">
-      <details key="start" value="2979"/>
-      <details key="end" value="2989"/>
+    <eAnnotations source="positions.117" references="/0/getPropertiesForSqlite/%/unique">
+      <details key="start" value="2969"/>
+      <details key="end" value="2975"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.120" references="/0/getJavaCursorDescription/%/counter">
-      <details key="start" value="2992"/>
-      <details key="end" value="2999"/>
+    <eAnnotations source="positions.118" references="/0/getPropertiesForSqlite/%/defaultValue">
+      <details key="start" value="2976"/>
+      <details key="end" value="2988"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.121" references="/0/getJavaKVConstructorDescription">
-      <details key="start" value="3004"/>
-      <details key="end" value="3226"/>
+    <eAnnotations source="positions.119" references="/0/getPropertiesForSqlite/%/checkCondition">
+      <details key="start" value="2989"/>
+      <details key="end" value="3003"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/getJavaConstructorDescription">
+      <details key="start" value="3008"/>
+      <details key="end" value="3212"/>
       <details key="line" value="63"/>
     </eAnnotations>
-    <eAnnotations source="positions.122" references="/0/getJavaKVConstructorDescription/elem">
-      <details key="start" value="3050"/>
-      <details key="end" value="3063"/>
+    <eAnnotations source="positions.121" references="/0/getJavaConstructorDescription/elem">
+      <details key="start" value="3052"/>
+      <details key="end" value="3065"/>
       <details key="line" value="64"/>
     </eAnnotations>
-    <eAnnotations source="positions.123" references="/0/getJavaKVConstructorDescription/stereotype_name">
-      <details key="start" value="3065"/>
-      <details key="end" value="3089"/>
+    <eAnnotations source="positions.122" references="/0/getJavaConstructorDescription/stereotype_name">
+      <details key="start" value="3067"/>
+      <details key="end" value="3091"/>
       <details key="line" value="64"/>
     </eAnnotations>
-    <eAnnotations source="positions.124" references="/0/getJavaKVConstructorDescription/propertyName">
-      <details key="start" value="3091"/>
-      <details key="end" value="3112"/>
+    <eAnnotations source="positions.123" references="/0/getJavaConstructorDescription/value">
+      <details key="start" value="3093"/>
+      <details key="end" value="3107"/>
       <details key="line" value="64"/>
     </eAnnotations>
-    <eAnnotations source="positions.125" references="/0/getJavaKVConstructorDescription/%">
-      <details key="start" value="3125"/>
-      <details key="end" value="3224"/>
+    <eAnnotations source="positions.124" references="/0/getJavaConstructorDescription/%">
+      <details key="start" value="3120"/>
+      <details key="end" value="3210"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.126" references="/0/getJavaKVConstructorDescription/%/%">
-      <details key="start" value="3153"/>
+    <eAnnotations source="positions.125" references="/0/getJavaConstructorDescription/%/%">
+      <details key="start" value="3146"/>
+      <details key="end" value="3202"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/getJavaConstructorDescription/%/%/elem">
+      <details key="start" value="3168"/>
+      <details key="end" value="3172"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/getJavaConstructorDescription/%/%/stereotype_name">
+      <details key="start" value="3174"/>
+      <details key="end" value="3189"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/getJavaConstructorDescription/%/%/%">
+      <details key="start" value="3191"/>
+      <details key="end" value="3201"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/getJavaConstructorDescription/%/value">
+      <details key="start" value="3204"/>
       <details key="end" value="3209"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.127" references="/0/getJavaKVConstructorDescription/%/%/elem">
-      <details key="start" value="3175"/>
-      <details key="end" value="3179"/>
+    <eAnnotations source="positions.130" references="/0/getCSharpConstructorDescription">
+      <details key="start" value="3214"/>
+      <details key="end" value="3422"/>
+      <details key="line" value="66"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/getCSharpConstructorDescription/elem">
+      <details key="start" value="3260"/>
+      <details key="end" value="3273"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/getCSharpConstructorDescription/stereotype_name">
+      <details key="start" value="3275"/>
+      <details key="end" value="3299"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/getCSharpConstructorDescription/value">
+      <details key="start" value="3301"/>
+      <details key="end" value="3315"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/getCSharpConstructorDescription/%">
+      <details key="start" value="3328"/>
+      <details key="end" value="3420"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.128" references="/0/getJavaKVConstructorDescription/%/%/stereotype_name">
-      <details key="start" value="3181"/>
-      <details key="end" value="3196"/>
+    <eAnnotations source="positions.135" references="/0/getCSharpConstructorDescription/%/%">
+      <details key="start" value="3354"/>
+      <details key="end" value="3412"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.129" references="/0/getJavaKVConstructorDescription/%/%/%">
-      <details key="start" value="3198"/>
-      <details key="end" value="3208"/>
+    <eAnnotations source="positions.136" references="/0/getCSharpConstructorDescription/%/%/elem">
+      <details key="start" value="3378"/>
+      <details key="end" value="3382"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.130" references="/0/getJavaKVConstructorDescription/%/propertyName">
-      <details key="start" value="3211"/>
-      <details key="end" value="3223"/>
+    <eAnnotations source="positions.137" references="/0/getCSharpConstructorDescription/%/%/stereotype_name">
+      <details key="start" value="3384"/>
+      <details key="end" value="3399"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.131" references="/0/%">
-      <details key="start" value="3229"/>
-      <details key="end" value="3335"/>
+    <eAnnotations source="positions.138" references="/0/getCSharpConstructorDescription/%/%/%">
+      <details key="start" value="3401"/>
+      <details key="end" value="3411"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.132" references="/0/%.1">
-      <details key="start" value="3336"/>
-      <details key="end" value="3895"/>
+    <eAnnotations source="positions.139" references="/0/getCSharpConstructorDescription/%/value">
+      <details key="start" value="3414"/>
+      <details key="end" value="3419"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/getJavaKVConstructorDescription">
+      <details key="start" value="3424"/>
+      <details key="end" value="3646"/>
+      <details key="line" value="69"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/getJavaKVConstructorDescription/elem">
+      <details key="start" value="3470"/>
+      <details key="end" value="3483"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/getJavaKVConstructorDescription/stereotype_name">
+      <details key="start" value="3485"/>
+      <details key="end" value="3509"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/getJavaKVConstructorDescription/propertyName">
+      <details key="start" value="3511"/>
+      <details key="end" value="3532"/>
+      <details key="line" value="70"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/getJavaKVConstructorDescription/%">
+      <details key="start" value="3545"/>
+      <details key="end" value="3644"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/getJavaKVConstructorDescription/%/%">
+      <details key="start" value="3573"/>
+      <details key="end" value="3629"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/getJavaKVConstructorDescription/%/%/elem">
+      <details key="start" value="3595"/>
+      <details key="end" value="3599"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/getJavaKVConstructorDescription/%/%/stereotype_name">
+      <details key="start" value="3601"/>
+      <details key="end" value="3616"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/getJavaKVConstructorDescription/%/%/%">
+      <details key="start" value="3618"/>
+      <details key="end" value="3628"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/getJavaKVConstructorDescription/%/propertyName">
+      <details key="start" value="3631"/>
+      <details key="end" value="3643"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/%">
+      <details key="start" value="3649"/>
+      <details key="end" value="3755"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/%.1">
+      <details key="start" value="3756"/>
+      <details key="end" value="4315"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

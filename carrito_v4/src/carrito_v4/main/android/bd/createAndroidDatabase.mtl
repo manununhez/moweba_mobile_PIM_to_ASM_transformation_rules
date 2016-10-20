@@ -1,0 +1,57 @@
+[comment encoding = UTF-8 /]
+[module createAndroidDatabase('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment Se importa el mtl de services para poder utilizar las funciones definidas/]
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public createDatabaseAndroid(aPackage: Package)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[file ('android/bd/helper/MySQLiteHelper.java', false)]
+//[protected ('imports')]
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+//[/protected]
+	
+
+public class MySQLiteHelper extends SQLiteOpenHelper {
+    
+	public static final String TAG = "Tag"; 
+    public static final String DATABASE_NAME = "[aPackage.name.toLowerFirst()/].db";  //TODO Nombre de la BD ?
+    public static final int DATABASE_VERSION = 1;
+
+    public MySQLiteHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase sqLiteDatabase) {
+        Log.d(TAG,"Creating database " + DATABASE_NAME + "with version " + DATABASE_VERSION);
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+		[aClass.name/]Table.onCreate(sqLiteDatabase);
+		[/if]
+		[/if]		
+		[/for]
+    }
+
+
+    @Override
+    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
+        Log.d(TAG,"Upgrading database " + DATABASE_NAME + "from  version " + oldVersion + "to version" + newVersion);
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+		[aClass.name/]Table.onUpgrade(sqLiteDatabase, oldVersion, newVersion);
+		[/if]
+		[/if]		
+		[/for]		
+    }
+}
+[/file]
+[/let]
+[/template]

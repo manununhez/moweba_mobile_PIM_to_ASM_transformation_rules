@@ -1,0 +1,54 @@
+[comment encoding = UTF-8 /]
+[module generateMainPageLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateMainPageLayout(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+
+[file ('windows/MainActivity.xaml', false)]
+<Page
+    x:Class="[model.name/].MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[model.name/]">
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                <TextBlock Text="PERSISTENCE APP" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            </StackPanel>
+			<StackPanel Grid.Row="1" Margin="19,40,19,19">
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+	[if (aPackage.hasStereotype('DataPersistence'))]
+	[for (aClass : Class | aClasses) separator('\n')]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')
+			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')
+			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+			<Button x:Name="btn[aClass.name.toUpperFirst()/]" Content="[aClass.name.toUpperFirst()/]" Click="btn[aClass.name.toUpperFirst()/]_click"/>
+			[/if]
+		[/if]		
+	[/for]	
+	[/if]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+	[for (aClass : Class | aClasses) separator('\n')]
+	[if (aClass.hasStereotype('WebInterface'))]
+			<Button x:Name="btn[aClass.name.toUpperFirst()/]" Content="[aClass.name.toUpperFirst()/]" Click="btn[aClass.name.toUpperFirst()/]_click"/>
+	[/if]
+	[/for]
+	[/if]
+[/let]
+[/for]
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
+
+[/file]
+[/let]
+
+[/template]

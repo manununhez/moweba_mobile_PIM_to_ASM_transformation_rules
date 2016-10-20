@@ -1,15 +1,10 @@
 package services;
 
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.List;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
-import org.eclipse.uml2.uml.EnumerationLiteral;
 import org.eclipse.uml2.uml.Package;
-import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.internal.impl.EnumerationLiteralImpl;
 
@@ -99,6 +94,34 @@ public class UML2Services {
 		return folderPath.concat(className.concat(extension));
 	}
 
+	public String getCSharpType(String type) {
+		String returnType = "";
+		switch (type) {
+		case "char":
+		case "varchar":
+		case "text":
+			returnType = "string";
+			break;
+
+		case "int":
+			returnType = "int";
+			break;
+		case "time":
+		case "date":
+		case "datetime":
+			returnType = "decimal";
+			break;
+		case "float":
+			returnType = "float";
+			break;
+
+		default:
+			break;
+		}
+
+		return returnType;
+	}
+	
 	public String getJavaType(String type) {
 		String returnType = "";
 		switch (type) {
@@ -182,17 +205,34 @@ public class UML2Services {
 	
 	//--- Crea la inicializacion de los constructores, recibiendo como parametros de entrada los cursores. Utilizado en los DAOs
 
-	public String getCursorDescription(String javaDataType, Integer count) {
-		String result = "cursor.getString(" + count + ")";
-		if (javaDataType.equals("Integer"))
+	public String getConstructorDescription(String dataType, String value) {
+		String result = value;
+		
+		switch (dataType) {
+		//JAVA
+		case "Integer":
 			result = "Integer.parseInt(" + result + ")";
-
-		if (javaDataType.equals("Float"))
+			break;
+		case "Float":
 			result = "Float.parseFloat(" + result + ")";
-
-		if (javaDataType.equals("BigDecimal"))
+			break;
+		case "BigDecimal":
 			result = "new BigDecimal(" + result + ")";
-
+			break;
+		//C#
+		case "int":
+			result = "Int32.Parse(" + result + ")";
+			break;
+		case "decimal":
+			result = "double.Parse(" + result + ", System.Globalization.CultureInfo.InvariantCulture)";
+			break;
+		case "float":
+			result = "float.Parse(" + result + ", CultureInfo.InvariantCulture.NumberFormat)";
+			break;
+		default:
+			break;
+		}
+		
 		return result;
 	}
 	

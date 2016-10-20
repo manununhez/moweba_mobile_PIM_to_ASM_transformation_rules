@@ -8,7 +8,7 @@
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 
-[file (aClass.classFileName('activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
 
 //[protected ('imports')]
 import android.content.Intent;

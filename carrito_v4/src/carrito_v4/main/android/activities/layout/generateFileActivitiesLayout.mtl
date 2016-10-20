@@ -11,7 +11,7 @@
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileNameInvert('layout/', aClass, 'activity_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -49,6 +49,7 @@
         android:id="@+id/btnWriteToFile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+		android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
         android:text="Write to file" />
 
@@ -56,6 +57,7 @@
         android:id="@+id/btnReadFromFile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+		android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
         android:text="Read from file" />
 </LinearLayout>

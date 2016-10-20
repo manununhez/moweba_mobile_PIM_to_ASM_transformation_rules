@@ -5,10 +5,10 @@
 [import common::utils_gen/]
 
 
-[template public generateMainActivity(aPackage : Package)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+[template public generateMainActivity(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
 
-[file ('activities/MainActivity.java', false)]
+[file ('android/activities/MainActivity.java', false)]
 
 //[protected ('imports')]
 import android.content.Intent;
@@ -18,33 +18,53 @@ import android.view.View;
 import android.widget.Button;
 //[/protected]
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-[if (aPackage.hasStereotype('DataPersistence'))]
-[for (aClass : Class | aClasses) separator('\n')]		
-	[if (aClass.hasStereotype('persistentEntity'))]
-		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database') 
-			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') 
-			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
-		Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
-		btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, [aClass.name.toUpperFirst()/]Activity.class));
-            }
-        });
-		[/if]
-	[/if]		
-[/for]
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[/if]  
+	[if (aPackage.hasStereotype('DataPersistence'))]
+	[for (aClass : Class | aClasses) separator('\n')]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database') 
+				or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') 
+				or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+			Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
+			btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, [aClass.name.toUpperFirst()/]Activity.class));
+	            }
+	        });
+			[/if]
+		[/if]		
+	[/for]
+	[/if]
+	
+	[if (aPackage.hasStereotype('DataProvider'))]
+	[for (aClass : Class | aClasses) separator('\n')]
+	[if (aClass.hasStereotype('WebInterface'))]
+			Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
+			btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, [aClass.name.toUpperFirst()/]Activity.class));
+	            }
+	        });
+			
+		[/if]
+	[/for]
+	[/if]
+[/let]
+[/for]
     }
 }
 [/file]
+
 [/let]
 [/template]

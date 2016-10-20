@@ -10,7 +10,7 @@
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileNameInvert('layout/', aClass, 'activity_form_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_form_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -40,6 +40,7 @@
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+		android:textAllCaps="false"
         android:layout_gravity="center_horizontal"
         android:text="Add"/>
 </LinearLayout>

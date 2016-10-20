@@ -1,0 +1,31 @@
+[comment encoding = UTF-8 /]
+[module generateRestInterface('http://www.eclipse.org/uml2/5.0.0/UML')]
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateRestInterface(aClass : Class)]
+[file ('android/conn/ApiInterface.java', false)]
+[if (aClass.hasStereotype('WebInterface'))]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+
+//[protected ('imports')]
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.http.DELETE;
+import retrofit2.http.GET;
+import retrofit2.http.PATCH;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
+//[/protected]
+
+public interface ApiInterface {
+	[for (o : Operation | webServiceOperations)separator('\n')]
+	@[o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method')/]("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]")
+	Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> [o.name.toLowerFirst()/]([for (p: Parameter | o.ownedParameter->select(p | p.name<>'')) separator(',')] [p.type.name/] [p.name.toLowerFirst()/] [/for]);
+	[/for]
+}
+[/let]
+[/if]
+[/file]
+[/template]

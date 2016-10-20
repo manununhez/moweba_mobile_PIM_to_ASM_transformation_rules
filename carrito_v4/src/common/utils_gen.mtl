@@ -49,6 +49,9 @@ getValueOfStereotypePropertyBoolean(elem: Element, stereotype_name : String, pro
 getMatchedTypeForJava(elem: Element, stereotype_name : String, property_name : String) : String = getJavaType(getValueOfStereotypePropertyEnumLit(elem, stereotype_name,property_name))/]
 
 [query public
+getMatchedTypeForCSharp(elem: Element, stereotype_name : String, property_name : String) : String = getCSharpType(getValueOfStereotypePropertyEnumLit(elem, stereotype_name,property_name))/]
+
+[query public
 getMatchedTypeForSqlite(elem: Element, stereotype_name : String, property_name : String) : String = getSqliteType(getValueOfStereotypePropertyEnumLit(elem, stereotype_name,property_name))/]
 
 [query public
@@ -58,7 +61,10 @@ getSqliteProperties(getMatchedTypeForSqlite(elem, stereotype_name, 'dataType'),
 notNull,size,unique,defaultValue,checkCondition)/]
 
 [query public
-getJavaCursorDescription(elem: Element, stereotype_name : String, counter : Integer) : String = getCursorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), counter)/]
+getJavaConstructorDescription(elem: Element, stereotype_name : String, value : String) : String = getConstructorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), value)/]
+
+[query public
+getCSharpConstructorDescription(elem: Element, stereotype_name : String, value : String) : String = getConstructorDescription(getMatchedTypeForCSharp(elem, stereotype_name, 'dataType'), value)/]
 
 [query public
 getJavaKVConstructorDescription(elem: Element, stereotype_name : String, propertyName : String) : String = getKVConstructorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), propertyName)/]

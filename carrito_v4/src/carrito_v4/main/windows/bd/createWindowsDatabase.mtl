@@ -1,0 +1,240 @@
+[comment encoding = UTF-8 /]
+[module createWindowsDatabase('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment Se importa el mtl de services para poder utilizar las funciones definidas/]
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public createDatabaseWindows(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+[file ('windows/App.xaml.cs', false)]
+//[protected ('imports')]
+
+using [model.name.toUpperFirst()/].Common;
+using System;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+namespace [model.name.toUpperFirst()/]
+{
+
+    public sealed partial class App : Application
+    {
+        private TransitionCollection transitions;
+
+        public App()
+        {
+            this.InitializeComponent();
+            this.Suspending += this.OnSuspending;
+		[for (aPackage : Package | aPackages)]
+			[aPackage.name/]
+			[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'Database'))]
+			//Creating and initializing the DB
+			MySQLiteHelper.Createdatabase();
+			[createWindowsDatabaseHelper(aPackage, model.name)/]
+			[/if]
+		[/for]	    
+        }
+
+
+        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+#if DEBUG
+            if (System.Diagnostics.Debugger.IsAttached)
+            {
+                this.DebugSettings.EnableFrameRateCounter = true;
+            }
+#endif
+
+            Frame rootFrame = Window.Current.Content as Frame;
+
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
+            if (rootFrame == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                rootFrame = new Frame();
+
+                // TODO: change this value to a cache size that is appropriate for your application
+                rootFrame.CacheSize = 1;
+
+                // Set the default language
+                rootFrame.Language = Windows.Globalization.ApplicationLanguages.Languages['['/]0[']'/];
+
+                if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                {
+                    // TODO: Load state from previously suspended application
+                }
+
+                // Place the frame in the current Window
+                Window.Current.Content = rootFrame;
+            }
+
+            if (rootFrame.Content == null)
+            {
+                // Removes the turnstile navigation for startup.
+                if (rootFrame.ContentTransitions != null)
+                {
+                    this.transitions = new TransitionCollection();
+                    foreach (var c in rootFrame.ContentTransitions)
+                    {
+                        this.transitions.Add(c);
+                    }
+                }
+
+                rootFrame.ContentTransitions = null;
+                rootFrame.Navigated += this.RootFrame_FirstNavigated;
+
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation
+                // parameter
+                if (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                {
+                    throw new Exception("Failed to create initial page");
+                }
+            }
+
+            // Ensure the current window is active
+            Window.Current.Activate();
+        }
+
+        /// <summary>
+        /// Restores the content transitions after the app has launched.
+        /// </summary>
+        /// <param name="sender">The object where the handler is attached.</param>
+        /// <param name="e">Details about the navigation event.</param>
+        private void RootFrame_FirstNavigated(object sender, NavigationEventArgs e)
+        {
+            var rootFrame = sender as Frame;
+            rootFrame.ContentTransitions = this.transitions ?? new TransitionCollection() { new NavigationThemeTransition() };
+            rootFrame.Navigated -= this.RootFrame_FirstNavigated;
+        }
+
+        /// <summary>
+        /// Invoked when application execution is being suspended.  Application state is saved
+        /// without knowing whether the application will be terminated or resumed with the contents
+        /// of memory still intact.
+        /// </summary>
+        /// <param name="sender">The source of the suspend request.</param>
+        /// <param name="e">Details about the suspend request.</param>
+        private void OnSuspending(object sender, SuspendingEventArgs e)
+        {
+            var deferral = e.SuspendingOperation.GetDeferral();
+
+            // TODO: Save application state and stop any background activity
+            deferral.Complete();
+        }
+
+
+        protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
+        {
+            Frame frame = Window.Current.Content as Frame;
+
+            if (frame == null)
+            {
+                frame = new Frame();
+                Window.Current.Content = frame;
+            }
+
+            if (frame.Content == null)
+                frame.Navigate(typeof(ShareTargetPage), args.ShareOperation);
+
+            Window.Current.Activate();
+        }
+    }
+}
+[/file]
+[/let]
+[/template]
+
+[template public createWindowsDatabaseHelper(aPackage : Package, modelName : String)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[file ('windows/Common/MySQLiteHelper.cs', false)]
+//[protected ('imports')]
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Windows.Storage;
+//[/protected]
+
+namespace [modelName.toUpperFirst()/].Common
+{
+    class MySQLiteHelper
+    {
+        //Database name
+        public static string DbName = "[aPackage.name.toLowerFirst()/].sqlite";
+
+        //Full Database Path
+        public static string DbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
+
+        public async static Task<bool> Createdatabase()
+        {
+            var result = await Checkdatabase();
+            if (!result)
+            {
+                //Creating a database
+                var connection = new SQLite.SQLiteConnection(DbPath);
+                {
+                    //Creating a table
+                    connection.RunInTransaction(() =>
+                    {
+					[for (aClass : Class | aClasses)]		
+					[if (aClass.hasStereotype('persistentEntity'))]
+					[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+					connection.CreateTable<Model.[aClass.name.toUpperFirst()/]>();
+					[/if]
+					[/if]		
+					[/for]
+                    });
+                }
+
+                connection.Close();
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public static async Task<bool> Checkdatabase()
+        {
+            var dbexist = true;
+            try
+            {
+                var storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(DbName);
+                if (storageFile == null) dbexist = false;
+            }
+            catch (Exception ex)
+            {
+                dbexist = false;
+            }
+            return dbexist;
+        }
+
+
+        public static async Task<bool> DeleteDatabase()
+        {
+            try
+            {
+                var storageFile = await StorageFile.GetFileFromPathAsync(DbPath);
+                await storageFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                return true;
+            }
+            catch (Exception ex)
+            {
+            }
+            return false;
+        }
+
+    }
+}
+
+[/file]
+[/let]
+[/template]

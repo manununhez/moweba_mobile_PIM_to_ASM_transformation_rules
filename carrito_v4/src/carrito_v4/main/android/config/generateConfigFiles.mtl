@@ -5,21 +5,36 @@
 [import common::utils_gen/]
 
 
-[template public generateConfigFiles(aPackage : Package)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-[file ('AndroidManifest.xml', false)]
+[template public generateConfigFiles(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+
+[file ('android/AndroidManifest.xml', false)]
 [comment]	PERMISOS[/comment]
-[if (aPackage.hasStereotype('DataPersistence'))]
-		[for (aClass : Class | aClasses)]		
-		[if (aClass.hasStereotype('persistentEntity'))]
-		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+	[if (aPackage.hasStereotype('DataPersistence'))]
+	[for (aClass : Class | aClasses)]		
+	[if (aClass.hasStereotype('persistentEntity'))]
+	[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 	<!-- External storage for files. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-		[/if]
+	[/if]
+	[/if]		
+	[/for]
+	[/if]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('WebInterface'))]
+ 	<!-- Para retrofit -->
+    <uses-permission android:name="android.permission.INTERNET" />
 		[/if]		
 		[/for]
-		[/if]
+	[/if]
+[/let]
+[/for]
 
    <application
         android:allowBackup="true"
@@ -35,6 +50,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 		[if (aPackage.hasStereotype('DataPersistence'))]
 		[for (aClass : Class | aClasses)]		
 		[if (aClass.hasStereotype('persistentEntity'))]
@@ -47,6 +64,17 @@
 		[/if]		
 		[/for]
 		[/if]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+	[for (aClass : Class | aClasses) separator('\n')]
+	[if (aClass.hasStereotype('WebInterface'))]
+		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
+		
+	[/if]
+	[/for]
+	[/if]
+[/let]
+[/for]
     </application>
 [/file]
 [/let]

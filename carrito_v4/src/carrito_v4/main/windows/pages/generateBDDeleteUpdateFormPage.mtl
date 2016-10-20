@@ -1,0 +1,100 @@
+[comment encoding = UTF-8 /]
+[module generateBDDeleteUpdateFormPage('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateBDDeleteUpdateFormPage(aClass : Class, modelName : String)]
+[if (aClass.hasStereotype('persistentEntity'))]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormDeleteUpdate','.xaml.cs'), false)]
+
+//[protected ('imports')]
+using [modelName/].Common;
+using [modelName/].Model;
+using [modelName/].ViewModels;
+using System;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+
+namespace [modelName/].Views
+{
+
+    public sealed partial class [aClass.name.toUpperFirst()/]FormDeleteUpdate : Page
+    {
+        private NavigationHelper navigationHelper;
+        private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO();
+        private [aClass.name.toUpperFirst()/] selected[aClass.name.toUpperFirst()/];
+
+        public [aClass.name.toUpperFirst()/]FormDeleteUpdate()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+            if (e != null)
+            {
+                selected[aClass.name.toUpperFirst()/] = e.Parameter as [aClass.name.toUpperFirst()/];
+			[for (p : Property | persistentEntityProperties)]
+				[if(p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType') <> 'string')]
+				[p.name.toLowerFirst()/]Tbx.Text = Convert.ToString(selected[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/]);
+				[else]
+				[p.name.toLowerFirst()/]Tbx.Text = selected[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/];
+				[/if]
+			[/for]
+            }
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+        private void btnDelete_click(object sender, RoutedEventArgs e)
+        {
+            [aClass.name.toLowerFirst()/]DAO.Delete[aClass.name.toUpperFirst()/](selected[aClass.name.toUpperFirst()/].Id);//Delete selected DB contact Id. 
+            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+        }
+
+        private void btnUpdate_click(object sender, RoutedEventArgs e)
+        {
+            Product current[aClass.name.toUpperFirst()/] = new [aClass.name.toUpperFirst()/]();
+			[for (p : Property | persistentEntityProperties) separator (', ')]
+			current[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/] = [p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/]
+			[/for]
+
+			[aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/](current[aClass.name.toUpperFirst()/]);//Update selected DB current [aClass.name.toLowerFirst()/]
+            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+        }
+    }
+}
+[/file]
+[/let]
+[/if]
+[/if]
+[/template]

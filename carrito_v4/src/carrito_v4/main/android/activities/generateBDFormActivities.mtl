@@ -10,7 +10,7 @@
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('activities/', aClass, 'FormActivity','.java'), false)]
+[file (aClass.classFileName('android/activities/', aClass, 'FormActivity','.java'), false)]
 
 //[protected ('imports')]
 import android.app.Activity;

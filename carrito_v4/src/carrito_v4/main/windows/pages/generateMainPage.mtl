@@ -1,0 +1,71 @@
+[comment encoding = UTF-8 /]
+[module generateMainPage('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateMainPage(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+
+[file ('windows/MainActivity.xaml.cs', false)]
+
+//[protected ('imports')]
+using [model.name/].Views;
+using [model.name/].Views.Rest;
+using [model.name/].Views.Sensors;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+namespace [model.name/]
+{
+    public sealed partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            this.InitializeComponent();
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // TODO: Prepare page for display here.
+        }
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+	[if (aPackage.hasStereotype('DataPersistence'))]
+	[for (aClass : Class | aClasses) separator('\n')]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database') 
+				or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') 
+				or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+		private void btn[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+        }
+			[/if]
+		[/if]		
+	[/for]
+	[/if]
+	
+	[if (aPackage.hasStereotype('DataProvider'))]
+	[for (aClass : Class | aClasses) separator('\n')]
+	[if (aClass.hasStereotype('WebInterface'))]
+		private void btn[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+        }
+		[/if]
+	[/for]
+	[/if]
+[/let]
+[/for]
+    }
+}
+
+[/file]
+
+[/let]
+[/template]

@@ -1,0 +1,78 @@
+[comment encoding = UTF-8 /]
+[module generateRestActivities('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateRestActivities(aClass : Class)]
+[if (aClass.hasStereotype('WebInterface'))]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+
+[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
+
+//[protected ('imports')]
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+//[/protected]
+
+public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
+    private TextView tvResults;
+    private ApiInterface apiService;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_rest);
+
+        tvResults = (TextView) findViewById(R.id.tvResults);
+        apiService = ApiClient.getClient().create(ApiInterface.class);
+
+		[for (o : Operation | webServiceOperations)separator('\n')]
+		Button btn[o.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[o.name.toUpperFirst()/]);
+
+        btn[o.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                [o.name.toLowerFirst()/]();
+            }
+        });
+		[/for]
+        
+
+    }
+
+	[for (o : Operation | webServiceOperations)separator('\n')]
+	private void [o.name.toLowerFirst()/]() {
+        Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call = apiService.[o.name.toLowerFirst()/]();
+        call.enqueue(new Callback<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>() {
+            @Override
+            public void onResponse(Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call, Response<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> response) {
+                //TODO do something
+            }
+
+            @Override
+            public void onFailure(Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call, Throwable t) {
+                // Log error here since request failed
+                Log.e("Rest", t.toString());
+				//TODO do something
+            }
+        });
+	}
+	[/for]
+    
+}
+
+[/file]
+[/let]
+[/if]
+[/template]

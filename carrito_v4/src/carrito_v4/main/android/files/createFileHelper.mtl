@@ -3,7 +3,7 @@
 
 
 [template public createFileHelper(aPackage : Package)]
-[file ('file/MyFileHelper.java', false)]
+[file ('android/file/MyFileHelper.java', false)]
 //[protected ('imports')]
 import android.text.TextUtils;
 
