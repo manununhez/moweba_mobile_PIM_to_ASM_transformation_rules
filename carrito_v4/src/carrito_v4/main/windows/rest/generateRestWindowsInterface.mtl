@@ -1,0 +1,49 @@
+[comment encoding = UTF-8 /]
+[module generateRestWindowsInterface('http://www.eclipse.org/uml2/5.0.0/UML')]
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateRestWindowsInterface(aClass : Class, modelName : String)]
+[file ('windows/Common/ApiInterface.cs', false)]
+[if (aClass.hasStereotype('WebInterface'))]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+
+//[protected ('imports')]
+using Kulman.WPA81.BaseRestService.Services.Abstract;
+using ShoppingCartApp.Model;
+using System.Threading.Tasks;
+//[/protected]
+
+
+namespace [modelName/].Common
+{
+    class ApiInterface : BaseRestService
+    {
+        protected override string GetBaseUrl()
+        {
+            return "[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'protocol') /]://[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'domain') /]";
+        }
+
+		[comment]Solo limitamos a un parametro que venga. Si es Get o Delete, no se le pasa ningun parametro. En los otros, sí se le pasa el primer parametro[/comment]
+		[for (o : Operation | webServiceOperations)separator('\n')]
+		 public Task<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> [o.name.toLowerFirst()/]([for (p: Parameter | o.ownedParameter->select(p | p.name<>''))][if (i=1)] [p.type.name/] [p.name.toLowerFirst()/][/if][/for])  
+        {
+            [if(o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'GET')]
+			return Get<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]");
+        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'DELETE')]
+			return Delete<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]");
+        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'POST')]
+			return Post<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'PUT')]
+			return Put<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'PATCH')]
+			return Patch<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+			[/if]
+		}
+		[/for] 
+    }
+}
+[/let]
+[/if]
+[/file]
+[/template]

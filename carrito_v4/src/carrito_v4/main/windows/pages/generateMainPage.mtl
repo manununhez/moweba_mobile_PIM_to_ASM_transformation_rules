@@ -7,7 +7,7 @@
 [template public generateMainPage(model : Model)]
 [let aPackages: Sequence(Package) = model.eAllContents(Package) ]
 
-[file ('windows/MainActivity.xaml.cs', false)]
+[file ('windows/MainPage.xaml.cs', false)]
 
 //[protected ('imports')]
 using [model.name/].Views;

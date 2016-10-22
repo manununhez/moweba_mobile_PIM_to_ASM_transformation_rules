@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -107,6 +108,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar login()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -124,6 +127,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar logout()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -141,6 +146,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar getAllProducts()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -158,6 +165,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar getProduct()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -175,6 +184,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<Provider>> call, Response<List<Provider>> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar getAllProviders()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -192,6 +203,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Provider> call, Response<Provider> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar getProvider()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -209,6 +222,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar confirmCart()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -226,6 +241,8 @@ public class RestInterfaceActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<List<ShoppingCart>> call, Response<List<ShoppingCart>> response) {
                 //TODO do something
+                Toast.makeText(RestInterfaceActivity.this, "Completar getUserCart()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override

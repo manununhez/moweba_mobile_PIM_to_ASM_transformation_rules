@@ -20,14 +20,14 @@ public interface ApiInterface {
 	@GET("products")
 	Call<List<Product>> getAllProducts();
 
-	@GET("products/{id}")
-	Call<Product> getProduct( Integer id );
+	@GET("products")
+	Call<Product> getProduct();
 
 	@GET("provider")
 	Call<List<Provider>> getAllProviders();
 
-	@GET("provider/{id}")
-	Call<Provider> getProvider( Integer id );
+	@GET("provider")
+	Call<Provider> getProvider();
 
 	@POST("cart/confirm")
 	Call<Boolean> confirmCart( Product products );

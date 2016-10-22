@@ -29,18 +29,18 @@
 [import carrito_v4::main::android::activities::generateFileActivities/]
 [import carrito_v4::main::android::activities::generateKVActivities/]
 [import carrito_v4::main::android::activities::generateRestActivities/]
-
 [import carrito_v4::main::android::activities::generateBDFormActivities/]
 [import carrito_v4::main::android::activities::generateKVFormActivities/]
+[import carrito_v4::main::android::activities::generateSensorActivities/]
 
 [import carrito_v4::main::android::activities::layout::generateRestActivitiesLayout/]
 [import carrito_v4::main::android::activities::layout::generateMainActivityLayout/]
 [import carrito_v4::main::android::activities::layout::generateBDActivitiesLayout/]
 [import carrito_v4::main::android::activities::layout::generateFileActivitiesLayout/]
 [import carrito_v4::main::android::activities::layout::generateKVActivitiesLayout/]
-
 [import carrito_v4::main::android::activities::layout::generateBDFormActivitiesLayout/]
 [import carrito_v4::main::android::activities::layout::generateKVFormActivitiesLayout/]
+[import carrito_v4::main::android::activities::layout::generateSensorActivitiesLayout/]
 
 [import carrito_v4::main::windows::pages::generateMainPage/]
 [import carrito_v4::main::windows::pages::generateBDPages/]
@@ -48,6 +48,8 @@
 [import carrito_v4::main::windows::pages::generateBDDeleteUpdateFormPage/]
 [import carrito_v4::main::windows::pages::generateFilePages/]
 [import carrito_v4::main::windows::pages::generateKVPages/]
+[import carrito_v4::main::windows::pages::generateRestPages/]
+[import carrito_v4::main::windows::pages::generateSensorsPages/]
 
 [import carrito_v4::main::windows::pages::layout::generateBDDeleteUpdateFormPageLayout/]
 [import carrito_v4::main::windows::pages::layout::generateBDCreateFormPageLayout/]
@@ -55,6 +57,8 @@
 [import carrito_v4::main::windows::pages::layout::generateMainPageLayout/]
 [import carrito_v4::main::windows::pages::layout::generateFilePagesLayout/]
 [import carrito_v4::main::windows::pages::layout::generateKVPagesLayout/]
+[import carrito_v4::main::windows::pages::layout::generateRestPagesLayout/]
+[import carrito_v4::main::windows::pages::layout::generateSensorsPagesLayout/]
 
 [import carrito_v4::main::windows::beans::beansGenWindows/]
 
@@ -64,6 +68,8 @@
 [import carrito_v4::main::windows::files::createFileHelperWindows/]
 
 [import carrito_v4::main::windows::keyvalue::createSharedHelperWindows/]
+
+[import carrito_v4::main::windows::rest::generateRestWindowsInterface/]
 
 [import services::uml2services/]
 [import common::utils_gen/]
@@ -105,11 +111,13 @@
 	[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses)]
 			[if (aClass.hasStereotype('WebInterface'))]
-				[generateRestInterface(aClass)/]
-				[generateRestClient(aClass)/]
-	
-				[generateRestActivities(aClass)/]
-				[generateRestActivitiesLayout(aClass)/]
+				[generateRestAndroid(aClass)/]
+				[generateRestWindows(aClass, model.name)/]
+			[/if]
+			
+			[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+				[generateSensorsAndroid(aClass)/]
+				[generateSensorsWindows(aClass, model.name)/]
 			[/if]
 		[/for]
 	[/if]
@@ -118,6 +126,44 @@
 [/let]
 [/template]
 
+
+
+[template public generateSensorsAndroid(aClass : Class)]
+	[comment]Sensors Utils[/comment]
+	[generateGPSClass(aClass)/]
+	[generateAudioActivity(aClass)/]
+	[generateAudioActivityLayout(aClass)/]
+	[generateCameraActivity(aClass)/]
+	[generateCameraActivityLayout(aClass)/]
+
+	[generateSensorActivities(aClass)/]
+	[generateSensorActivitiesLayout(aClass)/]
+[/template]
+
+[template public generateSensorsWindows(aClass : Class, modelName : String)]
+	[comment]Sensors Utils[/comment]
+	[generateCameraPages(aClass, modelName)/]
+	[generateCameraPagesLayout(aClass, modelName)/]
+	[generateAudioRecordPages(aClass, modelName)/]
+	[generateAudioRecordPagesLayout(aClass, modelName)/]
+
+	[generateSensorsPages(aClass, modelName)/]
+	[generateSensorsPagesLayout(aClass, modelName)/]
+[/template]
+
+[template public generateRestAndroid(aClass : Class)]
+	[generateRestInterface(aClass)/]
+	[generateRestClient(aClass)/]
+	
+	[generateRestActivities(aClass)/]
+	[generateRestActivitiesLayout(aClass)/]
+[/template]
+
+[template public generateRestWindows(aClass : Class, modelName : String)]
+	[generateRestWindowsInterface(aClass, modelName)/]
+	[generateRestPages(aClass, modelName)/]
+	[generateRestPagesLayout(aClass, modelName)/]
+[/template]
 
 [comment]*****************************************[/comment]
 [template public generateGeneralAndroidClasses(model : Model)]

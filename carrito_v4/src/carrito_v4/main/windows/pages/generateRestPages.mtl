@@ -1,0 +1,92 @@
+[comment encoding = UTF-8 /]
+[module generateRestPages('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateRestPages(aClass : Class, modelName : String)]
+[if (aClass.hasStereotype('WebInterface'))]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
+
+//[protected ('imports')]
+using Kulman.WPA81.BaseRestService.Services.Exceptions;
+using [modelName/].Common;
+using [modelName/].Model;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+
+
+namespace [modelName/].Views
+{
+
+    public sealed partial class [aClass.name.toUpperFirst()/]View : Page
+    {
+        private NavigationHelper navigationHelper;
+        private ApiInterface apiInterface = new ApiInterface();
+
+        public [aClass.name.toUpperFirst()/]View()
+        {
+            this.InitializeComponent();
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+		[for (o : Operation | webServiceOperations)separator('\n')]
+        private void btn[o.name.toUpperFirst()/]_Click(object sender, RoutedEventArgs e)
+        {
+            [o.name.toLowerFirst()/]();          
+        }
+
+        private async void [o.name.toLowerFirst()/]() {
+            try
+            {
+				[comment]instancia de los servicios. Se limita a un solo parametro de entrada[/comment]
+                [if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if] data = await apiInterface.[o.name.toLowerFirst()/]([for(p: Parameter | o.ownedParameter->select(p | p.name<>''))][if (i=1)] [p.type.name/] [p.name.toLowerFirst()/][/if][/for]);
+				/*
+				*	TODO completar
+				*/
+                [o.name.toLowerFirst()/]Tbx.Text = data.ToString();
+            }
+            catch (DeserializationException d)
+            {
+                System.Diagnostics.Debug.WriteLine(d.ToString());
+            }
+        }
+		[/for]
+
+    }
+
+}
+[/file]
+[/let]
+[/if]
+[/template]

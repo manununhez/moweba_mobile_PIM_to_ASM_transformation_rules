@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -58,6 +59,8 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             @Override
             public void onResponse(Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call, Response<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> response) {
                 //TODO do something
+                Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Completar [o.name.toLowerFirst()/]()", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override

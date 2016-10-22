@@ -1,0 +1,884 @@
+[comment encoding = UTF-8 /]
+[module generateSensorActivities('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateSensorActivities(aClass : Class)]
+[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+
+[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
+
+//[protected ('imports')]
+import android.content.Context;
+import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.location.Location;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+//[/protected]
+
+public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
+    private SensorManager mSensorManager;
+
+	[for (p : Property | persistentEntityProperties)]
+	[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Microphone')]
+	private Button btn[p.name.toUpperFirst()/];
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+	private Sensor m[p.name.toUpperFirst()/]Accelerometer;
+    private TextView tvData[p.name.toUpperFirst()/]Accelerometer;
+    private TextView tvTest[p.name.toUpperFirst()/]Accelerometer;
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+	private Sensor m[p.name.toUpperFirst()/]Light;
+    private TextView tvData[p.name.toUpperFirst()/]Light;
+    private TextView tvTest[p.name.toUpperFirst()/]Light;
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+	private Sensor m[p.name.toUpperFirst()/]Gyroscope;
+    private TextView tvData[p.name.toUpperFirst()/]Gyroscope;
+    private TextView tvTest[p.name.toUpperFirst()/]Gyroscope;
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+	private Sensor m[p.name.toUpperFirst()/]MagneticField;
+    private TextView tvData[p.name.toUpperFirst()/]MagneticField;
+    private TextView tvTest[p.name.toUpperFirst()/]MagneticField;
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Camera')]
+	private Button btn[p.name.toUpperFirst()/];
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'GPS')]
+    private Location location;
+    private TextView tvData[p.name.toUpperFirst()/]GPS;
+    private Button btn[p.name.toUpperFirst()/];
+	[/if]	
+	[/for]
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_[aClass.name.toLowerCase()/]);
+
+        // Get an instance of the sensor service, and use that to get an instance of a particular sensor.
+        mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+	[for (p : Property | persistentEntityProperties)]
+		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Microphone')]
+		//Mic
+        btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
+        btn[p.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent([aClass.name.toUpperFirst()/]Activity.this, AudioRecordActivity.class));
+            }
+        });
+
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+		//Accelerometer
+        tvData[p.name.toUpperFirst()/]Accelerometer = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]Accelerometer);
+        tvTest[p.name.toUpperFirst()/]Accelerometer = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]Accelerometer);
+        m[p.name.toUpperFirst()/]Accelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        if (m[p.name.toUpperFirst()/]Accelerometer != null) {
+            //Success! There's a ACCELEROMETER sensor.
+            tvTest[p.name.toUpperFirst()/]Accelerometer.setText("Success! There's a accelerometer sensor, and it is ready to use");
+        } else {
+            //Failure! No ACCELEROMETER sensor.
+            tvTest[p.name.toUpperFirst()/]Accelerometer.setText("Failure! No accelerometer sensor.");
+        }
+
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+		//Ambient_Light
+        tvData[p.name.toUpperFirst()/]Light = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]Light);
+        tvTest[p.name.toUpperFirst()/]Light = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]Light);
+        m[p.name.toUpperFirst()/]Light = mSensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+        if (m[p.name.toUpperFirst()/]Light != null) {
+            //Success! There's a LIGHT sensor.
+            tvTest[p.name.toUpperFirst()/]Light.setText("Success! There's a light sensor, and it is ready to use");
+        } else {
+            //Failure! No LIGHT sensor.
+            tvTest[p.name.toUpperFirst()/]Light.setText("Failure! No light sensor.");
+        }
+
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+		//Gyroscope
+        tvData[p.name.toUpperFirst()/]Gyroscope = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]Gyroscope);
+        tvTest[p.name.toUpperFirst()/]Gyroscope = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]Gyroscope);
+        m[p.name.toUpperFirst()/]Gyroscope = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE);
+        if (m[p.name.toUpperFirst()/]Gyroscope != null) {
+            //Success! There's a GYROSCOPE sensor.
+            tvTest[p.name.toUpperFirst()/]Gyroscope.setText("Success! There's a gyroscope sensor, and it is ready to use");
+        } else {
+            //Failure! No GYROSCOPE sensor.
+            tvTest[p.name.toUpperFirst()/]Gyroscope.setText("Failure! No gyroscope sensor.");
+        }
+
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+		//Compass
+        tvData[p.name.toUpperFirst()/]MagneticField = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]MagneticField);
+        tvTest[p.name.toUpperFirst()/]MagneticField = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]MagneticField);
+        m[p.name.toUpperFirst()/]MagneticField = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        if (m[p.name.toUpperFirst()/]MagneticField != null) {
+            //Success! There's a MAGNETIC_FIELD sensor.
+            tvTest[p.name.toUpperFirst()/]MagneticField.setText("Success! There's a magneticField sensor, and it is ready to use");
+        } else {
+            //Failure! No MAGNETIC_FIELD sensor.
+            tvTest[p.name.toUpperFirst()/]MagneticField.setText("Failure! No magneticField sensor.");
+        }
+
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Camera')]
+		//Camara
+        btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
+        btn[p.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent([aClass.name.toUpperFirst()/]Activity.this, CameraActivity.class));
+            }
+        });
+
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'GPS')]
+        //GPS
+        btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
+        tvData[p.name.toUpperFirst()/]GPS = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]GPS);
+        btn[p.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String locationText = "Latitude:" + String.valueOf(location.getLatitude()) + " Longitude:" + String.valueOf(location.getLongitude());
+                tvData[p.name.toUpperFirst()/]GPS.setText(locationText);
+            }
+        });
+
+        getLocation();
+
+		[/if]		
+	[/for]
+
+
+    @Override
+    protected void onResume() {
+        // Register a listener for the sensor.
+        super.onResume();
+	[for (p : Property | persistentEntityProperties)]
+		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+		mSensorManager.registerListener(m[p.name.toUpperFirst()/]AccelerometerListener, m[p.name.toUpperFirst()/]Accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+		mSensorManager.registerListener(m[p.name.toUpperFirst()/]LightSensorListener, m[p.name.toUpperFirst()/]Light, SensorManager.SENSOR_DELAY_NORMAL);
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+		mSensorManager.registerListener(m[p.name.toUpperFirst()/]GyroscopeListener, m[p.name.toUpperFirst()/]Gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+		mSensorManager.registerListener(m[p.name.toUpperFirst()/]MagneticFieldSensorListener, m[p.name.toUpperFirst()/]MagneticField, SensorManager.SENSOR_DELAY_NORMAL);
+		[/if]	
+	[/for]
+        
+    }
+
+    @Override
+    protected void onPause() {
+        // Be sure to unregister the sensor when the activity pauses.
+        super.onPause();
+	[for (p : Property | persistentEntityProperties)]
+		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]AccelerometerListener);
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]LightSensorListener);
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]GyroscopeListener);
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]MagneticFieldSensorListener);
+		[/if]	
+	[/for]
+
+    }
+
+	[for (p : Property | persistentEntityProperties)]
+		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+		private SensorEventListener m[p.name.toUpperFirst()/]AccelerometerListener = new SensorEventListener() {
+	        @Override
+	        public void onSensorChanged(SensorEvent event) {
+	            // Do something with this sensor data.
+	            String text = "values['['/]0[']'/] :" + event.values['['/]0[']'/] + "\nvalues['['/]1[']'/] :" + event.values['['/]1[']'/] + "\nvalues['['/]2[']'/] :" + event.values['['/]2[']'/];
+	            tvData[p.name.toUpperFirst()/]Accelerometer.setText(text);
+	
+	        }
+	
+	        @Override
+	        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+	            // Do something here if sensor accuracy changes.
+	            String text = tvTest[p.name.toUpperFirst()/]Accelerometer.getText().toString();
+	            text += "\n" + "Accuracy: " + sensor.toString() + " - " + accuracy;
+	            tvTest[p.name.toUpperFirst()/]Accelerometer.setText(text);
+	        }
+    	};
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+			private SensorEventListener m[p.name.toUpperFirst()/]LightSensorListener = new SensorEventListener() {
+			        @Override
+			        public void onSensorChanged(SensorEvent event) {
+			            // Do something with this sensor data.
+				        String text = "values['['/]0[']'/] :" + event.values['['/]0[']'/] + "\nvalues['['/]1[']'/] :" + event.values['['/]1[']'/] + "\nvalues['['/]2[']'/] :" + event.values['['/]2[']'/];
+			            tvData[p.name.toUpperFirst()/]Light.setText(text);
+			        }
+			
+			        @Override
+			        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+			            // Do something here if sensor accuracy changes.
+			            String text = tvTest[p.name.toUpperFirst()/]Light.getText().toString();
+			            text += "\n" + "Accuracy: " + sensor.toString() + " - " + accuracy;
+			            tvTest[p.name.toUpperFirst()/]Light.setText(text);
+			        }
+			    };
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+			private SensorEventListener m[p.name.toUpperFirst()/]GyroscopeListener = new SensorEventListener() {
+		        @Override
+		        public void onSensorChanged(SensorEvent event) {
+		            // Do something with this sensor data.
+		            String text = "values['['/]0[']'/] :" + event.values['['/]0[']'/] + "\nvalues['['/]1[']'/] :" + event.values['['/]1[']'/] + "\nvalues['['/]2[']'/] :" + event.values['['/]2[']'/];
+		            tvData[p.name.toUpperFirst()/]Gyroscope.setText(text);
+		
+		        }
+		
+		        @Override
+		        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		            // Do something here if sensor accuracy changes.
+		            String text = tvTest[p.name.toUpperFirst()/]Gyroscope.getText().toString();
+		            text += "\n" + "Accuracy: " + sensor.toString() + " - " + accuracy;
+		            tvTest[p.name.toUpperFirst()/]Gyroscope.setText(text);
+		        }
+	    	};
+		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+			private SensorEventListener m[p.name.toUpperFirst()/]MagneticFieldSensorListener = new SensorEventListener() {
+		        @Override
+		        public void onSensorChanged(SensorEvent event) {
+		            // Do something with this sensor data.
+			         String text = "values['['/]0[']'/] :" + event.values['['/]0[']'/] + "\nvalues['['/]1[']'/] :" + event.values['['/]1[']'/] + "\nvalues['['/]2[']'/] :" + event.values['['/]2[']'/];
+		            tvData[p.name.toUpperFirst()/]MagneticField.setText(text);
+		        }
+		
+		        @Override
+		        public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		            // Do something here if sensor accuracy changes.
+		            String text = tvTest[p.name.toUpperFirst()/]MagneticField.getText().toString();
+		            text += "\n" + "Accuracy: " + sensor.toString() + " - " + accuracy;
+		            tvTest[p.name.toUpperFirst()/]MagneticField.setText(text);
+		        }
+	    	};
+		[/if]	
+	[/for]
+
+    
+		public void getLocation() {
+		        GPSTracker gps = new GPSTracker([aClass.name.toUpperFirst()/]Activity.this);
+		        if (gps.canGetLocation()) {
+		            location = gps.getLocation();
+		
+		        } else {
+		            // can't get location
+		            // GPS or Network is not enabled
+		            Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Turn on your GPS", Toast.LENGTH_SHORT).show();
+		        }
+		    }
+		}
+
+[/file]
+[/let]
+[/if]
+[/template]
+
+[template public generateGPSClass(aClass : Class)]
+[file ('android/activities/GPSTracker.java', false)]
+//[protected ('imports')]
+import android.Manifest;
+import android.app.Service;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.util.Log;
+//[/protected]
+
+public class GPSTracker extends Service implements LocationListener {
+
+    private final Context mContext;
+
+    // flag for GPS status
+    boolean isGPSEnabled = false;
+
+    // flag for network status
+    boolean isNetworkEnabled = false;
+
+    // flag for GPS status
+    boolean canGetLocation = false;
+
+    Location location; // location
+    double latitude; // latitude
+    double longitude; // longitude
+
+    // The minimum distance to change Updates in meters
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
+
+    // The minimum time between updates in milliseconds
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 10 * 1; // 1 minute
+
+    // Declaring a Location Manager
+    protected LocationManager locationManager;
+
+    public GPSTracker(Context context) {
+        this.mContext = context;
+        this.location = getLocation();
+    }
+
+    public Location getLocation() {
+        try {
+            locationManager = (LocationManager) mContext
+                    .getSystemService(LOCATION_SERVICE);
+
+            // getting GPS status
+            isGPSEnabled = locationManager
+                    .isProviderEnabled(LocationManager.GPS_PROVIDER);
+
+            // getting network status
+            isNetworkEnabled = locationManager
+                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+
+            if (!isGPSEnabled && !isNetworkEnabled) {
+                // no network provider is enabled
+            } else {
+                this.canGetLocation = true;
+                // First get location from Network Provider
+                if (isNetworkEnabled) {
+                    locationManager.requestLocationUpdates(
+                            LocationManager.NETWORK_PROVIDER,
+                            MIN_TIME_BW_UPDATES,
+                            MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                    Log.d("Network", "Network");
+                    if (locationManager != null) {
+                        location = locationManager
+                                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+                        if (location != null) {
+                            latitude = location.getLatitude();
+                            longitude = location.getLongitude();
+                        }
+                    }
+                }
+                // if GPS Enabled get lat/long using GPS Services
+                if (isGPSEnabled) {
+                    if (location == null) {
+                        locationManager.requestLocationUpdates(
+                                LocationManager.GPS_PROVIDER,
+                                MIN_TIME_BW_UPDATES,
+                                MIN_DISTANCE_CHANGE_FOR_UPDATES, this);
+                        Log.d("GPS Enabled", "GPS Enabled");
+                        if (locationManager != null) {
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                                    // TODO: Consider calling
+                                    //    public void requestPermissions(@NonNull String['['/][']'/] permissions, int requestCode)
+                                    // here to request the missing permissions, and then overriding
+                                    //   public void onRequestPermissionsResult(int requestCode, String['['/][']'/] permissions,
+                                    //                                          int['['/][']'/] grantResults)
+                                    // to handle the case where the user grants the permission. See the documentation
+                                    // for Activity#requestPermissions for more details.
+                                    return null;
+                                }
+                            }
+                            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                            if (location != null) {
+                                latitude = location.getLatitude();
+                                longitude = location.getLongitude();
+                            }
+                        }
+                    }
+                }
+
+                stopUsingGPS();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return location;
+    }
+
+    /**
+     * Stop using GPS listener
+     * Calling this function will stop using GPS in your app
+     * */
+    public void stopUsingGPS(){
+        if(locationManager != null){
+            locationManager.removeUpdates(GPSTracker.this);
+        }
+    }
+
+    /**
+     * Function to get latitude
+     * */
+    public double getLatitude(){
+        if(location != null){
+            latitude = location.getLatitude();
+        }
+
+        // return latitude
+        return latitude;
+    }
+
+    /**
+     * Function to get longitude
+     * */
+    public double getLongitude(){
+        if(location != null){
+            longitude = location.getLongitude();
+        }
+
+        // return longitude
+        return longitude;
+    }
+
+
+    /**
+     * Function to check GPS/wifi enabled
+     * @return boolean
+     * */
+    public boolean canGetLocation() {
+        return this.canGetLocation;
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+    }
+
+    @Override
+    public void onProviderDisabled(String provider) {
+    }
+
+    @Override
+    public void onProviderEnabled(String provider) {
+    }
+
+    @Override
+    public void onStatusChanged(String provider, int status, Bundle extras) {
+    }
+
+    @Override
+    public IBinder onBind(Intent arg0) {
+        return null;
+    }
+
+}
+[/file]
+[/template]
+
+[template public generateAudioActivity(aClass : Class)]
+[file ('android/activities/AudioRecordActivity.java', false)]
+//[protected ('imports')]
+import android.media.MediaPlayer;
+import android.media.MediaRecorder;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.IOException;
+//[/protected]
+
+public class AudioRecordActivity extends AppCompatActivity {
+
+    private MediaRecorder myRecorder;
+    private MediaPlayer myPlayer;
+    private String outputFile = null;
+    private Button startBtn;
+    private Button stopBtn;
+    private Button playBtn;
+    private Button stopPlayBtn;
+    private TextView text;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_audio_record);
+
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
+        String date = dateFormat.format(new Date());
+       	String audioRecordFile = "AudioRecord_" + date + ".3gpp";
+
+        text = (TextView) findViewById(R.id.text1);
+        // store it to sd card
+        outputFile = Environment.getExternalStorageDirectory().
+                getAbsolutePath() + "/" + audioRecordFile;
+
+        myRecorder = new MediaRecorder();
+        myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        myRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        myRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+        myRecorder.setOutputFile(outputFile);
+
+        startBtn = (Button)findViewById(R.id.start);
+        startBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                start(v);
+            }
+        });
+
+        stopBtn = (Button)findViewById(R.id.stop);
+        stopBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                stop(v);
+            }
+        });
+
+        playBtn = (Button)findViewById(R.id.play);
+        playBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                play(v);
+            }
+        });
+
+        stopPlayBtn = (Button)findViewById(R.id.stopPlay);
+        stopPlayBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                stopPlay(v);
+            }
+        });
+    }
+
+    public void start(View view){
+        try {
+            myRecorder.prepare();
+            myRecorder.start();
+        } catch (IllegalStateException e) {
+            // start:it is called before prepare()
+            // prepare: it is called after start() or before setOutputFormat()
+            e.printStackTrace();
+        } catch (IOException e) {
+            // prepare() fails
+            e.printStackTrace();
+        }
+
+        text.setText("Recording Point: Recording");
+        startBtn.setEnabled(false);
+        stopBtn.setEnabled(true);
+
+        Toast.makeText(getApplicationContext(), "Start recording...",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    public void stop(View view){
+        try {
+            myRecorder.stop();
+            myRecorder.release();
+            myRecorder  = null;
+
+            stopBtn.setEnabled(false);
+            playBtn.setEnabled(true);
+            text.setText("Recording Point: Stop recording");
+
+            Toast.makeText(getApplicationContext(), "Stop recording...",
+                    Toast.LENGTH_SHORT).show();
+        } catch (IllegalStateException e) {
+            //  it is called before start()
+            e.printStackTrace();
+        } catch (RuntimeException e) {
+            // no valid audio/video data has been received
+            e.printStackTrace();
+        }
+    }
+
+    public void play(View view) {
+        try{
+            myPlayer = new MediaPlayer();
+            myPlayer.setDataSource(outputFile);
+            myPlayer.prepare();
+            myPlayer.start();
+
+            playBtn.setEnabled(false);
+            stopPlayBtn.setEnabled(true);
+            text.setText("Recording Point: Playing");
+
+            Toast.makeText(getApplicationContext(), "Start play the recording...",
+                    Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void stopPlay(View view) {
+        try {
+            if (myPlayer != null) {
+                myPlayer.stop();
+                myPlayer.release();
+                myPlayer = null;
+                playBtn.setEnabled(true);
+                stopPlayBtn.setEnabled(false);
+                text.setText("Recording Point: Stop playing");
+
+                Toast.makeText(getApplicationContext(), "Stop playing the recording...",
+                        Toast.LENGTH_SHORT).show();
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+}
+
+[/file]
+[/template]
+
+[template public generateAudioActivityLayout(aClass : Class)]
+[file ('android/layout/activity_audio_record.xml', false)]
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Recording Point: -"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ImageView
+        android:id="@+id/micImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/text1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@android:drawable/presence_audio_online" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/micImage"
+        android:id="@+id/linear1"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start" />
+
+        <Button
+            android:id="@+id/stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:enabled="false"
+            android:text="stop" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/linear1"
+        android:id="@+id/linear2"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:text="play" />
+
+        <Button
+            android:id="@+id/stopPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:layout_marginLeft="10dp"
+            android:text="stop playing" />
+    </LinearLayout>
+
+</RelativeLayout>
+[/file]
+[/template]
+
+
+
+[template public generateCameraActivity(aClass : Class)]
+[file ('android/activities/CameraActivity.java', false)]
+//[protected ('imports')]
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
+import android.os.Bundle;
+import android.os.Environment;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+//[/protected]
+
+public class CameraActivity extends AppCompatActivity {
+    private final static String DEBUG_TAG = "CameraActivity";
+    private Camera camera;
+    private int cameraId = 0;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_camera);
+
+        // do we have a camera?
+        if (!getPackageManager()
+                .hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+            Toast.makeText(this, "No camera on this device", Toast.LENGTH_LONG)
+                    .show();
+        } else {
+            cameraId = findFrontFacingCamera();
+            if (cameraId < 0) {
+                Toast.makeText(this, "No front facing camera found.",
+                        Toast.LENGTH_LONG).show();
+            } else {
+                camera = Camera.open(cameraId);
+            }
+        }
+    }
+
+    public void onClick(View view) {
+        camera.takePicture(null, null,
+                new PhotoHandler(getApplicationContext()));
+    }
+
+    private int findFrontFacingCamera() {
+        int cameraId = -1;
+        // Search for the front facing camera
+        int numberOfCameras = Camera.getNumberOfCameras();
+        for (int i = 0; i < numberOfCameras; i++) {
+            Camera.CameraInfo info = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, info);
+            if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
+                Log.d(DEBUG_TAG, "Camera found");
+                cameraId = i;
+                break;
+            }
+        }
+        return cameraId;
+    }
+
+    @Override
+    protected void onPause() {
+        if (camera != null) {
+            camera.release();
+            camera = null;
+        }
+        super.onPause();
+    }
+
+
+    public class PhotoHandler implements Camera.PictureCallback {
+
+        private final Context context;
+
+        public PhotoHandler(Context context) {
+            this.context = context;
+        }
+
+        @Override
+        public void onPictureTaken(byte['['/][']'/] data, Camera camera) {
+
+            File pictureFileDir = getDir();
+
+            if (!pictureFileDir.exists() && !pictureFileDir.mkdirs()) {
+
+                Log.d("Debug", "Can't create directory to save image.");
+                Toast.makeText(context, "Can't create directory to save image.",
+                        Toast.LENGTH_LONG).show();
+                return;
+
+            }
+
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
+            String date = dateFormat.format(new Date());
+            String photoFile = "Picture_" + date + ".jpg";
+
+            String filename = pictureFileDir.getPath() + File.separator + photoFile;
+
+            File pictureFile = new File(filename);
+
+            try {
+                FileOutputStream fos = new FileOutputStream(pictureFile);
+                fos.write(data);
+                fos.close();
+                Toast.makeText(context, "New Image saved:" + photoFile,
+                        Toast.LENGTH_LONG).show();
+            } catch (Exception error) {
+                Log.d("Debug", "File" + filename + "not saved: "
+                        + error.getMessage());
+                Toast.makeText(context, "Image could not be saved.",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+
+        private File getDir() {
+            File sdDir = Environment
+                    .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+            return new File(sdDir, "CameraAPIDemo");
+        }
+    }
+
+}
+[/file]
+[/template]
+
+
+[template public generateCameraActivityLayout(aClass : Class)]
+[file ('android/layout/activity_camera.xml', false)]
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/captureFront"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:onClick="onClick"
+        android:text="Make Photo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Photo saved in:"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/captureFront"/>
+</RelativeLayout>
+
+[/file]
+[/template]

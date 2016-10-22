@@ -1,0 +1,226 @@
+[comment encoding = UTF-8 /]
+[module generateSensorActivitiesLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateSensorActivitiesLayout(aClass : Class)]
+
+[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+
+[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+[for (p : Property | persistentEntityProperties)]
+	[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Microphone')]
+       <Button
+        android:id="@+id/btn[p.name.toUpperFirst()/]"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[p.name.toUpperFirst()/]" />
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+		<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="10dp"
+	            android:gravity="center_vertical"
+	            android:orientation="horizontal">
+	
+	            <TextView
+	                android:id="@+id/tvAccelerometer"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Accelerometer"
+	                android:layout_marginRight="10dp"
+	                android:textColor="@android:color/black"
+	                android:textStyle="bold"
+	                android:enabled="false"
+	                android:textAllCaps="false" />
+	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="vertical">
+	
+	                <TextView
+	                    android:id="@+id/tvTest[p.name.toUpperFirst()/]Accelerometer"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:hint="Test:" />
+	
+	                <TextView
+	                    android:id="@+id/tvData[p.name.toUpperFirst()/]Accelerometer"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:hint="Results:" />
+	            </LinearLayout>
+        </LinearLayout>
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Light"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:enabled="false"
+                android:layout_marginRight="10dp"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvGyroscope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gyroscope"
+                android:enabled="false"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]Gyroscope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]Gyroscope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMagneticField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MagneticField"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]MagneticField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]MagneticField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Camera')]
+	       <Button
+            android:id="@+id/btn[p.name.toUpperFirst()/]"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[p.name.toUpperFirst()/]" />
+	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'GPS')]
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn[p.name.toUpperFirst()/]"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GPS"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]GPS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]GPS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+	[/if]	
+	[/for]
+    </LinearLayout>
+</ScrollView>
+[/file]
+[/let]
+[/if]
+[/template]

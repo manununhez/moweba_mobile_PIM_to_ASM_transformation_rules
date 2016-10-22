@@ -1,33 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_16_0_879026c_1272987317575_549298_336" name="Navigational Tree Profile" metamodelReference="_0metamodelReferenceNavigational_Tree_Profile">
-  <eAnnotations xmi:id="_7Af_X4osEeady9RDit4cVw" source="http://www.eclipse.org/uml2/2.0.0/UML">
-    <contents xmi:type="ecore:EPackage" xmi:id="_7Af_YIosEeady9RDit4cVw" name="NavigationalTreeProfile" nsURI="http:///schemas/NavigationalTreeProfile/_6s9YMIosEeady9RDit4cVw/0" nsPrefix="NavigationalTreeProfile">
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_7Af_YYosEeady9RDit4cVw" name="node">
-        <eAnnotations xmi:id="_7Af_YoosEeady9RDit4cVw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1272987338215_45207_347"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7Af_Y4osEeady9RDit4cVw" name="base_UseCase" ordered="false" lowerBound="1">
+  <eAnnotations xmi:id="_Rg-m-peZEeaeusUD8zD6kg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+    <contents xmi:type="ecore:EPackage" xmi:id="_Rg-m-5eZEeaeusUD8zD6kg" name="NavigationalTreeProfile" nsURI="http:///schemas/NavigationalTreeProfile/_OX1EAJeZEeaeusUD8zD6kg/0" nsPrefix="NavigationalTreeProfile">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Rg-m_JeZEeaeusUD8zD6kg" name="node">
+        <eAnnotations xmi:id="_Rg-m_ZeZEeaeusUD8zD6kg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1272987338215_45207_347"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Rg-m_peZEeaeusUD8zD6kg" name="base_UseCase" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//UseCase"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7Af_ZIosEeady9RDit4cVw" name="accessZone" ordered="false">
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Rg-m_5eZEeaeusUD8zD6kg" name="accessZone" ordered="false">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Package"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7Af_ZYosEeady9RDit4cVw" name="accessRole" ordered="false">
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Rg-nAJeZEeaeusUD8zD6kg" name="accessRole" ordered="false">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Actor"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7Af_ZoosEeady9RDit4cVw" name="sLinkTransition" ordered="false" upperBound="-1">
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Rg-nAZeZEeaeusUD8zD6kg" name="sLinkTransition" ordered="false" upperBound="-1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//FinalState"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_7Af_Z4osEeady9RDit4cVw" name="hLink">
-        <eAnnotations xmi:id="_7Af_aIosEeady9RDit4cVw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1273001579347_21626_658"/>
-        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7Af_aYosEeady9RDit4cVw" name="base_Association" ordered="false" lowerBound="1">
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Rg-nApeZEeaeusUD8zD6kg" name="hLink">
+        <eAnnotations xmi:id="_Rg-nA5eZEeaeusUD8zD6kg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1273001579347_21626_658"/>
+        <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_Rg-nBJeZEeaeusUD8zD6kg" name="base_Association" ordered="false" lowerBound="1">
           <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.0.0/UML#//Association"/>
         </eStructuralFeatures>
-        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_7Af_aoosEeady9RDit4cVw" name="show" ordered="false" lowerBound="1" defaultValueLiteral="true">
+        <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_Rg-nBZeZEeaeusUD8zD6kg" name="show" ordered="false" lowerBound="1" defaultValueLiteral="true">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
         </eStructuralFeatures>
       </eClassifiers>
-      <eClassifiers xmi:type="ecore:EClass" xmi:id="_7Af_a4osEeady9RDit4cVw" name="BooleandefaultTrue">
-        <eAnnotations xmi:id="_7Af_bIosEeady9RDit4cVw" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1275400945238_378283_1619"/>
+      <eClassifiers xmi:type="ecore:EClass" xmi:id="_Rg-nBpeZEeaeusUD8zD6kg" name="BooleandefaultTrue">
+        <eAnnotations xmi:id="_Rg-nB5eZEeaeusUD8zD6kg" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_16_0_879026c_1275400945238_378283_1619"/>
       </eClassifiers>
     </contents>
   </eAnnotations>
@@ -75,7 +75,7 @@
       <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_16_0_879026c_1275401013016_485320_1624" name="" value="true"/>
     </ownedAttribute>
   </packagedElement>
-  <packagedElement xmi:type="uml:Extension" xmi:id="_16_0_879026c_1273001596617_381409_660" name="" memberEnd="_16_0_879026c_1273001596617_695649_662 _16_0_879026c_1273001596617_606909_661">
+  <packagedElement xmi:type="uml:Extension" xmi:id="_16_0_879026c_1273001596617_381409_660" name="" memberEnd="_16_0_879026c_1273001596617_606909_661 _16_0_879026c_1273001596617_695649_662">
     <ownedEnd xmi:type="uml:ExtensionEnd" xmi:id="_16_0_879026c_1273001596617_695649_662" name="extension_" visibility="private" type="_16_0_879026c_1273001579347_21626_658" aggregation="composite" association="_16_0_879026c_1273001596617_381409_660">
       <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_16_0_879026c_1273001596617_751463_664" name="" value="1"/>
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_16_0_879026c_1273001596617_869994_663" name=""/>
