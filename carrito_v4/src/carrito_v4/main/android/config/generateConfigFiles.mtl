@@ -30,6 +30,17 @@
 		[if (aClass.hasStereotype('WebInterface'))]
  	<!-- Para retrofit -->
     <uses-permission android:name="android.permission.INTERNET" />
+		[/if]
+	[comment]PERMISOS para los sensores[/comment]
+		[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+	<!-- GPS -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- CAMERA -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- AUDIO -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 		[/if]		
 		[/for]
 	[/if]
@@ -71,7 +82,14 @@
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
 		
 	[/if]
+	[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
+		[comment]TODO Deberian generarse una sola vez[/comment]
+		<activity android:name=".activities.AudioRecordActivity" />
+		<activity android:name=".activities.CameraActivity" />
+	[/if]
 	[/for]
+	
 	[/if]
 [/let]
 [/for]

@@ -286,7 +286,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 [/template]
 
 [template public generateGPSClass(aClass : Class)]
-[file ('android/activities/GPSTracker.java', false)]
+[file ('android/utils/GPSTracker.java', false)]
 //[protected ('imports')]
 import android.Manifest;
 import android.app.Service;
