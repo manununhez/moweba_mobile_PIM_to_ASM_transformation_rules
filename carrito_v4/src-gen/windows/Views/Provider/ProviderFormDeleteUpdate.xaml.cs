@@ -47,10 +47,10 @@ namespace Data.Views
             if (e != null)
             {
                 selectedProvider = e.Parameter as Provider;
+				idProviderTbx.Text = selectedProvider.idProvider;
 				nombreTbx.Text = selectedProvider.nombre;
 				descriptionTbx.Text = selectedProvider.description;
 				rucTbx.Text = selectedProvider.ruc;
-				idProviderTbx.Text = selectedProvider.idProvider;
             }
         }
 
@@ -68,10 +68,10 @@ namespace Data.Views
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
             Product currentProvider = new Provider();
-			currentProvider.nombre = nombreTbx.Text
+			currentProvider.idProvider = idProviderTbx.Text
+, 			currentProvider.nombre = nombreTbx.Text
 , 			currentProvider.description = descriptionTbx.Text
 , 			currentProvider.ruc = rucTbx.Text
-, 			currentProvider.idProvider = idProviderTbx.Text
 
 			providerDAO.updateProvider(currentProvider);//Update selected DB current provider
             Frame.Navigate(typeof(ProviderView));

@@ -54,9 +54,9 @@ namespace Data.Views
         private async void btnAddShoppingCart_Click(object sender, RoutedEventArgs e)
         {
      
-			if(quantityTbx.Text != "" & syncTimeTbx.Text != "" & idCartTbx.Text != "")
+			if(syncTimeTbx.Text != "" & idCartTbx.Text != "" & quantityTbx.Text != "")
             {
-				shoppingCartDAO.addShoppingCart(new ShoppingCart(quantityTbx.Text, syncTimeTbx.Text, Int32.Parse(idCartTbx.Text))); 			
+				shoppingCartDAO.addShoppingCart(new ShoppingCart(syncTimeTbx.Text, Int32.Parse(idCartTbx.Text), quantityTbx.Text)); 			
 
                 Frame.Navigate(typeof(ShoppingCartView));//after add shoppingCart redirect to shoppingCart listbox page
             }

@@ -14,25 +14,25 @@ namespace Data.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public string code { get; set; }
-
-		[DataMember]
-		public string idImageProduct { get; set; }
-
-		[DataMember]
 		public string idProvider { get; set; }
 
 		[DataMember]
-		public string idProducto { get; set; }
-
-		[DataMember]
-		public string name { get; set; }
+		public string price { get; set; }
 
 		[DataMember]
 		public string description { get; set; }
 
 		[DataMember]
-		public string price { get; set; }
+		public string idProducto { get; set; }
+
+		[DataMember]
+		public string code { get; set; }
+
+		[DataMember]
+		public string name { get; set; }
+
+		[DataMember]
+		public string idImageProduct { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -43,14 +43,14 @@ namespace Data.Model
 		/**
 		* Constructor.
 		*/
-		public Product (string code, string idImageProduct, string idProvider, string idProducto, string name, string description, string price){
-			this.code = code;     
-			this.idImageProduct = idImageProduct;     
+		public Product (string idProvider, string price, string description, string idProducto, string code, string name, string idImageProduct){
 			this.idProvider = idProvider;     
-			this.idProducto = idProducto;     
-			this.name = name;     
-			this.description = description;     
 			this.price = price;     
+			this.description = description;     
+			this.idProducto = idProducto;     
+			this.code = code;     
+			this.name = name;     
+			this.idImageProduct = idImageProduct;     
 		}
     }
 }

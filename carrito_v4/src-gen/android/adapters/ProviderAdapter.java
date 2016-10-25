@@ -19,20 +19,20 @@ public class ProviderAdapter extends RecyclerView.Adapter<ProviderAdapter.MyView
     private int REQUEST_CODE = 1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
+		private TextView tvIdProvider;
 		private TextView tvNombre;
 		private TextView tvDescription;
 		private TextView tvRuc;
-		private TextView tvIdProvider;
         private ImageView ivDelete;
         private ImageView ivEdit;
 
 
         public MyViewHolder(View view) {
             super(view);
+			tvIdProvider = (TextView) view.findViewById(R.id.tvIdProvider);
 			tvNombre = (TextView) view.findViewById(R.id.tvNombre);
 			tvDescription = (TextView) view.findViewById(R.id.tvDescription);
 			tvRuc = (TextView) view.findViewById(R.id.tvRuc);
-			tvIdProvider = (TextView) view.findViewById(R.id.tvIdProvider);
             ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
             ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
         }
@@ -55,10 +55,10 @@ public class ProviderAdapter extends RecyclerView.Adapter<ProviderAdapter.MyView
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Provider provider = providerList.get(position);
+		holder.tvIdProvider.setText(provider.getIdProvider());
 		holder.tvNombre.setText(provider.getNombre());
 		holder.tvDescription.setText(provider.getDescription());
 		holder.tvRuc.setText(provider.getRuc());
-		holder.tvIdProvider.setText(provider.getIdProvider());
 
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {

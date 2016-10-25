@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 	[/if]
 	
 	[if (aPackage.hasStereotype('DataProvider'))]
-	[for (aClass : Class | aClasses) separator('\n')]
-	[if (aClass.hasStereotype('WebInterface'))]
+		[for (aClass : Class | aClasses) separator('\n')]
+			[if (aClass.hasStereotype('WebInterface'))]
 			Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
 			btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
 	            @Override
@@ -57,12 +57,67 @@ public class MainActivity extends AppCompatActivity {
 	            }
 	        });
 			
-		[/if]
-	[/for]
+			[/if]
+		[/for]
+	
+		[for (aClass : Class | aClasses) separator('\n')]
+			[if (aClass.hasStereotype('MobileAppDataInterface'))]
+			//Handle incoming data
+	        Intent intent = getIntent();
+	        String action = intent.getAction();
+	        String type = intent.getType();
+
+			//all the data type options to receive
+	        if (Intent.ACTION_SEND.equals(action) && type != null) {
+	            if ("text/plain".equals(type)) {
+	                handleSendText(intent, "text"); // Handle text being sent
+	            } else if (type.startsWith("image/"))
+	            {
+	                handleSendData(intent,"image" ); // Handle single image being sent
+	            } else if (type.startsWith("audio/"))
+	            {
+	                handleSendData(intent,"audio" ); // Handle single audio being sent
+	
+	            } else if (type.startsWith("video/"))
+	            {
+	                handleSendData(intent,"video" ); // Handle single video being sent
+	            } else if (type.startsWith("application/"))
+	            {
+	                handleSendData(intent,"application" ); // Handle single file being sent
+	            }
+	        }
+			[/if]
+		[/for]
 	[/if]
 [/let]
 [/for]
     }
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+[if (aPackage.hasStereotype('DataProvider'))]
+[for (aClass : Class | aClasses) separator('\n')]
+[if (aClass.hasStereotype('MobileAppDataInterface'))]
+    void handleSendText(Intent intent, String type) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            // Update UI to reflect text being shared
+            Toast.makeText(MainActivity.this, type+" => "+sharedText, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void handleSendData(Intent intent, String type) {
+        Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+        if (imageUri != null) {
+            // Update UI to reflect image being shared
+            Toast.makeText(MainActivity.this, type+" => "+imageUri.toString(), Toast.LENGTH_SHORT).show();
+
+        }
+    }
+[/if]
+[/for]
+[/if]
+[/let]
+[/for]
 }
 [/file]
 

@@ -1,17 +1,18 @@
 [comment encoding = UTF-8 /]
-[module createWindowsDatabase('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module generateAppPage('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [comment Se importa el mtl de services para poder utilizar las funciones definidas/]
 [import services::uml2services/]
 [import common::utils_gen/]
 
 
-[template public createDatabaseWindows(model : Model)]
+[template public generateAppPage(model : Model)]
 [let aPackages: Sequence(Package) = model.eAllContents(Package) ]
 [file ('windows/App.xaml.cs', false)]
 //[protected ('imports')]
 
 using [model.name.toUpperFirst()/].Common;
+using [model.name.toUpperFirst()/].Views;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -131,8 +132,12 @@ namespace [model.name.toUpperFirst()/]
             deferral.Complete();
         }
 
-
-        protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
+		[for (aPackage : Package | aPackages)]
+		[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+		[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('MobileAppDataInterface'))]
+         protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
         {
             Frame frame = Window.Current.Content as Frame;
 
@@ -143,15 +148,150 @@ namespace [model.name.toUpperFirst()/]
             }
 
             if (frame.Content == null)
-                frame.Navigate(typeof(ShareTargetPage), args.ShareOperation);
+                frame.Navigate(typeof(ShareTargetPageView), args.ShareOperation);
 
             Window.Current.Activate();
         }
+		[createShareTargetPage(model)/]
+		[createShareTargetPageLayout(aPackage, model.name)/]
+		[/if]
+		[/for]
+		[/if]
+		[/let]
+		[/for]
     }
 }
 [/file]
 [/let]
 [/template]
+
+[template public createShareTargetPageLayout(aPackage : Package, modelName : String)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[file ('windows/Views/ShareTarget/ShareTargetView.xaml', false)]
+<Page
+    x:Class="[modelName/].Views.ShareTargetPageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[modelName/].Views">
+
+    <Grid>
+        <Button x:Name="button" Content="Done!" HorizontalAlignment="Left" Margin="154,186,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+    </Grid>
+</Page>
+[/file]
+[/let]
+[/template]
+
+[template public createShareTargetPage(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+
+[file ('windows/Views/ShareTarget/ShareTargetView.xaml.cs', false)]
+//[protected ('imports')]
+using System;
+using System.Collections.Generic;
+using System.Text;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.DataTransfer.ShareTarget;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
+using Windows.UI.Xaml.Navigation;
+
+//[/protected]
+
+namespace [model.name/].Views
+{
+    public sealed partial class ShareTargetPageView : Page
+    {
+        ShareOperation operation = null;
+
+        public ShareTargetPageView()
+        {
+            this.InitializeComponent();
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            operation = (ShareOperation)e.Parameter;
+
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+		[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('MobileAppDataInterface'))]
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='MobileAppDataProperty'))) ]			
+				[for (p : Property | persistentEntityProperties)]
+				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'FILE')]
+				if (operation.Data.Contains(StandardDataFormats.StorageItems)) //Files being shared
+	            {
+	                IReadOnlyList<IStorageItem> sharedStorageItems = await operation.Data.GetStorageItemsAsync();
+	                StringBuilder fileNames = new StringBuilder();
+	                for (int index = 0; index < sharedStorageItems.Count; index++)
+	                {
+	                    fileNames.Append(sharedStorageItems['['/]index[']'/].Name);
+	                    if (index < sharedStorageItems.Count - 1)
+	                    {
+	                        fileNames.Append(", ");
+	                    }
+	                }
+	                fileNames.Append(".");
+	
+	                MessageDialog ms = new MessageDialog("StorageItems: " + fileNames.ToString());
+	                await ms.ShowAsync();
+	            }
+				[/if]
+				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'URL')] 
+				if (operation.Data.Contains(StandardDataFormats.WebLink)) //URI
+	            {
+	                var uri = await operation.Data.GetWebLinkAsync();
+	                if (uri != null)
+	                {
+	                    MessageDialog ms = new MessageDialog("WebLink: " + uri.AbsoluteUri);
+	                    await ms.ShowAsync();
+	                }
+	            }	
+			 	[/if]
+				[if(p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'TEXT')]
+				if (operation.Data.Contains(StandardDataFormats.Text))//Text
+	            {
+	                MessageDialog ms = new MessageDialog("Text:" + await operation.Data.GetTextAsync());
+	                await ms.ShowAsync();
+	            }
+				[/if]
+				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'IMAGE')]
+				if (operation.Data.Contains(StandardDataFormats.Bitmap)) { //Image
+	                IRandomAccessStreamReference sharedBitmapStream = await operation.Data.GetBitmapAsync();
+	                IRandomAccessStreamWithContentType bitmapStream = await sharedBitmapStream.OpenReadAsync();
+	                BitmapImage bitmapImage = new BitmapImage();
+	                bitmapImage.SetSource(bitmapStream);
+	                MessageDialog ms = new MessageDialog("Image:" + bitmapStream);
+	                await ms.ShowAsync();
+            	}
+				[/if]
+				[/for]			
+			[/let]
+		[/if]
+		[/for]
+		[/if]
+	[/let]
+[/for]    
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            operation.ReportCompleted();
+        }
+    }
+}
+
+[/file]
+[/let]
+[/template]
+
 
 [template public createWindowsDatabaseHelper(aPackage : Package, modelName : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]

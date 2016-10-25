@@ -17,14 +17,14 @@
             </StackPanel>
 
             <StackPanel Margin="20,129,19,0" Grid.RowSpan="4">
+                <TextBlock Text="idProvider" FontSize="14"/>
+                <TextBox x:Name="idProviderTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="nombre" FontSize="14"/>
                 <TextBox x:Name="nombreTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="description" FontSize="14"/>
                 <TextBox x:Name="descriptionTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="ruc" FontSize="14"/>
                 <TextBox x:Name="rucTbx" TextWrapping="Wrap" Width="350"/>
-                <TextBlock Text="idProvider" FontSize="14"/>
-                <TextBox x:Name="idProviderTbx" TextWrapping="Wrap" Width="350"/>
 				<Button x:Name="btnDeleteProvider" Content="Delete Provider" HorizontalAlignment="Left" Margin="27,480,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
                 <Button x:Name="btnUpdateProvider" Content="Update Provider" HorizontalAlignment="Left" Margin="27,540,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
             </StackPanel>

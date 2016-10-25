@@ -57,9 +57,39 @@
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+		[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('MobileAppDataInterface'))]
+			 <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='MobileAppDataProperty'))) ]			
+				[for (p : Property | persistentEntityProperties)]
+				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'FILE')]
+				<data android:mimeType="video/*" />
+                <data android:mimeType="audio/*" />
+				<data android:mimeType="application/*" />
+				[/if]
+				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'URL' or 
+					p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'TEXT')]
+				<data android:mimeType="text/plain" />
+				[/if]
+				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'IMAGE')]
+				<data android:mimeType="image/*" />
+				[/if]
+				[/for]			
+			[/let]
+			</intent-filter>
+		[/if]
+		[/for]
+		[/if]
+	[/let]
+[/for]
         </activity>
 [for (aPackage : Package | aPackages)]
 	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]

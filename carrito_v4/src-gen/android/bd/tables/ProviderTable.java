@@ -10,20 +10,20 @@ public class ProviderTable {
 	public static final String TABLE_NAME = "provider"; 
 	
 	public static final String COLUMN_ID = "_id";
+		public static final String COLUMN_IDPROVIDER = "idProvider"; 
 		public static final String COLUMN_NOMBRE = "nombre"; 
 		public static final String COLUMN_DESCRIPTION = "description"; 
 		public static final String COLUMN_RUC = "ruc"; 
-		public static final String COLUMN_IDPROVIDER = "idProvider"; 
 	
 	//    DATABASE CREATION SQL STATEMENT
 	private static final String CREATE_TABLE = "create table "
 			+ TABLE_NAME
 			+ "("
 			+ COLUMN_ID + " integer primary key autoincrement,"
-			+ COLUMN_NOMBRE + " text,"
+			+ COLUMN_IDPROVIDER + " text,"
++ COLUMN_NOMBRE + " text,"
 + COLUMN_DESCRIPTION + " text,"
-+ COLUMN_RUC + " text,"
-+ COLUMN_IDPROVIDER + " text);";  
++ COLUMN_RUC + " text);";  
 
 	
 	public ProviderTable(ContentResolver contentResolver) {

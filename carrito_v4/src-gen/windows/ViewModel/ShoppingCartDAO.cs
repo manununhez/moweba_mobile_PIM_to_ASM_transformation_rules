@@ -65,9 +65,9 @@ namespace Data.ViewModels
                 var queryResult = dbConn.Query<ShoppingCart>("select * from ShoppingCart where idCart =" + shoppingCart.idCart).FirstOrDefault();
                 if (queryResult != null)
                 {
-					queryResult.quantity = shoppingCart.quantity;		
 					queryResult.syncTime = shoppingCart.syncTime;		
 					queryResult.idCart = shoppingCart.idCart;		
+					queryResult.quantity = shoppingCart.quantity;		
 
                     dbConn.RunInTransaction(() =>
                     {

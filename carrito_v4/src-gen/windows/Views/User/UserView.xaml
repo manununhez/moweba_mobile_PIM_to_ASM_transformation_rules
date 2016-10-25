@@ -33,16 +33,16 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Username:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="usernameTxt" TextWrapping="Wrap" Text="{Binding username}" FontSize="17" Foreground="White"/>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Password:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="passwordTxt" TextWrapping="Wrap" Text="{Binding password}" FontSize="17" Foreground="White"/>
                                         </Grid>
 										<Grid>
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Password:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="passwordTxt" TextWrapping="Wrap" Text="{Binding password}" FontSize="17" Foreground="White"/>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Username:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="usernameTxt" TextWrapping="Wrap" Text="{Binding username}" FontSize="17" Foreground="White"/>
                                         </Grid>
                                     </StackPanel>
                                 </Border>

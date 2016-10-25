@@ -28,6 +28,34 @@ public class MainActivity extends AppCompatActivity {
 			
 
 
+	
+
+			//Handle incoming data
+	        Intent intent = getIntent();
+	        String action = intent.getAction();
+	        String type = intent.getType();
+
+			//all the data type options to receive
+	        if (Intent.ACTION_SEND.equals(action) && type != null) {
+	            if ("text/plain".equals(type)) {
+	                handleSendText(intent, "text"); // Handle text being sent
+	            } else if (type.startsWith("image/"))
+	            {
+	                handleSendData(intent,"image" ); // Handle single image being sent
+	            } else if (type.startsWith("audio/"))
+	            {
+	                handleSendData(intent,"audio" ); // Handle single audio being sent
+	
+	            } else if (type.startsWith("video/"))
+	            {
+	                handleSendData(intent,"video" ); // Handle single video being sent
+	            } else if (type.startsWith("application/"))
+	            {
+	                handleSendData(intent,"application" ); // Handle single file being sent
+	            }
+	        }
+
+
 			Button btnProduct = (Button) findViewById(R.id.btnProduct);
 			btnProduct.setOnClickListener(new View.OnClickListener() {
 	            @Override
@@ -44,19 +72,19 @@ public class MainActivity extends AppCompatActivity {
 	            }
 	        });
 
-			Button btnUser = (Button) findViewById(R.id.btnUser);
-			btnUser.setOnClickListener(new View.OnClickListener() {
-	            @Override
-	            public void onClick(View view) {
-	                startActivity(new Intent(MainActivity.this, UserActivity.class));
-	            }
-	        });
-
 			Button btnProvider = (Button) findViewById(R.id.btnProvider);
 			btnProvider.setOnClickListener(new View.OnClickListener() {
 	            @Override
 	            public void onClick(View view) {
 	                startActivity(new Intent(MainActivity.this, ProviderActivity.class));
+	            }
+	        });
+
+			Button btnUser = (Button) findViewById(R.id.btnUser);
+			btnUser.setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, UserActivity.class));
 	            }
 	        });
 
@@ -71,4 +99,22 @@ public class MainActivity extends AppCompatActivity {
 
 	
     }
+
+    void handleSendText(Intent intent, String type) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            // Update UI to reflect text being shared
+            Toast.makeText(MainActivity.this, type+" => "+sharedText, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void handleSendData(Intent intent, String type) {
+        Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+        if (imageUri != null) {
+            // Update UI to reflect image being shared
+            Toast.makeText(MainActivity.this, type+" => "+imageUri.toString(), Toast.LENGTH_SHORT).show();
+
+        }
+    }
+
 }

@@ -1,6 +1,7 @@
 //Start of user code imports
 
 using Data.Common;
+using Data.Views;
 using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -120,8 +121,7 @@ namespace Data
             deferral.Complete();
         }
 
-
-        protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
+         protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
         {
             Frame frame = Window.Current.Content as Frame;
 
@@ -132,9 +132,13 @@ namespace Data
             }
 
             if (frame.Content == null)
-                frame.Navigate(typeof(ShareTargetPage), args.ShareOperation);
+                frame.Navigate(typeof(ShareTargetPageView), args.ShareOperation);
 
             Window.Current.Activate();
         }
+		
+		
+		
+		
     }
 }

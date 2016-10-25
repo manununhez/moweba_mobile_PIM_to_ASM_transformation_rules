@@ -62,7 +62,7 @@
 
 [import carrito_v4::main::windows::beans::beansGenWindows/]
 
-[import carrito_v4::main::windows::bd::createWindowsDatabase/]
+[import carrito_v4::main::windows::bd::generateAppPage/]
 [import carrito_v4::main::windows::bd::generateDaoWindows/]
 
 [import carrito_v4::main::windows::files::createFileHelperWindows/]
@@ -175,7 +175,7 @@
 [/template]
 
 [template public generateGeneralWindowsClasses(model : Model)]
-[createDatabaseWindows(model)/]
+[generateAppPage(model)/]
 [generateMainPage(model)/]
 [generateMainPageLayout(model)/]
 [beansGenWindows(model)/]

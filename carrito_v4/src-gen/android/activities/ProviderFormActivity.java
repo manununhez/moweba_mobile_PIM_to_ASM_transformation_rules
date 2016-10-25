@@ -14,10 +14,10 @@ import android.widget.Button;
 public class ProviderFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
+	private TextInputEditText tieIdProvider; 
 	private TextInputEditText tieNombre; 
 	private TextInputEditText tieDescription; 
 	private TextInputEditText tieRuc; 
-	private TextInputEditText tieIdProvider; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,10 +35,10 @@ public class ProviderFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
 		tieNombre =  (TextInputEditText) findViewById(R.id.tieNombre); 
 		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
 		tieRuc =  (TextInputEditText) findViewById(R.id.tieRuc); 
-		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -71,19 +71,19 @@ public class ProviderFormActivity extends AppCompatActivity {
 
 	private void loadProviderData(){
 		Provider provider = (Provider) intent.getSerializableExtra("provider");
+		tieIdProvider.setText(provider.getIdProvider());
 		tieNombre.setText(provider.getNombre());
 		tieDescription.setText(provider.getDescription());
 		tieRuc.setText(provider.getRuc());
-		tieIdProvider.setText(provider.getIdProvider());
 	}
 
     private Provider getProviderFromEditext() {
+		String idProvider = tieIdProvider.getText().toString();
 		String nombre = tieNombre.getText().toString();
 		String description = tieDescription.getText().toString();
 		String ruc = tieRuc.getText().toString();
-		String idProvider = tieIdProvider.getText().toString();
         
-        return new Provider(nombre, description, ruc, idProvider);
+        return new Provider(idProvider, nombre, description, ruc);
     }
 
     @Override

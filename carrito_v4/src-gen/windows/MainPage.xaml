@@ -14,13 +14,14 @@
 
 			<Button x:Name="btnRestInterface" Content="RestInterface" Click="btnRestInterface_click"/>
 
+
 			<Button x:Name="btnProduct" Content="Product" Click="btnProduct_click"/>
 
 			<Button x:Name="btnShoppingCart" Content="ShoppingCart" Click="btnShoppingCart_click"/>
 
-			<Button x:Name="btnUser" Content="User" Click="btnUser_click"/>
-
 			<Button x:Name="btnProvider" Content="Provider" Click="btnProvider_click"/>
+
+			<Button x:Name="btnUser" Content="User" Click="btnUser_click"/>
 
 			<Button x:Name="btnImageProduct" Content="ImageProduct" Click="btnImageProduct_click"/>
 

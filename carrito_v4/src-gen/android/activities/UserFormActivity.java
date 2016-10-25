@@ -12,8 +12,8 @@ import android.widget.Button;
 //End of user code
 
 public class UserFormActivity extends AppCompatActivity {
-	private TextInputEditText tieUsername; 
 	private TextInputEditText tiePassword; 
+	private TextInputEditText tieUsername; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class UserFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieUsername =  (TextInputEditText) findViewById(R.id.tieUsername); 
 		tiePassword =  (TextInputEditText) findViewById(R.id.tiePassword); 
+		tieUsername =  (TextInputEditText) findViewById(R.id.tieUsername); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -48,19 +48,19 @@ public class UserFormActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-		String username = MySharedPreferencesHelper.getValue(UserFormActivity.this, "username"); 
 		String password = MySharedPreferencesHelper.getValue(UserFormActivity.this, "password"); 
+		String username = MySharedPreferencesHelper.getValue(UserFormActivity.this, "username"); 
 
-		tieUsername.setText(username == null ? "" : username); 
 		tiePassword.setText(password == null ? "" : password); 
+		tieUsername.setText(username == null ? "" : username); 
     }
 
     private void saveData() {
-		String username = tieUsername.getText().toString(); 
 		String password = tiePassword.getText().toString(); 
+		String username = tieUsername.getText().toString(); 
 
-		MySharedPreferencesHelper.save(UserFormActivity.this, "username", username); 
 		MySharedPreferencesHelper.save(UserFormActivity.this, "password", password); 
+		MySharedPreferencesHelper.save(UserFormActivity.this, "username", username); 
     }
 
     @Override

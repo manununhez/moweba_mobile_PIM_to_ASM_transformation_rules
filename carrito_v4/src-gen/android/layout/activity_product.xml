@@ -17,30 +17,6 @@
         android:background="#FFFFFF" />
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilCode"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="code" />
-    </android.support.design.widget.TextInputLayout>
-
-	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilIdImageProduct"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieIdImageProduct"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="idImageProduct" />
-    </android.support.design.widget.TextInputLayout>
-
-	<android.support.design.widget.TextInputLayout
         android:id="@+id/tilIdProvider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -53,27 +29,15 @@
     </android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilIdProducto"
+        android:id="@+id/tilPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieIdProducto"
+            android:id="@+id/tiePrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="idProducto" />
-    </android.support.design.widget.TextInputLayout>
-
-	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="name" />
+            android:hint="price" />
     </android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
@@ -89,15 +53,51 @@
     </android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilPrice"
+        android:id="@+id/tilIdProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.design.widget.TextInputEditText
-            android:id="@+id/tiePrice"
+            android:id="@+id/tieIdProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="price" />
+            android:hint="idProducto" />
+    </android.support.design.widget.TextInputLayout>
+
+	<android.support.design.widget.TextInputLayout
+        android:id="@+id/tilCode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tieCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="code" />
+    </android.support.design.widget.TextInputLayout>
+
+	<android.support.design.widget.TextInputLayout
+        android:id="@+id/tilName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tieName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="name" />
+    </android.support.design.widget.TextInputLayout>
+
+	<android.support.design.widget.TextInputLayout
+        android:id="@+id/tilIdImageProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tieIdImageProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="idImageProduct" />
     </android.support.design.widget.TextInputLayout>
     
 

@@ -4,6 +4,14 @@
 
  	<!-- Para retrofit -->
     <uses-permission android:name="android.permission.INTERNET" />
+	<!-- GPS -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- CAMERA -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- AUDIO -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
 	<!-- External storage for files. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -22,23 +30,37 @@
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+			 <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+				<data android:mimeType="text/plain" />
+				<data android:mimeType="video/*" />
+                <data android:mimeType="audio/*" />
+				<data android:mimeType="application/*" />
+				<data android:mimeType="image/*" />
+			</intent-filter>
         </activity>
 
 
 		<activity android:name=".activities.RestInterfaceActivity" />
 		
 
+
+		<activity android:name=".activities.HardwareDeviceActivity" />
+		<activity android:name=".activities.AudioRecordActivity" />
+		<activity android:name=".activities.CameraActivity" />
+	
 		<activity android:name=".activities.ProductActivity" />
 		<activity android:name=".activities.ProductFormActivity" />
 		<activity android:name=".activities.ShoppingCartActivity" />
 		<activity android:name=".activities.ShoppingCartFormActivity" />
-		<activity android:name=".activities.UserActivity" />
-		<activity android:name=".activities.UserFormActivity" />
 		<activity android:name=".activities.ProviderActivity" />
 		<activity android:name=".activities.ProviderFormActivity" />
+		<activity android:name=".activities.UserActivity" />
+		<activity android:name=".activities.UserFormActivity" />
 		<activity android:name=".activities.ImageProductActivity" />
 		<activity android:name=".activities.ImageProductFormActivity" />
 

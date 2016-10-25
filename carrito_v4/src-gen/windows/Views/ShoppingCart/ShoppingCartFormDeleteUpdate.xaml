@@ -17,12 +17,12 @@
             </StackPanel>
 
             <StackPanel Margin="20,129,19,0" Grid.RowSpan="4">
-                <TextBlock Text="quantity" FontSize="14"/>
-                <TextBox x:Name="quantityTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="syncTime" FontSize="14"/>
                 <TextBox x:Name="syncTimeTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="idCart" FontSize="14"/>
                 <TextBox x:Name="idCartTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="quantity" FontSize="14"/>
+                <TextBox x:Name="quantityTbx" TextWrapping="Wrap" Width="350"/>
 				<Button x:Name="btnDeleteShoppingCart" Content="Delete ShoppingCart" HorizontalAlignment="Left" Margin="27,480,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
                 <Button x:Name="btnUpdateShoppingCart" Content="Update ShoppingCart" HorizontalAlignment="Left" Margin="27,540,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
             </StackPanel>

@@ -14,10 +14,10 @@ namespace Data.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public string username { get; set; }
+		public string password { get; set; }
 
 		[DataMember]
-		public string password { get; set; }
+		public string username { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -28,9 +28,9 @@ namespace Data.Model
 		/**
 		* Constructor.
 		*/
-		public User (string username, string password){
-			this.username = username;     
+		public User (string password, string username){
 			this.password = password;     
+			this.username = username;     
 		}
     }
 }

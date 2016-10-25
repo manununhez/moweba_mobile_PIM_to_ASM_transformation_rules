@@ -19,16 +19,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     private int REQUEST_CODE = 1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-		private TextView tvUsername;
 		private TextView tvPassword;
+		private TextView tvUsername;
         private ImageView ivDelete;
         private ImageView ivEdit;
 
 
         public MyViewHolder(View view) {
             super(view);
-			tvUsername = (TextView) view.findViewById(R.id.tvUsername);
 			tvPassword = (TextView) view.findViewById(R.id.tvPassword);
+			tvUsername = (TextView) view.findViewById(R.id.tvUsername);
             ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
             ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
         }
@@ -51,8 +51,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final User user = userList.get(position);
-		holder.tvUsername.setText(user.getUsername());
 		holder.tvPassword.setText(user.getPassword());
+		holder.tvUsername.setText(user.getUsername());
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,8 +65,8 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         holder.ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-				MySharedPreferencesHelper.removeValue(context, "username");
 				MySharedPreferencesHelper.removeValue(context, "password");
+				MySharedPreferencesHelper.removeValue(context, "username");
 				userList.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
             }

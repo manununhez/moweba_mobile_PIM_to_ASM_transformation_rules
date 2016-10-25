@@ -20,10 +20,10 @@ public class ProviderDAO {
 			SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 			ContentValues values = new ContentValues();
+			values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider());		
 			values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre());		
 			values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription());		
 			values.put(ProviderTable.COLUMN_RUC, provider.getRuc());		
-			values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider());		
 			
 			// Inserting Row
 			db.insert(ProviderTable.TABLE_NAME, null, values);
@@ -37,7 +37,7 @@ public class ProviderDAO {
 			Provider provider = new Provider();
 
 			Cursor cursor = db.query(ProviderTable.TABLE_NAME, new String[] {
-					ProviderTable.COLUMN_NOMBRE, ProviderTable.COLUMN_DESCRIPTION, ProviderTable.COLUMN_RUC, ProviderTable.COLUMN_IDPROVIDER
+					ProviderTable.COLUMN_IDPROVIDER, ProviderTable.COLUMN_NOMBRE, ProviderTable.COLUMN_DESCRIPTION, ProviderTable.COLUMN_RUC
 					},				
 					new String[] { String.valueOf(id) }, null, null, null, null);
 			
@@ -106,10 +106,10 @@ public class ProviderDAO {
 				SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 				ContentValues values = new ContentValues();
+				values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider());		
 				values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre());		
 				values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription());		
 				values.put(ProviderTable.COLUMN_RUC, provider.getRuc());		
-				values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider());		
 
 				// updating row
 				return db.update(ProviderTable.TABLE_NAME, values,

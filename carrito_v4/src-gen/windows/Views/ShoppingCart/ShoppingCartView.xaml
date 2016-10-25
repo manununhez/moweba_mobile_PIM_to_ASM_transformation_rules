@@ -35,14 +35,6 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Quantity:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="quantityTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding quantity}" FontSize="17" Foreground="White"/>
-                                        </Grid>				
-										<Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="SyncTime:" FontSize="17"/>
                                             <TextBlock Grid.Column="1" x:Name="syncTimeTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding syncTime}" FontSize="17" Foreground="White"/>
                                         </Grid>				
@@ -53,6 +45,14 @@
                                             </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="IdCart:" FontSize="17"/>
                                             <TextBlock Grid.Column="1" x:Name="idCartTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding idCart}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Quantity:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="quantityTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding quantity}" FontSize="17" Foreground="White"/>
                                         </Grid>				
                                     </StackPanel>
                                 </Border>

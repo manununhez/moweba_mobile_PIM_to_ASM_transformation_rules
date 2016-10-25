@@ -30,6 +30,7 @@ namespace Data
             Frame.Navigate(typeof(RestInterfaceView));
         }
 
+
 		private void btnProduct_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ProductView));
@@ -40,14 +41,14 @@ namespace Data
             Frame.Navigate(typeof(ShoppingCartView));
         }
 
-		private void btnUser_click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(UserView));
-        }
-
 		private void btnProvider_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ProviderView));
+        }
+
+		private void btnUser_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(UserView));
         }
 
 		private void btnImageProduct_click(object sender, RoutedEventArgs e)

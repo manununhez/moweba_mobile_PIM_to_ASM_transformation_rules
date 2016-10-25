@@ -6,12 +6,6 @@ public class ShoppingCart  implements Serializable{
 	
 
 	/**
-	* the quantity attribute.
-	*/
-	private String quantity;
-
-
-	/**
 	* the syncTime attribute.
 	*/
 	private String syncTime;
@@ -21,6 +15,12 @@ public class ShoppingCart  implements Serializable{
 	* the idCart attribute.
 	*/
 	private Integer idCart;
+
+
+	/**
+	* the quantity attribute.
+	*/
+	private String quantity;
 	
 
 	/**
@@ -32,16 +32,12 @@ public class ShoppingCart  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public ShoppingCart (String quantity, String syncTime, Integer idCart){
-		this.quantity = quantity;
+	public ShoppingCart (String syncTime, Integer idCart, String quantity){
 		this.syncTime = syncTime;
 		this.idCart = idCart;
+		this.quantity = quantity;
 	}
  
-	public String getQuantity() {
-       return this.quantity;
-     }
-
 	public String getSyncTime() {
        return this.syncTime;
      }
@@ -49,17 +45,21 @@ public class ShoppingCart  implements Serializable{
 	public Integer getIdCart() {
        return this.idCart;
      }
- 
-     public void setQuantity(String quantity) {
-        this.quantity = quantity;
-     }
 
+	public String getQuantity() {
+       return this.quantity;
+     }
+ 
      public void setSyncTime(String syncTime) {
         this.syncTime = syncTime;
      }
 
      public void setIdCart(Integer idCart) {
         this.idCart = idCart;
+     }
+
+     public void setQuantity(String quantity) {
+        this.quantity = quantity;
      }
 
 

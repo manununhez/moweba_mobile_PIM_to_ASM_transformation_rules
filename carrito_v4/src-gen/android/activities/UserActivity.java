@@ -51,10 +51,10 @@ public class UserActivity extends AppCompatActivity {
 
 	private void loadUserData(){
 		Toast.makeText(UserActivity.this, "Retrieving data from sharedPreferences", Toast.LENGTH_SHORT).show();
-		String username = MySharedPreferencesHelper.getValue(this, "username");
 		String password = MySharedPreferencesHelper.getValue(this, "password");
+		String username = MySharedPreferencesHelper.getValue(this, "username");
         
-		User user = new User(username == null ? "" : username, password == null ? "" : password);
+		User user = new User(password == null ? "" : password, username == null ? "" : username);
         
 		userList.add(user);
 

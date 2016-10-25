@@ -54,9 +54,9 @@ namespace Data.Views
         private async void btnAddProvider_Click(object sender, RoutedEventArgs e)
         {
      
-			if(nombreTbx.Text != "" & descriptionTbx.Text != "" & rucTbx.Text != "" & idProviderTbx.Text != "")
+			if(idProviderTbx.Text != "" & nombreTbx.Text != "" & descriptionTbx.Text != "" & rucTbx.Text != "")
             {
-				providerDAO.addProvider(new Provider(nombreTbx.Text, descriptionTbx.Text, rucTbx.Text, idProviderTbx.Text)); 			
+				providerDAO.addProvider(new Provider(idProviderTbx.Text, nombreTbx.Text, descriptionTbx.Text, rucTbx.Text)); 			
 
                 Frame.Navigate(typeof(ProviderView));//after add provider redirect to provider listbox page
             }

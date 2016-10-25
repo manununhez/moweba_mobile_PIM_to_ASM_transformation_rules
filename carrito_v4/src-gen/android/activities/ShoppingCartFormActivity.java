@@ -14,9 +14,9 @@ import android.widget.Button;
 public class ShoppingCartFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieQuantity; 
 	private TextInputEditText tieSyncTime; 
 	private TextInputEditText tieIdCart; 
+	private TextInputEditText tieQuantity; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +34,9 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieQuantity =  (TextInputEditText) findViewById(R.id.tieQuantity); 
 		tieSyncTime =  (TextInputEditText) findViewById(R.id.tieSyncTime); 
 		tieIdCart =  (TextInputEditText) findViewById(R.id.tieIdCart); 
+		tieQuantity =  (TextInputEditText) findViewById(R.id.tieQuantity); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -69,17 +69,17 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
 
 	private void loadShoppingCartData(){
 		ShoppingCart shoppingCart = (ShoppingCart) intent.getSerializableExtra("shoppingCart");
-		tieQuantity.setText(shoppingCart.getQuantity());
 		tieSyncTime.setText(shoppingCart.getSyncTime());
 		tieIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
+		tieQuantity.setText(shoppingCart.getQuantity());
 	}
 
     private ShoppingCart getShoppingCartFromEditext() {
-		String quantity = tieQuantity.getText().toString();
 		String syncTime = tieSyncTime.getText().toString();
 		Integer idCart = Integer.valueOf(tieIdCart.getText().toString());
+		String quantity = tieQuantity.getText().toString();
         
-        return new ShoppingCart(quantity, syncTime, idCart);
+        return new ShoppingCart(syncTime, idCart, quantity);
     }
 
     @Override

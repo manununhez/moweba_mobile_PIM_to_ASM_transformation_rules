@@ -65,10 +65,10 @@ namespace Data.ViewModels
                 var queryResult = dbConn.Query<Provider>("select * from Provider where ).FirstOrDefault();
                 if (queryResult != null)
                 {
+					queryResult.idProvider = provider.idProvider;		
 					queryResult.nombre = provider.nombre;		
 					queryResult.description = provider.description;		
 					queryResult.ruc = provider.ruc;		
-					queryResult.idProvider = provider.idProvider;		
 
                     dbConn.RunInTransaction(() =>
                     {

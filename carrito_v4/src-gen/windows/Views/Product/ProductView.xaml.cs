@@ -50,7 +50,7 @@ namespace Data.Views
 
         private async void btnWriteFile_Click(object sender, RoutedEventArgs e)
         {
-			String content = codeTbx.Text + "," + idImageProductTbx.Text + "," + idProviderTbx.Text + "," + idProductoTbx.Text + "," + nameTbx.Text + "," + descriptionTbx.Text + "," + priceTbx.Text;
+			String content = idProviderTbx.Text + "," + priceTbx.Text + "," + descriptionTbx.Text + "," + idProductoTbx.Text + "," + codeTbx.Text + "," + nameTbx.Text + "," + idImageProductTbx.Text;
             await FileHelper.WriteTextFile(FILENAME, content);
         }
 

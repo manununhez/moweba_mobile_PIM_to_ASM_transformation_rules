@@ -6,6 +6,12 @@ public class Provider  implements Serializable{
 	
 
 	/**
+	* the idProvider attribute.
+	*/
+	private String idProvider;
+
+
+	/**
 	* the nombre attribute.
 	*/
 	private String nombre;
@@ -21,12 +27,6 @@ public class Provider  implements Serializable{
 	* the ruc attribute.
 	*/
 	private String ruc;
-
-
-	/**
-	* the idProvider attribute.
-	*/
-	private String idProvider;
 	
 
 	/**
@@ -38,13 +38,17 @@ public class Provider  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public Provider (String nombre, String description, String ruc, String idProvider){
+	public Provider (String idProvider, String nombre, String description, String ruc){
+		this.idProvider = idProvider;
 		this.nombre = nombre;
 		this.description = description;
 		this.ruc = ruc;
-		this.idProvider = idProvider;
 	}
  
+	public String getIdProvider() {
+       return this.idProvider;
+     }
+
 	public String getNombre() {
        return this.nombre;
      }
@@ -56,11 +60,11 @@ public class Provider  implements Serializable{
 	public String getRuc() {
        return this.ruc;
      }
-
-	public String getIdProvider() {
-       return this.idProvider;
-     }
  
+     public void setIdProvider(String idProvider) {
+        this.idProvider = idProvider;
+     }
+
      public void setNombre(String nombre) {
         this.nombre = nombre;
      }
@@ -71,10 +75,6 @@ public class Provider  implements Serializable{
 
      public void setRuc(String ruc) {
         this.ruc = ruc;
-     }
-
-     public void setIdProvider(String idProvider) {
-        this.idProvider = idProvider;
      }
 
 
