@@ -20,10 +20,10 @@ public class ProviderDAO {
 			SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 			ContentValues values = new ContentValues();
-			values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider());		
-			values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre());		
-			values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription());		
-			values.put(ProviderTable.COLUMN_RUC, provider.getRuc());		
+			values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider().toString());		
+			values.put(ProviderTable.COLUMN_RUC, provider.getRuc().toString());		
+			values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription().toString());		
+			values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre().toString());		
 			
 			// Inserting Row
 			db.insert(ProviderTable.TABLE_NAME, null, values);
@@ -37,15 +37,15 @@ public class ProviderDAO {
 			Provider provider = new Provider();
 
 			Cursor cursor = db.query(ProviderTable.TABLE_NAME, new String[] {
-					ProviderTable.COLUMN_IDPROVIDER, ProviderTable.COLUMN_NOMBRE, ProviderTable.COLUMN_DESCRIPTION, ProviderTable.COLUMN_RUC
-					},				
+					ProviderTable.COLUMN_IDPROVIDER, ProviderTable.COLUMN_RUC, ProviderTable.COLUMN_DESCRIPTION, ProviderTable.COLUMN_NOMBRE
+					},	ProviderTable.COLUMN_IDPROVIDER + "=?",				
 					new String[] { String.valueOf(id) }, null, null, null, null);
 			
 			if (cursor != null) {
 				cursor.moveToFirst();
 				
 				provider = new Provider(
-						cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3)				
+						Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3)				
 				); 
 
 				cursor.close();
@@ -69,7 +69,7 @@ public class ProviderDAO {
 				if (cursor.moveToFirst()) {
 					do {
 						Provider provider = new Provider(
-						cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4)
+						Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4)
 						); 
 						
 						// Adding provider to list
@@ -106,13 +106,15 @@ public class ProviderDAO {
 				SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 				ContentValues values = new ContentValues();
-				values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider());		
-				values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre());		
-				values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription());		
-				values.put(ProviderTable.COLUMN_RUC, provider.getRuc());		
+				values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider().toString());		
+				values.put(ProviderTable.COLUMN_RUC, provider.getRuc().toString());		
+				values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription().toString());		
+				values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre().toString());		
 
 				// updating row
 				return db.update(ProviderTable.TABLE_NAME, values,
+							ProviderTable.COLUMN_IDPROVIDER + "=?",
+							new String[] { String.valueOf(provider.getIdProvider()) });		
 						
 
 			}
@@ -122,6 +124,8 @@ public class ProviderDAO {
 				SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 				db.delete(ProviderTable.TABLE_NAME,
+						ProviderTable.COLUMN_IDPROVIDER + "=?",
+						new String[] { String.valueOf(provider.getIdProvider()) });		
 
 				db.close();
 			}

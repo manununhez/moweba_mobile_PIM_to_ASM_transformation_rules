@@ -8,7 +8,7 @@ public class Product  implements Serializable{
 	/**
 	* the idProvider attribute.
 	*/
-	private String idProvider;
+	private Integer idProvider;
 
 
 	/**
@@ -26,13 +26,13 @@ public class Product  implements Serializable{
 	/**
 	* the idProducto attribute.
 	*/
-	private String idProducto;
+	private Integer idProducto;
 
 
 	/**
 	* the code attribute.
 	*/
-	private String code;
+	private Integer code;
 
 
 	/**
@@ -44,7 +44,7 @@ public class Product  implements Serializable{
 	/**
 	* the idImageProduct attribute.
 	*/
-	private String idImageProduct;
+	private Integer idImageProduct;
 	
 
 	/**
@@ -56,7 +56,7 @@ public class Product  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public Product (String idProvider, String price, String description, String idProducto, String code, String name, String idImageProduct){
+	public Product (Integer idProvider, String price, String description, Integer idProducto, Integer code, String name, Integer idImageProduct){
 		this.idProvider = idProvider;
 		this.price = price;
 		this.description = description;
@@ -66,7 +66,7 @@ public class Product  implements Serializable{
 		this.idImageProduct = idImageProduct;
 	}
  
-	public String getIdProvider() {
+	public Integer getIdProvider() {
        return this.idProvider;
      }
 
@@ -78,11 +78,11 @@ public class Product  implements Serializable{
        return this.description;
      }
 
-	public String getIdProducto() {
+	public Integer getIdProducto() {
        return this.idProducto;
      }
 
-	public String getCode() {
+	public Integer getCode() {
        return this.code;
      }
 
@@ -90,11 +90,11 @@ public class Product  implements Serializable{
        return this.name;
      }
 
-	public String getIdImageProduct() {
+	public Integer getIdImageProduct() {
        return this.idImageProduct;
      }
  
-     public void setIdProvider(String idProvider) {
+     public void setIdProvider(Integer idProvider) {
         this.idProvider = idProvider;
      }
 
@@ -106,11 +106,11 @@ public class Product  implements Serializable{
         this.description = description;
      }
 
-     public void setIdProducto(String idProducto) {
+     public void setIdProducto(Integer idProducto) {
         this.idProducto = idProducto;
      }
 
-     public void setCode(String code) {
+     public void setCode(Integer code) {
         this.code = code;
      }
 
@@ -118,7 +118,7 @@ public class Product  implements Serializable{
         this.name = name;
      }
 
-     public void setIdImageProduct(String idImageProduct) {
+     public void setIdImageProduct(Integer idImageProduct) {
         this.idImageProduct = idImageProduct;
      }
 

@@ -13,13 +13,13 @@ using Windows.UI.Xaml.Navigation;
 namespace Data.Views
 {
 
-    public sealed partial class ImageProductFormDeleteUpdate : Page
+    public sealed partial class ProductFormDeleteUpdate : Page
     {
         private NavigationHelper navigationHelper;
-        private ImageProductDAO imageProductDAO = new ImageProductDAO();
-        private ImageProduct selectedImageProduct;
+        private ProductDAO productDAO = new ProductDAO();
+        private Product selectedProduct;
 
-        public ImageProductFormDeleteUpdate()
+        public ProductFormDeleteUpdate()
         {
             this.InitializeComponent();
 
@@ -46,9 +46,14 @@ namespace Data.Views
             this.navigationHelper.OnNavigatedTo(e);
             if (e != null)
             {
-                selectedImageProduct = e.Parameter as ImageProduct;
-				idImageProductTbx.Text = selectedImageProduct.idImageProduct;
-				imageTbx.Text = selectedImageProduct.image;
+                selectedProduct = e.Parameter as Product;
+				idProviderTbx.Text = Convert.ToString(selectedProduct.idProvider);
+				priceTbx.Text = selectedProduct.price;
+				descriptionTbx.Text = selectedProduct.description;
+				idProductoTbx.Text = Convert.ToString(selectedProduct.idProducto);
+				codeTbx.Text = Convert.ToString(selectedProduct.code);
+				nameTbx.Text = selectedProduct.name;
+				idImageProductTbx.Text = Convert.ToString(selectedProduct.idImageProduct);
             }
         }
 
@@ -59,18 +64,23 @@ namespace Data.Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            imageProductDAO.DeleteImageProduct(selectedImageProduct.Id);//Delete selected DB contact Id. 
-            Frame.Navigate(typeof(ImageProductView));
+            productDAO.DeleteProduct(selectedProduct.Id);//Delete selected DB contact Id. 
+            Frame.Navigate(typeof(ProductView));
         }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
-            Product currentImageProduct = new ImageProduct();
-			currentImageProduct.idImageProduct = idImageProductTbx.Text
-, 			currentImageProduct.image = imageTbx.Text
+            Product currentProduct = new Product();
+			currentProduct.idProvider = Int32.Parse(idProviderTbx.Text)
+, 			currentProduct.price = priceTbx.Text
+, 			currentProduct.description = descriptionTbx.Text
+, 			currentProduct.idProducto = Int32.Parse(idProductoTbx.Text)
+, 			currentProduct.code = Int32.Parse(codeTbx.Text)
+, 			currentProduct.name = nameTbx.Text
+, 			currentProduct.idImageProduct = Int32.Parse(idImageProductTbx.Text)
 
-			imageProductDAO.updateImageProduct(currentImageProduct);//Update selected DB current imageProduct
-            Frame.Navigate(typeof(ImageProductView));
+			productDAO.updateProduct(currentProduct);//Update selected DB current product
+            Frame.Navigate(typeof(ProductView));
         }
     }
 }

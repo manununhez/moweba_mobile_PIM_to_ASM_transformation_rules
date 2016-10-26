@@ -20,9 +20,9 @@ public class ProviderAdapter extends RecyclerView.Adapter<ProviderAdapter.MyView
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 		private TextView tvIdProvider;
-		private TextView tvNombre;
-		private TextView tvDescription;
 		private TextView tvRuc;
+		private TextView tvDescription;
+		private TextView tvNombre;
         private ImageView ivDelete;
         private ImageView ivEdit;
 
@@ -30,9 +30,9 @@ public class ProviderAdapter extends RecyclerView.Adapter<ProviderAdapter.MyView
         public MyViewHolder(View view) {
             super(view);
 			tvIdProvider = (TextView) view.findViewById(R.id.tvIdProvider);
-			tvNombre = (TextView) view.findViewById(R.id.tvNombre);
-			tvDescription = (TextView) view.findViewById(R.id.tvDescription);
 			tvRuc = (TextView) view.findViewById(R.id.tvRuc);
+			tvDescription = (TextView) view.findViewById(R.id.tvDescription);
+			tvNombre = (TextView) view.findViewById(R.id.tvNombre);
             ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
             ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
         }
@@ -55,10 +55,10 @@ public class ProviderAdapter extends RecyclerView.Adapter<ProviderAdapter.MyView
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Provider provider = providerList.get(position);
-		holder.tvIdProvider.setText(provider.getIdProvider());
-		holder.tvNombre.setText(provider.getNombre());
-		holder.tvDescription.setText(provider.getDescription());
+		holder.tvIdProvider.setText(String.valueOf(provider.getIdProvider()));
 		holder.tvRuc.setText(provider.getRuc());
+		holder.tvDescription.setText(provider.getDescription());
+		holder.tvNombre.setText(provider.getNombre());
 
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {

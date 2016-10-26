@@ -122,5 +122,4 @@ public class CameraActivity extends AppCompatActivity {
             return new File(sdDir, "CameraAPIDemo");
         }
     }
-
 }

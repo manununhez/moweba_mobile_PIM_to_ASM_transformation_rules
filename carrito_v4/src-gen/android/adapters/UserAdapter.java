@@ -15,7 +15,6 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
     private List<User> userList;
     private Context context;
-    private UserDAO userDAO;
     private int REQUEST_CODE = 1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -35,10 +34,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
     }
 
 
-    public UserAdapter(Context context, List<User> userList, UserDAO userDAO) {
+    public UserAdapter(Context context, List<User> userList) {
         this.context = context;
 		this.userList = userList;
-        this.userDAO = userDAO;
     }
 
     @Override

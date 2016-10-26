@@ -60,7 +60,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_[aClass.name.toLowerCase()/]);
+        setContentView(R.layout.activity_[aClass.name.toLower()/]);
 
         // Get an instance of the sensor service, and use that to get an instance of a particular sensor.
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -154,7 +154,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 		[/if]		
 	[/for]
-
+	}
 
     @Override
     protected void onResume() {
@@ -487,6 +487,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.io.IOException;
 //[/protected]
 
@@ -851,7 +853,6 @@ public class CameraActivity extends AppCompatActivity {
             return new File(sdDir, "CameraAPIDemo");
         }
     }
-
 }
 [/file]
 [/template]
@@ -863,7 +864,6 @@ public class CameraActivity extends AppCompatActivity {
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
-
     <Button
         android:id="@+id/captureFront"
         android:layout_width="wrap_content"
@@ -871,14 +871,6 @@ public class CameraActivity extends AppCompatActivity {
         android:layout_centerInParent="true"
         android:onClick="onClick"
         android:text="Make Photo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Photo saved in:"
-        android:textColor="@android:color/black"
-        android:layout_below="@+id/captureFront"/>
 </RelativeLayout>
-
 [/file]
 [/template]

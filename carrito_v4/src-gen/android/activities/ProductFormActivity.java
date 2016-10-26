@@ -11,19 +11,22 @@ import android.view.View;
 import android.widget.Button;
 //End of user code
 
-public class ProviderFormActivity extends AppCompatActivity {
+public class ProductFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
 	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tieRuc; 
+	private TextInputEditText tiePrice; 
 	private TextInputEditText tieDescription; 
-	private TextInputEditText tieNombre; 
+	private TextInputEditText tieIdProducto; 
+	private TextInputEditText tieCode; 
+	private TextInputEditText tieName; 
+	private TextInputEditText tieIdImageProduct; 
 	private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_provider);
+        setContentView(R.layout.activity_form_product);
 
         intent = getIntent();
         if (intent.getStringExtra("typeOperation").equals("edit")) {
@@ -32,34 +35,37 @@ public class ProviderFormActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(booleanEditMode ? "Edit Provider" : "Add Provider");
+            actionBar.setTitle(booleanEditMode ? "Edit Product" : "Add Product");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
 		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tieRuc =  (TextInputEditText) findViewById(R.id.tieRuc); 
+		tiePrice =  (TextInputEditText) findViewById(R.id.tiePrice); 
 		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
-		tieNombre =  (TextInputEditText) findViewById(R.id.tieNombre); 
+		tieIdProducto =  (TextInputEditText) findViewById(R.id.tieIdProducto); 
+		tieCode =  (TextInputEditText) findViewById(R.id.tieCode); 
+		tieName =  (TextInputEditText) findViewById(R.id.tieName); 
+		tieIdImageProduct =  (TextInputEditText) findViewById(R.id.tieIdImageProduct); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
 
         if (booleanEditMode) {
             btnSave.setText("Save Changes");
-            loadProviderData();
+            loadProductData();
         }
 
         MySQLiteHelper db = new MySQLiteHelper(this);
-        final ProviderDAO providerDAO = new ProviderDAO(db);
+        final ProductDAO productDAO = new ProductDAO(db);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Provider provider = getProviderFromEditext();
+               Product product = getProductFromEditext();
                 if (booleanEditMode) {
-                    providerDAO.updateProvider(provider);
+                    productDAO.updateProduct(product);
                 }else{
-                    providerDAO.addProvider(provider);
+                    productDAO.addProduct(product);
                 }
 
                 Intent returnIntent = new Intent();
@@ -70,21 +76,27 @@ public class ProviderFormActivity extends AppCompatActivity {
 
     }
 
-	private void loadProviderData(){
-		Provider provider = (Provider) intent.getSerializableExtra("provider");
-		tieIdProvider.setText(String.valueOf(provider.getIdProvider()));
-		tieRuc.setText(provider.getRuc());
-		tieDescription.setText(provider.getDescription());
-		tieNombre.setText(provider.getNombre());
+	private void loadProductData(){
+		Product product = (Product) intent.getSerializableExtra("product");
+		tieIdProvider.setText(String.valueOf(product.getIdProvider()));
+		tiePrice.setText(product.getPrice());
+		tieDescription.setText(product.getDescription());
+		tieIdProducto.setText(String.valueOf(product.getIdProducto()));
+		tieCode.setText(String.valueOf(product.getCode()));
+		tieName.setText(product.getName());
+		tieIdImageProduct.setText(String.valueOf(product.getIdImageProduct()));
 	}
 
-    private Provider getProviderFromEditext() {
+    private Product getProductFromEditext() {
 		Integer idProvider = Integer.valueOf(tieIdProvider.getText().toString());
-		String ruc = tieRuc.getText().toString();
+		String price = tiePrice.getText().toString();
 		String description = tieDescription.getText().toString();
-		String nombre = tieNombre.getText().toString();
+		Integer idProducto = Integer.valueOf(tieIdProducto.getText().toString());
+		Integer code = Integer.valueOf(tieCode.getText().toString());
+		String name = tieName.getText().toString();
+		Integer idImageProduct = Integer.valueOf(tieIdImageProduct.getText().toString());
         
-        return new Provider(idProvider, ruc, description, nombre);
+        return new Product(idProvider, price, description, idProducto, code, name, idImageProduct);
     }
 
     @Override

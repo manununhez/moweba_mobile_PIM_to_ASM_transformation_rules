@@ -27,11 +27,13 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     [for (p : Property | persistentEntityProperties)]
 	private TextInputEditText tie[p.name.toUpperFirst()/]; 
 	[/for]
+ 	private static String FILENAME = "prueba.txt";
+    private static String FILE_ENCODING = "UTF-8";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_[aClass.name.toLowerCase()/]);
+        setContentView(R.layout.activity_[aClass.name.toLower()/]);
 
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {

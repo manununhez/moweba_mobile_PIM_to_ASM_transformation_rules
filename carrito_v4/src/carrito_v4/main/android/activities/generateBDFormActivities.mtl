@@ -30,13 +30,14 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 	[for (p : Property | persistentEntityProperties)]
 	private TextInputEditText tie[p.name.toUpperFirst()/]; 
 	[/for]
+	private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_[aClass.name.toLowerCase()/]);
+        setContentView(R.layout.activity_form_[aClass.name.toLower()/]);
 
-        Intent intent = getIntent();
+        intent = getIntent();
         if (intent.getStringExtra("typeOperation").equals("edit")) {
             booleanEditMode = true;
         }

@@ -14,13 +14,13 @@ namespace Data.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public string syncTime { get; set; }
+		public decimal syncTime { get; set; }
+
+		[DataMember]
+		public int quantity { get; set; }
 
 		[DataMember]
 		public int idCart { get; set; }
-
-		[DataMember]
-		public string quantity { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -31,10 +31,10 @@ namespace Data.Model
 		/**
 		* Constructor.
 		*/
-		public ShoppingCart (string syncTime, int idCart, string quantity){
+		public ShoppingCart (decimal syncTime, int quantity, int idCart){
 			this.syncTime = syncTime;     
-			this.idCart = idCart;     
 			this.quantity = quantity;     
+			this.idCart = idCart;     
 		}
     }
 }

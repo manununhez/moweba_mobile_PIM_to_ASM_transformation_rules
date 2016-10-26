@@ -11,8 +11,6 @@
 
 //[protected ('imports')]
 using [model.name/].Views;
-using [model.name/].Views.Rest;
-using [model.name/].Views.Sensors;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;

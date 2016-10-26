@@ -16,10 +16,10 @@ namespace Data.Views
     public sealed partial class HardwareDeviceView : Page
     {
         private NavigationHelper navigationHelper;	
-	    public LightSensor mAmbientLightLight { get; set; }
-		public Accelerometer mAccelerometerAccelerometer { get; set; }
 	    public Gyrometer mGyroscopeGyroscope { get; set; }
+	    public LightSensor mAmbientLightLight { get; set; }
 	    public Compass mCompassIntentCompass { get; set; }
+		public Accelerometer mAccelerometerAccelerometer { get; set; }
         //Use for get efficient signal intervals between accelerometer responses
         private uint desiredReportInterval { get; set; }
         
@@ -31,10 +31,10 @@ namespace Data.Views
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
-		    mAmbientLightLight = LightSensor.GetDefault();
-			mAccelerometerAccelerometer = Accelerometer.GetDefault();
 		    mGyroscopeGyroscope = Gyrometer.GetDefault();
+		    mAmbientLightLight = LightSensor.GetDefault();
 		    mCompassIntentCompass = Compass.GetDefault();
+			mAccelerometerAccelerometer = Accelerometer.GetDefault();
 
             if (accelerometer != null && gyrometer != null)
             {
@@ -43,18 +43,18 @@ namespace Data.Views
                 uint minReportInterval = accelerometer.MinimumReportInterval;
                 desiredReportInterval = minReportInterval > 16 ? minReportInterval : 16;
 
-		    mAmbientLightLight.ReportInterval = desiredReportInterval;
-			//add event for sensors readings
-            mAmbientLightLight.ReadingChanged += new TypedEventHandler<Accelerometer, LightSensorReadingChangedEventArgs>(ReadingChanged);
-			mAccelerometerAccelerometer.ReportInterval = desiredReportInterval;
-			//add event for sensors readings
-            mAccelerometerAccelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
 		    mGyroscopeGyroscope.ReportInterval = desiredReportInterval;
 			//add event for sensors readings
              mGyroscopeGyroscope.ReadingChanged += new TypedEventHandler<Accelerometer, GyrometerReadingChangedEventArgs>(ReadingChanged);
+		    mAmbientLightLight.ReportInterval = desiredReportInterval;
+			//add event for sensors readings
+            mAmbientLightLight.ReadingChanged += new TypedEventHandler<Accelerometer, LightSensorReadingChangedEventArgs>(ReadingChanged);
 		    mCompassIntentCompass.ReportInterval = desiredReportInterval;
 			//add event for sensors readings
             mCompassIntentCompass.ReadingChanged += new TypedEventHandler<Accelerometer, CompassReadingChangedEventArgs>(ReadingChanged);
+			mAccelerometerAccelerometer.ReportInterval = desiredReportInterval;
+			//add event for sensors readings
+            mAccelerometerAccelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
 
             }
             else
@@ -146,6 +146,10 @@ namespace Data.Views
             });
         }
 
+	    private void btnMyMicAudioRecord_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AudioRecordView));
+        }
 	    private async void btnMyLocationGPS_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Geolocator geolocator = new Geolocator();
@@ -167,10 +171,6 @@ namespace Data.Views
             {
                 //exception
             }
-        }
-	    private void btnMyMicAudioRecord_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(AudioRecordView));
         }
         private void btnCameraIntentCamera_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

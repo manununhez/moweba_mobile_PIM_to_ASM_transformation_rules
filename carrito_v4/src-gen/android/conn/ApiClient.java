@@ -5,8 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 //End of user code
 
 public class ApiClient {
-    public static final String BASE_URL = "http://www.api2.cart.com.py"
-";
+    public static final String BASE_URL = "http://www.api2.cart.com.py";
     private static Retrofit retrofit = null;
 
 

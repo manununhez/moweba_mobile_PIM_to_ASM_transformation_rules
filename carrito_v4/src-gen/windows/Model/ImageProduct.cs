@@ -14,7 +14,7 @@ namespace Data.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public string idImageProduct { get; set; }
+		public int idImageProduct { get; set; }
 
 		[DataMember]
 		public string image { get; set; }
@@ -28,7 +28,7 @@ namespace Data.Model
 		/**
 		* Constructor.
 		*/
-		public ImageProduct (string idImageProduct, string image){
+		public ImageProduct (int idImageProduct, string image){
 			this.idImageProduct = idImageProduct;     
 			this.image = image;     
 		}

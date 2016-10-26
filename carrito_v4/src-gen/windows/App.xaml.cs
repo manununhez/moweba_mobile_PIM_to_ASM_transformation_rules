@@ -22,14 +22,10 @@ namespace Data
         {
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
-			Carrito de compras
-			Proveedor de datos
-			Persistencia
 			//Creating and initializing the DB
 			MySQLiteHelper.Createdatabase();
 			
 			
-			UML Standard Profile
         }
 
 

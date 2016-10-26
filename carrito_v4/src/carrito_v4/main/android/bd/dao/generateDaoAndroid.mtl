@@ -34,7 +34,7 @@ public class [aClass.name.toUpperFirst()/]DAO {
 
 			ContentValues values = new ContentValues();
 			[for (p : Property | persistentEntityProperties)]				
-			values.put([aClass.name.toUpperFirst()/]Table.COLUMN_[p.name.toUpper()/], [aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]());		
+			values.put([aClass.name.toUpperFirst()/]Table.COLUMN_[p.name.toUpper()/], [aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]().toString());		
 			[/for]
 			
 			// Inserting Row
@@ -121,7 +121,7 @@ public class [aClass.name.toUpperFirst()/]DAO {
 
 				ContentValues values = new ContentValues();
 				[for (p : Property | persistentEntityProperties)]				
-				values.put([aClass.name.toUpperFirst()/]Table.COLUMN_[p.name.toUpper()/], [aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]());		
+				values.put([aClass.name.toUpperFirst()/]Table.COLUMN_[p.name.toUpper()/], [aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]().toString());		
 				[/for]
 
 				// updating row

@@ -34,10 +34,10 @@ namespace [model.name.toUpperFirst()/]
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
 		[for (aPackage : Package | aPackages)]
-			[aPackage.name/]
 			[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'Database'))]
 			//Creating and initializing the DB
 			MySQLiteHelper.Createdatabase();
+			[comment]CREAMOS EL ARCHIVO HELPER DE SQLITE[/comment]
 			[createWindowsDatabaseHelper(aPackage, model.name)/]
 			[/if]
 		[/for]	    

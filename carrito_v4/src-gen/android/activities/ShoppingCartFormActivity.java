@@ -15,15 +15,16 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
 	private TextInputEditText tieSyncTime; 
-	private TextInputEditText tieIdCart; 
 	private TextInputEditText tieQuantity; 
+	private TextInputEditText tieIdCart; 
+	private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_shoppingcart);
 
-        Intent intent = getIntent();
+        intent = getIntent();
         if (intent.getStringExtra("typeOperation").equals("edit")) {
             booleanEditMode = true;
         }
@@ -35,8 +36,8 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
         }
 
 		tieSyncTime =  (TextInputEditText) findViewById(R.id.tieSyncTime); 
-		tieIdCart =  (TextInputEditText) findViewById(R.id.tieIdCart); 
 		tieQuantity =  (TextInputEditText) findViewById(R.id.tieQuantity); 
+		tieIdCart =  (TextInputEditText) findViewById(R.id.tieIdCart); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -69,17 +70,17 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
 
 	private void loadShoppingCartData(){
 		ShoppingCart shoppingCart = (ShoppingCart) intent.getSerializableExtra("shoppingCart");
-		tieSyncTime.setText(shoppingCart.getSyncTime());
+		tieSyncTime.setText(String.valueOf(shoppingCart.getSyncTime()));
+		tieQuantity.setText(String.valueOf(shoppingCart.getQuantity()));
 		tieIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
-		tieQuantity.setText(shoppingCart.getQuantity());
 	}
 
     private ShoppingCart getShoppingCartFromEditext() {
-		String syncTime = tieSyncTime.getText().toString();
+		BigDecimal syncTime = new BigDecimal(tieSyncTime.getText().toString());
+		Integer quantity = Integer.valueOf(tieQuantity.getText().toString());
 		Integer idCart = Integer.valueOf(tieIdCart.getText().toString());
-		String quantity = tieQuantity.getText().toString();
         
-        return new ShoppingCart(syncTime, idCart, quantity);
+        return new ShoppingCart(syncTime, quantity, idCart);
     }
 
     @Override

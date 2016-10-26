@@ -16,6 +16,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.net.Uri;
+import android.widget.Toast;
 //[/protected]
 
 
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 	
 	[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses) separator('\n')]
-			[if (aClass.hasStereotype('WebInterface'))]
+			[if (aClass.hasStereotype('WebInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
 			Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
 			btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
 	            @Override

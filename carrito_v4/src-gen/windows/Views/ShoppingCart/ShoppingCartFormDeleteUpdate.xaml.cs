@@ -47,9 +47,9 @@ namespace Data.Views
             if (e != null)
             {
                 selectedShoppingCart = e.Parameter as ShoppingCart;
-				syncTimeTbx.Text = selectedShoppingCart.syncTime;
+				syncTimeTbx.Text = Convert.ToString(selectedShoppingCart.syncTime);
+				quantityTbx.Text = Convert.ToString(selectedShoppingCart.quantity);
 				idCartTbx.Text = Convert.ToString(selectedShoppingCart.idCart);
-				quantityTbx.Text = selectedShoppingCart.quantity;
             }
         }
 
@@ -67,9 +67,9 @@ namespace Data.Views
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
             Product currentShoppingCart = new ShoppingCart();
-			currentShoppingCart.syncTime = syncTimeTbx.Text
+			currentShoppingCart.syncTime = double.Parse(syncTimeTbx.Text, System.Globalization.CultureInfo.InvariantCulture)
+, 			currentShoppingCart.quantity = Int32.Parse(quantityTbx.Text)
 , 			currentShoppingCart.idCart = Int32.Parse(idCartTbx.Text)
-, 			currentShoppingCart.quantity = quantityTbx.Text
 
 			shoppingCartDAO.updateShoppingCart(currentShoppingCart);//Update selected DB current shoppingCart
             Frame.Navigate(typeof(ShoppingCartView));

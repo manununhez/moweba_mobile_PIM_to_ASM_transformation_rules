@@ -66,8 +66,8 @@ namespace Data.ViewModels
                 if (queryResult != null)
                 {
 					queryResult.syncTime = shoppingCart.syncTime;		
-					queryResult.idCart = shoppingCart.idCart;		
 					queryResult.quantity = shoppingCart.quantity;		
+					queryResult.idCart = shoppingCart.idCart;		
 
                     dbConn.RunInTransaction(() =>
                     {

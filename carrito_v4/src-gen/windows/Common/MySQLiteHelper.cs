@@ -26,9 +26,9 @@ namespace Data.Common
                     //Creating a table
                     connection.RunInTransaction(() =>
                     {
-					connection.CreateTable<Model.ShoppingCart>();
 					connection.CreateTable<Model.Provider>();
-					connection.CreateTable<Model.ImageProduct>();
+					connection.CreateTable<Model.Product>();
+					connection.CreateTable<Model.ShoppingCart>();
                     });
                 }
 

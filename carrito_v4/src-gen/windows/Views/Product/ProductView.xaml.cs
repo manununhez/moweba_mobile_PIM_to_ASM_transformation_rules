@@ -1,7 +1,11 @@
 
 //Start of user code imports
 using Data.Common;
+using Data.Model;
+using Data.ViewModels;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -13,12 +17,12 @@ namespace Data.Views
     public sealed partial class ProductView : Page
     {
         private NavigationHelper navigationHelper;
-        private string FILENAME = "prueba.txt";
-
-        public ProductView()
+        private ObservableCollection<Product> productList;
+        private ProductDAO product = new ProductDAO();
+        
+		public ProductView()
         {
             this.InitializeComponent();
-
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
@@ -37,7 +41,6 @@ namespace Data.Views
         {
         }
 
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
@@ -48,16 +51,35 @@ namespace Data.Views
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-        private async void btnWriteFile_Click(object sender, RoutedEventArgs e)
-        {
-			String content = idProviderTbx.Text + "," + priceTbx.Text + "," + descriptionTbx.Text + "," + idProductoTbx.Text + "," + codeTbx.Text + "," + nameTbx.Text + "," + idImageProductTbx.Text;
-            await FileHelper.WriteTextFile(FILENAME, content);
+
+        private void ReadAllProduct_Loaded(object sender, RoutedEventArgs e)
+        {        
+            productList = product.getAllProduct();//Get all DB product  
+            listBoxobj.ItemsSource = productList.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest product ID can Display first.  
+            loadedElementsCount();
         }
 
-        private async void btnReadFile_Click(object sender, RoutedEventArgs e)
+        private void btnAddProduct_click(object sender, RoutedEventArgs e)
         {
-            ResultTbx.Text = await FileHelper.ReadTextFile(FILENAME);
+            Frame.Navigate(typeof(ProductFormNew));
         }
+
+        private void listBoxobj_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxobj.SelectedIndex != -1)
+            {
+                Product listItem = listBoxobj.SelectedItem as Product;//Get selected listbox item contact ID 
+                Frame.Navigate(typeof(ProductFormDeleteUpdate), listItem);
+            }
+        }
+
+        private void loadedElementsCount()
+        {
+            txbQuantity.Text = Convert.ToString(productList.Count);//Text should not be empty 
+        }
+
+
     }
 }
+
 

@@ -14,16 +14,16 @@ namespace Data.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public string idProvider { get; set; }
+		public int idProvider { get; set; }
 
 		[DataMember]
-		public string nombre { get; set; }
+		public string ruc { get; set; }
 
 		[DataMember]
 		public string description { get; set; }
 
 		[DataMember]
-		public string ruc { get; set; }
+		public string nombre { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -34,11 +34,11 @@ namespace Data.Model
 		/**
 		* Constructor.
 		*/
-		public Provider (string idProvider, string nombre, string description, string ruc){
+		public Provider (int idProvider, string ruc, string description, string nombre){
 			this.idProvider = idProvider;     
-			this.nombre = nombre;     
-			this.description = description;     
 			this.ruc = ruc;     
+			this.description = description;     
+			this.nombre = nombre;     
 		}
     }
 }

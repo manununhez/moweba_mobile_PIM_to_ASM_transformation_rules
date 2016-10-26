@@ -22,18 +22,6 @@
     </android.support.design.widget.TextInputLayout>
 
 	<android.support.design.widget.TextInputLayout
-        android:id="@+id/tilIdCart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/tieIdCart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="idCart" />
-    </android.support.design.widget.TextInputLayout>
-
-	<android.support.design.widget.TextInputLayout
         android:id="@+id/tilQuantity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -43,6 +31,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="quantity" />
+    </android.support.design.widget.TextInputLayout>
+
+	<android.support.design.widget.TextInputLayout
+        android:id="@+id/tilIdCart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/tieIdCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="idCart" />
     </android.support.design.widget.TextInputLayout>
 
     <Button

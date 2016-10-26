@@ -14,11 +14,11 @@ using Windows.UI.Xaml.Navigation;
 namespace Data.Views
 {
 
-    public sealed partial class ImageProductFormNew : Page
+    public sealed partial class ProductFormNew : Page
     {
         private NavigationHelper navigationHelper;
 
-        public ImageProductFormNew()
+        public ProductFormNew()
         {
             this.InitializeComponent();
 
@@ -51,14 +51,14 @@ namespace Data.Views
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-        private async void btnAddImageProduct_Click(object sender, RoutedEventArgs e)
+        private async void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
      
-			if(idImageProductTbx.Text != "" & imageTbx.Text != "")
+			if(idProviderTbx.Text != "" & priceTbx.Text != "" & descriptionTbx.Text != "" & idProductoTbx.Text != "" & codeTbx.Text != "" & nameTbx.Text != "" & idImageProductTbx.Text != "")
             {
-				imageProductDAO.addImageProduct(new ImageProduct(idImageProductTbx.Text, imageTbx.Text)); 			
+				productDAO.addProduct(new Product(Int32.Parse(idProviderTbx.Text), priceTbx.Text, descriptionTbx.Text, Int32.Parse(idProductoTbx.Text), Int32.Parse(codeTbx.Text), nameTbx.Text, Int32.Parse(idImageProductTbx.Text))); 			
 
-                Frame.Navigate(typeof(ImageProductView));//after add imageProduct redirect to imageProduct listbox page
+                Frame.Navigate(typeof(ProductView));//after add product redirect to product listbox page
             }
             else
             {

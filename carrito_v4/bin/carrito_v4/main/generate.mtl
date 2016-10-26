@@ -62,7 +62,8 @@
 
 [import carrito_v4::main::windows::beans::beansGenWindows/]
 
-[import carrito_v4::main::windows::bd::generateAppPage/]
+[import carrito_v4::main::windows::generateAppPage/]
+
 [import carrito_v4::main::windows::bd::generateDaoWindows/]
 
 [import carrito_v4::main::windows::files::createFileHelperWindows/]

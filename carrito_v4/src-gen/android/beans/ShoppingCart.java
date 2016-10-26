@@ -8,19 +8,19 @@ public class ShoppingCart  implements Serializable{
 	/**
 	* the syncTime attribute.
 	*/
-	private String syncTime;
+	private BigDecimal syncTime;
+
+
+	/**
+	* the quantity attribute.
+	*/
+	private Integer quantity;
 
 
 	/**
 	* the idCart attribute.
 	*/
 	private Integer idCart;
-
-
-	/**
-	* the quantity attribute.
-	*/
-	private String quantity;
 	
 
 	/**
@@ -32,35 +32,46 @@ public class ShoppingCart  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public ShoppingCart (String syncTime, Integer idCart, String quantity){
+	public ShoppingCart (BigDecimal syncTime, Integer quantity, Integer idCart){
 		this.syncTime = syncTime;
-		this.idCart = idCart;
 		this.quantity = quantity;
+		this.idCart = idCart;
 	}
  
-	public String getSyncTime() {
+	public BigDecimal getSyncTime() {
        return this.syncTime;
+     }
+
+	public Integer getQuantity() {
+       return this.quantity;
      }
 
 	public Integer getIdCart() {
        return this.idCart;
      }
-
-	public String getQuantity() {
-       return this.quantity;
-     }
  
-     public void setSyncTime(String syncTime) {
+     public void setSyncTime(BigDecimal syncTime) {
         this.syncTime = syncTime;
+     }
+
+     public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
      }
 
      public void setIdCart(Integer idCart) {
         this.idCart = idCart;
      }
 
-     public void setQuantity(String quantity) {
-        this.quantity = quantity;
-     }
+	public String getTotalCartPrice() {
+	// Start of user code getTotalCartPrice
+	// TODO should be implemented
+	// End of user code
+	    }
 
+	public int getCartProductCount() {
+	// Start of user code getCartProductCount
+	// TODO should be implemented
+	// End of user code
+	    }
 
 }

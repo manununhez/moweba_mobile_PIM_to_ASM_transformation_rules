@@ -32,7 +32,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_[aClass.name.toLowerCase()/]);
+        setContentView(R.layout.activity_form_[aClass.name.toLower()/]);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

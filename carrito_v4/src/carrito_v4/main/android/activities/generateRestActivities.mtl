@@ -33,7 +33,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rest);
+        setContentView(R.layout.activity_[aClass.name.toLower()/]);
 
         tvResults = (TextView) findViewById(R.id.tvResults);
         apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -54,12 +54,17 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 	[for (o : Operation | webServiceOperations)separator('\n')]
 	private void [o.name.toLowerFirst()/]() {
-        Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call = apiService.[o.name.toLowerFirst()/]();
+		Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Completar [o.name.toLowerFirst()/]()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call = apiService.[o.name.toLowerFirst()/]();
         call.enqueue(new Callback<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>() {
             @Override
             public void onResponse(Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call, Response<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> response) {
                 //TODO do something
-                Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Completar [o.name.toLowerFirst()/]()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -69,7 +74,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 	[/for]
     

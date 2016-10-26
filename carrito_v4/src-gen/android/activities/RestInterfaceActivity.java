@@ -22,7 +22,7 @@ public class RestInterfaceActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rest);
+        setContentView(R.layout.activity_restinterface);
 
         tvResults = (TextView) findViewById(R.id.tvResults);
         apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -103,12 +103,17 @@ public class RestInterfaceActivity extends AppCompatActivity {
     }
 
 	private void login() {
-        Call<Boolean> call = apiService.login();
+		Toast.makeText(RestInterfaceActivity.this, "Completar login()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<Boolean> call = apiService.login();
         call.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar login()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -118,16 +123,21 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 
 	private void logout() {
-        Call<Boolean> call = apiService.logout();
+		Toast.makeText(RestInterfaceActivity.this, "Completar logout()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<Boolean> call = apiService.logout();
         call.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar logout()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -137,16 +147,21 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 
 	private void getAllProducts() {
-        Call<List<Product>> call = apiService.getAllProducts();
+		Toast.makeText(RestInterfaceActivity.this, "Completar getAllProducts()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<List<Product>> call = apiService.getAllProducts();
         call.enqueue(new Callback<List<Product>>() {
             @Override
             public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar getAllProducts()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -156,16 +171,21 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 
 	private void getProduct() {
-        Call<Product> call = apiService.getProduct();
+		Toast.makeText(RestInterfaceActivity.this, "Completar getProduct()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<Product> call = apiService.getProduct();
         call.enqueue(new Callback<Product>() {
             @Override
             public void onResponse(Call<Product> call, Response<Product> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar getProduct()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -175,16 +195,21 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 
 	private void getAllProviders() {
-        Call<List<Provider>> call = apiService.getAllProviders();
+		Toast.makeText(RestInterfaceActivity.this, "Completar getAllProviders()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<List<Provider>> call = apiService.getAllProviders();
         call.enqueue(new Callback<List<Provider>>() {
             @Override
             public void onResponse(Call<List<Provider>> call, Response<List<Provider>> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar getAllProviders()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -194,16 +219,21 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 
 	private void getProvider() {
-        Call<Provider> call = apiService.getProvider();
+		Toast.makeText(RestInterfaceActivity.this, "Completar getProvider()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<Provider> call = apiService.getProvider();
         call.enqueue(new Callback<Provider>() {
             @Override
             public void onResponse(Call<Provider> call, Response<Provider> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar getProvider()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -213,16 +243,21 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 
 	private void confirmCart() {
-        Call<Boolean> call = apiService.confirmCart();
+		Toast.makeText(RestInterfaceActivity.this, "Completar confirmCart()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<Boolean> call = apiService.confirmCart();
         call.enqueue(new Callback<Boolean>() {
             @Override
             public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar confirmCart()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -232,16 +267,21 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
 
 	private void getUserCart() {
-        Call<List<ShoppingCart>> call = apiService.getUserCart();
+		Toast.makeText(RestInterfaceActivity.this, "Completar getUserCart()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 */
+
+       /* Call<List<ShoppingCart>> call = apiService.getUserCart();
         call.enqueue(new Callback<List<ShoppingCart>>() {
             @Override
             public void onResponse(Call<List<ShoppingCart>> call, Response<List<ShoppingCart>> response) {
                 //TODO do something
-                Toast.makeText(RestInterfaceActivity.this, "Completar getUserCart()", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -251,7 +291,7 @@ public class RestInterfaceActivity extends AppCompatActivity {
                 Log.e("Rest", t.toString());
 				//TODO do something
             }
-        });
+        }); */
 	}
     
 }

@@ -30,7 +30,7 @@ namespace Data.ViewModels
         {
             using (dbConn)
             {
-				var queryResult = dbConn.Query<Provider>("select * from Provider where  =" + id).FirstOrDefault();
+				var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider =" + id).FirstOrDefault();
                 return queryResult;
             }
         }
@@ -62,13 +62,13 @@ namespace Data.ViewModels
         {
             using (dbConn)
             {
-                var queryResult = dbConn.Query<Provider>("select * from Provider where ).FirstOrDefault();
+                var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider =" + provider.idProvider).FirstOrDefault();
                 if (queryResult != null)
                 {
 					queryResult.idProvider = provider.idProvider;		
-					queryResult.nombre = provider.nombre;		
-					queryResult.description = provider.description;		
 					queryResult.ruc = provider.ruc;		
+					queryResult.description = provider.description;		
+					queryResult.nombre = provider.nombre;		
 
                     dbConn.RunInTransaction(() =>
                     {
@@ -85,7 +85,7 @@ namespace Data.ViewModels
         {
             using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
             {
-                var queryResult = dbConn.Query<Provider>("select * from Provider where  =" + id).FirstOrDefault();
+                var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider =" + id).FirstOrDefault();
 
                 if (queryResult != null)
                 {

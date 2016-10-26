@@ -96,11 +96,12 @@
 		[if (aPackage.hasStereotype('DataPersistence'))]
 		[for (aClass : Class | aClasses)]		
 		[if (aClass.hasStereotype('persistentEntity'))]
-		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database') 
-			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') 
-			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')
+		or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]FormActivity" />
+		[elseif  (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') ]
+		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
 		[/if]
 		[/if]		
 		[/for]

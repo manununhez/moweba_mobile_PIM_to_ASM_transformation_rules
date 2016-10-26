@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.net.Uri;
+import android.widget.Toast;
 //End of user code
 
 
@@ -27,8 +29,17 @@ public class MainActivity extends AppCompatActivity {
 	        });
 			
 
+			Button btnHardwareDevice = (Button) findViewById(R.id.btnHardwareDevice);
+			btnHardwareDevice.setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, HardwareDeviceActivity.class));
+	            }
+	        });
+			
 
 	
+
 
 			//Handle incoming data
 	        Intent intent = getIntent();
@@ -55,6 +66,13 @@ public class MainActivity extends AppCompatActivity {
 	            }
 	        }
 
+			Button btnProvider = (Button) findViewById(R.id.btnProvider);
+			btnProvider.setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, ProviderActivity.class));
+	            }
+	        });
 
 			Button btnProduct = (Button) findViewById(R.id.btnProduct);
 			btnProduct.setOnClickListener(new View.OnClickListener() {
@@ -72,11 +90,11 @@ public class MainActivity extends AppCompatActivity {
 	            }
 	        });
 
-			Button btnProvider = (Button) findViewById(R.id.btnProvider);
-			btnProvider.setOnClickListener(new View.OnClickListener() {
+			Button btnImageProduct = (Button) findViewById(R.id.btnImageProduct);
+			btnImageProduct.setOnClickListener(new View.OnClickListener() {
 	            @Override
 	            public void onClick(View view) {
-	                startActivity(new Intent(MainActivity.this, ProviderActivity.class));
+	                startActivity(new Intent(MainActivity.this, ImageProductActivity.class));
 	            }
 	        });
 
@@ -87,18 +105,11 @@ public class MainActivity extends AppCompatActivity {
 	                startActivity(new Intent(MainActivity.this, UserActivity.class));
 	            }
 	        });
-
-			Button btnImageProduct = (Button) findViewById(R.id.btnImageProduct);
-			btnImageProduct.setOnClickListener(new View.OnClickListener() {
-	            @Override
-	            public void onClick(View view) {
-	                startActivity(new Intent(MainActivity.this, ImageProductActivity.class));
-	            }
-	        });
 	
 
 	
     }
+
 
     void handleSendText(Intent intent, String type) {
         String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
@@ -116,5 +127,4 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-
 }

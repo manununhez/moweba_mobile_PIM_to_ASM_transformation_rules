@@ -556,4 +556,3 @@ public class MyFilesHelper {
             return (file.exists() && file.isFile() ? file.length() : -1);
         }
 }
-}

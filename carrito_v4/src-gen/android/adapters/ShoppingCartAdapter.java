@@ -20,8 +20,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 		private TextView tvSyncTime;
-		private TextView tvIdCart;
 		private TextView tvQuantity;
+		private TextView tvIdCart;
         private ImageView ivDelete;
         private ImageView ivEdit;
 
@@ -29,8 +29,8 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
         public MyViewHolder(View view) {
             super(view);
 			tvSyncTime = (TextView) view.findViewById(R.id.tvSyncTime);
-			tvIdCart = (TextView) view.findViewById(R.id.tvIdCart);
 			tvQuantity = (TextView) view.findViewById(R.id.tvQuantity);
+			tvIdCart = (TextView) view.findViewById(R.id.tvIdCart);
             ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
             ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
         }
@@ -53,9 +53,9 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final ShoppingCart shoppingCart = shoppingCartList.get(position);
-		holder.tvSyncTime.setText(shoppingCart.getSyncTime());
+		holder.tvSyncTime.setText(String.valueOf(shoppingCart.getSyncTime()));
+		holder.tvQuantity.setText(String.valueOf(shoppingCart.getQuantity()));
 		holder.tvIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
-		holder.tvQuantity.setText(shoppingCart.getQuantity());
 
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {

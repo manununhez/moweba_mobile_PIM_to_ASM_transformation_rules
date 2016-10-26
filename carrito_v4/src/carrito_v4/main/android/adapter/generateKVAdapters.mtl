@@ -28,7 +28,6 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
 
     private List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List;
     private Context context;
-    private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO;
     private int REQUEST_CODE = 1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -50,10 +49,9 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
     }
 
 
-    public [aClass.name.toUpperFirst()/]Adapter(Context context, List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List, [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO) {
+    public [aClass.name.toUpperFirst()/]Adapter(Context context, List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List) {
         this.context = context;
 		this.[aClass.name.toLowerFirst()/]List = [aClass.name.toLowerFirst()/]List;
-        this.[aClass.name.toLowerFirst()/]DAO = [aClass.name.toLowerFirst()/]DAO;
     }
 
     @Override

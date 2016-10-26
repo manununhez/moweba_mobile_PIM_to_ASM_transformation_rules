@@ -4,55 +4,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Data.Views">
 
-    <Grid x:Name="LayoutRoot">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+                <TextBlock Text="ImageProduct" Margin="0,-6.5,0,5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+            </StackPanel>
 
-        <!-- Title Panel -->
-        <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
-            <TextBlock Text="ImageProduct" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
-        </StackPanel>
+            <StackPanel Grid.Row="0" Margin="19,100,0,0">
+                <TextBox x:Name="ResultTbx" HorizontalAlignment="Center" Margin="10,10,10,0" TextWrapping="Wrap" Height="100" Width="340" Background="Azure"/>
+                <TextBlock Text="idImageProduct" FontSize="14"/>
+                <TextBox x:Name="idImageProductTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="image" FontSize="14"/>
+                <TextBox x:Name="imageTbx" TextWrapping="Wrap" Width="350"/>
 
-        <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            <TextBlock  x:Name="txbQuantity" TextWrapping="Wrap"  Text="0" Margin="0,10,330,455" FontSize="16"  HorizontalAlignment="Right" Width="16"/>
-            <TextBlock Text="elementos" TextWrapping="Wrap" Margin="31,9,251,453" FontSize="16" />
-            <Button x:Name="btnAddImageProduct" Content="Add ImageProduct" HorizontalAlignment="Right" Margin="222,-9,0,0" VerticalAlignment="Top" Click="btnAddImageProduct_click"/>
-
-            <!--TODO: Content should be placed within the following grid-->
-            <Grid Margin="-2,1,12,-3">
-                <ListBox BorderBrush="#FF141EE4" Height="auto" BorderThickness="2" MaxHeight="580" x:Name="listBoxobj" SelectionChanged="listBoxobj_SelectionChanged" Margin="10,51,-10,35" Loaded="ReadAllImageProduct_Loaded">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Background="Gray" Width="480">
-                                <Border BorderBrush="White" BorderThickness="1">
-                                    <StackPanel Grid.Column="2" Margin="19,0,0,0">
-										<Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="IdImageProduct:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="idImageProductTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding idImageProduct}" FontSize="17" Foreground="White"/>
-                                        </Grid>				
-										<Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Image:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="imageTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding image}" FontSize="17" Foreground="White"/>
-                                        </Grid>				
-                                    </StackPanel>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </Grid>
+                <Button x:Name="btnWriteToFile" Content="Write to file" HorizontalAlignment="Center" Height="71" Width="304" Click="btnWriteFile_Click"/>
+                <Button x:Name="btnReadFromFile" Content="Read from file" HorizontalAlignment="Center" Height="71" Width="304" Click="btnReadFile_Click"/>
+            </StackPanel>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Page>

@@ -1,25 +1,32 @@
 
 //Start of user code imports
-import android.support.design.widget.TextInputEditText;
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 //End of user code
 
 public class ProductActivity extends AppCompatActivity {
 
-	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tiePrice; 
-	private TextInputEditText tieDescription; 
-	private TextInputEditText tieIdProducto; 
-	private TextInputEditText tieCode; 
-	private TextInputEditText tieName; 
-	private TextInputEditText tieIdImageProduct; 
+    private RecyclerView recyclerView;
+    private ProductAdapter mAdapter;
+    private List<Product> productList = new ArrayList<>();
+    private MySQLiteHelper db;
+    private TextView tvDataCount;
+    private ProductDAO productDAO;
 
+    private int REQUEST_CODE = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,38 +37,65 @@ public class ProductActivity extends AppCompatActivity {
             actionBar.setTitle("Product");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        db = new MySQLiteHelper(this);
+        productDAO = new ProductDAO(db);
 
-		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tiePrice =  (TextInputEditText) findViewById(R.id.tiePrice); 
-		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
-		tieIdProducto =  (TextInputEditText) findViewById(R.id.tieIdProducto); 
-		tieCode =  (TextInputEditText) findViewById(R.id.tieCode); 
-		tieName =  (TextInputEditText) findViewById(R.id.tieName); 
-		tieIdImageProduct =  (TextInputEditText) findViewById(R.id.tieIdImageProduct); 
+        tvDataCount = (TextView) findViewById(R.id.tvDataCount);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        ImageView ivNew = (ImageView) findViewById(R.id.ivNew);
+		ivNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProductActivity.this, ProductFormActivity.class);
+                intent.putExtra("typeOperation","add");
+                startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
 
-		Button btnWriteToFile = (Button) findViewById(R.id.btnWriteToFile);
-        Button btnReadFromFile = (Button) findViewById(R.id.btnReadFromFile);
+		setupRecyclerView();
+
+        loadProductData();
         
-		final EditText etContent = (EditText) findViewById(R.id.etContent);
-
-
-        btnReadFromFile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                etContent.setText(MyFilesHelper.readFile(getFilesDir().getPath() + FILENAME, FILE_ENCODING));
-            }
-        });
-
-        btnWriteToFile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyFilesHelper.writeFile(getFilesDir().getPath() + FILENAME, getContent());
-            }
-        });
+		
     }
 
-     private String getContent() {
-		return tieIdProvider.getText() + "," + tiePrice.getText() + "," + tieDescription.getText() + "," + tieIdProducto.getText() + "," + tieCode.getText() + "," + tieName.getText() + "," + tieIdImageProduct.getText();
+    private void setupRecyclerView() {
+        mAdapter = new ProductAdapter(this, productList, productDAO);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+		recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+    }
+
+	private void loadProductData() {
+		getProductCount();
+		getProduct();
+	}
+
+
+    public void getProductCount() {
+        tvDataCount.setText(String.valueOf(productDAO.getProductCount()));
+    }
+
+    private void getProduct() {
+        Toast.makeText(ProductActivity.this, "Retrieving data from database", Toast.LENGTH_SHORT).show();
+
+        productList.addAll(productDAO.getAllProduct());
+
+        mAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                productList.clear();
+                
+				loadProductData();
+            }
+        }
     }
 
     @Override

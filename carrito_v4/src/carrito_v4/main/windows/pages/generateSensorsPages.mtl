@@ -240,7 +240,7 @@ namespace [modelName/].Views
 [/template]
 
 [template public generateCameraPages(aClass : Class, modelName : String)]
-[file (aClass.classFileName('windows/Views/Camera/', aClass, 'View','.xaml.cs'), false)]
+[file ('windows/Views/Camera/CameraView.xaml.cs', false)]
 using System;
 using Windows.Media.Capture;
 using Windows.UI.Xaml;
@@ -339,7 +339,7 @@ namespace [modelName/].Views
 [/template]
 
 [template public generateCameraPagesLayout(aClass : Class, modelName : String)]
-[file (aClass.classFileName('windows/Views/Camera/', aClass, 'View','.xaml'), false)]
+[file ('windows/Views/Camera/CameraView.xaml', false)]
 <Page
     x:Class="[modelName/].Views.CameraView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -359,7 +359,7 @@ namespace [modelName/].Views
 [/file]
 [/template]
 [template public generateAudioRecordPages(aClass : Class, modelName : String)]
-[file (aClass.classFileName('windows/Views/AudioRecord/', aClass, 'View','.xaml.cs'), false)]
+[file ('windows/Views/AudioRecord/AudioRecordView.xaml.cs', false)]
 using [modelName/].Common;
 using System;
 using System.Diagnostics;
@@ -503,7 +503,7 @@ namespace [modelName/].Views
 [/template]
 
 [template public generateAudioRecordPagesLayout(aClass : Class, modelName : String)]
-[file (aClass.classFileName('windows/Views/AudioRecord/', aClass, 'View','.xaml'), false)]
+[file ('windows/Views/AudioRecord/AudioRecordView.xaml', false)]
 <Page
     x:Class="[modelName/].Views.AudioRecordView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

@@ -8,7 +8,7 @@ public class ImageProduct  implements Serializable{
 	/**
 	* the idImageProduct attribute.
 	*/
-	private String idImageProduct;
+	private Integer idImageProduct;
 
 
 	/**
@@ -26,12 +26,12 @@ public class ImageProduct  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public ImageProduct (String idImageProduct, String image){
+	public ImageProduct (Integer idImageProduct, String image){
 		this.idImageProduct = idImageProduct;
 		this.image = image;
 	}
  
-	public String getIdImageProduct() {
+	public Integer getIdImageProduct() {
        return this.idImageProduct;
      }
 
@@ -39,7 +39,7 @@ public class ImageProduct  implements Serializable{
        return this.image;
      }
  
-     public void setIdImageProduct(String idImageProduct) {
+     public void setIdImageProduct(Integer idImageProduct) {
         this.idImageProduct = idImageProduct;
      }
 

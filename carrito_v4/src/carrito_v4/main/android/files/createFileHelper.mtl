@@ -3,7 +3,7 @@
 
 
 [template public createFileHelper(aPackage : Package)]
-[file ('android/file/MyFileHelper.java', false)]
+[file ('android/file/MyFilesHelper.java', false)]
 //[protected ('imports')]
 import android.text.TextUtils;
 
@@ -561,7 +561,6 @@ public class MyFilesHelper {
             File file = new File(path);
             return (file.exists() && file.isFile() ? file.length() : -1);
         }
-}
 }
 [/file]
 [/template]

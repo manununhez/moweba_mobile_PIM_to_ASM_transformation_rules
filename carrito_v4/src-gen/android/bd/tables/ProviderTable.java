@@ -11,19 +11,19 @@ public class ProviderTable {
 	
 	public static final String COLUMN_ID = "_id";
 		public static final String COLUMN_IDPROVIDER = "idProvider"; 
-		public static final String COLUMN_NOMBRE = "nombre"; 
-		public static final String COLUMN_DESCRIPTION = "description"; 
 		public static final String COLUMN_RUC = "ruc"; 
+		public static final String COLUMN_DESCRIPTION = "description"; 
+		public static final String COLUMN_NOMBRE = "nombre"; 
 	
 	//    DATABASE CREATION SQL STATEMENT
 	private static final String CREATE_TABLE = "create table "
 			+ TABLE_NAME
 			+ "("
 			+ COLUMN_ID + " integer primary key autoincrement,"
-			+ COLUMN_IDPROVIDER + " text,"
-+ COLUMN_NOMBRE + " text,"
+			+ COLUMN_IDPROVIDER + " integer,"
++ COLUMN_RUC + " text,"
 + COLUMN_DESCRIPTION + " text,"
-+ COLUMN_RUC + " text);";  
++ COLUMN_NOMBRE + " text);";  
 
 	
 	public ProviderTable(ContentResolver contentResolver) {

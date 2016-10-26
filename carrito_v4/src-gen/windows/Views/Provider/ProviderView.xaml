@@ -43,8 +43,8 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Nombre:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="nombreTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding nombre}" FontSize="17" Foreground="White"/>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Ruc:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="rucTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding ruc}" FontSize="17" Foreground="White"/>
                                         </Grid>				
 										<Grid>
                                             <Grid.ColumnDefinitions>
@@ -59,8 +59,8 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Ruc:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="rucTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding ruc}" FontSize="17" Foreground="White"/>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Nombre:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="nombreTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding nombre}" FontSize="17" Foreground="White"/>
                                         </Grid>				
                                     </StackPanel>
                                 </Border>

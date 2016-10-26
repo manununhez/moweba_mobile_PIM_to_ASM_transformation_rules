@@ -13,8 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 //[/protected]
 
 public class ApiClient {
-    public static final String BASE_URL = "[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'protocol') /]://[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'domain') /]"
-";
+    public static final String BASE_URL = "[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'protocol') /]://[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'domain') /]";
     private static Retrofit retrofit = null;
 
 

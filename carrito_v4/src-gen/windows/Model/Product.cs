@@ -14,7 +14,7 @@ namespace Data.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public string idProvider { get; set; }
+		public int idProvider { get; set; }
 
 		[DataMember]
 		public string price { get; set; }
@@ -23,16 +23,16 @@ namespace Data.Model
 		public string description { get; set; }
 
 		[DataMember]
-		public string idProducto { get; set; }
+		public int idProducto { get; set; }
 
 		[DataMember]
-		public string code { get; set; }
+		public int code { get; set; }
 
 		[DataMember]
 		public string name { get; set; }
 
 		[DataMember]
-		public string idImageProduct { get; set; }
+		public int idImageProduct { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -43,7 +43,7 @@ namespace Data.Model
 		/**
 		* Constructor.
 		*/
-		public Product (string idProvider, string price, string description, string idProducto, string code, string name, string idImageProduct){
+		public Product (int idProvider, string price, string description, int idProducto, int code, string name, int idImageProduct){
 			this.idProvider = idProvider;     
 			this.price = price;     
 			this.description = description;     
