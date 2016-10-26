@@ -62,7 +62,7 @@ namespace Data.ViewModels
         {
             using (dbConn)
             {
-                var queryResult = dbConn.Query<ShoppingCart>("select * from ShoppingCart where idCart =" + shoppingCart.idCart).FirstOrDefault();
+                var queryResult = dbConn.Query<ShoppingCart>("select * from ShoppingCart where idCart = "+ shoppingCart.idCart).FirstOrDefault();
                 if (queryResult != null)
                 {
 					queryResult.syncTime = shoppingCart.syncTime;		
@@ -80,11 +80,11 @@ namespace Data.ViewModels
 
 
         //Delete specific ShoppingCart 
-        public void deleteShoppingCart(int id)
+        public void deleteShoppingCart(ShoppingCart shoppingCart)
         {
             using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
             {
-                var queryResult = dbConn.Query<ShoppingCart>("select * from ShoppingCart where idCart =" + id).FirstOrDefault();
+                var queryResult = dbConn.Query<ShoppingCart>("select * from ShoppingCart where idCart = "+ shoppingCart.idCart).FirstOrDefault();
 
                 if (queryResult != null)
                 {

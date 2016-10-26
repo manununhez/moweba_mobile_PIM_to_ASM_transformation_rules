@@ -11,7 +11,6 @@
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormNew','.xaml.cs'), false)]
-
 //[protected ('imports')]
 using [modelName/].Common;
 using [modelName/].Model;
@@ -66,7 +65,7 @@ namespace [modelName/].Views
 
         private async void btnAdd[aClass.name.toUpperFirst()/]_Click(object sender, RoutedEventArgs e)
         {
-     
+     		[aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO();
 			if([for (p : Property | persistentEntityProperties) separator (' & ')][p.name.toLowerFirst()+'Tbx.Text != ""'/][/for])
             {
 				[aClass.name.toLowerFirst()/]DAO.add[aClass.name.toUpperFirst()/](new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for])); 			

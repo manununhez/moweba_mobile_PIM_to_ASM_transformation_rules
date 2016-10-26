@@ -5,11 +5,6 @@
     xmlns:local="using:Data.Views">
 <ScrollViewer>
     <Grid x:Name="LayoutRoot">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
             <!-- Title Panel -->
             <StackPanel Grid.Row="0" Margin="19,0,0,0">
                 <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
@@ -25,9 +20,10 @@
                 <TextBox x:Name="descriptionTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="nombre" FontSize="14"/>
                 <TextBox x:Name="nombreTbx" TextWrapping="Wrap" Width="350"/>
-				<Button x:Name="btnDeleteProvider" Content="Delete Provider" HorizontalAlignment="Left" Margin="27,480,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
-                <Button x:Name="btnUpdateProvider" Content="Update Provider" HorizontalAlignment="Left" Margin="27,540,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
-            </StackPanel>
+				<Button x:Name="btnDeleteProvider" Content="Delete Provider" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
+                <Button x:Name="btnUpdateProvider" Content="Update Provider" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
+            
+			</StackPanel>
         </Grid>                 
 </ScrollViewer>
 </Page>

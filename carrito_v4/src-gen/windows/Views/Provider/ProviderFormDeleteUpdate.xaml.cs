@@ -1,4 +1,3 @@
-
 //Start of user code imports
 using Data.Common;
 using Data.Model;
@@ -47,10 +46,13 @@ namespace Data.Views
             if (e != null)
             {
                 selectedProvider = e.Parameter as Provider;
-				idProviderTbx.Text = Convert.ToString(selectedProvider.idProvider);
-				rucTbx.Text = selectedProvider.ruc;
-				descriptionTbx.Text = selectedProvider.description;
-				nombreTbx.Text = selectedProvider.nombre;
+				if (selectedProvider != null)
+                {
+					idProviderTbx.Text = Convert.ToString(selectedProvider.idProvider);
+					rucTbx.Text = selectedProvider.ruc;
+					descriptionTbx.Text = selectedProvider.description;
+					nombreTbx.Text = selectedProvider.nombre;
+				}
             }
         }
 
@@ -61,17 +63,17 @@ namespace Data.Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            providerDAO.DeleteProvider(selectedProvider.Id);//Delete selected DB contact Id. 
+            providerDAO.deleteProvider(selectedProvider);//Delete selected DB contact Id. 
             Frame.Navigate(typeof(ProviderView));
         }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
-            Product currentProvider = new Provider();
-			currentProvider.idProvider = Int32.Parse(idProviderTbx.Text)
-, 			currentProvider.ruc = rucTbx.Text
-, 			currentProvider.description = descriptionTbx.Text
-, 			currentProvider.nombre = nombreTbx.Text
+            Provider currentProvider = new Provider();
+			currentProvider.idProvider = Int32.Parse(idProviderTbx.Text);
+			currentProvider.ruc = rucTbx.Text;
+			currentProvider.description = descriptionTbx.Text;
+			currentProvider.nombre = nombreTbx.Text;
 
 			providerDAO.updateProvider(currentProvider);//Update selected DB current provider
             Frame.Navigate(typeof(ProviderView));

@@ -1,4 +1,3 @@
-
 //Start of user code imports
 using Data.Common;
 using Data.Model;
@@ -53,7 +52,7 @@ namespace Data.Views
 
         private async void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
-     
+     		ProductDAO productDAO = new ProductDAO();
 			if(idProviderTbx.Text != "" & priceTbx.Text != "" & descriptionTbx.Text != "" & idProductoTbx.Text != "" & codeTbx.Text != "" & nameTbx.Text != "" & idImageProductTbx.Text != "")
             {
 				productDAO.addProduct(new Product(Int32.Parse(idProviderTbx.Text), priceTbx.Text, descriptionTbx.Text, Int32.Parse(idProductoTbx.Text), Int32.Parse(codeTbx.Text), nameTbx.Text, Int32.Parse(idImageProductTbx.Text))); 			

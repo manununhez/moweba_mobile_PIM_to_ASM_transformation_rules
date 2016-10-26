@@ -6,12 +6,8 @@ using System.Collections.Generic;
 namespace Data.Model
 {
     [DataContract]
-    class User 
+    public class User 
     {
-		//The Id property is marked as the Primary Key
-        [SQLite.PrimaryKey, SQLite.AutoIncrement]
-        [DataMember]
-        public int Id { get; set; }
 
 		[DataMember]
 		public string password { get; set; }

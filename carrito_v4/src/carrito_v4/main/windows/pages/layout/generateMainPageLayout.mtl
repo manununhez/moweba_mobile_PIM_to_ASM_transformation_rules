@@ -23,20 +23,19 @@
 [for (aPackage : Package | aPackages)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 	[if (aPackage.hasStereotype('DataPersistence'))]
-	[for (aClass : Class | aClasses) separator('\n')]		
+	[for (aClass : Class | aClasses)]
+	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
 		[if (aClass.hasStereotype('persistentEntity'))]
-			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')
-			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')
-			or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+			[if (persistentType = 'Database' or persistentType = 'File' or persistentType = 'KeyValue')]
 			<Button x:Name="btn[aClass.name.toUpperFirst()/]" Content="[aClass.name.toUpperFirst()/]" Click="btn[aClass.name.toUpperFirst()/]_click"/>
 			[/if]
-		[/if]		
+		[/if]
+	[/let]		
 	[/for]	
 	[/if]
-
 	[if (aPackage.hasStereotype('DataProvider'))]
 	[for (aClass : Class | aClasses) separator('\n')]
-	[if (aClass.hasStereotype('WebInterface'))]
+	[if (aClass.hasStereotype('WebInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
 			<Button x:Name="btn[aClass.name.toUpperFirst()/]" Content="[aClass.name.toUpperFirst()/]" Click="btn[aClass.name.toUpperFirst()/]_click"/>
 	[/if]
 	[/for]

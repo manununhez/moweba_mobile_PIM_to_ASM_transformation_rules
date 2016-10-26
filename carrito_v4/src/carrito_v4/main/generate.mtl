@@ -48,10 +48,12 @@
 [import carrito_v4::main::windows::pages::generateBDDeleteUpdateFormPage/]
 [import carrito_v4::main::windows::pages::generateFilePages/]
 [import carrito_v4::main::windows::pages::generateKVPages/]
+[import carrito_v4::main::windows::pages::generateKVDeleteUpdateFormPage/]
 [import carrito_v4::main::windows::pages::generateRestPages/]
 [import carrito_v4::main::windows::pages::generateSensorsPages/]
 
 [import carrito_v4::main::windows::pages::layout::generateBDDeleteUpdateFormPageLayout/]
+[import carrito_v4::main::windows::pages::layout::generateKVDeleteUpdateFormPageLayout/]
 [import carrito_v4::main::windows::pages::layout::generateBDCreateFormPageLayout/]
 [import carrito_v4::main::windows::pages::layout::generateBDPagesLayout/]
 [import carrito_v4::main::windows::pages::layout::generateMainPageLayout/]
@@ -266,6 +268,9 @@
 	[for (aClass : Class | aClasses)]
 		[generateKVPages(aClass, modelName)/]
 		[generateKVPagesLayout(aClass, modelName)/]
+
+		[generateKVDeleteUpdateFormPage(aClass, modelName)/]
+		[generateKVDeleteUpdateFormPageLayout(aClass, modelName)/]
 	[/for]
 [/let]
 [/template]

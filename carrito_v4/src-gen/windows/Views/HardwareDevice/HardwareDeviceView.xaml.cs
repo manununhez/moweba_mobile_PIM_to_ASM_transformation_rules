@@ -1,4 +1,3 @@
-
 //Start of user code imports
 using Data.Common;
 using System;
@@ -36,25 +35,27 @@ namespace Data.Views
 		    mCompassIntentCompass = Compass.GetDefault();
 			mAccelerometerAccelerometer = Accelerometer.GetDefault();
 
-            if (accelerometer != null && gyrometer != null)
-            {
+            if (mGyroscopeGyroscope != null && mAmbientLightLight != null && mCompassIntentCompass != null && mAccelerometerAccelerometer != null)
+			{
                 // Select a report interval that is both suitable for the purposes of the app and supported by the sensor.
                 // This value will be used later to activate the sensor.
-                uint minReportInterval = accelerometer.MinimumReportInterval;
-                desiredReportInterval = minReportInterval > 16 ? minReportInterval : 16;
+                uint minReportInterval;
 
-		    mGyroscopeGyroscope.ReportInterval = desiredReportInterval;
 			//add event for sensors readings
-             mGyroscopeGyroscope.ReadingChanged += new TypedEventHandler<Accelerometer, GyrometerReadingChangedEventArgs>(ReadingChanged);
-		    mAmbientLightLight.ReportInterval = desiredReportInterval;
+             mGyroscopeGyroscope.ReadingChanged += new TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>(ReadingChanged);
+			
 			//add event for sensors readings
-            mAmbientLightLight.ReadingChanged += new TypedEventHandler<Accelerometer, LightSensorReadingChangedEventArgs>(ReadingChanged);
-		    mCompassIntentCompass.ReportInterval = desiredReportInterval;
+            mAmbientLightLight.ReadingChanged += new TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>(ReadingChanged);
+			
 			//add event for sensors readings
-            mCompassIntentCompass.ReadingChanged += new TypedEventHandler<Accelerometer, CompassReadingChangedEventArgs>(ReadingChanged);
+            mCompassIntentCompass.ReadingChanged += new TypedEventHandler<Compass, CompassReadingChangedEventArgs>(ReadingChanged);
+			
+			minReportInterval = mAccelerometerAccelerometer.MinimumReportInterval;
+            desiredReportInterval = minReportInterval > 16 ? minReportInterval : 16;
 			mAccelerometerAccelerometer.ReportInterval = desiredReportInterval;
 			//add event for sensors readings
             mAccelerometerAccelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
+			
 
             }
             else
@@ -163,7 +164,7 @@ namespace Data.Views
                     );
 
                 //With this 2 lines of code, the app is able to write on a Text Label the Latitude and the Longitude, given by {{Icode|geoposition}}
-                MyLocationTbx.Text = "GPS:" + geoposition.Coordinate.Point.Position.Latitude.ToString("0.00") + ", " + geoposition.Coordinate.Point.Position.Longitude.ToString("0.00");
+                MyLocationGPSTbx.Text = "GPS:" + geoposition.Coordinate.Point.Position.Latitude.ToString("0.00") + ", " + geoposition.Coordinate.Point.Position.Longitude.ToString("0.00");
             }
             //If an error is catch 2 are the main causes: the first is that you forgot to include ID_CAP_LOCATION in your app manifest. 
             //The second is that the user doesn't turned on the Location Services

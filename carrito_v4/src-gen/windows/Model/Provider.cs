@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Data.Model
 {
     [DataContract]
-    class Provider 
+    public class Provider 
     {
 		//The Id property is marked as the Primary Key
         [SQLite.PrimaryKey, SQLite.AutoIncrement]

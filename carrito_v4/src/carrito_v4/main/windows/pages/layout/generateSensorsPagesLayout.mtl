@@ -23,20 +23,19 @@
             </StackPanel>
             <StackPanel Grid.Row="0" Margin="19,40,0,0">
 	[for (p : Property | persistentEntityProperties)]
-		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer') or
-(p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light') or
-(p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope') or
-(p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+	[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (deviceType = 'Accelerometer') or (deviceType = 'Ambient_Light') or (deviceType = 'Gyroscope') or (deviceType = 'Compass')]
  				<TextBlock Text="[p.name.toUpperFirst()+''+p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')/]:" FontSize="18"/>
                 <TextBlock x:Name="[p.name.toUpperFirst()/]Tbx" Height="66" Text="0" Width="350"/>
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'GPS')]
-	    		<Button x:Name="btnGPS" Content="GPS" Click="btnGPS_Click" />
-                <TextBlock x:Name="tbxGps" Height="66" Text="0" Width="350"/>
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Camera')]
+		[elseif (deviceType = 'GPS')]
+	    		<Button x:Name="btn[p.name.toUpperFirst()/]GPS" Content="GPS" Click="btn[p.name.toUpperFirst()/]GPS_Click" />
+                <TextBlock x:Name="[p.name.toUpperFirst()/]GPSTbx" Height="66" Text="0" Width="350"/>
+		[elseif (deviceType = 'Camera')]
 				<Button x:Name="btn[p.name.toUpperFirst()/]Camera" Content="Camera" Click="btn[p.name.toUpperFirst()/]Camera_Click" />
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Microphone')]
+		[elseif (deviceType = 'Microphone')]
 				<Button x:Name="btn[p.name.toUpperFirst()/]Audio" Content="Audio" Click="btn[p.name.toUpperFirst()/]AudioRecord_Click" />
-		[/if]	
+		[/if]
+	[/let]	
 	[/for]
             </StackPanel>
         </Grid>

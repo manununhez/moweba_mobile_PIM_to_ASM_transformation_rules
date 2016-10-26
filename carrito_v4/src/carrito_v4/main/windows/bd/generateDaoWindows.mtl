@@ -74,7 +74,7 @@ namespace [modelName/].ViewModels
         {
             using (dbConn)
             {
-                var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/] =" + [aClass.name.toLowerFirst()/].[p.name.toLowerFirst()/][/if][/for]).FirstOrDefault();
+                var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/] = "+ [aClass.name.toLowerFirst()/].[p.name.toLowerFirst()/][/if][/for]).FirstOrDefault();
                 if (queryResult != null)
                 {
 					[for (p : Property | persistentEntityProperties)]				
@@ -92,11 +92,12 @@ namespace [modelName/].ViewModels
 
 
         //Delete specific [aClass.name.toUpperFirst()/] 
-        public void delete[aClass.name.toUpperFirst()/](int id)
+        public void delete[aClass.name.toUpperFirst()/]([aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/])
         {
             using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
             {
-                var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/][/if][/for] =" + id).FirstOrDefault();
+		[comment]Seleccionamos el campo selectable definido en el modelo, para utilizarlo como id para borrar el registro[/comment]
+                var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/] = "+ [aClass.name.toLowerFirst()/].[p.name.toLowerFirst()/][/if][/for]).FirstOrDefault();
 
                 if (queryResult != null)
                 {

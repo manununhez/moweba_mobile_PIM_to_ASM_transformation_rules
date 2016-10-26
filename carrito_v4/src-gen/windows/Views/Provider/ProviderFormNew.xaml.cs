@@ -1,4 +1,3 @@
-
 //Start of user code imports
 using Data.Common;
 using Data.Model;
@@ -53,7 +52,7 @@ namespace Data.Views
 
         private async void btnAddProvider_Click(object sender, RoutedEventArgs e)
         {
-     
+     		ProviderDAO providerDAO = new ProviderDAO();
 			if(idProviderTbx.Text != "" & rucTbx.Text != "" & descriptionTbx.Text != "" & nombreTbx.Text != "")
             {
 				providerDAO.addProvider(new Provider(Int32.Parse(idProviderTbx.Text), rucTbx.Text, descriptionTbx.Text, nombreTbx.Text)); 			

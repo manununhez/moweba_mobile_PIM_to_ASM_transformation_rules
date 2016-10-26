@@ -62,7 +62,7 @@ namespace Data.ViewModels
         {
             using (dbConn)
             {
-                var queryResult = dbConn.Query<Product>("select * from Product where idProducto =" + product.idProducto).FirstOrDefault();
+                var queryResult = dbConn.Query<Product>("select * from Product where idProducto = "+ product.idProducto).FirstOrDefault();
                 if (queryResult != null)
                 {
 					queryResult.idProvider = product.idProvider;		
@@ -84,11 +84,11 @@ namespace Data.ViewModels
 
 
         //Delete specific Product 
-        public void deleteProduct(int id)
+        public void deleteProduct(Product product)
         {
             using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
             {
-                var queryResult = dbConn.Query<Product>("select * from Product where idProducto =" + id).FirstOrDefault();
+                var queryResult = dbConn.Query<Product>("select * from Product where idProducto = "+ product.idProducto).FirstOrDefault();
 
                 if (queryResult != null)
                 {

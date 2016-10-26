@@ -62,7 +62,7 @@ namespace Data.ViewModels
         {
             using (dbConn)
             {
-                var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider =" + provider.idProvider).FirstOrDefault();
+                var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider = "+ provider.idProvider).FirstOrDefault();
                 if (queryResult != null)
                 {
 					queryResult.idProvider = provider.idProvider;		
@@ -81,11 +81,11 @@ namespace Data.ViewModels
 
 
         //Delete specific Provider 
-        public void deleteProvider(int id)
+        public void deleteProvider(Provider provider)
         {
             using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
             {
-                var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider =" + id).FirstOrDefault();
+                var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider = "+ provider.idProvider).FirstOrDefault();
 
                 if (queryResult != null)
                 {

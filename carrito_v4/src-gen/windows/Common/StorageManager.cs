@@ -154,4 +154,3 @@ namespace WindowsStore.Common.Storage
 
     }
 }
-

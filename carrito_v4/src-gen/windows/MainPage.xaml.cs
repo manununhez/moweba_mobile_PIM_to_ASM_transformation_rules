@@ -1,4 +1,3 @@
-
 //Start of user code imports
 using Data.Views;
 using Windows.UI.Xaml;
@@ -28,6 +27,10 @@ namespace Data
             Frame.Navigate(typeof(RestInterfaceView));
         }
 
+		private void btnHardwareDevice_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HardwareDeviceView));
+        }
 
 		private void btnProvider_click(object sender, RoutedEventArgs e)
         {

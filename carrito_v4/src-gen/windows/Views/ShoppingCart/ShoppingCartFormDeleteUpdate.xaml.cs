@@ -1,4 +1,3 @@
-
 //Start of user code imports
 using Data.Common;
 using Data.Model;
@@ -47,9 +46,12 @@ namespace Data.Views
             if (e != null)
             {
                 selectedShoppingCart = e.Parameter as ShoppingCart;
-				syncTimeTbx.Text = Convert.ToString(selectedShoppingCart.syncTime);
-				quantityTbx.Text = Convert.ToString(selectedShoppingCart.quantity);
-				idCartTbx.Text = Convert.ToString(selectedShoppingCart.idCart);
+				if (selectedShoppingCart != null)
+                {
+					syncTimeTbx.Text = Convert.ToString(selectedShoppingCart.syncTime);
+					quantityTbx.Text = Convert.ToString(selectedShoppingCart.quantity);
+					idCartTbx.Text = Convert.ToString(selectedShoppingCart.idCart);
+				}
             }
         }
 
@@ -60,16 +62,16 @@ namespace Data.Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            shoppingCartDAO.DeleteShoppingCart(selectedShoppingCart.Id);//Delete selected DB contact Id. 
+            shoppingCartDAO.deleteShoppingCart(selectedShoppingCart);//Delete selected DB contact Id. 
             Frame.Navigate(typeof(ShoppingCartView));
         }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
-            Product currentShoppingCart = new ShoppingCart();
-			currentShoppingCart.syncTime = double.Parse(syncTimeTbx.Text, System.Globalization.CultureInfo.InvariantCulture)
-, 			currentShoppingCart.quantity = Int32.Parse(quantityTbx.Text)
-, 			currentShoppingCart.idCart = Int32.Parse(idCartTbx.Text)
+            ShoppingCart currentShoppingCart = new ShoppingCart();
+			currentShoppingCart.syncTime = double.Parse(syncTimeTbx.Text, System.Globalization.CultureInfo.InvariantCulture);
+			currentShoppingCart.quantity = Int32.Parse(quantityTbx.Text);
+			currentShoppingCart.idCart = Int32.Parse(idCartTbx.Text);
 
 			shoppingCartDAO.updateShoppingCart(currentShoppingCart);//Update selected DB current shoppingCart
             Frame.Navigate(typeof(ShoppingCartView));

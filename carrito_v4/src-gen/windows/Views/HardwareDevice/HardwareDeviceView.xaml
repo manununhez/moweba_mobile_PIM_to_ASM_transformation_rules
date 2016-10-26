@@ -18,8 +18,8 @@
 				<Button x:Name="btnMyMicAudio" Content="Audio" Click="btnMyMicAudioRecord_Click" />
  				<TextBlock Text="CompassIntentCompass:" FontSize="18"/>
                 <TextBlock x:Name="CompassIntentTbx" Height="66" Text="0" Width="350"/>
-	    		<Button x:Name="btnGPS" Content="GPS" Click="btnGPS_Click" />
-                <TextBlock x:Name="tbxGps" Height="66" Text="0" Width="350"/>
+	    		<Button x:Name="btnMyLocationGPS" Content="GPS" Click="btnMyLocationGPS_Click" />
+                <TextBlock x:Name="MyLocationGPSTbx" Height="66" Text="0" Width="350"/>
 				<Button x:Name="btnCameraIntentCamera" Content="Camera" Click="btnCameraIntentCamera_Click" />
  				<TextBlock Text="AccelerometerAccelerometer:" FontSize="18"/>
                 <TextBlock x:Name="AccelerometerTbx" Height="66" Text="0" Width="350"/>

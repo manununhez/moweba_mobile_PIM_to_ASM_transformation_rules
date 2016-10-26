@@ -1,10 +1,11 @@
 
 //Start of user code imports
 using Kulman.WPA81.BaseRestService.Services.Abstract;
-using ShoppingCartApp.Model;
+using Data.Model;
+using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 //End of user code
-
 
 namespace Data.Common
 {
@@ -17,42 +18,42 @@ namespace Data.Common
 
 		 public Task<Boolean> login( User user)  
         {
-			return Post<Boolean>("login" , user);
+			return Post<Boolean>("POST" , user);
 		}
 
 		 public Task<Boolean> logout()  
         {
-			return Post<Boolean>("logout");
+			return Post<Boolean>("POST");
 		}
 
 		 public Task<List<Product>> getAllProducts()  
         {
-			return Get<List<Product>>("products");
+			return Get<List<Product>>("GET");
 		}
 
 		 public Task<Product> getProduct()  
         {
-			return Get<Product>("products");
+			return Get<Product>("GET");
 		}
 
 		 public Task<List<Provider>> getAllProviders()  
         {
-			return Get<List<Provider>>("provider");
+			return Get<List<Provider>>("GET");
 		}
 
 		 public Task<Provider> getProvider()  
         {
-			return Get<Provider>("provider");
+			return Get<Provider>("GET");
 		}
 
 		 public Task<Boolean> confirmCart( Product products)  
         {
-			return Post<Boolean>("cart/confirm" , products);
+			return Post<Boolean>("POST" , products);
 		}
 
 		 public Task<List<ShoppingCart>> getUserCart()  
         {
-			return Get<List<ShoppingCart>>("cart");
+			return Get<List<ShoppingCart>>("GET");
 		}
     }
 }

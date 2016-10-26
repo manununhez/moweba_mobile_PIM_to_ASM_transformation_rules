@@ -9,21 +9,19 @@
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
-
 //[protected ('imports')]
+using System;
 using Kulman.WPA81.BaseRestService.Services.Exceptions;
 using [modelName/].Common;
 using [modelName/].Model;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 //[/protected]
-
-
 
 namespace [modelName/].Views
 {
-
     public sealed partial class [aClass.name.toUpperFirst()/]View : Page
     {
         private NavigationHelper navigationHelper;
@@ -67,19 +65,21 @@ namespace [modelName/].Views
         }
 
         private async void [o.name.toLowerFirst()/]() {
-            try
+            MessageDialog ms = new MessageDialog("Completar [o.name.toLowerFirst()/]()");
+            ms.ShowAsync();
+			/*
+			*	TODO completar metodo
+			*/
+			/*try
             {
-				[comment]instancia de los servicios. Se limita a un solo parametro de entrada[/comment]
-                [if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if] data = await apiInterface.[o.name.toLowerFirst()/]([for(p: Parameter | o.ownedParameter->select(p | p.name<>''))][if (i=1)] [p.type.name/] [p.name.toLowerFirst()/][/if][/for]);
-				/*
-				*	TODO completar
-				*/
+				[comment]instancia de los servicios. Se limita a un solo parametro de entrada porque la libreria solo acepta un solo parametro de entrada - para el POST[/comment]
+                [if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if] data = await apiInterface.[o.name.toLowerFirst()/]([for(p: Parameter | o.ownedParameter->select(p | p.name<>''))][if (i=1)] [p.type.name/] [p.name.toLowerFirst()/][/if][/for]);			
                 [o.name.toLowerFirst()/]Tbx.Text = data.ToString();
             }
             catch (DeserializationException d)
             {
                 System.Diagnostics.Debug.WriteLine(d.ToString());
-            }
+            }*/
         }
 		[/for]
 

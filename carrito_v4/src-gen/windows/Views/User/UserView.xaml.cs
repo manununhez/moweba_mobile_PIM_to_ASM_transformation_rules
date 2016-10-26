@@ -1,3 +1,4 @@
+//Start of user code imports
 using Data.Common;
 using System;
 using System.Collections.Generic;
@@ -5,6 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using WindowsStore.Common.Storage;
+//End of user code
 
 namespace Data.Views
 {

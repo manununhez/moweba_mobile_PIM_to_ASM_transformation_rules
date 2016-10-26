@@ -1,14 +1,14 @@
 [comment encoding = UTF-8 /]
-[module generateBDDeleteUpdateFormPageLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module generateKVDeleteUpdateFormPageLayout('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import services::uml2services/]
 [import common::utils_gen/]
 
 
-[template public generateBDDeleteUpdateFormPageLayout(aClass : Class, modelName : String)]
+[template public generateKVDeleteUpdateFormPageLayout(aClass : Class, modelName : String)]
 
 [if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormDeleteUpdate','.xaml'), false)]
@@ -32,8 +32,7 @@
 			[/for]
 				<Button x:Name="btnDelete[aClass.name.toUpperFirst()/]" Content="Delete [aClass.name.toUpperFirst()/]" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
                 <Button x:Name="btnUpdate[aClass.name.toUpperFirst()/]" Content="Update [aClass.name.toUpperFirst()/]" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
-            
-			</StackPanel>
+            </StackPanel>
         </Grid>                 
 </ScrollViewer>
 </Page>

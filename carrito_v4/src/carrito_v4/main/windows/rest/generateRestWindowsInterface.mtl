@@ -7,13 +7,16 @@
 [file ('windows/Common/ApiInterface.cs', false)]
 [if (aClass.hasStereotype('WebInterface'))]
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+[let protocolProperty : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'protocol')]
+[let domainProperty : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'domain')]
 
 //[protected ('imports')]
 using Kulman.WPA81.BaseRestService.Services.Abstract;
-using ShoppingCartApp.Model;
+using [modelName/].Model;
+using System;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 //[/protected]
-
 
 namespace [modelName/].Common
 {
@@ -21,28 +24,32 @@ namespace [modelName/].Common
     {
         protected override string GetBaseUrl()
         {
-            return "[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'protocol') /]://[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'domain') /]";
+            return "[protocolProperty /]://[domainProperty /]";
         }
 
 		[comment]Solo limitamos a un parametro que venga. Si es Get o Delete, no se le pasa ningun parametro. En los otros, sí se le pasa el primer parametro[/comment]
 		[for (o : Operation | webServiceOperations)separator('\n')]
+		[let methodType : String = o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method')]
 		 public Task<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> [o.name.toLowerFirst()/]([for (p: Parameter | o.ownedParameter->select(p | p.name<>''))][if (i=1)] [p.type.name/] [p.name.toLowerFirst()/][/if][/for])  
         {
-            [if(o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'GET')]
-			return Get<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]");
-        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'DELETE')]
-			return Delete<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]");
-        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'POST')]
-			return Post<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
-        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'PUT')]
-			return Put<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
-        	[elseif (o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method') = 'PATCH')]
-			return Patch<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+            [if(methodType = 'GET')]
+			return Get<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]");
+        	[elseif (methodType = 'DELETE')]
+			return Delete<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]");
+        	[elseif (methodType = 'POST')]
+			return Post<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+        	[elseif (methodType = 'PUT')]
+			return Put<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+        	[elseif (methodType = 'PATCH')]
+			return Patch<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
 			[/if]
 		}
+		[/let]
 		[/for] 
     }
 }
+[/let]
+[/let]
 [/let]
 [/if]
 [/file]

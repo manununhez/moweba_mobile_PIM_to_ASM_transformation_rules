@@ -10,7 +10,6 @@
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
-
 //[protected ('imports')]
 using [modelName/].Common;
 using System;

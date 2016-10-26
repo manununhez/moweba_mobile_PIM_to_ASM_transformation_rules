@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Data.Model
 {
     [DataContract]
-    class ShoppingCart 
+    public class ShoppingCart 
     {
 		//The Id property is marked as the Primary Key
         [SQLite.PrimaryKey, SQLite.AutoIncrement]
@@ -14,7 +14,7 @@ namespace Data.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public decimal syncTime { get; set; }
+		public double syncTime { get; set; }
 
 		[DataMember]
 		public int quantity { get; set; }
@@ -31,7 +31,7 @@ namespace Data.Model
 		/**
 		* Constructor.
 		*/
-		public ShoppingCart (decimal syncTime, int quantity, int idCart){
+		public ShoppingCart (double syncTime, int quantity, int idCart){
 			this.syncTime = syncTime;     
 			this.quantity = quantity;     
 			this.idCart = idCart;     

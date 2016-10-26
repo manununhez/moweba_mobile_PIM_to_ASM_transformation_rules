@@ -5,11 +5,6 @@
     xmlns:local="using:Data.Views">
 <ScrollViewer>
     <Grid x:Name="LayoutRoot">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
             <!-- Title Panel -->
             <StackPanel Grid.Row="0" Margin="19,0,0,0">
                 <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
@@ -23,9 +18,10 @@
                 <TextBox x:Name="quantityTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="idCart" FontSize="14"/>
                 <TextBox x:Name="idCartTbx" TextWrapping="Wrap" Width="350"/>
-				<Button x:Name="btnDeleteShoppingCart" Content="Delete ShoppingCart" HorizontalAlignment="Left" Margin="27,480,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
-                <Button x:Name="btnUpdateShoppingCart" Content="Update ShoppingCart" HorizontalAlignment="Left" Margin="27,540,0,0" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
-            </StackPanel>
+				<Button x:Name="btnDeleteShoppingCart" Content="Delete ShoppingCart" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
+                <Button x:Name="btnUpdateShoppingCart" Content="Update ShoppingCart" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
+            
+			</StackPanel>
         </Grid>                 
 </ScrollViewer>
 </Page>

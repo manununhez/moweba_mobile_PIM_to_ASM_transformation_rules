@@ -8,7 +8,6 @@
 [let aPackages: Sequence(Package) = model.eAllContents(Package) ]
 
 [file ('windows/MainPage.xaml.cs', false)]
-
 //[protected ('imports')]
 using [model.name/].Views;
 using Windows.UI.Xaml;
@@ -34,23 +33,23 @@ namespace [model.name/]
 [for (aPackage : Package | aPackages)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 	[if (aPackage.hasStereotype('DataPersistence'))]
-	[for (aClass : Class | aClasses) separator('\n')]		
+	[for (aClass : Class | aClasses) separator('\n')]
+	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
 		[if (aClass.hasStereotype('persistentEntity'))]
-			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database') 
-				or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') 
-				or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+			[if (persistentType = 'Database' or persistentType = 'File' or persistentType = 'KeyValue')]
 		private void btn[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
         }
 			[/if]
-		[/if]		
+		[/if]
+	[/let]		
 	[/for]
 	[/if]
 	
 	[if (aPackage.hasStereotype('DataProvider'))]
 	[for (aClass : Class | aClasses) separator('\n')]
-	[if (aClass.hasStereotype('WebInterface'))]
+	[if (aClass.hasStereotype('WebInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
 		private void btn[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));

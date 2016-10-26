@@ -14,6 +14,7 @@
 [for (aClass : Class | aPackage.ownedElement->filter(Class))]
 [if (aClass.hasStereotype('persistentEntity'))]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
 
 [file (aClass.classFileName('windows/Model/', aClass, '' , '.cs'), false)]
 //[protected ('imports')]
@@ -24,12 +25,15 @@ using System.Collections.Generic;
 namespace [model.name.toUpperFirst()/].Model
 {
     ['['/]DataContract[']'/]
-    class [aClass.name.toUpperFirst()/] 
+    public class [aClass.name.toUpperFirst()/] 
     {
+		[comment]Solo si DB lo declaramos con el PK de SQLITE[/comment]
+		[if (persistentType = 'Database')]
 		//The Id property is marked as the Primary Key
         ['['/]SQLite.PrimaryKey, SQLite.AutoIncrement[']'/]
         ['['/]DataMember[']'/]
         public int Id { get; set; }
+		[/if]
 
 	[for (p : Property | persistentEntityProperties) separator('\n')]	
 		['['/]DataMember[']'/]
@@ -63,6 +67,7 @@ namespace [model.name.toUpperFirst()/].Model
 }
 
  [/file]
+[/let]
 [/let]
 [/if]
 [/for]

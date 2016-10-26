@@ -1,26 +1,25 @@
 [comment encoding = UTF-8 /]
-[module generateBDDeleteUpdateFormPage('http://www.eclipse.org/uml2/5.0.0/UML')]
+[module generateKVDeleteUpdateFormPage('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 [import services::uml2services/]
 [import common::utils_gen/]
 
 
-[template public generateBDDeleteUpdateFormPage(aClass : Class, modelName : String)]
+[template public generateKVDeleteUpdateFormPage(aClass : Class, modelName : String)]
+
 [if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormDeleteUpdate','.xaml.cs'), false)]
 //[protected ('imports')]
 using [modelName/].Common;
 using [modelName/].Model;
-using [modelName/].ViewModels;
-using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using WindowsStore.Common.Storage;
 //[/protected]
-
 
 namespace [modelName/].Views
 {
@@ -28,8 +27,7 @@ namespace [modelName/].Views
     public sealed partial class [aClass.name.toUpperFirst()/]FormDeleteUpdate : Page
     {
         private NavigationHelper navigationHelper;
-        private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO();
-        private [aClass.name.toUpperFirst()/] selected[aClass.name.toUpperFirst()/];
+        private Model.User selectedUser;
 
         public [aClass.name.toUpperFirst()/]FormDeleteUpdate()
         {
@@ -44,6 +42,7 @@ namespace [modelName/].Views
         {
             get { return this.navigationHelper; }
         }
+
 
         private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
@@ -60,7 +59,7 @@ namespace [modelName/].Views
             {
                 selected[aClass.name.toUpperFirst()/] = e.Parameter as [aClass.name.toUpperFirst()/];
 				if (selected[aClass.name.toUpperFirst()/] != null)
-                {
+				{
 				[for (p : Property | persistentEntityProperties)]
 					[if(p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType') <> 'string')]
 					[p.name.toLowerFirst()/]Tbx.Text = Convert.ToString(selected[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/]);
@@ -68,8 +67,8 @@ namespace [modelName/].Views
 					[p.name.toLowerFirst()/]Tbx.Text = selected[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/];
 					[/if]
 				[/for]
-				}
-            }
+            	}
+			}
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -79,22 +78,24 @@ namespace [modelName/].Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/](selected[aClass.name.toUpperFirst()/]);//Delete selected DB contact Id. 
+            [aClass.name.toUpperFirst()/] user = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator(', ')][p.name.toLowerFirst()/]Tbx.Text[/for]);
+            StorageManager storage = new StorageManager("dataPersistence", false);
+            storage.Remove("[aClass.name.toLowerFirst()/]");
             Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+
         }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
-            [aClass.name.toUpperFirst()/] current[aClass.name.toUpperFirst()/] = new [aClass.name.toUpperFirst()/]();
-			[for (p : Property | persistentEntityProperties)]
-			current[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/] = [p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/];
-			[/for]
-
-			[aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/](current[aClass.name.toUpperFirst()/]);//Update selected DB current [aClass.name.toLowerFirst()/]
+            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator(', ')][p.name.toLowerFirst()/]Tbx.Text[/for]);
+            StorageManager storage = new StorageManager("dataPersistence", false);
+            storage.Save("[aClass.name.toLowerFirst()/]", [aClass.name.toLowerFirst()/]);
             Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
         }
+
     }
 }
+
 [/file]
 [/let]
 [/if]

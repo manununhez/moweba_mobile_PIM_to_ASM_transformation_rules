@@ -109,7 +109,7 @@ public class UML2Services {
 		case "time":
 		case "date":
 		case "datetime":
-			returnType = "decimal";
+			returnType = "double"; //aca estaba decimal, pero reemplazamos por double
 			break;
 		case "float":
 			returnType = "float";
@@ -223,7 +223,7 @@ public class UML2Services {
 		case "int":
 			result = "Int32.Parse(" + result + ")";
 			break;
-		case "decimal":
+		case "double"://aca estaba decimal, pero reemplazamos por double
 			result = "double.Parse(" + result + ", System.Globalization.CultureInfo.InvariantCulture)";
 			break;
 		case "float":
