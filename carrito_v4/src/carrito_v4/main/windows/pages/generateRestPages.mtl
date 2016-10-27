@@ -90,3 +90,30 @@ namespace [modelName/].Views
 [/let]
 [/if]
 [/template]
+
+[template public generateRestPagesLayout(aClass : Class, modelName : String)]
+[if (aClass.hasStereotype('WebInterface'))]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
+<Page
+    x:Class="[modelName/].Views.[aClass.name.toUpperFirst()/]View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[modelName/].Views">
+    <ScrollViewer>
+        <StackPanel VerticalAlignment="Top">
+			[for (o : Operation | webServiceOperations)separator('\n')]
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="[o.name.toLowerFirst()/]" Click="btn[o.name.toUpperFirst()/]_Click" />
+                <TextBlock Grid.Column="1" x:Name="[o.name.toLowerFirst()/]Tbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+			[/for]         
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+[/file]
+[/let]
+[/if]
+[/template]
+

@@ -51,18 +51,9 @@ public class [aClass.name.toUpperFirst()/]  implements Serializable{
 	public [aClass.name.toUpperFirst()/] ([for (p : Property | persistentEntityProperties) separator(', ')][if (p.upper = -1 or p.upper > 1)]List<[p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toLowerFirst()/][else][p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/] [p.name.toLowerFirst()/][/if][/for]){
 	[for (p: Property | persistentEntityProperties)]     
 		this.[p.name.toLowerFirst()/] = [p.name.toLowerFirst()/];
-		[comment][if (p.upper = -1 or p.upper > 1)]
-		this.[p.name/] = [p.name/];
-		[else]
-		this.[p.name/] = [p.name/];
-		[/if]   [/comment]
    [/for]
 	}
-	[comment]Declaracion de los atributos sin List [/comment]
-	[comment]   [for (p: Property | aClass.attribute) separator('\n')]
-     private [p.type.name/] [p.name/];
-   	[/for][/comment]
- 
+
 	[comment]Getters [/comment]
    [for (p: Property | persistentEntityProperties) separator('\n')]     
 	public [if (p.upper = -1 or p.upper > 1)]List<[p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toUpperFirst()/][else][p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/][/if] get[p.name.toUpperFirst()/]() {
@@ -83,7 +74,8 @@ public class [aClass.name.toUpperFirst()/]  implements Serializable{
 	// [protected (o.name)]
 	// TODO should be implemented
 	// [/protected]
-	    }
+		return;
+	}
    [/for]   
 
 }

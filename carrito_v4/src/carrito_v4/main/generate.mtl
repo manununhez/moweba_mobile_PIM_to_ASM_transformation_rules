@@ -21,9 +21,6 @@
 [import carrito_v4::main::android::adapter::generateBDAdapters/]
 [import carrito_v4::main::android::adapter::generateKVAdapters/]
 
-[import carrito_v4::main::android::adapter::layout::generateBDAdapterLayout/]
-[import carrito_v4::main::android::adapter::layout::generateKVAdapterLayout/]
-
 [import carrito_v4::main::android::activities::generateMainActivity/]
 [import carrito_v4::main::android::activities::generateBDActivities/]
 [import carrito_v4::main::android::activities::generateFileActivities/]
@@ -32,15 +29,6 @@
 [import carrito_v4::main::android::activities::generateBDFormActivities/]
 [import carrito_v4::main::android::activities::generateKVFormActivities/]
 [import carrito_v4::main::android::activities::generateSensorActivities/]
-
-[import carrito_v4::main::android::activities::layout::generateRestActivitiesLayout/]
-[import carrito_v4::main::android::activities::layout::generateMainActivityLayout/]
-[import carrito_v4::main::android::activities::layout::generateBDActivitiesLayout/]
-[import carrito_v4::main::android::activities::layout::generateFileActivitiesLayout/]
-[import carrito_v4::main::android::activities::layout::generateKVActivitiesLayout/]
-[import carrito_v4::main::android::activities::layout::generateBDFormActivitiesLayout/]
-[import carrito_v4::main::android::activities::layout::generateKVFormActivitiesLayout/]
-[import carrito_v4::main::android::activities::layout::generateSensorActivitiesLayout/]
 
 [import carrito_v4::main::windows::pages::generateMainPage/]
 [import carrito_v4::main::windows::pages::generateBDPages/]
@@ -52,21 +40,12 @@
 [import carrito_v4::main::windows::pages::generateRestPages/]
 [import carrito_v4::main::windows::pages::generateSensorsPages/]
 
-[import carrito_v4::main::windows::pages::layout::generateBDDeleteUpdateFormPageLayout/]
-[import carrito_v4::main::windows::pages::layout::generateKVDeleteUpdateFormPageLayout/]
-[import carrito_v4::main::windows::pages::layout::generateBDCreateFormPageLayout/]
-[import carrito_v4::main::windows::pages::layout::generateBDPagesLayout/]
-[import carrito_v4::main::windows::pages::layout::generateMainPageLayout/]
-[import carrito_v4::main::windows::pages::layout::generateFilePagesLayout/]
-[import carrito_v4::main::windows::pages::layout::generateKVPagesLayout/]
-[import carrito_v4::main::windows::pages::layout::generateRestPagesLayout/]
-[import carrito_v4::main::windows::pages::layout::generateSensorsPagesLayout/]
-
 [import carrito_v4::main::windows::beans::beansGenWindows/]
 
 [import carrito_v4::main::windows::generateAppPage/]
 
-[import carrito_v4::main::windows::bd::generateDaoWindows/]
+[import carrito_v4::main::windows::bd::createWindowsDatabaseHelper/]
+[import carrito_v4::main::windows::bd::dao::generateDaoWindows/]
 
 [import carrito_v4::main::windows::files::createFileHelperWindows/]
 
@@ -75,7 +54,6 @@
 [import carrito_v4::main::windows::rest::generateRestWindowsInterface/]
 
 [import services::uml2services/]
-[import common::utils_gen/]
 
 [template public generateElement(model: Model)]
 [comment @main/]
@@ -85,25 +63,21 @@
 [generateGeneralWindowsClasses(model)/]
 
 [for (aPackage : Package | aPackages)]
-	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 	
-	[comment]Solo trabajamos con estos dos paquetes DataPersistence y DataProvider [/comment]
 	[if (aPackage.hasStereotype('DataPersistence'))]
-		[comment]BD[/comment]
 	    [comment]Solo creamos este archivo Si existe por lo menos una entidad tipo DATABASE[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'Database'))]
 			[generateDBForAndroid(aPackage)/]
 			[generateDBForWindows(aPackage, model.name)/]
 		[/if]
 	
-		[comment]FILES[/comment]
 		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo FILE[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'File'))]
 			[generateFilesForAndroid(aPackage)/]
 			[generateFilesForWindows(aPackage, model.name)/]
 		[/if]
 	
-		[comment]KEYVALUES[/comment]
 		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo KEYVALUE[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'KeyValue'))]
 			[generateKVForAndroid(aPackage)/]
@@ -186,7 +160,9 @@
 [comment]*****************************************[/comment]
 [template public generateDBForAndroid(aPackage : Package)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-	[createDatabaseAndroid(aPackage)/]
+
+[createDatabaseAndroid(aPackage)/]
+
 	[for (aClass : Class | aClasses)]
 		[generateBDActivities(aClass)/]
 		[generateaBDActivitiesLayout(aClass)/]
@@ -207,6 +183,9 @@
 [comment]*****************************************[/comment]
 [template public generateDBForWindows(aPackage : Package, modelName : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[createWindowsDatabaseHelper(aPackage, modelName)/]
+	
 [for (aClass : Class | aClasses)]
 	[generateBDPages(aClass, modelName)/]
 	[generateBDPagesLayout(aClass, modelName)/]
@@ -225,7 +204,9 @@
 [comment]*****************************************[/comment]
 [template public generateFilesForAndroid(aPackage : Package)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-	[createFileHelper(aPackage)/]
+
+[createFileHelper(aPackage)/]
+
 	[for (aClass : Class | aClasses)]
 		[generateFileActivities(aClass)/]
 		[generateFileActivitiesLayout(aClass)/]
@@ -236,7 +217,9 @@
 [comment]*****************************************[/comment]
 [template public generateFilesForWindows(aPackage : Package, modelName : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-	[createFileHelperWindows(aPackage, modelName)/]
+
+[createFileHelperWindows(aPackage, modelName)/]
+	
 	[for (aClass : Class | aClasses)]	
 		[generateFilePages(aClass, modelName)/]
 		[generateFilePagesLayout(aClass, modelName)/]
@@ -247,7 +230,9 @@
 [comment]*****************************************[/comment]
 [template public generateKVForAndroid(aPackage : Package)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-	[createSharedHelper(aPackage)/]
+
+[createSharedHelper(aPackage)/]
+
 	[for (aClass : Class | aClasses)]
 		[generateKVActivities(aClass)/]
 		[generateKVActivitiesLayout(aClass)/]
@@ -264,7 +249,9 @@
 [comment]*****************************************[/comment]
 [template public generateKVForWindows(aPackage : Package, modelName : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-	[createSharedHelperWindows(aPackage)/]
+
+[createSharedHelperWindows(aPackage)/]
+
 	[for (aClass : Class | aClasses)]
 		[generateKVPages(aClass, modelName)/]
 		[generateKVPagesLayout(aClass, modelName)/]

@@ -240,14 +240,54 @@ namespace [modelName/].Views
 		[/if]
 	[/let]
 	[/for]
-
     }
-
 }
 [/file]
 [/let]
 [/if]
 [/template]
+
+[template public generateSensorsPagesLayout(aClass : Class, modelName : String)]
+[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
+<Page
+    x:Class="[modelName/].Views.[aClass.name.toUpperFirst()/]View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[modelName/].Views">
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Margin="19,40,0,0">
+	[for (p : Property | persistentEntityProperties)]
+	[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (deviceType = 'Accelerometer' or deviceType = 'Ambient_Light' or deviceType = 'Gyroscope' or deviceType = 'Compass')]
+ 				<TextBlock Text="[p.name.toUpperFirst()+''+p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')/]:" FontSize="18"/>
+                <TextBlock x:Name="[p.name.toUpperFirst()/]Tbx" Height="66" Text="0" Width="350"/>
+		[elseif (deviceType = 'GPS')]
+	    		<Button x:Name="btn[p.name.toUpperFirst()/]GPS" Content="GPS" Click="btn[p.name.toUpperFirst()/]GPS_Click" />
+                <TextBlock x:Name="[p.name.toUpperFirst()/]GPSTbx" Height="66" Text="0" Width="350"/>
+		[elseif (deviceType = 'Camera')]
+				<Button x:Name="btn[p.name.toUpperFirst()/]Camera" Content="Camera" Click="btn[p.name.toUpperFirst()/]Camera_Click" />
+		[elseif (deviceType = 'Microphone')]
+				<Button x:Name="btn[p.name.toUpperFirst()/]Audio" Content="Audio" Click="btn[p.name.toUpperFirst()/]AudioRecord_Click" />
+		[/if]
+	[/let]	
+	[/for]
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
+[/file]
+[/let]
+[/if]
+[/template]
+
 
 [template public generateCameraPages(aClass : Class, modelName : String)]
 [file ('windows/Views/Camera/CameraView.xaml.cs', false)]
@@ -343,8 +383,6 @@ namespace [modelName/].Views
 
     }
 }
-
-
 [/file]
 [/template]
 

@@ -37,7 +37,7 @@ public class ShoppingCart  implements Serializable{
 		this.quantity = quantity;
 		this.idCart = idCart;
 	}
- 
+
 	public BigDecimal getSyncTime() {
        return this.syncTime;
      }
@@ -66,12 +66,14 @@ public class ShoppingCart  implements Serializable{
 	// Start of user code getTotalCartPrice
 	// TODO should be implemented
 	// End of user code
-	    }
+		return;
+	}
 
 	public int getCartProductCount() {
 	// Start of user code getCartProductCount
 	// TODO should be implemented
 	// End of user code
-	    }
+		return;
+	}
 
 }

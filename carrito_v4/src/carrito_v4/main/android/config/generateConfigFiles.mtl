@@ -70,18 +70,19 @@
                 <category android:name="android.intent.category.DEFAULT" />
 			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='MobileAppDataProperty'))) ]			
 				[for (p : Property | persistentEntityProperties)]
-				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'FILE')]
+				[let receivedDataType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType')]
+				[if (receivedDataType = 'FILE')]
 				<data android:mimeType="video/*" />
                 <data android:mimeType="audio/*" />
 				<data android:mimeType="application/*" />
 				[/if]
-				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'URL' or 
-					p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'TEXT')]
+				[if (receivedDataType = 'URL' or receivedDataType = 'TEXT')]
 				<data android:mimeType="text/plain" />
 				[/if]
-				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'IMAGE')]
+				[if (receivedDataType = 'IMAGE')]
 				<data android:mimeType="image/*" />
 				[/if]
+				[/let]
 				[/for]			
 			[/let]
 			</intent-filter>
@@ -94,16 +95,17 @@
 [for (aPackage : Package | aPackages)]
 	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 		[if (aPackage.hasStereotype('DataPersistence'))]
-		[for (aClass : Class | aClasses)]		
+		[for (aClass : Class | aClasses)]
+		[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
 		[if (aClass.hasStereotype('persistentEntity'))]
-		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')
-		or (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+		[if (persistentType = 'Database' or persistentType = 'KeyValue')]
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]FormActivity" />
-		[elseif  (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File') ]
+		[elseif  (persistentType = 'File') ]
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
 		[/if]
-		[/if]		
+		[/if]
+		[/let]		
 		[/for]
 		[/if]
 

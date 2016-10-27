@@ -65,7 +65,7 @@ public class Product  implements Serializable{
 		this.name = name;
 		this.idImageProduct = idImageProduct;
 	}
- 
+
 	public Integer getIdProvider() {
        return this.idProvider;
      }
@@ -126,6 +126,7 @@ public class Product  implements Serializable{
 	// Start of user code getProductPriceWithCurrency
 	// TODO should be implemented
 	// End of user code
-	    }
+		return;
+	}
 
 }

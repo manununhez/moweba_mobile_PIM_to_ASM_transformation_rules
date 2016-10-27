@@ -30,31 +30,33 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     private SensorManager mSensorManager;
 
 	[for (p : Property | persistentEntityProperties)]
-	[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Microphone')]
+	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+	[if (hardwareDeviceType = 'Microphone')]
 	private Button btn[p.name.toUpperFirst()/];
-	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+	[elseif (hardwareDeviceType = 'Accelerometer')]
 	private Sensor m[p.name.toUpperFirst()/]Accelerometer;
     private TextView tvData[p.name.toUpperFirst()/]Accelerometer;
     private TextView tvTest[p.name.toUpperFirst()/]Accelerometer;
-	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+	[elseif (hardwareDeviceType = 'Ambient_Light')]
 	private Sensor m[p.name.toUpperFirst()/]Light;
     private TextView tvData[p.name.toUpperFirst()/]Light;
     private TextView tvTest[p.name.toUpperFirst()/]Light;
-	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+	[elseif (hardwareDeviceType = 'Gyroscope')]
 	private Sensor m[p.name.toUpperFirst()/]Gyroscope;
     private TextView tvData[p.name.toUpperFirst()/]Gyroscope;
     private TextView tvTest[p.name.toUpperFirst()/]Gyroscope;
-	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+	[elseif (hardwareDeviceType = 'Compass')]
 	private Sensor m[p.name.toUpperFirst()/]MagneticField;
     private TextView tvData[p.name.toUpperFirst()/]MagneticField;
     private TextView tvTest[p.name.toUpperFirst()/]MagneticField;
-	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Camera')]
+	[elseif (hardwareDeviceType = 'Camera')]
 	private Button btn[p.name.toUpperFirst()/];
-	[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'GPS')]
+	[elseif (hardwareDeviceType = 'GPS')]
     private Location location;
     private TextView tvData[p.name.toUpperFirst()/]GPS;
     private Button btn[p.name.toUpperFirst()/];
-	[/if]	
+	[/if]
+	[/let]	
 	[/for]
 
     @Override
@@ -66,7 +68,8 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
 	[for (p : Property | persistentEntityProperties)]
-		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Microphone')]
+	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (hardwareDeviceType = 'Microphone')]
 		//Mic
         btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
         btn[p.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
@@ -76,7 +79,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             }
         });
 
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+		[elseif (hardwareDeviceType = 'Accelerometer')]
 		//Accelerometer
         tvData[p.name.toUpperFirst()/]Accelerometer = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]Accelerometer);
         tvTest[p.name.toUpperFirst()/]Accelerometer = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]Accelerometer);
@@ -89,7 +92,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             tvTest[p.name.toUpperFirst()/]Accelerometer.setText("Failure! No accelerometer sensor.");
         }
 
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+		[elseif (hardwareDeviceType = 'Ambient_Light')]
 		//Ambient_Light
         tvData[p.name.toUpperFirst()/]Light = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]Light);
         tvTest[p.name.toUpperFirst()/]Light = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]Light);
@@ -102,7 +105,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             tvTest[p.name.toUpperFirst()/]Light.setText("Failure! No light sensor.");
         }
 
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+		[elseif (hardwareDeviceType = 'Gyroscope')]
 		//Gyroscope
         tvData[p.name.toUpperFirst()/]Gyroscope = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]Gyroscope);
         tvTest[p.name.toUpperFirst()/]Gyroscope = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]Gyroscope);
@@ -115,7 +118,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             tvTest[p.name.toUpperFirst()/]Gyroscope.setText("Failure! No gyroscope sensor.");
         }
 
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+		[elseif (hardwareDeviceType = 'Compass')]
 		//Compass
         tvData[p.name.toUpperFirst()/]MagneticField = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]MagneticField);
         tvTest[p.name.toUpperFirst()/]MagneticField = (TextView) findViewById(R.id.tvTest[p.name.toUpperFirst()/]MagneticField);
@@ -128,7 +131,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             tvTest[p.name.toUpperFirst()/]MagneticField.setText("Failure! No magneticField sensor.");
         }
 
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Camera')]
+		[elseif (hardwareDeviceType = 'Camera')]
 		//Camara
         btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
         btn[p.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
@@ -138,7 +141,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             }
         });
 
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'GPS')]
+		[elseif (hardwareDeviceType = 'GPS')]
         //GPS
         btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
         tvData[p.name.toUpperFirst()/]GPS = (TextView) findViewById(R.id.tvData[p.name.toUpperFirst()/]GPS);
@@ -152,7 +155,8 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
         getLocation();
 
-		[/if]		
+		[/if]	
+	[/let]	
 	[/for]
 	}
 
@@ -161,15 +165,17 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         // Register a listener for the sensor.
         super.onResume();
 	[for (p : Property | persistentEntityProperties)]
-		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (hardwareDeviceType = 'Accelerometer')]
 		mSensorManager.registerListener(m[p.name.toUpperFirst()/]AccelerometerListener, m[p.name.toUpperFirst()/]Accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+		[elseif (hardwareDeviceType = 'Ambient_Light')]
 		mSensorManager.registerListener(m[p.name.toUpperFirst()/]LightSensorListener, m[p.name.toUpperFirst()/]Light, SensorManager.SENSOR_DELAY_NORMAL);
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+		[elseif (hardwareDeviceType = 'Gyroscope')]
 		mSensorManager.registerListener(m[p.name.toUpperFirst()/]GyroscopeListener, m[p.name.toUpperFirst()/]Gyroscope, SensorManager.SENSOR_DELAY_NORMAL);
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+		[elseif (hardwareDeviceType = 'Compass')]
 		mSensorManager.registerListener(m[p.name.toUpperFirst()/]MagneticFieldSensorListener, m[p.name.toUpperFirst()/]MagneticField, SensorManager.SENSOR_DELAY_NORMAL);
-		[/if]	
+		[/if]
+	[/let]	
 	[/for]
         
     }
@@ -179,21 +185,24 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         // Be sure to unregister the sensor when the activity pauses.
         super.onPause();
 	[for (p : Property | persistentEntityProperties)]
-		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (hardwareDeviceType = 'Accelerometer')]
 		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]AccelerometerListener);
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+		[elseif (hardwareDeviceType = 'Ambient_Light')]
 		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]LightSensorListener);
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+		[elseif (hardwareDeviceType = 'Gyroscope')]
 		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]GyroscopeListener);
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+		[elseif (hardwareDeviceType = 'Compass')]
 		mSensorManager.unregisterListener(m[p.name.toUpperFirst()/]MagneticFieldSensorListener);
-		[/if]	
+		[/if]
+	[/let]	
 	[/for]
 
     }
 
 	[for (p : Property | persistentEntityProperties)]
-		[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (hardwareDeviceType = 'Accelerometer')]
 		private SensorEventListener m[p.name.toUpperFirst()/]AccelerometerListener = new SensorEventListener() {
 	        @Override
 	        public void onSensorChanged(SensorEvent event) {
@@ -211,7 +220,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 	            tvTest[p.name.toUpperFirst()/]Accelerometer.setText(text);
 	        }
     	};
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+		[elseif (hardwareDeviceType = 'Ambient_Light')]
 			private SensorEventListener m[p.name.toUpperFirst()/]LightSensorListener = new SensorEventListener() {
 			        @Override
 			        public void onSensorChanged(SensorEvent event) {
@@ -228,7 +237,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 			            tvTest[p.name.toUpperFirst()/]Light.setText(text);
 			        }
 			    };
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+		[elseif (hardwareDeviceType = 'Gyroscope')]
 			private SensorEventListener m[p.name.toUpperFirst()/]GyroscopeListener = new SensorEventListener() {
 		        @Override
 		        public void onSensorChanged(SensorEvent event) {
@@ -246,7 +255,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 		            tvTest[p.name.toUpperFirst()/]Gyroscope.setText(text);
 		        }
 	    	};
-		[elseif (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+		[elseif (hardwareDeviceType = 'Compass')]
 			private SensorEventListener m[p.name.toUpperFirst()/]MagneticFieldSensorListener = new SensorEventListener() {
 		        @Override
 		        public void onSensorChanged(SensorEvent event) {
@@ -263,7 +272,8 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 		            tvTest[p.name.toUpperFirst()/]MagneticField.setText(text);
 		        }
 	    	};
-		[/if]	
+		[/if]
+	[/let]
 	[/for]
 
     
@@ -284,6 +294,228 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 [/let]
 [/if]
 [/template]
+
+[template public generateSensorActivitiesLayout(aClass : Class)]
+[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+
+[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+[for (p : Property | persistentEntityProperties)]
+[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+	[if (hardwareDeviceType = 'Microphone')]
+       <Button
+        android:id="@+id/btn[p.name.toUpperFirst()/]"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="[p.name.toUpperFirst()/]" />
+	[elseif (hardwareDeviceType = 'Accelerometer')]
+		<LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="10dp"
+	            android:gravity="center_vertical"
+	            android:orientation="horizontal">
+	
+	            <TextView
+	                android:id="@+id/tvAccelerometer"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="Accelerometer"
+	                android:layout_marginRight="10dp"
+	                android:textColor="@android:color/black"
+	                android:textStyle="bold"
+	                android:enabled="false"
+	                android:textAllCaps="false" />
+	
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="wrap_content"
+	                android:orientation="vertical">
+	
+	                <TextView
+	                    android:id="@+id/tvTest[p.name.toUpperFirst()/]Accelerometer"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:hint="Test:" />
+	
+	                <TextView
+	                    android:id="@+id/tvData[p.name.toUpperFirst()/]Accelerometer"
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:hint="Results:" />
+	            </LinearLayout>
+        </LinearLayout>
+	[elseif (hardwareDeviceType = 'Ambient_Light')]
+	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvLight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Light"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:enabled="false"
+                android:layout_marginRight="10dp"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]Light"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+	[elseif (hardwareDeviceType = 'Gyroscope')]
+	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvGyroscope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gyroscope"
+                android:enabled="false"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]Gyroscope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]Gyroscope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+
+	[elseif (hardwareDeviceType = 'Compass')]
+	<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvMagneticField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MagneticField"
+                android:layout_marginRight="10dp"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]MagneticField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]MagneticField"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+	[elseif (hardwareDeviceType = 'Camera')]
+	       <Button
+            android:id="@+id/btn[p.name.toUpperFirst()/]"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="[p.name.toUpperFirst()/]" />
+	[elseif (hardwareDeviceType = 'GPS')]
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn[p.name.toUpperFirst()/]"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GPS"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTest[p.name.toUpperFirst()/]GPS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Test:" />
+
+                <TextView
+                    android:id="@+id/tvData[p.name.toUpperFirst()/]GPS"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Results:" />
+            </LinearLayout>
+        </LinearLayout>
+	[/if]
+[/let]
+[/for]
+    </LinearLayout>
+</ScrollView>
+[/file]
+[/let]
+[/if]
+[/template]
+
 
 [template public generateGPSClass(aClass : Class)]
 [file ('android/utils/GPSTracker.java', false)]

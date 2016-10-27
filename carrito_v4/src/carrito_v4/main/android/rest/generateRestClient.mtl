@@ -6,14 +6,15 @@
 [template public generateRestClient(aClass : Class)]
 [file ('android/conn/ApiClient.java', false)]
 [if (aClass.hasStereotype('WebInterface'))]
-
+[let protocol : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'protocol')]
+[let domain : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'domain')]
 //[protected ('imports')]
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 //[/protected]
 
 public class ApiClient {
-    public static final String BASE_URL = "[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'protocol') /]://[aClass.getValueOfStereotypeProperty('Mobile Profile::WebInterface', 'domain') /]";
+    public static final String BASE_URL = "[protocol/]://[domain/]";
     private static Retrofit retrofit = null;
 
 
@@ -27,7 +28,8 @@ public class ApiClient {
         return retrofit;
     }
 }
-
+[/let]
+[/let]
 [/if]
 [/file]
 [/template]

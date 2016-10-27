@@ -30,7 +30,7 @@ public class ImageProduct  implements Serializable{
 		this.idImageProduct = idImageProduct;
 		this.image = image;
 	}
- 
+
 	public Integer getIdImageProduct() {
        return this.idImageProduct;
      }

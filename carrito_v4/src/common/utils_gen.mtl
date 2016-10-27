@@ -55,10 +55,8 @@ getMatchedTypeForCSharp(elem: Element, stereotype_name : String, property_name :
 getMatchedTypeForSqlite(elem: Element, stereotype_name : String, property_name : String) : String = getSqliteType(getValueOfStereotypePropertyEnumLit(elem, stereotype_name,property_name))/]
 
 [query public
-getPropertiesForSqlite(elem: Element, stereotype_name : String, dataType:String, notNull:Boolean,  
-size:Integer, unique:Boolean, defaultValue:String, checkCondition:String) : String = 
-getSqliteProperties(getMatchedTypeForSqlite(elem, stereotype_name, 'dataType'), 
-notNull,size,unique,defaultValue,checkCondition)/]
+getPropertiesForSqlite(elem: Element, stereotype_name : String, dataType:String, notNull:Boolean,  size:Integer, unique:Boolean, defaultValue:String, checkCondition:String) : String = 
+getSqliteProperties(getMatchedTypeForSqlite(elem, stereotype_name, 'dataType'), notNull,size,unique,defaultValue,checkCondition)/]
 
 [query public
 getJavaConstructorDescription(elem: Element, stereotype_name : String, value : String) : String = getConstructorDescription(getMatchedTypeForJava(elem, stereotype_name, 'dataType'), value)/]

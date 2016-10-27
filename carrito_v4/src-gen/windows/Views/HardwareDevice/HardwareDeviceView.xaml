@@ -1,4 +1,3 @@
-
 <Page
     x:Class="Data.Views.HardwareDeviceView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -27,5 +26,3 @@
         </Grid>
     </ScrollViewer>
 </Page>
-
-

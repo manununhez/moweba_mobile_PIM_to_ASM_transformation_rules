@@ -44,7 +44,7 @@ public class Provider  implements Serializable{
 		this.description = description;
 		this.nombre = nombre;
 	}
- 
+
 	public Integer getIdProvider() {
        return this.idProvider;
      }

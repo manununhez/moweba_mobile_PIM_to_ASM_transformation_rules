@@ -1,10 +1,8 @@
 [comment encoding = UTF-8 /]
 [module generateAppPage('http://www.eclipse.org/uml2/5.0.0/UML')]
 
-[comment Se importa el mtl de services para poder utilizar las funciones definidas/]
 [import services::uml2services/]
 [import common::utils_gen/]
-
 
 [template public generateAppPage(model : Model)]
 [let aPackages: Sequence(Package) = model.eAllContents(Package) ]
@@ -38,7 +36,6 @@ namespace [model.name.toUpperFirst()/]
 			//Creating and initializing the DB
 			MySQLiteHelper.Createdatabase();
 			[comment]CREAMOS EL ARCHIVO HELPER DE SQLITE[/comment]
-			[createWindowsDatabaseHelper(aPackage, model.name)/]
 			[/if]
 		[/for]	    
         }
@@ -165,23 +162,6 @@ namespace [model.name.toUpperFirst()/]
 [/let]
 [/template]
 
-[template public createShareTargetPageLayout(aPackage : Package, modelName : String)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-[file ('windows/Views/ShareTarget/ShareTargetView.xaml', false)]
-<Page
-    x:Class="[modelName/].Views.ShareTargetPageView"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:[modelName/].Views">
-
-    <Grid>
-        <Button x:Name="button" Content="Done!" HorizontalAlignment="Left" Margin="154,186,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-    </Grid>
-</Page>
-[/file]
-[/let]
-[/template]
 
 [template public createShareTargetPage(model : Model)]
 [let aPackages: Sequence(Package) = model.eAllContents(Package) ]
@@ -225,7 +205,8 @@ namespace [model.name/].Views
 		[if (aClass.hasStereotype('MobileAppDataInterface'))]
 			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='MobileAppDataProperty'))) ]			
 				[for (p : Property | persistentEntityProperties)]
-				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'FILE')]
+				[let receivedDataType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType')]
+				[if (receivedDataType = 'FILE')]
 				if (operation.Data.Contains(StandardDataFormats.StorageItems)) //Files being shared
 	            {
 	                IReadOnlyList<IStorageItem> sharedStorageItems = await operation.Data.GetStorageItemsAsync();
@@ -244,7 +225,7 @@ namespace [model.name/].Views
 	                await ms.ShowAsync();
 	            }
 				[/if]
-				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'URL')] 
+				[if (receivedDataType = 'URL')] 
 				if (operation.Data.Contains(StandardDataFormats.WebLink)) //URI
 	            {
 	                var uri = await operation.Data.GetWebLinkAsync();
@@ -255,14 +236,14 @@ namespace [model.name/].Views
 	                }
 	            }	
 			 	[/if]
-				[if(p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'TEXT')]
+				[if(receivedDataType = 'TEXT')]
 				if (operation.Data.Contains(StandardDataFormats.Text))//Text
 	            {
 	                MessageDialog ms = new MessageDialog("Text:" + await operation.Data.GetTextAsync());
 	                await ms.ShowAsync();
 	            }
 				[/if]
-				[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType') = 'IMAGE')]
+				[if (receivedDataType = 'IMAGE')]
 				if (operation.Data.Contains(StandardDataFormats.Bitmap)) { //Image
 	                IRandomAccessStreamReference sharedBitmapStream = await operation.Data.GetBitmapAsync();
 	                IRandomAccessStreamWithContentType bitmapStream = await sharedBitmapStream.OpenReadAsync();
@@ -272,6 +253,7 @@ namespace [model.name/].Views
 	                await ms.ShowAsync();
             	}
 				[/if]
+				[/let]
 				[/for]			
 			[/let]
 		[/if]
@@ -292,89 +274,21 @@ namespace [model.name/].Views
 [/let]
 [/template]
 
-
-[template public createWindowsDatabaseHelper(aPackage : Package, modelName : String)]
+[template public createShareTargetPageLayout(aPackage : Package, modelName : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[file ('windows/Common/MySQLiteHelper.cs', false)]
-//[protected ('imports')]
-using System;
-using System.IO;
-using System.Threading.Tasks;
-using Windows.Storage;
-//[/protected]
+[file ('windows/Views/ShareTarget/ShareTargetView.xaml', false)]
+<Page
+    x:Class="[modelName/].Views.ShareTargetPageView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[modelName/].Views">
 
-namespace [modelName.toUpperFirst()/].Common
-{
-    class MySQLiteHelper
-    {
-        //Database name
-        public static string DbName = "[aPackage.name.toLowerFirst()/].sqlite";
-
-        //Full Database Path
-        public static string DbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
-
-        public async static Task<bool> Createdatabase()
-        {
-            var result = await Checkdatabase();
-            if (!result)
-            {
-                //Creating a database
-                var connection = new SQLite.SQLiteConnection(DbPath);
-                {
-                    //Creating a table
-                    connection.RunInTransaction(() =>
-                    {
-					[for (aClass : Class | aClasses)]		
-					[if (aClass.hasStereotype('persistentEntity'))]
-					[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
-					connection.CreateTable<Model.[aClass.name.toUpperFirst()/]>();
-					[/if]
-					[/if]		
-					[/for]
-                    });
-                }
-
-                connection.Close();
-                return true;
-            }
-            else
-                return false;
-        }
-
-        public static async Task<bool> Checkdatabase()
-        {
-            var dbexist = true;
-            try
-            {
-                var storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(DbName);
-                if (storageFile == null) dbexist = false;
-            }
-            catch (Exception ex)
-            {
-                dbexist = false;
-            }
-            return dbexist;
-        }
-
-
-        public static async Task<bool> DeleteDatabase()
-        {
-            try
-            {
-                var storageFile = await StorageFile.GetFileFromPathAsync(DbPath);
-                await storageFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
-                return true;
-            }
-            catch (Exception ex)
-            {
-            }
-            return false;
-        }
-
-    }
-}
-
+    <Grid>
+        <Button x:Name="button" Content="Done!" HorizontalAlignment="Left" Margin="154,186,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+    </Grid>
+</Page>
 [/file]
 [/let]
 [/template]
+

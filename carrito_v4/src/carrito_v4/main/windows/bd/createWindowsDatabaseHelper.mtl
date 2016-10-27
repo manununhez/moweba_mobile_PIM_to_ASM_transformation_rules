@@ -1,16 +1,26 @@
-//Start of user code imports
+[comment encoding = UTF-8 /]
+[module createWindowsDatabaseHelper('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public createWindowsDatabaseHelper(aPackage : Package, modelName : String)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[file ('windows/Common/MySQLiteHelper.cs', false)]
+//[protected ('imports')]
 using System;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
-//End of user code
+//[/protected]
 
-namespace Data.Common
+namespace [modelName.toUpperFirst()/].Common
 {
     class MySQLiteHelper
     {
         //Database name
-        public static string DbName = "persistencia.sqlite";
+        public static string DbName = "[aPackage.name.toLowerFirst()/].sqlite";
 
         //Full Database Path
         public static string DbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
@@ -26,9 +36,13 @@ namespace Data.Common
                     //Creating a table
                     connection.RunInTransaction(() =>
                     {
-					connection.CreateTable<Model.Provider>();
-					connection.CreateTable<Model.Product>();
-					connection.CreateTable<Model.ShoppingCart>();
+					[for (aClass : Class | aClasses)]		
+					[if (aClass.hasStereotype('persistentEntity'))]
+					[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+					connection.CreateTable<Model.[aClass.name.toUpperFirst()/]>();
+					[/if]
+					[/if]		
+					[/for]
                     });
                 }
 
@@ -71,3 +85,7 @@ namespace Data.Common
 
     }
 }
+[/file]
+[/let]
+[/template]
+

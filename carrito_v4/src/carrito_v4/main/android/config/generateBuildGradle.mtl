@@ -19,13 +19,13 @@ dependencies {
 	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 	[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses)]		
-		[if (aClass.hasStereotype('WebInterface'))]
+			[if (aClass.hasStereotype('WebInterface'))]
 	//-----------Retrofit
     compile 'com.google.code.gson:gson:2.6.2'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     //*******
-		[/if]
+			[/if]
 		[/for]
 	[/if]
 	[/let]

@@ -177,7 +177,5 @@ namespace Data.Views
         {
             Frame.Navigate(typeof(CameraView));
         }
-
     }
-
 }
