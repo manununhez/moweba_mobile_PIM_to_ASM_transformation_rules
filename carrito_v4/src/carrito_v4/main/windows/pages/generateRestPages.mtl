@@ -4,7 +4,7 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateRestPages(aClass : Class, modelName : String)]
+[template public generateRestPages(aClass : Class, namespace : String)]
 [if (aClass.hasStereotype('WebInterface'))]
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
 
@@ -12,15 +12,15 @@
 //[protected ('imports')]
 using System;
 using Kulman.WPA81.BaseRestService.Services.Exceptions;
-using [modelName/].Common;
-using [modelName/].Model;
+using [namespace/].Common;
+using [namespace/].Model;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Windows.UI.Popups;
 //[/protected]
 
-namespace [modelName/].Views
+namespace [namespace/].Views
 {
     public sealed partial class [aClass.name.toUpperFirst()/]View : Page
     {
@@ -91,16 +91,16 @@ namespace [modelName/].Views
 [/if]
 [/template]
 
-[template public generateRestPagesLayout(aClass : Class, modelName : String)]
+[template public generateRestPagesLayout(aClass : Class, namespace : String)]
 [if (aClass.hasStereotype('WebInterface'))]
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
 <Page
-    x:Class="[modelName/].Views.[aClass.name.toUpperFirst()/]View"
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]View"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:[modelName/].Views">
+    xmlns:local="using:[namespace/].Views">
     <ScrollViewer>
         <StackPanel VerticalAlignment="Top">
 			[for (o : Operation | webServiceOperations)separator('\n')]

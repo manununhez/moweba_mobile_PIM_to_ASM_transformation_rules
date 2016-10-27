@@ -2,7 +2,7 @@
 [module createFileHelperWindows('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 
-[template public createFileHelperWindows(aPackage : Package, modelName : String)]
+[template public createFileHelperWindows(aPackage : Package, namespace : String)]
 [file ('windows/Common/FileHelper.cs', false)]
 //[protected ('imports')]
 using System;
@@ -12,7 +12,7 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 //[/protected]
 	
-namespace [modelName/].Common
+namespace [namespace/].Common
 {
     class FileHelper
     {

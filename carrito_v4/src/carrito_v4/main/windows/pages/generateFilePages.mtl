@@ -4,21 +4,21 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateFilePages(aClass : Class, modelName : String)]
+[template public generateFilePages(aClass : Class, namespace : String)]
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
 //[protected ('imports')]
-using [modelName/].Common;
+using [namespace/].Common;
 using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 //[/protected]
 
-namespace [modelName/].Views
+namespace [namespace/].Views
 {
 
     public sealed partial class [aClass.name.toUpperFirst()/]View : Page
@@ -78,17 +78,17 @@ namespace [modelName/].Views
 [/if]
 [/template]
 
-[template public generateFilePagesLayout(aClass : Class, modelName : String)]
+[template public generateFilePagesLayout(aClass : Class, namespace : String)]
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
 <Page
-    x:Class="[modelName/].Views.[aClass.name.toUpperFirst()/]View"
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]View"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:[modelName/].Views">
+    xmlns:local="using:[namespace/].Views">
 
     <ScrollViewer>
         <Grid x:Name="LayoutRoot">

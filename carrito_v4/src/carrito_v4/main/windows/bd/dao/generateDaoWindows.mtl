@@ -4,22 +4,22 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateDaoWindows(aClass : Class, modelName : String)]
+[template public generateDaoWindows(aClass : Class, namespace : String)]
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/ViewModel/', aClass, 'DAO','.cs'), false)]
 //[protected ('imports')]
-using [modelName/].Common;
-using [modelName/].Model;
+using [namespace/].Common;
+using [namespace/].Model;
 using SQLite;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 //[/protected]
 
-namespace [modelName/].ViewModels
+namespace [namespace/].ViewModels
 {
     class [aClass.name.toUpperFirst()/]DAO
     {

@@ -5,7 +5,7 @@
 [import common::utils_gen/]
 
 
-[template public generateKVDeleteUpdateFormPage(aClass : Class, modelName : String)]
+[template public generateKVDeleteUpdateFormPage(aClass : Class, namespace : String)]
 
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
@@ -13,15 +13,15 @@
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormDeleteUpdate','.xaml.cs'), false)]
 //[protected ('imports')]
-using [modelName/].Common;
-using [modelName/].Model;
+using [namespace/].Common;
+using [namespace/].Model;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using WindowsStore.Common.Storage;
 //[/protected]
 
-namespace [modelName/].Views
+namespace [namespace/].Views
 {
 
     public sealed partial class [aClass.name.toUpperFirst()/]FormDeleteUpdate : Page
@@ -102,7 +102,7 @@ namespace [modelName/].Views
 [/if]
 [/template]
 
-[template public generateKVDeleteUpdateFormPageLayout(aClass : Class, modelName : String)]
+[template public generateKVDeleteUpdateFormPageLayout(aClass : Class, namespace : String)]
 
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
@@ -110,10 +110,10 @@ namespace [modelName/].Views
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormDeleteUpdate','.xaml'), false)]
 <Page
-    x:Class="[modelName/].Views.[aClass.name.toUpperFirst()/]FormDeleteUpdate"
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]FormDeleteUpdate"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:[modelName/].Views">
+    xmlns:local="using:[namespace/].Views">
 <ScrollViewer>
     <Grid x:Name="LayoutRoot">
             <!-- Title Panel -->

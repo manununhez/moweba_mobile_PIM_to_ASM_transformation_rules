@@ -4,7 +4,7 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public createWindowsDatabaseHelper(aPackage : Package, modelName : String)]
+[template public createWindowsDatabaseHelper(aPackage : Package, namespace : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
 [file ('windows/Common/MySQLiteHelper.cs', false)]
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 //[/protected]
 
-namespace [modelName.toUpperFirst()/].Common
+namespace [namespace.toUpperFirst()/].Common
 {
     class MySQLiteHelper
     {

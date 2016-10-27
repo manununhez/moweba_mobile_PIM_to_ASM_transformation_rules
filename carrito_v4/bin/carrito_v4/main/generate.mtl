@@ -64,24 +64,25 @@
 
 [for (aPackage : Package | aPackages)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+[let p : Package = aPackage.ancestors(Package)->first()]	
 	
 	[if (aPackage.hasStereotype('DataPersistence'))]
 	    [comment]Solo creamos este archivo Si existe por lo menos una entidad tipo DATABASE[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'Database'))]
 			[generateDBForAndroid(aPackage)/]
-			[generateDBForWindows(aPackage, model.name)/]
+			[generateDBForWindows(aPackage, p.name.toUpperFirst())/]
 		[/if]
 	
 		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo FILE[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'File'))]
 			[generateFilesForAndroid(aPackage)/]
-			[generateFilesForWindows(aPackage, model.name)/]
+			[generateFilesForWindows(aPackage, p.name.toUpperFirst())/]
 		[/if]
 	
 		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo KEYVALUE[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'KeyValue'))]
 			[generateKVForAndroid(aPackage)/]
-			[generateKVForWindows(aPackage, model.name)/]
+			[generateKVForWindows(aPackage, p.name.toUpperFirst())/]
 		[/if]
 	[/if]
 	
@@ -89,16 +90,17 @@
 		[for (aClass : Class | aClasses)]
 			[if (aClass.hasStereotype('WebInterface'))]
 				[generateRestAndroid(aClass)/]
-				[generateRestWindows(aClass, model.name)/]
+				[generateRestWindows(aClass, p.name.toUpperFirst())/]
 			[/if]
 			
 			[if (aClass.hasStereotype('HardwareDeviceInterface'))]
 				[generateSensorsAndroid(aClass)/]
-				[generateSensorsWindows(aClass, model.name)/]
+				[generateSensorsWindows(aClass, p.name.toUpperFirst())/]
 			[/if]
 		[/for]
 	[/if]
-	[/let]
+[/let]
+[/let]
 [/for]
 [/let]
 [/template]
@@ -117,15 +119,15 @@
 	[generateSensorActivitiesLayout(aClass)/]
 [/template]
 
-[template public generateSensorsWindows(aClass : Class, modelName : String)]
+[template public generateSensorsWindows(aClass : Class, namespace : String)]
 	[comment]Sensors Utils[/comment]
-	[generateCameraPages(aClass, modelName)/]
-	[generateCameraPagesLayout(aClass, modelName)/]
-	[generateAudioRecordPages(aClass, modelName)/]
-	[generateAudioRecordPagesLayout(aClass, modelName)/]
+	[generateCameraPages(aClass, namespace)/]
+	[generateCameraPagesLayout(aClass, namespace)/]
+	[generateAudioRecordPages(aClass, namespace)/]
+	[generateAudioRecordPagesLayout(aClass, namespace)/]
 
-	[generateSensorsPages(aClass, modelName)/]
-	[generateSensorsPagesLayout(aClass, modelName)/]
+	[generateSensorsPages(aClass, namespace)/]
+	[generateSensorsPagesLayout(aClass, namespace)/]
 [/template]
 
 [template public generateRestAndroid(aClass : Class)]
@@ -136,10 +138,10 @@
 	[generateRestActivitiesLayout(aClass)/]
 [/template]
 
-[template public generateRestWindows(aClass : Class, modelName : String)]
-	[generateRestWindowsInterface(aClass, modelName)/]
-	[generateRestPages(aClass, modelName)/]
-	[generateRestPagesLayout(aClass, modelName)/]
+[template public generateRestWindows(aClass : Class, namespace : String)]
+	[generateRestWindowsInterface(aClass, namespace)/]
+	[generateRestPages(aClass, namespace)/]
+	[generateRestPagesLayout(aClass, namespace)/]
 [/template]
 
 [comment]*****************************************[/comment]
@@ -148,20 +150,21 @@
 	[generateMainActivityLayout(model)/]
 	[generateConfigFiles(model)/]
 	[generateBuildGradle(model)/]
-	[beansGenAndroid(model)/]
+	
 [/template]
 
 [template public generateGeneralWindowsClasses(model : Model)]
 [generateAppPage(model)/]
 [generateMainPage(model)/]
 [generateMainPageLayout(model)/]
-[beansGenWindows(model)/]
+
 [/template]
 [comment]*****************************************[/comment]
 [template public generateDBForAndroid(aPackage : Package)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
 [createDatabaseAndroid(aPackage)/]
+[beansGenAndroid(aPackage)/]
 
 	[for (aClass : Class | aClasses)]
 		[generateBDActivities(aClass)/]
@@ -181,22 +184,23 @@
 [/template]
 
 [comment]*****************************************[/comment]
-[template public generateDBForWindows(aPackage : Package, modelName : String)]
+[template public generateDBForWindows(aPackage : Package, namespace : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[createWindowsDatabaseHelper(aPackage, modelName)/]
-	
-[for (aClass : Class | aClasses)]
-	[generateBDPages(aClass, modelName)/]
-	[generateBDPagesLayout(aClass, modelName)/]
+[createWindowsDatabaseHelper(aPackage, namespace)/]
+[beansGenWindows(aPackage)/]
 
-	[generateBDCreateFormPage(aClass, modelName)/]
-	[generateBDCreateFormPageLayout(aClass, modelName)/]
+[for (aClass : Class | aClasses)]
+	[generateBDPages(aClass, namespace)/]
+	[generateBDPagesLayout(aClass, namespace)/]
+
+	[generateBDCreateFormPage(aClass, namespace)/]
+	[generateBDCreateFormPageLayout(aClass, namespace)/]
 	
-	[generateBDDeleteUpdateFormPage(aClass, modelName)/]
-	[generateBDDeleteUpdateFormPageLayout(aClass, modelName)/]
+	[generateBDDeleteUpdateFormPage(aClass, namespace)/]
+	[generateBDDeleteUpdateFormPageLayout(aClass, namespace)/]
 	
-	[generateDaoWindows(aClass, modelName)/]
+	[generateDaoWindows(aClass, namespace)/]
 [/for]
 [/let]
 [/template]
@@ -215,14 +219,14 @@
 [/template]
 
 [comment]*****************************************[/comment]
-[template public generateFilesForWindows(aPackage : Package, modelName : String)]
+[template public generateFilesForWindows(aPackage : Package, namespace : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[createFileHelperWindows(aPackage, modelName)/]
+[createFileHelperWindows(aPackage, namespace)/]
 	
 	[for (aClass : Class | aClasses)]	
-		[generateFilePages(aClass, modelName)/]
-		[generateFilePagesLayout(aClass, modelName)/]
+		[generateFilePages(aClass, namespace)/]
+		[generateFilePagesLayout(aClass, namespace)/]
 	[/for]
 [/let]
 [/template]
@@ -247,17 +251,17 @@
 [/template]
 
 [comment]*****************************************[/comment]
-[template public generateKVForWindows(aPackage : Package, modelName : String)]
+[template public generateKVForWindows(aPackage : Package, namespace : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
 [createSharedHelperWindows(aPackage)/]
 
 	[for (aClass : Class | aClasses)]
-		[generateKVPages(aClass, modelName)/]
-		[generateKVPagesLayout(aClass, modelName)/]
+		[generateKVPages(aClass, namespace)/]
+		[generateKVPagesLayout(aClass, namespace)/]
 
-		[generateKVDeleteUpdateFormPage(aClass, modelName)/]
-		[generateKVDeleteUpdateFormPageLayout(aClass, modelName)/]
+		[generateKVDeleteUpdateFormPage(aClass, namespace)/]
+		[generateKVDeleteUpdateFormPageLayout(aClass, namespace)/]
 	[/for]
 [/let]
 [/template]

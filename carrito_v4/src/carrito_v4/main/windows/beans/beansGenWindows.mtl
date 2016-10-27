@@ -7,14 +7,14 @@
 
 
 
-[template public beansGenWindows(model : Model)]
+[template public beansGenWindows(aPackage : Package)]
 	[comment]Generamos los modelos para las entidades persistentes[/comment]
-[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
-[for (aPackage : Package | aPackages)]
+
 [for (aClass : Class | aPackage.ownedElement->filter(Class))]
 [if (aClass.hasStereotype('persistentEntity'))]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 [let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
+[let p : Package = aPackage.ancestors(Package)->first()]	
 
 [file (aClass.classFileName('windows/Model/', aClass, '' , '.cs'), false)]
 //[protected ('imports')]
@@ -22,7 +22,7 @@ using System.Runtime.Serialization;
 using System.Collections.Generic;
 //[/protected]
 
-namespace [model.name.toUpperFirst()/].Model
+namespace [p.name.toUpperFirst()/].Model
 {
     ['['/]DataContract[']'/]
     public class [aClass.name.toUpperFirst()/] 
@@ -69,8 +69,7 @@ namespace [model.name.toUpperFirst()/].Model
  [/file]
 [/let]
 [/let]
+[/let]
 [/if]
 [/for]
-[/for]
-[/let]
 [/template]

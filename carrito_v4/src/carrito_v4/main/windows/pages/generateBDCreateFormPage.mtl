@@ -5,16 +5,16 @@
 [import common::utils_gen/]
 
 
-[template public generateBDCreateFormPage(aClass : Class, modelName : String)]
+[template public generateBDCreateFormPage(aClass : Class, namespace : String)]
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormNew','.xaml.cs'), false)]
 //[protected ('imports')]
-using [modelName/].Common;
-using [modelName/].Model;
-using [modelName/].ViewModels;
+using [namespace/].Common;
+using [namespace/].Model;
+using [namespace/].ViewModels;
 using System;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
@@ -23,7 +23,7 @@ using Windows.UI.Xaml.Navigation;
 //[/protected]
 
 
-namespace [modelName/].Views
+namespace [namespace/].Views
 {
 
     public sealed partial class [aClass.name.toUpperFirst()/]FormNew : Page
@@ -87,7 +87,7 @@ namespace [modelName/].Views
 [/if]
 [/template]
 
-[template public generateBDCreateFormPageLayout(aClass : Class, modelName : String)]
+[template public generateBDCreateFormPageLayout(aClass : Class, namespace : String)]
 
 [if (aClass.hasStereotype('persistentEntity'))]
 [if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
@@ -95,10 +95,10 @@ namespace [modelName/].Views
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormNew','.xaml'), false)]
 <Page
-    x:Class="[modelName/].Views.[aClass.name.toUpperFirst()/]FormNew"
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]FormNew"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:[modelName/].Views">
+    xmlns:local="using:[namespace/].Views">
 <ScrollViewer>
     <Grid x:Name="LayoutRoot">
             <Grid.RowDefinitions>
