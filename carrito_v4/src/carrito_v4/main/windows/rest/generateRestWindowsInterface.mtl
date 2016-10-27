@@ -36,12 +36,13 @@ namespace [modelName/].Common
 			return Get<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]");
         	[elseif (methodType = 'DELETE')]
 			return Delete<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]");
-        	[elseif (methodType = 'POST')]
-			return Post<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+			[comment]si no recibe un parametro, se le pone null. A POST, put, patch[/comment]
+			[elseif (methodType = 'POST')]
+			return Post<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter)] [if (i=1)], [if p.name <> ''][p.name.toLowerFirst()/][else]null[/if][/if][/for]);
         	[elseif (methodType = 'PUT')]
-			return Put<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+			return Put<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter)] [if (i=1)], [if p.name <> ''][p.name.toLowerFirst()/][else]null[/if][/if][/for]);
         	[elseif (methodType = 'PATCH')]
-			return Patch<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter->select(p | p.name<>''))] [if (i=1)], [p.name.toLowerFirst()/][/if][/for]);
+			return Patch<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>("[methodType/]"[for (p: Parameter | o.ownedParameter)] [if (i=1)], [if p.name <> ''][p.name.toLowerFirst()/][else]null[/if][/if][/for]);
 			[/if]
 		}
 		[/let]

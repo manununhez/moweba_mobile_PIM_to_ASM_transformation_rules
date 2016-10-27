@@ -189,6 +189,7 @@ using Windows.UI.Xaml.Navigation;
 namespace [namespace/].Views
 {
     public sealed partial class ShareTargetPageView : Page
+	{
         ShareOperation operation = null;
 
         public ShareTargetPageView()

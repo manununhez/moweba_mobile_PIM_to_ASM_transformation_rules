@@ -1,0 +1,70 @@
+//Start of user code imports
+using CarritoDeCompras.Common;
+using CarritoDeCompras.Model;
+using CarritoDeCompras.ViewModels;
+using System;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//End of user code
+
+
+namespace CarritoDeCompras.Views
+{
+
+    public sealed partial class ProviderFormNew : Page
+    {
+        private NavigationHelper navigationHelper;
+
+        public ProviderFormNew()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+        private async void btnAddProvider_Click(object sender, RoutedEventArgs e)
+        {
+     		ProviderDAO providerDAO = new ProviderDAO();
+			if(idProviderTbx.Text != "" & rucTbx.Text != "" & descriptionTbx.Text != "" & nombreTbx.Text != "")
+            {
+				providerDAO.addProvider(new Provider(Int32.Parse(idProviderTbx.Text), rucTbx.Text, descriptionTbx.Text, nombreTbx.Text)); 			
+
+                Frame.Navigate(typeof(ProviderView));//after add provider redirect to provider listbox page
+            }
+            else
+            {
+                var dialog = new MessageDialog("Please fill the fields");//Text should not be empty 
+                await dialog.ShowAsync();
+            }
+        }
+    }
+}
+
