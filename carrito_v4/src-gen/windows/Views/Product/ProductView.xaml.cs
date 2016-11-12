@@ -52,10 +52,16 @@ namespace CarritoDeCompras.Views
 
 
         private void ReadAllProduct_Loaded(object sender, RoutedEventArgs e)
-        {        
-            productList = product.getAllProduct();//Get all DB product  
-            listBoxobj.ItemsSource = productList.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest product ID can Display first.  
-            loadedElementsCount();
+        {     
+			try {   
+	            productList = product.getAllProduct();//Get all DB product  
+	            listBoxobj.ItemsSource = productList.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest product ID can Display first.  
+	            loadedElementsCount();
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
 
         private void btnAddProduct_click(object sender, RoutedEventArgs e)
@@ -80,5 +86,3 @@ namespace CarritoDeCompras.Views
 
     }
 }
-
-

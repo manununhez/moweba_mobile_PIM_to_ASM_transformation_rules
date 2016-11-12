@@ -1,7 +1,10 @@
+
 //Start of user code imports
+import android.content.Context;
+import android.content.SharedPreferences;
 //End of user code
 	
-public class MySharedPreferencesHelper {
+public class StorageManager {
     
 	public static void save(Context context, String key, String value) {
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(),

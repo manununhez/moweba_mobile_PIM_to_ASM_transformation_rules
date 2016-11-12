@@ -48,13 +48,13 @@ namespace CarritoDeCompras.Views
                 selectedProduct = e.Parameter as Product;
 				if (selectedProduct != null)
                 {
-					idProviderTbx.Text = Convert.ToString(selectedProduct.idProvider);
-					priceTbx.Text = selectedProduct.price;
 					descriptionTbx.Text = selectedProduct.description;
 					idProductoTbx.Text = Convert.ToString(selectedProduct.idProducto);
-					codeTbx.Text = Convert.ToString(selectedProduct.code);
 					nameTbx.Text = selectedProduct.name;
+					idProviderTbx.Text = Convert.ToString(selectedProduct.idProvider);
 					idImageProductTbx.Text = Convert.ToString(selectedProduct.idImageProduct);
+					priceTbx.Text = Convert.ToString(selectedProduct.price);
+					codeTbx.Text = Convert.ToString(selectedProduct.code);
 				}
             }
         }
@@ -66,23 +66,35 @@ namespace CarritoDeCompras.Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            productDAO.deleteProduct(selectedProduct);//Delete selected DB contact Id. 
-            Frame.Navigate(typeof(ProductView));
-        }
+			try{
+	            productDAO.deleteProduct(selectedProduct);//Delete selected DB contact Id. 
+	            Frame.Navigate(typeof(ProductView));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+	     }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
             Product currentProduct = new Product();
-			currentProduct.idProvider = Int32.Parse(idProviderTbx.Text);
-			currentProduct.price = priceTbx.Text;
 			currentProduct.description = descriptionTbx.Text;
 			currentProduct.idProducto = Int32.Parse(idProductoTbx.Text);
-			currentProduct.code = Int32.Parse(codeTbx.Text);
 			currentProduct.name = nameTbx.Text;
+			currentProduct.idProvider = Int32.Parse(idProviderTbx.Text);
 			currentProduct.idImageProduct = Int32.Parse(idImageProductTbx.Text);
+			currentProduct.price = double.Parse(priceTbx.Text, System.Globalization.CultureInfo.InvariantCulture);
+			currentProduct.code = Int32.Parse(codeTbx.Text);
 
-			productDAO.updateProduct(currentProduct);//Update selected DB current product
-            Frame.Navigate(typeof(ProductView));
+			try{
+				productDAO.updateProduct(currentProduct);//Update selected DB current product
+	            Frame.Navigate(typeof(ProductView));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
     }
 }

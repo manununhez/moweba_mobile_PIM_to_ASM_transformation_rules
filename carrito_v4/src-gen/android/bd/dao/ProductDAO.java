@@ -3,15 +3,16 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 //End of user code
 	
 public class ProductDAO {
 
-	private MySQLiteHelper mySQLiteHelper;
+	private SQLiteHelper mySQLiteHelper;
 
-		public ProductDAO(MySQLiteHelper mySQLiteHelper) {
+		public ProductDAO(SQLiteHelper mySQLiteHelper) {
 			this.mySQLiteHelper = mySQLiteHelper;
 		}
 
@@ -20,13 +21,13 @@ public class ProductDAO {
 			SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 			ContentValues values = new ContentValues();
-			values.put(ProductTable.COLUMN_IDPROVIDER, product.getIdProvider().toString());		
-			values.put(ProductTable.COLUMN_PRICE, product.getPrice().toString());		
 			values.put(ProductTable.COLUMN_DESCRIPTION, product.getDescription().toString());		
 			values.put(ProductTable.COLUMN_IDPRODUCTO, product.getIdProducto().toString());		
-			values.put(ProductTable.COLUMN_CODE, product.getCode().toString());		
 			values.put(ProductTable.COLUMN_NAME, product.getName().toString());		
+			values.put(ProductTable.COLUMN_IDPROVIDER, product.getIdProvider().toString());		
 			values.put(ProductTable.COLUMN_IDIMAGEPRODUCT, product.getIdImageProduct().toString());		
+			values.put(ProductTable.COLUMN_PRICE, product.getPrice().toString());		
+			values.put(ProductTable.COLUMN_CODE, product.getCode().toString());		
 			
 			// Inserting Row
 			db.insert(ProductTable.TABLE_NAME, null, values);
@@ -40,15 +41,15 @@ public class ProductDAO {
 			Product product = new Product();
 
 			Cursor cursor = db.query(ProductTable.TABLE_NAME, new String[] {
-					ProductTable.COLUMN_IDPROVIDER, ProductTable.COLUMN_PRICE, ProductTable.COLUMN_DESCRIPTION, ProductTable.COLUMN_IDPRODUCTO, ProductTable.COLUMN_CODE, ProductTable.COLUMN_NAME, ProductTable.COLUMN_IDIMAGEPRODUCT
-					},				ProductTable.COLUMN_IDPRODUCTO + "=?",				
+					ProductTable.COLUMN_DESCRIPTION, ProductTable.COLUMN_IDPRODUCTO, ProductTable.COLUMN_NAME, ProductTable.COLUMN_IDPROVIDER, ProductTable.COLUMN_IDIMAGEPRODUCT, ProductTable.COLUMN_PRICE, ProductTable.COLUMN_CODE
+					},		ProductTable.COLUMN_IDPRODUCTO + "=?",						
 					new String[] { String.valueOf(id) }, null, null, null, null);
 			
 			if (cursor != null) {
 				cursor.moveToFirst();
 				
 				product = new Product(
-						Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), Integer.parseInt(cursor.getString(3)), Integer.parseInt(cursor.getString(4)), cursor.getString(5), Integer.parseInt(cursor.getString(6))				
+						cursor.getString(0), Integer.parseInt(cursor.getString(1)), cursor.getString(2), Integer.parseInt(cursor.getString(3)), Integer.parseInt(cursor.getString(4)), new BigDecimal(cursor.getString(5)), Integer.parseInt(cursor.getString(6))				
 				); 
 
 				cursor.close();
@@ -72,7 +73,7 @@ public class ProductDAO {
 				if (cursor.moveToFirst()) {
 					do {
 						Product product = new Product(
-						Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)), cursor.getString(6), Integer.parseInt(cursor.getString(7))
+						cursor.getString(1), Integer.parseInt(cursor.getString(2)), cursor.getString(3), Integer.parseInt(cursor.getString(4)), Integer.parseInt(cursor.getString(5)), new BigDecimal(cursor.getString(6)), Integer.parseInt(cursor.getString(7))
 						); 
 						
 						// Adding product to list
@@ -109,13 +110,13 @@ public class ProductDAO {
 				SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 				ContentValues values = new ContentValues();
-				values.put(ProductTable.COLUMN_IDPROVIDER, product.getIdProvider().toString());		
-				values.put(ProductTable.COLUMN_PRICE, product.getPrice().toString());		
 				values.put(ProductTable.COLUMN_DESCRIPTION, product.getDescription().toString());		
 				values.put(ProductTable.COLUMN_IDPRODUCTO, product.getIdProducto().toString());		
-				values.put(ProductTable.COLUMN_CODE, product.getCode().toString());		
 				values.put(ProductTable.COLUMN_NAME, product.getName().toString());		
+				values.put(ProductTable.COLUMN_IDPROVIDER, product.getIdProvider().toString());		
 				values.put(ProductTable.COLUMN_IDIMAGEPRODUCT, product.getIdImageProduct().toString());		
+				values.put(ProductTable.COLUMN_PRICE, product.getPrice().toString());		
+				values.put(ProductTable.COLUMN_CODE, product.getCode().toString());		
 
 				// updating row
 				return db.update(ProductTable.TABLE_NAME, values,

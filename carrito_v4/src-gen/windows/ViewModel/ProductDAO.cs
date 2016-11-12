@@ -11,12 +11,12 @@ namespace CarritoDeCompras.ViewModels
 {
     class ProductDAO
     {
-        private SQLiteConnection dbConn = new SQLiteConnection(MySQLiteHelper.DbPath);
+        private SQLiteConnection dbConn = new SQLiteConnection(SQLiteHelper.DbPath);
 
         // Insert the new product in the Product table. 
         public void addProduct(Product product)
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 dbConn.RunInTransaction(() =>
                 {
@@ -65,13 +65,13 @@ namespace CarritoDeCompras.ViewModels
                 var queryResult = dbConn.Query<Product>("select * from Product where idProducto = "+ product.idProducto).FirstOrDefault();
                 if (queryResult != null)
                 {
-					queryResult.idProvider = product.idProvider;		
-					queryResult.price = product.price;		
 					queryResult.description = product.description;		
 					queryResult.idProducto = product.idProducto;		
-					queryResult.code = product.code;		
 					queryResult.name = product.name;		
+					queryResult.idProvider = product.idProvider;		
 					queryResult.idImageProduct = product.idImageProduct;		
+					queryResult.price = product.price;		
+					queryResult.code = product.code;		
 
                     dbConn.RunInTransaction(() =>
                     {
@@ -86,7 +86,7 @@ namespace CarritoDeCompras.ViewModels
         //Delete specific Product 
         public void deleteProduct(Product product)
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 var queryResult = dbConn.Query<Product>("select * from Product where idProducto = "+ product.idProducto).FirstOrDefault();
 
@@ -102,7 +102,7 @@ namespace CarritoDeCompras.ViewModels
         //Delete all productList or delete Product table 
         public void deleteAllProduct()
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 //dbConn.RunInTransaction(() => 
                 //   { 

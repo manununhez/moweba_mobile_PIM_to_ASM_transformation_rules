@@ -1,4 +1,6 @@
 using System;
+using System.Diagnostics;
+
 using Windows.Media.Capture;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -8,6 +10,7 @@ using Windows.Media.MediaProperties;    //For Encoding Image in JPEG format
 using Windows.Storage;                  //For storing Capture Image in App storage or in Picture Library
 using Windows.UI.Xaml.Media.Imaging;    //For BitmapImage. for showing image on screen we need BitmapImage format.
 using CarritoDeCompras.Common;
+using Windows.UI.Popups;
 
 
 namespace CarritoDeCompras.Views
@@ -44,25 +47,31 @@ namespace CarritoDeCompras.Views
 
         async private void Capture_Photo_Click(object sender, RoutedEventArgs e)
         {
-			string fileName = "Photo.jpg";
+			string currentDate = DateTime.Now.ToString("yyyyMMddhhmmss");
+            string photoFile = "Picture_" + currentDate + ".jpg";
+
             //Create JPEG image Encoding format for storing image in JPEG type
             ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
 
-            // create storage file in local app storage
-            StorageFile file = await ApplicationData.Current.LocalFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);
+			try{
+                // create storage file in Picture Library
+                StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(photoFile, CreationCollisionOption.GenerateUniqueName);
+                
+				// take photo and store it on file location.
+                await captureManager.CapturePhotoToStorageFileAsync(imgFormat, file);
 
-            // take photo and store it on file location.
-            await captureManager.CapturePhotoToStorageFileAsync(imgFormat, file);
+                // Get photo as a BitmapImage using storage file path.
+                BitmapImage bmpImage = new BitmapImage(new Uri(file.Path));
 
-            //// create storage file in Picture Library
-            //StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(fileName,CreationCollisionOption.GenerateUniqueName);
+                // show captured image on Image UIElement.
+                imagePreview.Source = bmpImage;
 
-            // Get photo as a BitmapImage using storage file path.
-            BitmapImage bmpImage = new BitmapImage(new Uri(file.Path));
-
-            // show captured image on Image UIElement.
-            imagePreview.Source = bmpImage;
-
+            } 
+			catch (Exception ex) {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+				Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+        
         }
 
         public NavigationHelper NavigationHelper

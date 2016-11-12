@@ -35,7 +35,7 @@ namespace [p.name.toUpperFirst()/]
 		[if (aPackage.hasStereotype('DataPersistence'))]
 			[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'Database'))]
 			//Creating and initializing the DB
-			MySQLiteHelper.Createdatabase();
+			SQLiteHelper.Createdatabase();
 			[comment]CREAMOS EL ARCHIVO HELPER DE SQLITE[/comment]
 			[/if]
 		[/if]

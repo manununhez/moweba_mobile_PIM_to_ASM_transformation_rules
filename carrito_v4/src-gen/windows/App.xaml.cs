@@ -22,7 +22,7 @@ namespace CarritoDeCompras
             this.InitializeComponent();
             this.Suspending += this.OnSuspending;
 			//Creating and initializing the DB
-			MySQLiteHelper.Createdatabase();
+			SQLiteHelper.Createdatabase();
         }
 
 

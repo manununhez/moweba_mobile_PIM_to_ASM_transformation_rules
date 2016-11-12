@@ -19,26 +19,26 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     private int REQUEST_CODE = 1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-		private TextView tvIdProvider;
-		private TextView tvPrice;
 		private TextView tvDescription;
 		private TextView tvIdProducto;
-		private TextView tvCode;
 		private TextView tvName;
+		private TextView tvIdProvider;
 		private TextView tvIdImageProduct;
+		private TextView tvPrice;
+		private TextView tvCode;
         private ImageView ivDelete;
         private ImageView ivEdit;
 
 
         public MyViewHolder(View view) {
             super(view);
-			tvIdProvider = (TextView) view.findViewById(R.id.tvIdProvider);
-			tvPrice = (TextView) view.findViewById(R.id.tvPrice);
 			tvDescription = (TextView) view.findViewById(R.id.tvDescription);
 			tvIdProducto = (TextView) view.findViewById(R.id.tvIdProducto);
-			tvCode = (TextView) view.findViewById(R.id.tvCode);
 			tvName = (TextView) view.findViewById(R.id.tvName);
+			tvIdProvider = (TextView) view.findViewById(R.id.tvIdProvider);
 			tvIdImageProduct = (TextView) view.findViewById(R.id.tvIdImageProduct);
+			tvPrice = (TextView) view.findViewById(R.id.tvPrice);
+			tvCode = (TextView) view.findViewById(R.id.tvCode);
             ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
             ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
         }
@@ -61,13 +61,13 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyViewHo
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         final Product product = productList.get(position);
-		holder.tvIdProvider.setText(String.valueOf(product.getIdProvider()));
-		holder.tvPrice.setText(product.getPrice());
 		holder.tvDescription.setText(product.getDescription());
 		holder.tvIdProducto.setText(String.valueOf(product.getIdProducto()));
-		holder.tvCode.setText(String.valueOf(product.getCode()));
 		holder.tvName.setText(product.getName());
+		holder.tvIdProvider.setText(String.valueOf(product.getIdProvider()));
 		holder.tvIdImageProduct.setText(String.valueOf(product.getIdImageProduct()));
+		holder.tvPrice.setText(String.valueOf(product.getPrice()));
+		holder.tvCode.setText(String.valueOf(product.getCode()));
 
 
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {

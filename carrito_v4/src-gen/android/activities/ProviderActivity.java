@@ -22,7 +22,7 @@ public class ProviderActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProviderAdapter mAdapter;
     private List<Provider> providerList = new ArrayList<>();
-    private MySQLiteHelper db;
+    private SQLiteHelper db;
     private TextView tvDataCount;
     private ProviderDAO providerDAO;
 
@@ -37,7 +37,7 @@ public class ProviderActivity extends AppCompatActivity {
             actionBar.setTitle("Provider");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        db = new MySQLiteHelper(this);
+        db = new SQLiteHelper(this);
         providerDAO = new ProviderDAO(db);
 
         tvDataCount = (TextView) findViewById(R.id.tvDataCount);

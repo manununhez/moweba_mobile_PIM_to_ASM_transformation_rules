@@ -9,11 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.math.BigDecimal;
 //End of user code
 
 public class UserFormActivity extends AppCompatActivity {
-	private TextInputEditText tiePassword; 
 	private TextInputEditText tieUsername; 
+	private TextInputEditText tiePassword; 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +29,8 @@ public class UserFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tiePassword =  (TextInputEditText) findViewById(R.id.tiePassword); 
 		tieUsername =  (TextInputEditText) findViewById(R.id.tieUsername); 
+		tiePassword =  (TextInputEditText) findViewById(R.id.tiePassword); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -37,9 +40,6 @@ public class UserFormActivity extends AppCompatActivity {
             public void onClick(View view) {
                 saveData();
 
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
             }
         });
 
@@ -48,19 +48,32 @@ public class UserFormActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-		String password = MySharedPreferencesHelper.getValue(UserFormActivity.this, "password"); 
-		String username = MySharedPreferencesHelper.getValue(UserFormActivity.this, "username"); 
+		String username = StorageManager.getValue(UserFormActivity.this, "username"); 
+		String password = StorageManager.getValue(UserFormActivity.this, "password"); 
 
-		tiePassword.setText(password == null ? "" : password); 
 		tieUsername.setText(username == null ? "" : username); 
+		tiePassword.setText(password == null ? "" : password); 
     }
 
     private void saveData() {
-		String password = tiePassword.getText().toString(); 
+		
 		String username = tieUsername.getText().toString(); 
+		String password = tiePassword.getText().toString(); 
+	
+		try {
+			// Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.
+		    User user = new User(username == null ? 0f : Float.parseFloat(username), password == null ? new BigDecimal (0) : new BigDecimal(password));
 
-		MySharedPreferencesHelper.save(UserFormActivity.this, "password", password); 
-		MySharedPreferencesHelper.save(UserFormActivity.this, "username", username); 
+			StorageManager.save(UserFormActivity.this, "username", username); 
+			StorageManager.save(UserFormActivity.this, "password", password); 
+	
+
+	        Intent returnIntent = new Intent();
+	        setResult(Activity.RESULT_OK, returnIntent);
+	        finish();
+		}catch (Exception e){
+            Toast.makeText(UserFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

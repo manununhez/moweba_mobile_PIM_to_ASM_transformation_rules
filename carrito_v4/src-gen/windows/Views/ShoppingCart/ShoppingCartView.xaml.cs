@@ -52,10 +52,16 @@ namespace CarritoDeCompras.Views
 
 
         private void ReadAllShoppingCart_Loaded(object sender, RoutedEventArgs e)
-        {        
-            shoppingCartList = shoppingCart.getAllShoppingCart();//Get all DB shoppingCart  
-            listBoxobj.ItemsSource = shoppingCartList.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest shoppingCart ID can Display first.  
-            loadedElementsCount();
+        {     
+			try {   
+	            shoppingCartList = shoppingCart.getAllShoppingCart();//Get all DB shoppingCart  
+	            listBoxobj.ItemsSource = shoppingCartList.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest shoppingCart ID can Display first.  
+	            loadedElementsCount();
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
 
         private void btnAddShoppingCart_click(object sender, RoutedEventArgs e)
@@ -80,5 +86,3 @@ namespace CarritoDeCompras.Views
 
     }
 }
-
-

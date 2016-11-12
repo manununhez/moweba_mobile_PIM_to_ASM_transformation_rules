@@ -5,8 +5,7 @@
 [import common::utils_gen/]
 
 [template public generateRestActivities(aClass : Class)]
-[if (aClass.hasStereotype('WebInterface'))]
-[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
 [file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
 
@@ -82,12 +81,10 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 [/file]
 [/let]
-[/if]
 [/template]
 
 [template public generateRestActivitiesLayout(aClass : Class)]
-[if (aClass.hasStereotype('WebInterface'))]
-[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
 [file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
@@ -128,5 +125,4 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 </ScrollView>
 [/file]
 [/let]
-[/if]
 [/template]

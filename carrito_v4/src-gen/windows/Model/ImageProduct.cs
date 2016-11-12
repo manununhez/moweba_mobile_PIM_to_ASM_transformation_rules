@@ -28,6 +28,7 @@ namespace CarritoDeCompras.Model
 			this.idImageProduct = idImageProduct;     
 			this.image = image;     
 		}
+
     }
 }
 

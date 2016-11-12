@@ -9,15 +9,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.math.BigDecimal;
 //End of user code
 
 public class ProviderFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
 	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tieRuc; 
-	private TextInputEditText tieDescription; 
 	private TextInputEditText tieNombre; 
+	private TextInputEditText tieDescription; 
+	private TextInputEditText tieRuc; 
 	private Intent intent;
 
     @Override
@@ -37,9 +40,9 @@ public class ProviderFormActivity extends AppCompatActivity {
         }
 
 		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tieRuc =  (TextInputEditText) findViewById(R.id.tieRuc); 
-		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
 		tieNombre =  (TextInputEditText) findViewById(R.id.tieNombre); 
+		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
+		tieRuc =  (TextInputEditText) findViewById(R.id.tieRuc); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -49,22 +52,27 @@ public class ProviderFormActivity extends AppCompatActivity {
             loadProviderData();
         }
 
-        MySQLiteHelper db = new MySQLiteHelper(this);
+        SQLiteHelper db = new SQLiteHelper(this);
         final ProviderDAO providerDAO = new ProviderDAO(db);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Provider provider = getProviderFromEditext();
-                if (booleanEditMode) {
-                    providerDAO.updateProvider(provider);
-                }else{
-                    providerDAO.addProvider(provider);
-                }
-
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
+				try {
+	               // Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.               
+	               Provider provider = getProviderFromEditext();
+	                if (booleanEditMode) {
+	                    providerDAO.updateProvider(provider);
+	                }else{
+	                    providerDAO.addProvider(provider);
+	                }
+	
+	                Intent returnIntent = new Intent();
+	                setResult(Activity.RESULT_OK, returnIntent);
+	                finish();
+				}catch (Exception e){
+	                  Toast.makeText(ProductFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+				}
             }
         });
 
@@ -73,18 +81,18 @@ public class ProviderFormActivity extends AppCompatActivity {
 	private void loadProviderData(){
 		Provider provider = (Provider) intent.getSerializableExtra("provider");
 		tieIdProvider.setText(String.valueOf(provider.getIdProvider()));
-		tieRuc.setText(provider.getRuc());
-		tieDescription.setText(provider.getDescription());
 		tieNombre.setText(provider.getNombre());
+		tieDescription.setText(provider.getDescription());
+		tieRuc.setText(String.valueOf(provider.getRuc()));
 	}
 
     private Provider getProviderFromEditext() {
 		Integer idProvider = Integer.valueOf(tieIdProvider.getText().toString());
-		String ruc = tieRuc.getText().toString();
-		String description = tieDescription.getText().toString();
 		String nombre = tieNombre.getText().toString();
+		String description = tieDescription.getText().toString();
+		Float ruc = Float.valueOf(tieRuc.getText().toString());
         
-        return new Provider(idProvider, ruc, description, nombre);
+        return new Provider(idProvider, nombre, description, ruc);
     }
 
     @Override

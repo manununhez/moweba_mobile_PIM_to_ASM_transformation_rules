@@ -239,15 +239,21 @@ public class UML2Services {
 	//--- Permite la inicializacion de los constructores tomando como parametro de entrada los valores recibidos del sharedpreferences
 	
 	public String getKVConstructorDescription(String javaDataType, String propertyName) {
-		String result = propertyName+" == null ? \"\" : ";
-		if (javaDataType.equals("Integer"))
-			result += "Integer.parseInt(" + propertyName + ")";
-		else if (javaDataType.equals("Float"))
-			result += "Float.parseFloat(" + propertyName + ")";
-		else if (javaDataType.equals("BigDecimal"))
-			result += "new BigDecimal(" + propertyName + ")";
-		else //tipo string
-			result += propertyName;
+		String result = propertyName+" == null ? ";
+		//Inicializamos los valores a CERO, dependiendo del tipo.
+		String initString = "\"\"";
+		String initInteger = "0";
+		String initFloat = "0f";
+		String initBigDecimal = "new BigDecimal (0)";
+		
+		if (javaDataType.equals("Integer")){
+			result = result + initInteger + " : Integer.parseInt(" + propertyName + ")";
+		}else if (javaDataType.equals("Float")){
+			result = result + initFloat + " : Float.parseFloat(" + propertyName + ")";
+		}else if (javaDataType.equals("BigDecimal")){
+			result = result + initBigDecimal + " : new BigDecimal(" + propertyName + ")";
+		}else //tipo string
+			result = result + initString + " : "+ propertyName;
 
 		return result;
 	}

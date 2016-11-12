@@ -5,8 +5,6 @@
 [import common::utils_gen/]
 
 [template public generateDaoWindows(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/ViewModel/', aClass, 'DAO','.cs'), false)]
@@ -23,12 +21,12 @@ namespace [namespace/].ViewModels
 {
     class [aClass.name.toUpperFirst()/]DAO
     {
-        private SQLiteConnection dbConn = new SQLiteConnection(MySQLiteHelper.DbPath);
+        private SQLiteConnection dbConn = new SQLiteConnection(SQLiteHelper.DbPath);
 
         // Insert the new [aClass.name.toLowerFirst()/] in the [aClass.name.toUpperFirst()/] table. 
         public void add[aClass.name.toUpperFirst()/]([aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/])
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 dbConn.RunInTransaction(() =>
                 {
@@ -94,7 +92,7 @@ namespace [namespace/].ViewModels
         //Delete specific [aClass.name.toUpperFirst()/] 
         public void delete[aClass.name.toUpperFirst()/]([aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/])
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
 		[comment]Seleccionamos el campo selectable definido en el modelo, para utilizarlo como id para borrar el registro[/comment]
                 var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/] = "+ [aClass.name.toLowerFirst()/].[p.name.toLowerFirst()/][/if][/for]).FirstOrDefault();
@@ -111,7 +109,7 @@ namespace [namespace/].ViewModels
         //Delete all [aClass.name.toLowerFirst()/]List or delete [aClass.name.toUpperFirst()/] table 
         public void deleteAll[aClass.name.toUpperFirst()/]()
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 //dbConn.RunInTransaction(() => 
                 //   { 
@@ -127,6 +125,4 @@ namespace [namespace/].ViewModels
 }
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]

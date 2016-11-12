@@ -5,8 +5,7 @@
 
 [template public generateRestInterface(aClass : Class)]
 [file ('android/conn/ApiInterface.java', false)]
-[if (aClass.hasStereotype('WebInterface'))]
-[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 //[protected ('imports')]
 import java.util.List;
 
@@ -20,8 +19,8 @@ import retrofit2.http.PUT;
 
 public interface ApiInterface {
 	[for (o : Operation | webServiceOperations)separator('\n')]
-	[let method : String = o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebService', 'method')]
-	[let path : String = o.getValueOfStereotypePropertyString('Mobile Profile::WebService', 'path')]
+	[let method : String = o.getValueOfStereotypePropertyEnumLit('Mobile Profile::WebServiceOperation', 'method')]
+	[let path : String = o.getValueOfStereotypePropertyString('Mobile Profile::WebServiceOperation', 'path')]
 	@[method/]("[path/]")
 	Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> [o.name.toLowerFirst()/]([for (p: Parameter | o.ownedParameter->select(p | p.name<>'')) separator(',')] [p.type.name/] [p.name.toLowerFirst()/] [/for]);
 	[/let]
@@ -29,6 +28,5 @@ public interface ApiInterface {
 	[/for]
 }
 [/let]
-[/if]
 [/file]
 [/template]

@@ -10,10 +10,10 @@ namespace CarritoDeCompras.Model
     {
 
 		[DataMember]
-		public string password { get; set; }
+		public float username { get; set; }
 
 		[DataMember]
-		public string username { get; set; }
+		public double password { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -24,10 +24,11 @@ namespace CarritoDeCompras.Model
 		/**
 		* Constructor.
 		*/
-		public User (string password, string username){
-			this.password = password;     
+		public User (float username, double password){
 			this.username = username;     
+			this.password = password;     
 		}
+
     }
 }
 

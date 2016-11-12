@@ -5,8 +5,7 @@
 [import common::utils_gen/]
 
 [template public generateRestPages(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('WebInterface'))]
-[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
 //[protected ('imports')]
@@ -88,12 +87,10 @@ namespace [namespace/].Views
 }
 [/file]
 [/let]
-[/if]
 [/template]
 
 [template public generateRestPagesLayout(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('WebInterface'))]
-[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebService'))]	
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
 <Page
@@ -114,6 +111,5 @@ namespace [namespace/].Views
 </Page>
 [/file]
 [/let]
-[/if]
 [/template]
 

@@ -6,8 +6,6 @@
 
 
 [template public generateDaoAndroid(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('android/bd/dao/', aClass, 'DAO','.java'), false)]
@@ -16,15 +14,16 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 //[/protected]
 	
 public class [aClass.name.toUpperFirst()/]DAO {
 
-	private MySQLiteHelper mySQLiteHelper;
+	private SQLiteHelper mySQLiteHelper;
 
-		public [aClass.name.toUpperFirst()/]DAO(MySQLiteHelper mySQLiteHelper) {
+		public [aClass.name.toUpperFirst()/]DAO(SQLiteHelper mySQLiteHelper) {
 			this.mySQLiteHelper = mySQLiteHelper;
 		}
 
@@ -162,6 +161,4 @@ public class [aClass.name.toUpperFirst()/]DAO {
 }
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]

@@ -1,9 +1,3 @@
-[comment encoding = UTF-8 /]
-[module createFileHelperWindows('http://www.eclipse.org/uml2/5.0.0/UML')]
-
-
-[template public createFileHelperWindows(aPackage : Package, namespace : String)]
-[file ('windows/Common/FilesHelper.cs', false)]
 /* 
     Copyright (c) 2012 - 2013 Microsoft Corporation.  All rights reserved.
     Use of this sample source code is subject to the terms of the Microsoft license 
@@ -16,16 +10,15 @@
   
 */
 
-//[protected ('imports')]
+//Start of user code imports
 using System;
-using System.IO;
-using System.Text;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
-//[/protected]
+//End of user code
 	
-namespace [namespace/].Common
+namespace CarritoDeCompras.Common
 {
     class FilesHelper
     {
@@ -142,5 +135,3 @@ namespace [namespace/].Common
     
 }
 
-[/file]
-[/template]

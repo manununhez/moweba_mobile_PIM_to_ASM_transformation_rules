@@ -3,15 +3,16 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 //End of user code
 	
 public class ShoppingCartDAO {
 
-	private MySQLiteHelper mySQLiteHelper;
+	private SQLiteHelper mySQLiteHelper;
 
-		public ShoppingCartDAO(MySQLiteHelper mySQLiteHelper) {
+		public ShoppingCartDAO(SQLiteHelper mySQLiteHelper) {
 			this.mySQLiteHelper = mySQLiteHelper;
 		}
 
@@ -20,9 +21,9 @@ public class ShoppingCartDAO {
 			SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 			ContentValues values = new ContentValues();
-			values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime().toString());		
-			values.put(ShoppingCartTable.COLUMN_QUANTITY, shoppingCart.getQuantity().toString());		
 			values.put(ShoppingCartTable.COLUMN_IDCART, shoppingCart.getIdCart().toString());		
+			values.put(ShoppingCartTable.COLUMN_QUANTITY, shoppingCart.getQuantity().toString());		
+			values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime().toString());		
 			
 			// Inserting Row
 			db.insert(ShoppingCartTable.TABLE_NAME, null, values);
@@ -36,15 +37,15 @@ public class ShoppingCartDAO {
 			ShoppingCart shoppingCart = new ShoppingCart();
 
 			Cursor cursor = db.query(ShoppingCartTable.TABLE_NAME, new String[] {
-					ShoppingCartTable.COLUMN_SYNCTIME, ShoppingCartTable.COLUMN_QUANTITY, ShoppingCartTable.COLUMN_IDCART
-					},			ShoppingCartTable.COLUMN_IDCART + "=?",	
+					ShoppingCartTable.COLUMN_IDCART, ShoppingCartTable.COLUMN_QUANTITY, ShoppingCartTable.COLUMN_SYNCTIME
+					},	ShoppingCartTable.COLUMN_IDCART + "=?",			
 					new String[] { String.valueOf(id) }, null, null, null, null);
 			
 			if (cursor != null) {
 				cursor.moveToFirst();
 				
 				shoppingCart = new ShoppingCart(
-						new BigDecimal(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2))				
+						Integer.parseInt(cursor.getString(0)), Integer.parseInt(cursor.getString(1)), new BigDecimal(cursor.getString(2))				
 				); 
 
 				cursor.close();
@@ -68,7 +69,7 @@ public class ShoppingCartDAO {
 				if (cursor.moveToFirst()) {
 					do {
 						ShoppingCart shoppingCart = new ShoppingCart(
-						new BigDecimal(cursor.getString(1)), Integer.parseInt(cursor.getString(2)), Integer.parseInt(cursor.getString(3))
+						Integer.parseInt(cursor.getString(1)), Integer.parseInt(cursor.getString(2)), new BigDecimal(cursor.getString(3))
 						); 
 						
 						// Adding shoppingCart to list
@@ -105,9 +106,9 @@ public class ShoppingCartDAO {
 				SQLiteDatabase db = mySQLiteHelper.getWritableDatabase();
 
 				ContentValues values = new ContentValues();
-				values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime().toString());		
-				values.put(ShoppingCartTable.COLUMN_QUANTITY, shoppingCart.getQuantity().toString());		
 				values.put(ShoppingCartTable.COLUMN_IDCART, shoppingCart.getIdCart().toString());		
+				values.put(ShoppingCartTable.COLUMN_QUANTITY, shoppingCart.getQuantity().toString());		
+				values.put(ShoppingCartTable.COLUMN_SYNCTIME, shoppingCart.getSyncTime().toString());		
 
 				// updating row
 				return db.update(ShoppingCartTable.TABLE_NAME, values,

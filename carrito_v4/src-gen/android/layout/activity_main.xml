@@ -15,7 +15,7 @@
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="DATA PROVIDER"
+	        android:text="::DataProvider::"
 	        android:textStyle="bold" />
 			<Button
 		        android:id="@+id/btnRestInterface"
@@ -24,24 +24,24 @@
 				android:textAllCaps="false"
 		        android:text="RestInterface" />
 
+
 			<Button
 		        android:id="@+id/btnHardwareDevice"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 				android:textAllCaps="false"
 		        android:text="HardwareDevice" />
-
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="DATA MANAGEMENT"
+	        android:text="::DataPersistence::"
 	        android:textStyle="bold" />
 			<Button
-		        android:id="@+id/btnProvider"
+		        android:id="@+id/btnUser"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 				android:textAllCaps="false"
-		        android:text="Provider" />	
+		        android:text="User" />	
 
 			<Button
 		        android:id="@+id/btnProduct"
@@ -58,18 +58,18 @@
 		        android:text="ShoppingCart" />	
 
 			<Button
+		        android:id="@+id/btnProvider"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:textAllCaps="false"
+		        android:text="Provider" />	
+
+			<Button
 		        android:id="@+id/btnImageProduct"
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 				android:textAllCaps="false"
 		        android:text="ImageProduct" />	
-
-			<Button
-		        android:id="@+id/btnUser"
-		        android:layout_width="wrap_content"
-		        android:layout_height="wrap_content"
-				android:textAllCaps="false"
-		        android:text="User" />	
 
 
 </LinearLayout>

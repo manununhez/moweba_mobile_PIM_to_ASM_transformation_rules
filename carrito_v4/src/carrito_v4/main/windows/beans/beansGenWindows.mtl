@@ -63,6 +63,16 @@ namespace [p.name.toUpperFirst()/].Model
 			[/if]   [/comment]
 	   [/for]
 		}
+
+		[comment]Funciones declaradas en Operations[/comment]
+		[for (o: Operation | aClass.ownedOperation) separator('\n')]
+		public [o.type.name/] [o.name/]([for (p: Parameter | o.ownedParameter->select(p | p.name<>'')) separator(',')] [p.type.name/] [p.name.toLowerFirst()/] [/for]) {
+		// [protected (o.name)]
+		// TODO should be implemented
+		// [/protected]
+			return;
+		}
+	   	[/for]  
     }
 }
 

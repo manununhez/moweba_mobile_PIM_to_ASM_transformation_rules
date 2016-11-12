@@ -1,5 +1,6 @@
 //Start of user code imports
 using CarritoDeCompras.Common;
+using CarritoDeCompras.Model;
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
@@ -55,7 +56,7 @@ namespace CarritoDeCompras.Views
             if (listBoxobj.SelectedIndex != -1)
             {
 
-                Model.User listitem = listBoxobj.SelectedItem as Model.User;//Get slected listbox item contact ID 
+                User listitem = listBoxobj.SelectedItem as User;//Get slected listbox item contact ID 
                 Frame.Navigate(typeof(UserFormDeleteUpdate), listitem);
             }
         }
@@ -63,9 +64,9 @@ namespace CarritoDeCompras.Views
         private void ReadAllData_Loaded(object sender, RoutedEventArgs e)
         {
             StorageManager storage = new StorageManager("dataPersistence", false);
-            Model.User user = storage.Load<Model.User>("user");
+            User user = storage.Load<User>("user");
             
-            List<Model.User> userList = new List<Model.User>();
+            List<User> userList = new List<User>();
             userList.Add(user);
             listBoxobj.ItemsSource = userList;//Binding data to LISTBOX  
             txbQuantity.Text = Convert.ToString(userList.Count);

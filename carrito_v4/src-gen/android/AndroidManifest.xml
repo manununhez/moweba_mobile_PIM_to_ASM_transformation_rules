@@ -36,11 +36,11 @@
                 <action android:name="android.intent.action.SEND" />
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
-				<data android:mimeType="image/*" />
 				<data android:mimeType="text/plain" />
 				<data android:mimeType="video/*" />
                 <data android:mimeType="audio/*" />
 				<data android:mimeType="application/*" />
+				<data android:mimeType="image/*" />
 				<data android:mimeType="text/plain" />
 			</intent-filter>
         </activity>
@@ -49,20 +49,20 @@
 		<activity android:name=".activities.RestInterfaceActivity" />
 		
 
+
 		<activity android:name=".activities.HardwareDeviceActivity" />
 		<activity android:name=".activities.AudioRecordActivity" />
 		<activity android:name=".activities.CameraActivity" />
-
 	
-		<activity android:name=".activities.ProviderActivity" />
-		<activity android:name=".activities.ProviderFormActivity" />
+		<activity android:name=".activities.UserActivity" />
+		<activity android:name=".activities.UserFormActivity" />
 		<activity android:name=".activities.ProductActivity" />
 		<activity android:name=".activities.ProductFormActivity" />
 		<activity android:name=".activities.ShoppingCartActivity" />
 		<activity android:name=".activities.ShoppingCartFormActivity" />
+		<activity android:name=".activities.ProviderActivity" />
+		<activity android:name=".activities.ProviderFormActivity" />
 		<activity android:name=".activities.ImageProductActivity" />
-		<activity android:name=".activities.UserActivity" />
-		<activity android:name=".activities.UserFormActivity" />
 
 
     </application>

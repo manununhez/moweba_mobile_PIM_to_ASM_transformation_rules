@@ -5,9 +5,6 @@
 [import common::utils_gen/]
 
 [template public generateBDPages(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
-
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
 //[protected ('imports')]
 using [namespace/].Common;
@@ -63,10 +60,16 @@ namespace [namespace/].Views
 
 
         private void ReadAll[aClass.name.toUpperFirst()/]_Loaded(object sender, RoutedEventArgs e)
-        {        
-            [aClass.name.toLowerFirst()/]List = [aClass.name.toLowerFirst()/].getAll[aClass.name.toUpperFirst()/]();//Get all DB [aClass.name.toLowerFirst()/]  
-            listBoxobj.ItemsSource = [aClass.name.toLowerFirst()/]List.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest [aClass.name.toLowerFirst()/] ID can Display first.  
-            loadedElementsCount();
+        {     
+			try {   
+	            [aClass.name.toLowerFirst()/]List = [aClass.name.toLowerFirst()/].getAll[aClass.name.toUpperFirst()/]();//Get all DB [aClass.name.toLowerFirst()/]  
+	            listBoxobj.ItemsSource = [aClass.name.toLowerFirst()/]List.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest [aClass.name.toLowerFirst()/] ID can Display first.  
+	            loadedElementsCount();
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
 
         private void btnAdd[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
@@ -91,17 +94,10 @@ namespace [namespace/].Views
 
     }
 }
-
-
 [/file]
-[/if]
-[/if]
 [/template]
 
 [template public generateBDPagesLayout(aClass : Class, namespace : String)]
-
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
@@ -159,6 +155,4 @@ namespace [namespace/].Views
 </Page>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]

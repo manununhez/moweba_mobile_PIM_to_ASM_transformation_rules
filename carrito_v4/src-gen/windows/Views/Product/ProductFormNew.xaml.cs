@@ -53,11 +53,18 @@ namespace CarritoDeCompras.Views
         private async void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
      		ProductDAO productDAO = new ProductDAO();
-			if(idProviderTbx.Text != "" & priceTbx.Text != "" & descriptionTbx.Text != "" & idProductoTbx.Text != "" & codeTbx.Text != "" & nameTbx.Text != "" & idImageProductTbx.Text != "")
+			if(descriptionTbx.Text != "" & idProductoTbx.Text != "" & nameTbx.Text != "" & idProviderTbx.Text != "" & idImageProductTbx.Text != "" & priceTbx.Text != "" & codeTbx.Text != "")
             {
-				productDAO.addProduct(new Product(Int32.Parse(idProviderTbx.Text), priceTbx.Text, descriptionTbx.Text, Int32.Parse(idProductoTbx.Text), Int32.Parse(codeTbx.Text), nameTbx.Text, Int32.Parse(idImageProductTbx.Text))); 			
-
-                Frame.Navigate(typeof(ProductView));//after add product redirect to product listbox page
+				try {
+					productDAO.addProduct(new Product(descriptionTbx.Text, Int32.Parse(idProductoTbx.Text), nameTbx.Text, Int32.Parse(idProviderTbx.Text), Int32.Parse(idImageProductTbx.Text), double.Parse(priceTbx.Text, System.Globalization.CultureInfo.InvariantCulture), Int32.Parse(codeTbx.Text))); 			
+	
+	                Frame.Navigate(typeof(ProductView));//after add product redirect to product listbox page
+				}
+                catch (Exception ex)
+                {
+                    await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                    Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+                }
             }
             else
             {

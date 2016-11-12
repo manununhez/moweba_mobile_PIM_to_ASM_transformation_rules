@@ -17,13 +17,13 @@ namespace CarritoDeCompras.Model
 		public int idProvider { get; set; }
 
 		[DataMember]
-		public string ruc { get; set; }
+		public string nombre { get; set; }
 
 		[DataMember]
 		public string description { get; set; }
 
 		[DataMember]
-		public string nombre { get; set; }
+		public float ruc { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -34,12 +34,13 @@ namespace CarritoDeCompras.Model
 		/**
 		* Constructor.
 		*/
-		public Provider (int idProvider, string ruc, string description, string nombre){
+		public Provider (int idProvider, string nombre, string description, float ruc){
 			this.idProvider = idProvider;     
-			this.ruc = ruc;     
-			this.description = description;     
 			this.nombre = nombre;     
+			this.description = description;     
+			this.ruc = ruc;     
 		}
+
     }
 }
 

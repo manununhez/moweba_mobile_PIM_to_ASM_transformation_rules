@@ -35,22 +35,6 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="IdProvider:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="idProviderTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding idProvider}" FontSize="17" Foreground="White"/>
-                                        </Grid>				
-										<Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Price:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="priceTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding price}" FontSize="17" Foreground="White"/>
-                                        </Grid>				
-										<Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Description:" FontSize="17"/>
                                             <TextBlock Grid.Column="1" x:Name="descriptionTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding description}" FontSize="17" Foreground="White"/>
                                         </Grid>				
@@ -67,14 +51,6 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
-                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Code:" FontSize="17"/>
-                                            <TextBlock Grid.Column="1" x:Name="codeTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding code}" FontSize="17" Foreground="White"/>
-                                        </Grid>				
-										<Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Name:" FontSize="17"/>
                                             <TextBlock Grid.Column="1" x:Name="nameTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding name}" FontSize="17" Foreground="White"/>
                                         </Grid>				
@@ -83,8 +59,32 @@
                                                 <ColumnDefinition Width="Auto"/>
                                                 <ColumnDefinition Width="Auto"/>
                                             </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="IdProvider:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="idProviderTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding idProvider}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
                                             <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="IdImageProduct:" FontSize="17"/>
                                             <TextBlock Grid.Column="1" x:Name="idImageProductTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding idImageProduct}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Price:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="priceTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding price}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Code:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="codeTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding code}" FontSize="17" Foreground="White"/>
                                         </Grid>				
                                     </StackPanel>
                                 </Border>

@@ -12,10 +12,10 @@
             </StackPanel>
 
             <StackPanel Margin="20,129,19,0" Grid.RowSpan="4">
-                <TextBlock Text="password" FontSize="14"/>
-                <TextBox x:Name="passwordTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="username" FontSize="14"/>
                 <TextBox x:Name="usernameTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="password" FontSize="14"/>
+                <TextBox x:Name="passwordTbx" TextWrapping="Wrap" Width="350"/>
 				<Button x:Name="btnDeleteUser" Content="Delete User" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
                 <Button x:Name="btnUpdateUser" Content="Update User" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
             </StackPanel>

@@ -8,7 +8,7 @@
 [template public createDatabaseAndroid(aPackage: Package)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[file ('android/bd/helper/MySQLiteHelper.java', false)]
+[file ('android/helpers/SQLiteHelper.java', false)]
 //[protected ('imports')]
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -17,13 +17,13 @@ import android.util.Log;
 //[/protected]
 	
 
-public class MySQLiteHelper extends SQLiteOpenHelper {
+public class SQLiteHelper extends SQLiteOpenHelper {
     
 	public static final String TAG = "Tag"; 
     public static final String DATABASE_NAME = "[aPackage.name.toLowerFirst()/].db";  
     public static final int DATABASE_VERSION = 1;
 
-    public MySQLiteHelper(Context context) {
+    public SQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

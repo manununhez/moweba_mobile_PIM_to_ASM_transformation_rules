@@ -16,44 +16,44 @@ namespace CarritoDeCompras.Common
             return "http://www.api2.cart.com.py";
         }
 
-		 public Task<Boolean> login( User user)  
+		public Task<Boolean> login( User user)  
         {
-			return Post<Boolean>("POST" , user );
+			return Post<Boolean>("login" , user );
 		}
 
-		 public Task<Boolean> logout()  
+		public Task<Boolean> logout()  
         {
-			return Post<Boolean>("POST" , null);
+			return Post<Boolean>("logout" , null);
 		}
 
-		 public Task<List<Product>> getAllProducts()  
+		public Task<List<Product>> getAllProducts()  
         {
-			return Get<List<Product>>("GET");
+			return Get<List<Product>>("products");
 		}
 
-		 public Task<Product> getProduct()  
+		public Task<Product> getProduct()  
         {
-			return Get<Product>("GET");
+			return Get<Product>("products");
 		}
 
-		 public Task<List<Provider>> getAllProviders()  
+		public Task<List<Provider>> getAllProviders()  
         {
-			return Get<List<Provider>>("GET");
+			return Get<List<Provider>>("provider");
 		}
 
-		 public Task<Provider> getProvider()  
+		public Task<Provider> getProvider()  
         {
-			return Get<Provider>("GET");
+			return Get<Provider>("provider");
 		}
 
-		 public Task<Boolean> confirmCart( Product products)  
+		public Task<Boolean> confirmCart( Product products)  
         {
-			return Post<Boolean>("POST" , products );
+			return Post<Boolean>("cart/confirm" , products );
 		}
 
-		 public Task<List<ShoppingCart>> getUserCart()  
+		public Task<List<ShoppingCart>> getUserCart()  
         {
-			return Get<List<ShoppingCart>>("GET");
+			return Get<List<ShoppingCart>>("cart");
 		}
     }
 }

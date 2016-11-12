@@ -6,8 +6,6 @@
 
 
 [template public generateKVAdapters(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('android/adapters/', aClass, 'Adapter','.java'), false)]
@@ -84,7 +82,7 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
             @Override
             public void onClick(View view) {
 				[for (p : Property | persistentEntityProperties)]
-				MySharedPreferencesHelper.removeValue(context, "[p.name.toLowerFirst()/]");
+				StorageManager.removeValue(context, "[p.name.toLowerFirst()/]");
 				[/for]             
 				[aClass.name.toLowerFirst()/]List.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
@@ -100,14 +98,9 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
 
 [/file]
 [/let]
-[/if]
-[/if]
-
 [/template]
 
 [template public generateKVAdapterLayout(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileNameInvert('android/layout/', aClass, 'list_row_','.xml'), false)]
@@ -171,8 +164,5 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
 </RelativeLayout>
 [/file]
 [/let]
-[/if]
-[/if]
-
 [/template]
 

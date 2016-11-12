@@ -15,11 +15,11 @@ import java.util.ArrayList;
 import java.util.List;
 //End of user code
 	
-public class MyFilesHelper {
+public class FilesHelper {
     
 	public final static String FILE_EXTENSION_SEPARATOR = ".";
 
-        private MyFilesHelper() {
+        private FilesHelper() {
             throw new AssertionError();
         }
 

@@ -29,23 +29,11 @@ namespace CarritoDeCompras.Views
         {
             operation = (ShareOperation)e.Parameter;
 
-				if (operation.Data.Contains(StandardDataFormats.Bitmap)) { //Image
-	                IRandomAccessStreamReference sharedBitmapStream = await operation.Data.GetBitmapAsync();
-	                IRandomAccessStreamWithContentType bitmapStream = await sharedBitmapStream.OpenReadAsync();
-	                BitmapImage bitmapImage = new BitmapImage();
-	                bitmapImage.SetSource(bitmapStream);
-	                MessageDialog ms = new MessageDialog("Image:" + bitmapStream);
-	                await ms.ShowAsync();
-            	}
-				if (operation.Data.Contains(StandardDataFormats.WebLink)) //URI
+				if (operation.Data.Contains(StandardDataFormats.Text))//Text
 	            {
-	                var uri = await operation.Data.GetWebLinkAsync();
-	                if (uri != null)
-	                {
-	                    MessageDialog ms = new MessageDialog("WebLink: " + uri.AbsoluteUri);
-	                    await ms.ShowAsync();
-	                }
-	            }	
+	                MessageDialog ms = new MessageDialog("Text:" + await operation.Data.GetTextAsync());
+	                await ms.ShowAsync();
+	            }
 				if (operation.Data.Contains(StandardDataFormats.StorageItems)) //Files being shared
 	            {
 	                IReadOnlyList<IStorageItem> sharedStorageItems = await operation.Data.GetStorageItemsAsync();
@@ -63,11 +51,23 @@ namespace CarritoDeCompras.Views
 	                MessageDialog ms = new MessageDialog("StorageItems: " + fileNames.ToString());
 	                await ms.ShowAsync();
 	            }
-				if (operation.Data.Contains(StandardDataFormats.Text))//Text
-	            {
-	                MessageDialog ms = new MessageDialog("Text:" + await operation.Data.GetTextAsync());
+				if (operation.Data.Contains(StandardDataFormats.Bitmap)) { //Image
+	                IRandomAccessStreamReference sharedBitmapStream = await operation.Data.GetBitmapAsync();
+	                IRandomAccessStreamWithContentType bitmapStream = await sharedBitmapStream.OpenReadAsync();
+	                BitmapImage bitmapImage = new BitmapImage();
+	                bitmapImage.SetSource(bitmapStream);
+	                MessageDialog ms = new MessageDialog("Image:" + bitmapStream);
 	                await ms.ShowAsync();
-	            }
+            	}
+				if (operation.Data.Contains(StandardDataFormats.WebLink)) //URI
+	            {
+	                var uri = await operation.Data.GetWebLinkAsync();
+	                if (uri != null)
+	                {
+	                    MessageDialog ms = new MessageDialog("WebLink: " + uri.AbsoluteUri);
+	                    await ms.ShowAsync();
+	                }
+	            }	
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

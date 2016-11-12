@@ -22,7 +22,7 @@ public class ProductActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter mAdapter;
     private List<Product> productList = new ArrayList<>();
-    private MySQLiteHelper db;
+    private SQLiteHelper db;
     private TextView tvDataCount;
     private ProductDAO productDAO;
 
@@ -37,7 +37,7 @@ public class ProductActivity extends AppCompatActivity {
             actionBar.setTitle("Product");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        db = new MySQLiteHelper(this);
+        db = new SQLiteHelper(this);
         productDAO = new ProductDAO(db);
 
         tvDataCount = (TextView) findViewById(R.id.tvDataCount);

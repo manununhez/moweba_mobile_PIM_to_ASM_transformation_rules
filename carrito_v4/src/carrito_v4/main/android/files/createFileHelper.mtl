@@ -3,7 +3,7 @@
 
 
 [template public createFileHelper(aPackage : Package)]
-[file ('android/file/MyFilesHelper.java', false)]
+[file ('android/helpers/FilesHelper.java', false)]
 //[protected ('imports')]
 import android.text.TextUtils;
 
@@ -21,11 +21,11 @@ import java.util.ArrayList;
 import java.util.List;
 //[/protected]
 	
-public class MyFilesHelper {
+public class FilesHelper {
     
 	public final static String FILE_EXTENSION_SEPARATOR = ".";
 
-        private MyFilesHelper() {
+        private FilesHelper() {
             throw new AssertionError();
         }
 

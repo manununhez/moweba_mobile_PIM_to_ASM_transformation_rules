@@ -3,11 +3,14 @@
 
 
 [template public createSharedHelper(aPackage : Package)]
-[file ('android/sharedPreferences/MySharedPreferencesHelper.java', false)]
+[file ('android/helpers/StorageManager.java', false)]
+
 //[protected ('imports')]
+import android.content.Context;
+import android.content.SharedPreferences;
 //[/protected]
 	
-public class MySharedPreferencesHelper {
+public class StorageManager {
     
 	public static void save(Context context, String key, String value) {
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(),

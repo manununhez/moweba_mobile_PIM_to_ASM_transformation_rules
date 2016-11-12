@@ -54,6 +54,8 @@
 [import carrito_v4::main::windows::rest::generateRestWindowsInterface/]
 
 [import services::uml2services/]
+[import common::utils_gen/]
+
 
 [template public generateElement(model: Model)]
 [comment @main/]
@@ -64,35 +66,41 @@
 
 [for (aPackage : Package | aPackages)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-[let p : Package = aPackage.ancestors(Package)->first()]	
-	
+[let p : Package = aPackage.ancestors(Package)->first()]		
+[comment]Recorremos los paquetes existentes en el modelo. Solo nos interesa dos paquetes:
+ DataPersistence y DataProvider[/comment]
+
+	[comment]Si existe el paquete DataPersistence[/comment]
 	[if (aPackage.hasStereotype('DataPersistence'))]
-	    [comment]Solo creamos este archivo Si existe por lo menos una entidad tipo DATABASE[/comment]
+	    [comment]Solo creamos este archivo Si existe por lo menos una entidad tipo Database[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'Database'))]
 			[generateDBForAndroid(aPackage)/]
 			[generateDBForWindows(aPackage, p.name.toUpperFirst())/]
 		[/if]
 	
-		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo FILE[/comment]
+		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo File[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'File'))]
 			[generateFilesForAndroid(aPackage)/]
 			[generateFilesForWindows(aPackage, p.name.toUpperFirst())/]
 		[/if]
 	
-		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo KEYVALUE[/comment]
+		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo KeyValue[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'KeyValue'))]
 			[generateKVForAndroid(aPackage)/]
 			[generateKVForWindows(aPackage, p.name.toUpperFirst())/]
 		[/if]
 	[/if]
 	
+	[comment]Si existe el paquete DataProvider[/comment]
 	[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses)]
-			[if (aClass.hasStereotype('WebInterface'))]
+			[comment]Si la clase tiene el paquete WebServiceInterface[/comment]
+			[if (aClass.hasStereotype('WebServiceInterface'))]
 				[generateRestAndroid(aClass)/]
 				[generateRestWindows(aClass, p.name.toUpperFirst())/]
 			[/if]
 			
+			[comment]Si la clase tiene el paquete HardwareDeviceInterface[/comment]
 			[if (aClass.hasStereotype('HardwareDeviceInterface'))]
 				[generateSensorsAndroid(aClass)/]
 				[generateSensorsWindows(aClass, p.name.toUpperFirst())/]
@@ -105,163 +113,286 @@
 [/let]
 [/template]
 
+[comment]*****************************************
+	Generamos las clases principales de Android. 
+	Se generan:
+	- El MainActivity y su layout XML, el cual constituye 
+		la pantalla principal de la aplicacion.
+	- El archivo de configuracion: AndroidManifest.xml, 
+		donde se definen las pantallas que contiene el app, 
+   		y los permisos a utilizar
+	- El build.gradle, encargado de manejar e importar las 
+		librerias de la aplicacion
+*****************************************[/comment]
+[template public generateGeneralAndroidClasses(model : Model)]
+	[generateMainActivity(model)/]
+	[generateMainActivityLayout(model)/]
+	[generateConfigFiles(model)/]
+	[generateBuildGradle(model)/]
+[/template]
 
 
+[comment]*****************************************
+Generamos las clases principales de WindowsPhone:
+- El App.xaml.cs, constituye el archivo de entrada de la aplicacion.
+- El MainPage y su interfaz, constituye la pantalla
+	principal de la aplicacion. 
+*****************************************[/comment]
+[template public generateGeneralWindowsClasses(model : Model)]
+	[generateAppPage(model)/]
+	[generateMainPage(model)/]
+	[generateMainPageLayout(model)/]
+[/template]
+
+
+[comment]*****************************************
+Generamos los archivos necesarios para la configuracion de SQLite en Android:
+el helper, las tablas, los modelos y los DAO.
+A parte, se generan las pantallas para poder probar las funciones CRUD
+por cada tabla. Por cada tabla se generan dos pantallas:
+- Una pantalla donde se listan todos los datos de la tabla
+- Una pantalla para Agregar nuevos datos, actualizar o eliminar.
+*****************************************[/comment]
+[template public generateDBForAndroid(aPackage : Package)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[comment]Generamos el helper para base de datos: MySqliteHelper.java[/comment]
+[createDatabaseAndroid(aPackage)/]
+
+[comment]Genera los beans o modelos de la aplicacion[/comment]
+[beansGenAndroid(aPackage)/]
+
+	[for (aClass : Class | aClasses)]
+		[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]
+		[if (aClass.hasStereotype('persistentEntity'))]
+		[comment]Verificamos que el valor etiquetado 'persistentType' sea para base de datos[/comment]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+				
+				[comment]Generamos la pantalla para listar los datos de cada entidad[/comment]
+				[generateBDActivities(aClass)/]
+				[generateaBDActivitiesLayout(aClass)/]
+			
+				[comment]Generamos las pantallas para Agregar, Editar y Eliminar datos[/comment]
+				[generateBDFormActivities(aClass)/]
+				[generateBDFormActivitiesLayout(aClass)/]
+			
+				[comment]Generamos los adaptadores para cargar los distintos campos de cada fila de la tabla [/comment]
+				[generateBDAdapters(aClass)/]
+				[generateBDAdapterLayout(aClass)/]
+			
+				[comment]Generamos las tablas por cada 'persistentEntity', con los campos con estereotipo 'persistentEntityProperty'[/comment]
+				[generateDbTables(aClass)/]
+			
+				[comment]Generamos las funciones CRUD para cada tabla[/comment]
+				[generateDaoAndroid(aClass)/]
+			[/if]
+		[/if]
+	[/for]
+[/let]
+[/template]
+
+[comment]*****************************************
+
+*****************************************[/comment]
+[template public generateDBForWindows(aPackage : Package, namespace : String)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[comment]Generamos el helper para base de datos: SQLiteHelper.cs[/comment]
+[createWindowsDatabaseHelper(aPackage, namespace)/]
+
+[comment]Genera los beans o modelos de la aplicacion[/comment]
+[beansGenWindows(aPackage)/]
+
+[for (aClass : Class | aClasses)]
+	[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]
+	[if (aClass.hasStereotype('persistentEntity'))]
+		[comment]Verificamos que el valor etiquetado 'persistentType' sea para base de datos[/comment]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+			
+			[comment]Generamos la pantalla para listar los datos de cada entidad[/comment]
+			[generateBDPages(aClass, namespace)/]
+			[generateBDPagesLayout(aClass, namespace)/]
+		
+			[generateBDCreateFormPage(aClass, namespace)/]
+			[generateBDCreateFormPageLayout(aClass, namespace)/]
+			
+			[generateBDDeleteUpdateFormPage(aClass, namespace)/]
+			[generateBDDeleteUpdateFormPageLayout(aClass, namespace)/]
+			
+			[comment]Generamos las funciones CRUD para cada tabla[/comment]
+			[generateDaoWindows(aClass, namespace)/]
+		[/if]
+	[/if]
+[/for]
+[/let]
+[/template]
+
+
+[comment]*****************************************
+
+*****************************************[/comment]
+[template public generateFilesForAndroid(aPackage : Package)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[comment]Generamos el helper para manejar files: FilesHelper.java[/comment]
+[createFileHelper(aPackage)/]
+
+	[for (aClass : Class | aClasses)]
+		[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[comment]Verificamos que el valor etiquetado 'persistentType' sea para archivos[/comment]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
+				[generateFileActivities(aClass)/]
+				[generateFileActivitiesLayout(aClass)/]
+			[/if]
+		[/if]
+	[/for]
+[/let]
+[/template]
+
+[comment]*****************************************
+
+*****************************************[/comment]
+[template public generateFilesForWindows(aPackage : Package, namespace : String)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[comment]Generamos el helper para manejar files: FilesHelper.cs[/comment]
+[createFileHelperWindows(aPackage, namespace)/]
+	
+	[for (aClass : Class | aClasses)]
+		[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[comment]Verificamos que el valor etiquetado 'persistentType' sea para archivos[/comment]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
+				[generateFilePages(aClass, namespace)/]
+				[generateFilePagesLayout(aClass, namespace)/]
+			[/if]
+		[/if]
+	[/for]
+[/let]
+[/template]
+
+[comment]*****************************************
+
+*****************************************[/comment]
+[template public generateKVForAndroid(aPackage : Package)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[comment]Generamos el helper para manejar los pares clave-valor: StorageManager.java[/comment]
+[createSharedHelper(aPackage)/]
+
+	[for (aClass : Class | aClasses)]
+		[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[comment]Verificamos que el valor etiquetado 'persistentType' sea para pares clave-valor[/comment]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+
+				[generateKVActivities(aClass)/]
+				[generateKVActivitiesLayout(aClass)/]
+		
+				[generateKVFormActivities(aClass)/]
+				[generateKVFormActivitiesLayout(aClass)/]
+			
+				[generateKVAdapters(aClass)/]
+				[generateKVAdapterLayout(aClass)/]
+			[/if]
+		[/if]
+	[/for]
+[/let]
+[/template]
+
+[comment]*****************************************
+
+*****************************************[/comment]
+[template public generateKVForWindows(aPackage : Package, namespace : String)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[comment]Generamos el helper para manejar los pares clave-valor: StorageManager.cs[/comment]
+[createSharedHelperWindows(aPackage)/]
+
+	[for (aClass : Class | aClasses)]
+		[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[comment]Verificamos que el valor etiquetado 'persistentType' sea para pares clave-valor[/comment]
+			[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
+				[generateKVPages(aClass, namespace)/]
+				[generateKVPagesLayout(aClass, namespace)/]
+		
+				[generateKVDeleteUpdateFormPage(aClass, namespace)/]
+				[generateKVDeleteUpdateFormPageLayout(aClass, namespace)/]
+			[/if]
+		[/if]
+	[/for]
+[/let]
+[/template]
+
+[comment]*****************************************
+
+*****************************************[/comment]
+[template public generateRestAndroid(aClass : Class)]
+	[comment]Verificamos que la clase tenga el estereotipo 'WebServiceInterface'[/comment]
+	[if (aClass.hasStereotype('WebServiceInterface'))]
+		[comment]Generamos el ApiInterface.java[/comment]
+		[generateRestInterface(aClass)/]
+		
+		[comment]Generamos el ApiClient.java[/comment]
+		[generateRestClient(aClass)/]
+		
+		[generateRestActivities(aClass)/]
+		[generateRestActivitiesLayout(aClass)/]
+	[/if]
+[/template]
+
+[comment]*****************************************
+
+*****************************************[/comment]
+[template public generateRestWindows(aClass : Class, namespace : String)]
+	[comment]Verificamos que la clase tenga el estereotipo 'WebServiceInterface'[/comment]
+	[if (aClass.hasStereotype('WebServiceInterface'))]
+		[comment]Generamos el ApiInterface.cs[/comment]
+		[generateRestWindowsInterface(aClass, namespace)/]
+		
+		[generateRestPages(aClass, namespace)/]
+		[generateRestPagesLayout(aClass, namespace)/]
+	[/if]
+[/template]
+
+[comment]*****************************************
+
+*****************************************[/comment]
 [template public generateSensorsAndroid(aClass : Class)]
-	[comment]Sensors Utils[/comment]
+	[comment]Sensors Utils. Generamos los utils para los sensores: camra y microfono[/comment]
 	[generateGPSClass(aClass)/]
 	[generateAudioActivity(aClass)/]
 	[generateAudioActivityLayout(aClass)/]
 	[generateCameraActivity(aClass)/]
 	[generateCameraActivityLayout(aClass)/]
 
-	[generateSensorActivities(aClass)/]
-	[generateSensorActivitiesLayout(aClass)/]
+	[comment]Verificamos que la clase tenga el estereotipo 'HardwareDeviceInterface'[/comment]
+	[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+		[generateSensorActivities(aClass)/]
+		[generateSensorActivitiesLayout(aClass)/]
+	[/if]
 [/template]
 
+[comment]*****************************************
+
+*****************************************[/comment]
 [template public generateSensorsWindows(aClass : Class, namespace : String)]
-	[comment]Sensors Utils[/comment]
+	[comment]Sensors Utils. Generamos los utils para los sensores: camra y microfono[/comment]
 	[generateCameraPages(aClass, namespace)/]
 	[generateCameraPagesLayout(aClass, namespace)/]
 	[generateAudioRecordPages(aClass, namespace)/]
 	[generateAudioRecordPagesLayout(aClass, namespace)/]
 
-	[generateSensorsPages(aClass, namespace)/]
-	[generateSensorsPagesLayout(aClass, namespace)/]
+	[comment]Verificamos que la clase tenga el estereotipo 'HardwareDeviceInterface'[/comment]
+	[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+		[generateSensorsPages(aClass, namespace)/]
+		[generateSensorsPagesLayout(aClass, namespace)/]
+	[/if]
 [/template]
 
-[template public generateRestAndroid(aClass : Class)]
-	[generateRestInterface(aClass)/]
-	[generateRestClient(aClass)/]
-	
-	[generateRestActivities(aClass)/]
-	[generateRestActivitiesLayout(aClass)/]
-[/template]
 
-[template public generateRestWindows(aClass : Class, namespace : String)]
-	[generateRestWindowsInterface(aClass, namespace)/]
-	[generateRestPages(aClass, namespace)/]
-	[generateRestPagesLayout(aClass, namespace)/]
-[/template]
 
-[comment]*****************************************[/comment]
-[template public generateGeneralAndroidClasses(model : Model)]
-	[generateMainActivity(model)/]
-	[generateMainActivityLayout(model)/]
-	[generateConfigFiles(model)/]
-	[generateBuildGradle(model)/]
-	
-[/template]
 
-[template public generateGeneralWindowsClasses(model : Model)]
-[generateAppPage(model)/]
-[generateMainPage(model)/]
-[generateMainPageLayout(model)/]
 
-[/template]
-[comment]*****************************************[/comment]
-[template public generateDBForAndroid(aPackage : Package)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-[createDatabaseAndroid(aPackage)/]
-[beansGenAndroid(aPackage)/]
-
-	[for (aClass : Class | aClasses)]
-		[generateBDActivities(aClass)/]
-		[generateaBDActivitiesLayout(aClass)/]
-	
-		[generateBDFormActivities(aClass)/]
-		[generateBDFormActivitiesLayout(aClass)/]
-	
-		[generateBDAdapters(aClass)/]
-		[generateBDAdapterLayout(aClass)/]
-	
-		[generateDbTables(aClass)/]
-	
-		[generateDaoAndroid(aClass)/]
-	[/for]
-[/let]
-[/template]
-
-[comment]*****************************************[/comment]
-[template public generateDBForWindows(aPackage : Package, namespace : String)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-[createWindowsDatabaseHelper(aPackage, namespace)/]
-[beansGenWindows(aPackage)/]
-
-[for (aClass : Class | aClasses)]
-	[generateBDPages(aClass, namespace)/]
-	[generateBDPagesLayout(aClass, namespace)/]
-
-	[generateBDCreateFormPage(aClass, namespace)/]
-	[generateBDCreateFormPageLayout(aClass, namespace)/]
-	
-	[generateBDDeleteUpdateFormPage(aClass, namespace)/]
-	[generateBDDeleteUpdateFormPageLayout(aClass, namespace)/]
-	
-	[generateDaoWindows(aClass, namespace)/]
-[/for]
-[/let]
-[/template]
-
-[comment]*****************************************[/comment]
-[template public generateFilesForAndroid(aPackage : Package)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-[createFileHelper(aPackage)/]
-
-	[for (aClass : Class | aClasses)]
-		[generateFileActivities(aClass)/]
-		[generateFileActivitiesLayout(aClass)/]
-	[/for]
-[/let]
-[/template]
-
-[comment]*****************************************[/comment]
-[template public generateFilesForWindows(aPackage : Package, namespace : String)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-[createFileHelperWindows(aPackage, namespace)/]
-	
-	[for (aClass : Class | aClasses)]	
-		[generateFilePages(aClass, namespace)/]
-		[generateFilePagesLayout(aClass, namespace)/]
-	[/for]
-[/let]
-[/template]
-
-[comment]*****************************************[/comment]
-[template public generateKVForAndroid(aPackage : Package)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-[createSharedHelper(aPackage)/]
-
-	[for (aClass : Class | aClasses)]
-		[generateKVActivities(aClass)/]
-		[generateKVActivitiesLayout(aClass)/]
-
-		[generateKVFormActivities(aClass)/]
-		[generateKVFormActivitiesLayout(aClass)/]
-	
-		[generateKVAdapters(aClass)/]
-		[generateKVAdapterLayout(aClass)/]
-	[/for]
-[/let]
-[/template]
-
-[comment]*****************************************[/comment]
-[template public generateKVForWindows(aPackage : Package, namespace : String)]
-[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-[createSharedHelperWindows(aPackage)/]
-
-	[for (aClass : Class | aClasses)]
-		[generateKVPages(aClass, namespace)/]
-		[generateKVPagesLayout(aClass, namespace)/]
-
-		[generateKVDeleteUpdateFormPage(aClass, namespace)/]
-		[generateKVDeleteUpdateFormPageLayout(aClass, namespace)/]
-	[/for]
-[/let]
-[/template]

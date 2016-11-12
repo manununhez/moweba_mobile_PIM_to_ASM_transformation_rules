@@ -50,7 +50,7 @@ namespace [p.name.toUpperFirst()/]
 	
 	[if (aPackage.hasStereotype('DataProvider'))]
 	[for (aClass : Class | aClasses) separator('\n')]
-	[if (aClass.hasStereotype('WebInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+	[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
 		private void btn[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
@@ -87,6 +87,7 @@ namespace [p.name.toUpperFirst()/]
 [for (aPackage : Package | aPackages)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 	[if (aPackage.hasStereotype('DataPersistence'))]
+			<TextBlock Text="::DataPersistence::" Style="{ThemeResource TitleTextBlockStyle}"/>
 	[for (aClass : Class | aClasses)]
 	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
 		[if (aClass.hasStereotype('persistentEntity'))]
@@ -98,8 +99,9 @@ namespace [p.name.toUpperFirst()/]
 	[/for]	
 	[/if]
 	[if (aPackage.hasStereotype('DataProvider'))]
+			<TextBlock Text="::DataProvider::" Style="{ThemeResource TitleTextBlockStyle}"/>
 	[for (aClass : Class | aClasses) separator('\n')]
-	[if (aClass.hasStereotype('WebInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+	[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
 			<Button x:Name="btn[aClass.name.toUpperFirst()/]" Content="[aClass.name.toUpperFirst()/]" Click="btn[aClass.name.toUpperFirst()/]_click"/>
 	[/if]
 	[/for]

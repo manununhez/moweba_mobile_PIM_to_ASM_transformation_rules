@@ -6,8 +6,6 @@
 
 
 [template public generateBDCreateFormPage(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormNew','.xaml.cs'), false)]
@@ -68,9 +66,16 @@ namespace [namespace/].Views
      		[aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO();
 			if([for (p : Property | persistentEntityProperties) separator (' & ')][p.name.toLowerFirst()+'Tbx.Text != ""'/][/for])
             {
-				[aClass.name.toLowerFirst()/]DAO.add[aClass.name.toUpperFirst()/](new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for])); 			
-
-                Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));//after add [aClass.name.toLowerFirst()/] redirect to [aClass.name.toLowerFirst()/] listbox page
+				try {
+					[aClass.name.toLowerFirst()/]DAO.add[aClass.name.toUpperFirst()/](new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for])); 			
+	
+	                Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));//after add [aClass.name.toLowerFirst()/] redirect to [aClass.name.toLowerFirst()/] listbox page
+				}
+                catch (Exception ex)
+                {
+                    await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                    Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+                }
             }
             else
             {
@@ -83,14 +88,9 @@ namespace [namespace/].Views
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateBDCreateFormPageLayout(aClass : Class, namespace : String)]
-
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormNew','.xaml'), false)]
@@ -124,7 +124,5 @@ namespace [namespace/].Views
 </Page>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 

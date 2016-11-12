@@ -14,8 +14,10 @@
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('android/beans/', aClass, '' , '.java'), false)]
+
 //[protected ('imports')]
 import java.io.Serializable;
+import java.math.BigDecimal;
 //[/protected]
 
 [comment Getter y setters /]
@@ -75,7 +77,7 @@ public class [aClass.name.toUpperFirst()/]  implements Serializable{
 	// [/protected]
 		return;
 	}
-   [/for]   
+   	[/for]   
 
 }
  [/file]

@@ -27,14 +27,14 @@ namespace CarritoDeCompras
             Frame.Navigate(typeof(RestInterfaceView));
         }
 
+
 		private void btnHardwareDevice_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(HardwareDeviceView));
         }
-
-		private void btnProvider_click(object sender, RoutedEventArgs e)
+		private void btnUser_click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(ProviderView));
+            Frame.Navigate(typeof(UserView));
         }
 
 		private void btnProduct_click(object sender, RoutedEventArgs e)
@@ -47,14 +47,14 @@ namespace CarritoDeCompras
             Frame.Navigate(typeof(ShoppingCartView));
         }
 
+		private void btnProvider_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ProviderView));
+        }
+
 		private void btnImageProduct_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ImageProductView));
-        }
-
-		private void btnUser_click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(UserView));
         }
 	
 	

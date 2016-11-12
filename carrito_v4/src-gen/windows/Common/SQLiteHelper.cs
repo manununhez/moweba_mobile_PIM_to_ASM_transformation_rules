@@ -1,13 +1,16 @@
 //Start of user code imports
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using CarritoDeCompras.Model;
 using Windows.Storage;
+using Windows.UI.Popups;
 //End of user code
 
 namespace CarritoDeCompras.Common
 {
-    class MySQLiteHelper
+    class SQLiteHelper
     {
         //Database name
         public static string DbName = "persistencia.sqlite";
@@ -26,17 +29,21 @@ namespace CarritoDeCompras.Common
                     //Creating a table
                     connection.RunInTransaction(() =>
                     {
-					connection.CreateTable<Model.Provider>();
-					connection.CreateTable<Model.Product>();
-					connection.CreateTable<Model.ShoppingCart>();
+					connection.CreateTable<Product>();
+					connection.CreateTable<ShoppingCart>();
+					connection.CreateTable<Provider>();
                     });
                 }
 
                 connection.Close();
+                Debug.WriteLine("Base de datos creada correctamente.");
                 return true;
             }
             else
+            {
+                Debug.WriteLine("Error al crear la base de datos.");
                 return false;
+            }
         }
 
         public static async Task<bool> Checkdatabase()
@@ -49,8 +56,11 @@ namespace CarritoDeCompras.Common
             }
             catch (Exception ex)
             {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
                 dbexist = false;
             }
+
             return dbexist;
         }
 
@@ -65,6 +75,8 @@ namespace CarritoDeCompras.Common
             }
             catch (Exception ex)
             {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
             }
             return false;
         }

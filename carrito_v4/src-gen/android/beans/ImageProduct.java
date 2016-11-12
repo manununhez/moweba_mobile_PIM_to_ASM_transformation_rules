@@ -1,5 +1,7 @@
+
 //Start of user code imports
 import java.io.Serializable;
+import java.math.BigDecimal;
 //End of user code
 
 public class ImageProduct  implements Serializable{

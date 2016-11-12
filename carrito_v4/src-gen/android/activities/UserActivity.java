@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 //End of user code
@@ -51,10 +52,10 @@ public class UserActivity extends AppCompatActivity {
 
 	private void loadUserData(){
 		Toast.makeText(UserActivity.this, "Retrieving data from sharedPreferences", Toast.LENGTH_SHORT).show();
-		String password = MySharedPreferencesHelper.getValue(this, "password");
-		String username = MySharedPreferencesHelper.getValue(this, "username");
+		String username = StorageManager.getValue(this, "username");
+		String password = StorageManager.getValue(this, "password");
         
-		User user = new User(password == null ? "" : password, username == null ? "" : username);
+		User user = new User(username == null ? 0f : Float.parseFloat(username), password == null ? new BigDecimal (0) : new BigDecimal(password));
         
 		userList.add(user);
 

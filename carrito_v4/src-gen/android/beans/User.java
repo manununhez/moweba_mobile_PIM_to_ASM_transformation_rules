@@ -1,20 +1,22 @@
+
 //Start of user code imports
 import java.io.Serializable;
+import java.math.BigDecimal;
 //End of user code
 
 public class User  implements Serializable{
 	
 
 	/**
-	* the password attribute.
+	* the username attribute.
 	*/
-	private String password;
+	private Float username;
 
 
 	/**
-	* the username attribute.
+	* the password attribute.
 	*/
-	private String username;
+	private BigDecimal password;
 	
 
 	/**
@@ -26,25 +28,25 @@ public class User  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public User (String password, String username){
-		this.password = password;
+	public User (Float username, BigDecimal password){
 		this.username = username;
+		this.password = password;
 	}
 
-	public String getPassword() {
-       return this.password;
-     }
-
-	public String getUsername() {
+	public Float getUsername() {
        return this.username;
      }
+
+	public BigDecimal getPassword() {
+       return this.password;
+     }
  
-     public void setPassword(String password) {
-        this.password = password;
+     public void setUsername(Float username) {
+        this.username = username;
      }
 
-     public void setUsername(String username) {
-        this.username = username;
+     public void setPassword(BigDecimal password) {
+        this.password = password;
      }
 
 

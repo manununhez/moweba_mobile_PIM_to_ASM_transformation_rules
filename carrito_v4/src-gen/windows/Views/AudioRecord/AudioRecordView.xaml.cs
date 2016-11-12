@@ -8,6 +8,7 @@ using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 
 
 namespace CarritoDeCompras.Views
@@ -36,16 +37,22 @@ namespace CarritoDeCompras.Views
 
         private async void InitializeAudioRecording()
         {
-
-            _mediaCaptureManager = new MediaCapture();
-            var settings = new MediaCaptureInitializationSettings();
-            settings.StreamingCaptureMode = StreamingCaptureMode.Audio;
-            settings.MediaCategory = MediaCategory.Other;
-            settings.AudioProcessing = (_rawAudioSupported && _userRequestedRaw) ? AudioProcessing.Raw : AudioProcessing.Default;
-
-            await _mediaCaptureManager.InitializeAsync(settings);
-
-            Debug.WriteLine("Device initialised successfully");
+			try {
+	            _mediaCaptureManager = new MediaCapture();
+	            var settings = new MediaCaptureInitializationSettings();
+	            settings.StreamingCaptureMode = StreamingCaptureMode.Audio;
+	            settings.MediaCategory = MediaCategory.Other;
+	            settings.AudioProcessing = (_rawAudioSupported && _userRequestedRaw) ? AudioProcessing.Raw : AudioProcessing.Default;
+	
+	            await _mediaCaptureManager.InitializeAsync(settings);
+	
+	            Debug.WriteLine("Device initialised successfully");
+			}
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+				Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
 
         private async void CaptureAudio()
@@ -53,9 +60,10 @@ namespace CarritoDeCompras.Views
             try
             {
                 Debug.WriteLine("Starting record");
-                String fileName = "hardwareDevice.m4a";
+				string currentDate = DateTime.Now.ToString("yyyyMMddhhmmss");
+                string audioRecordFile = "AudioRecord_" + currentDate + ".m4a";
 
-                _recordStorageFile = await KnownFolders.VideosLibrary.CreateFileAsync(fileName, CreationCollisionOption.GenerateUniqueName);
+                _recordStorageFile = await KnownFolders.VideosLibrary.CreateFileAsync(audioRecordFile, CreationCollisionOption.GenerateUniqueName);
 
                 Debug.WriteLine("Create record file successfully");
 
@@ -89,11 +97,19 @@ namespace CarritoDeCompras.Views
         {
             if (!_recording)
             {
-                var stream = await _recordStorageFile.OpenAsync(FileAccessMode.Read);
-                Debug.WriteLine("Recording file opened");
-                playbackElement1.AutoPlay = true;
-                playbackElement1.SetSource(stream, _recordStorageFile.FileType);
-                playbackElement1.Play();
+                try
+                {
+                    var stream = await _recordStorageFile.OpenAsync(FileAccessMode.Read);
+                    Debug.WriteLine("Recording file opened");
+                    playbackElement1.AutoPlay = true;
+                    playbackElement1.SetSource(stream, _recordStorageFile.FileType);
+                    playbackElement1.Play();
+                }
+                catch (Exception ex)
+                {
+                    await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                    Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+                }
             }
         }
 

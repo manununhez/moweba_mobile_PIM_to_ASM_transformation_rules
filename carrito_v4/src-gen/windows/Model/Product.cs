@@ -14,25 +14,25 @@ namespace CarritoDeCompras.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public int idProvider { get; set; }
-
-		[DataMember]
-		public string price { get; set; }
-
-		[DataMember]
 		public string description { get; set; }
 
 		[DataMember]
 		public int idProducto { get; set; }
 
 		[DataMember]
-		public int code { get; set; }
-
-		[DataMember]
 		public string name { get; set; }
 
 		[DataMember]
+		public int idProvider { get; set; }
+
+		[DataMember]
 		public int idImageProduct { get; set; }
+
+		[DataMember]
+		public double price { get; set; }
+
+		[DataMember]
+		public int code { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -43,14 +43,21 @@ namespace CarritoDeCompras.Model
 		/**
 		* Constructor.
 		*/
-		public Product (int idProvider, string price, string description, int idProducto, int code, string name, int idImageProduct){
-			this.idProvider = idProvider;     
-			this.price = price;     
+		public Product (string description, int idProducto, string name, int idProvider, int idImageProduct, double price, int code){
 			this.description = description;     
 			this.idProducto = idProducto;     
-			this.code = code;     
 			this.name = name;     
+			this.idProvider = idProvider;     
 			this.idImageProduct = idImageProduct;     
+			this.price = price;     
+			this.code = code;     
+		}
+
+		public String getProductPriceWithCurrency() {
+		// Start of user code getProductPriceWithCurrency
+		// TODO should be implemented
+		// End of user code
+			return;
 		}
     }
 }

@@ -10,18 +10,18 @@ public class ShoppingCartTable {
 	public static final String TABLE_NAME = "shoppingCart"; 
 	
 	public static final String COLUMN_ID = "_id";
-		public static final String COLUMN_SYNCTIME = "syncTime"; 
-		public static final String COLUMN_QUANTITY = "quantity"; 
 		public static final String COLUMN_IDCART = "idCart"; 
+		public static final String COLUMN_QUANTITY = "quantity"; 
+		public static final String COLUMN_SYNCTIME = "syncTime"; 
 	
 	//    DATABASE CREATION SQL STATEMENT
 	private static final String CREATE_TABLE = "create table "
 			+ TABLE_NAME
 			+ "("
 			+ COLUMN_ID + " integer primary key autoincrement,"
-			+ COLUMN_SYNCTIME + " numeric NOT NULL ,"
+			+ COLUMN_IDCART + " integer NOT NULL  UNIQUE  DEFAULT Prueba  CHECK (idCart > 0),"
 + COLUMN_QUANTITY + " integer NOT NULL ,"
-+ COLUMN_IDCART + " integer NOT NULL  UNIQUE  DEFAULT Prueba  CHECK (idCart > 0));";  
++ COLUMN_SYNCTIME + " numeric NOT NULL );";  
 
 	
 	public ShoppingCartTable(ContentResolver contentResolver) {

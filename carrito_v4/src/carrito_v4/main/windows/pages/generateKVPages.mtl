@@ -6,14 +6,12 @@
 
 
 [template public generateKVPages(aClass : Class, namespace : String)]
-
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
 //[protected ('imports')]
 using [namespace/].Common;
+using [namespace/].Model;
 using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
@@ -69,7 +67,7 @@ namespace [namespace/].Views
             if (listBoxobj.SelectedIndex != -1)
             {
 
-                Model.[aClass.name.toUpperFirst()/] listitem = listBoxobj.SelectedItem as Model.[aClass.name.toUpperFirst()/];//Get slected listbox item contact ID 
+                [aClass.name.toUpperFirst()/] listitem = listBoxobj.SelectedItem as [aClass.name.toUpperFirst()/];//Get slected listbox item contact ID 
                 Frame.Navigate(typeof([aClass.name.toUpperFirst()/]FormDeleteUpdate), listitem);
             }
         }
@@ -77,9 +75,9 @@ namespace [namespace/].Views
         private void ReadAllData_Loaded(object sender, RoutedEventArgs e)
         {
             StorageManager storage = new StorageManager("dataPersistence", false);
-            Model.[aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = storage.Load<Model.[aClass.name.toUpperFirst()/]>("[aClass.name.toLowerFirst()/]");
+            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = storage.Load<[aClass.name.toUpperFirst()/]>("[aClass.name.toLowerFirst()/]");
             
-            List<Model.[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new List<Model.[aClass.name.toUpperFirst()/]>();
+            List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new List<[aClass.name.toUpperFirst()/]>();
             [aClass.name.toLowerFirst()/]List.Add([aClass.name.toLowerFirst()/]);
             listBoxobj.ItemsSource = [aClass.name.toLowerFirst()/]List;//Binding data to LISTBOX  
             txbQuantity.Text = Convert.ToString([aClass.name.toLowerFirst()/]List.Count);
@@ -90,13 +88,9 @@ namespace [namespace/].Views
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateKVPagesLayout(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
@@ -152,6 +146,4 @@ namespace [namespace/].Views
 </Page>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]

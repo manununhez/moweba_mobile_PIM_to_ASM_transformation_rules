@@ -17,20 +17,20 @@
             </StackPanel>
 
             <StackPanel Margin="20,129,19,0" Grid.RowSpan="4">
-                <TextBlock Text="idProvider" FontSize="14"/>
-                <TextBox x:Name="idProviderTbx" TextWrapping="Wrap" Width="350"/>
-                <TextBlock Text="price" FontSize="14"/>
-                <TextBox x:Name="priceTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="description" FontSize="14"/>
                 <TextBox x:Name="descriptionTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="idProducto" FontSize="14"/>
                 <TextBox x:Name="idProductoTbx" TextWrapping="Wrap" Width="350"/>
-                <TextBlock Text="code" FontSize="14"/>
-                <TextBox x:Name="codeTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="name" FontSize="14"/>
                 <TextBox x:Name="nameTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="idProvider" FontSize="14"/>
+                <TextBox x:Name="idProviderTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="idImageProduct" FontSize="14"/>
                 <TextBox x:Name="idImageProductTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="price" FontSize="14"/>
+                <TextBox x:Name="priceTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="code" FontSize="14"/>
+                <TextBox x:Name="codeTbx" TextWrapping="Wrap" Width="350"/>
                 <Button x:Name="btnAddProduct" Content="Add Product" HorizontalAlignment="Center"  Height="71" Width="304" Click="btnAddProduct_Click"/>
             </StackPanel>
         </Grid>                 

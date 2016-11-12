@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 	
 	[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses) separator('\n')]
-			[if (aClass.hasStereotype('WebInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+			[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
 			Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
 			btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
 	            @Override
@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 	
 		[for (aClass : Class | aClasses) separator('\n')]
 			[if (aClass.hasStereotype('MobileAppDataInterface'))]
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='MobileAppDataProperty'))) ]			
+		
 			//Handle incoming data
 	        Intent intent = getIntent();
 	        String action = intent.getAction();
@@ -71,12 +73,11 @@ public class MainActivity extends AppCompatActivity {
 
 			//all the data type options to receive
 	        if (Intent.ACTION_SEND.equals(action) && type != null) {
-	            if ("text/plain".equals(type)) {
-	                handleSendText(intent, "text"); // Handle text being sent
-	            } else if (type.startsWith("image/"))
-	            {
-	                handleSendData(intent,"image" ); // Handle single image being sent
-	            } else if (type.startsWith("audio/"))
+			[for (p : Property | persistentEntityProperties)]
+				[let receivedDataType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType')]
+				
+				[if (receivedDataType = 'FILE')]
+				if (type.startsWith("audio/"))
 	            {
 	                handleSendData(intent,"audio" ); // Handle single audio being sent
 	
@@ -87,7 +88,23 @@ public class MainActivity extends AppCompatActivity {
 	            {
 	                handleSendData(intent,"application" ); // Handle single file being sent
 	            }
-	        }
+				[/if]
+				[if (receivedDataType = 'URL' or receivedDataType = 'TEXT')]
+				if ("text/plain".equals(type)) {
+	                handleSendText(intent, "text"); // Handle text being sent
+	            }
+				[/if]
+				[if (receivedDataType = 'IMAGE')]
+				if (type.startsWith("image/"))
+	            {
+	                handleSendData(intent,"image" ); // Handle single image being sent
+	            }  
+				[/if] 
+	        
+			[/let]
+			[/for]
+			}
+			[/let]
 			[/if]
 		[/for]
 	[/if]
@@ -148,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="DATA MANAGEMENT"
+	        android:text="::DataPersistence::"
 	        android:textStyle="bold" />
 	[for (aClass : Class | aClasses) separator('\n')]
 	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]				
@@ -170,10 +187,10 @@ public class MainActivity extends AppCompatActivity {
 	    <TextView
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:text="DATA PROVIDER"
+	        android:text="::DataProvider::"
 	        android:textStyle="bold" />
 		[for (aClass : Class | aClasses) separator('\n')]
-		[if (aClass.hasStereotype('WebInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+		[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
 			<Button
 		        android:id="@+id/btn[aClass.name.toUpperFirst()/]"
 		        android:layout_width="wrap_content"

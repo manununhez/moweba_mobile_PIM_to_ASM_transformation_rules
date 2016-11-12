@@ -3,15 +3,16 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 //End of user code
 	
 public class ProviderDAO {
 
-	private MySQLiteHelper mySQLiteHelper;
+	private SQLiteHelper mySQLiteHelper;
 
-		public ProviderDAO(MySQLiteHelper mySQLiteHelper) {
+		public ProviderDAO(SQLiteHelper mySQLiteHelper) {
 			this.mySQLiteHelper = mySQLiteHelper;
 		}
 
@@ -21,9 +22,9 @@ public class ProviderDAO {
 
 			ContentValues values = new ContentValues();
 			values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider().toString());		
-			values.put(ProviderTable.COLUMN_RUC, provider.getRuc().toString());		
-			values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription().toString());		
 			values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre().toString());		
+			values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription().toString());		
+			values.put(ProviderTable.COLUMN_RUC, provider.getRuc().toString());		
 			
 			// Inserting Row
 			db.insert(ProviderTable.TABLE_NAME, null, values);
@@ -37,7 +38,7 @@ public class ProviderDAO {
 			Provider provider = new Provider();
 
 			Cursor cursor = db.query(ProviderTable.TABLE_NAME, new String[] {
-					ProviderTable.COLUMN_IDPROVIDER, ProviderTable.COLUMN_RUC, ProviderTable.COLUMN_DESCRIPTION, ProviderTable.COLUMN_NOMBRE
+					ProviderTable.COLUMN_IDPROVIDER, ProviderTable.COLUMN_NOMBRE, ProviderTable.COLUMN_DESCRIPTION, ProviderTable.COLUMN_RUC
 					},	ProviderTable.COLUMN_IDPROVIDER + "=?",				
 					new String[] { String.valueOf(id) }, null, null, null, null);
 			
@@ -45,7 +46,7 @@ public class ProviderDAO {
 				cursor.moveToFirst();
 				
 				provider = new Provider(
-						Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), cursor.getString(3)				
+						Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2), Float.parseFloat(cursor.getString(3))				
 				); 
 
 				cursor.close();
@@ -69,7 +70,7 @@ public class ProviderDAO {
 				if (cursor.moveToFirst()) {
 					do {
 						Provider provider = new Provider(
-						Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), cursor.getString(4)
+						Integer.parseInt(cursor.getString(1)), cursor.getString(2), cursor.getString(3), Float.parseFloat(cursor.getString(4))
 						); 
 						
 						// Adding provider to list
@@ -107,9 +108,9 @@ public class ProviderDAO {
 
 				ContentValues values = new ContentValues();
 				values.put(ProviderTable.COLUMN_IDPROVIDER, provider.getIdProvider().toString());		
-				values.put(ProviderTable.COLUMN_RUC, provider.getRuc().toString());		
-				values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription().toString());		
 				values.put(ProviderTable.COLUMN_NOMBRE, provider.getNombre().toString());		
+				values.put(ProviderTable.COLUMN_DESCRIPTION, provider.getDescription().toString());		
+				values.put(ProviderTable.COLUMN_RUC, provider.getRuc().toString());		
 
 				// updating row
 				return db.update(ProviderTable.TABLE_NAME, values,

@@ -1,14 +1,16 @@
+
 //Start of user code imports
 import java.io.Serializable;
+import java.math.BigDecimal;
 //End of user code
 
 public class ShoppingCart  implements Serializable{
 	
 
 	/**
-	* the syncTime attribute.
+	* the idCart attribute.
 	*/
-	private BigDecimal syncTime;
+	private Integer idCart;
 
 
 	/**
@@ -18,9 +20,9 @@ public class ShoppingCart  implements Serializable{
 
 
 	/**
-	* the idCart attribute.
+	* the syncTime attribute.
 	*/
-	private Integer idCart;
+	private BigDecimal syncTime;
 	
 
 	/**
@@ -32,34 +34,34 @@ public class ShoppingCart  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public ShoppingCart (BigDecimal syncTime, Integer quantity, Integer idCart){
-		this.syncTime = syncTime;
-		this.quantity = quantity;
+	public ShoppingCart (Integer idCart, Integer quantity, BigDecimal syncTime){
 		this.idCart = idCart;
+		this.quantity = quantity;
+		this.syncTime = syncTime;
 	}
 
-	public BigDecimal getSyncTime() {
-       return this.syncTime;
+	public Integer getIdCart() {
+       return this.idCart;
      }
 
 	public Integer getQuantity() {
        return this.quantity;
      }
 
-	public Integer getIdCart() {
-       return this.idCart;
+	public BigDecimal getSyncTime() {
+       return this.syncTime;
      }
  
-     public void setSyncTime(BigDecimal syncTime) {
-        this.syncTime = syncTime;
+     public void setIdCart(Integer idCart) {
+        this.idCart = idCart;
      }
 
      public void setQuantity(Integer quantity) {
         this.quantity = quantity;
      }
 
-     public void setIdCart(Integer idCart) {
-        this.idCart = idCart;
+     public void setSyncTime(BigDecimal syncTime) {
+        this.syncTime = syncTime;
      }
 
 	public String getTotalCartPrice() {

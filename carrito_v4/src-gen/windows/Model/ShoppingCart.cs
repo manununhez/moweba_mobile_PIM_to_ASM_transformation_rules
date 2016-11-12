@@ -14,13 +14,13 @@ namespace CarritoDeCompras.Model
         public int Id { get; set; }
 
 		[DataMember]
-		public double syncTime { get; set; }
+		public int idCart { get; set; }
 
 		[DataMember]
 		public int quantity { get; set; }
 
 		[DataMember]
-		public int idCart { get; set; }
+		public double syncTime { get; set; }
 
 		/**
 		* Empty Constructor.
@@ -31,10 +31,24 @@ namespace CarritoDeCompras.Model
 		/**
 		* Constructor.
 		*/
-		public ShoppingCart (double syncTime, int quantity, int idCart){
-			this.syncTime = syncTime;     
-			this.quantity = quantity;     
+		public ShoppingCart (int idCart, int quantity, double syncTime){
 			this.idCart = idCart;     
+			this.quantity = quantity;     
+			this.syncTime = syncTime;     
+		}
+
+		public String getTotalCartPrice() {
+		// Start of user code getTotalCartPrice
+		// TODO should be implemented
+		// End of user code
+			return;
+		}
+
+		public int getCartProductCount() {
+		// Start of user code getCartProductCount
+		// TODO should be implemented
+		// End of user code
+			return;
 		}
     }
 }

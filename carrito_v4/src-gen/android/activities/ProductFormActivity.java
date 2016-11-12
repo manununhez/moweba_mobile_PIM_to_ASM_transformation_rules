@@ -9,18 +9,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.math.BigDecimal;
 //End of user code
 
 public class ProductFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieIdProvider; 
-	private TextInputEditText tiePrice; 
 	private TextInputEditText tieDescription; 
 	private TextInputEditText tieIdProducto; 
-	private TextInputEditText tieCode; 
 	private TextInputEditText tieName; 
+	private TextInputEditText tieIdProvider; 
 	private TextInputEditText tieIdImageProduct; 
+	private TextInputEditText tiePrice; 
+	private TextInputEditText tieCode; 
 	private Intent intent;
 
     @Override
@@ -39,13 +42,13 @@ public class ProductFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
-		tiePrice =  (TextInputEditText) findViewById(R.id.tiePrice); 
 		tieDescription =  (TextInputEditText) findViewById(R.id.tieDescription); 
 		tieIdProducto =  (TextInputEditText) findViewById(R.id.tieIdProducto); 
-		tieCode =  (TextInputEditText) findViewById(R.id.tieCode); 
 		tieName =  (TextInputEditText) findViewById(R.id.tieName); 
+		tieIdProvider =  (TextInputEditText) findViewById(R.id.tieIdProvider); 
 		tieIdImageProduct =  (TextInputEditText) findViewById(R.id.tieIdImageProduct); 
+		tiePrice =  (TextInputEditText) findViewById(R.id.tiePrice); 
+		tieCode =  (TextInputEditText) findViewById(R.id.tieCode); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -55,22 +58,27 @@ public class ProductFormActivity extends AppCompatActivity {
             loadProductData();
         }
 
-        MySQLiteHelper db = new MySQLiteHelper(this);
+        SQLiteHelper db = new SQLiteHelper(this);
         final ProductDAO productDAO = new ProductDAO(db);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Product product = getProductFromEditext();
-                if (booleanEditMode) {
-                    productDAO.updateProduct(product);
-                }else{
-                    productDAO.addProduct(product);
-                }
-
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
+				try {
+	               // Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.               
+	               Product product = getProductFromEditext();
+	                if (booleanEditMode) {
+	                    productDAO.updateProduct(product);
+	                }else{
+	                    productDAO.addProduct(product);
+	                }
+	
+	                Intent returnIntent = new Intent();
+	                setResult(Activity.RESULT_OK, returnIntent);
+	                finish();
+				}catch (Exception e){
+	                  Toast.makeText(ProductFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+				}
             }
         });
 
@@ -78,25 +86,25 @@ public class ProductFormActivity extends AppCompatActivity {
 
 	private void loadProductData(){
 		Product product = (Product) intent.getSerializableExtra("product");
-		tieIdProvider.setText(String.valueOf(product.getIdProvider()));
-		tiePrice.setText(product.getPrice());
 		tieDescription.setText(product.getDescription());
 		tieIdProducto.setText(String.valueOf(product.getIdProducto()));
-		tieCode.setText(String.valueOf(product.getCode()));
 		tieName.setText(product.getName());
+		tieIdProvider.setText(String.valueOf(product.getIdProvider()));
 		tieIdImageProduct.setText(String.valueOf(product.getIdImageProduct()));
+		tiePrice.setText(String.valueOf(product.getPrice()));
+		tieCode.setText(String.valueOf(product.getCode()));
 	}
 
     private Product getProductFromEditext() {
-		Integer idProvider = Integer.valueOf(tieIdProvider.getText().toString());
-		String price = tiePrice.getText().toString();
 		String description = tieDescription.getText().toString();
 		Integer idProducto = Integer.valueOf(tieIdProducto.getText().toString());
-		Integer code = Integer.valueOf(tieCode.getText().toString());
 		String name = tieName.getText().toString();
+		Integer idProvider = Integer.valueOf(tieIdProvider.getText().toString());
 		Integer idImageProduct = Integer.valueOf(tieIdImageProduct.getText().toString());
+		BigDecimal price = new BigDecimal(tiePrice.getText().toString());
+		Integer code = Integer.valueOf(tieCode.getText().toString());
         
-        return new Product(idProvider, price, description, idProducto, code, name, idImageProduct);
+        return new Product(description, idProducto, name, idProvider, idImageProduct, price, code);
     }
 
     @Override

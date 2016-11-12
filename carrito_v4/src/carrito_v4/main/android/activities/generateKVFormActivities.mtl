@@ -6,8 +6,6 @@
 
 
 [template public generateKVFormActivities(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('android/activities/', aClass, 'FormActivity','.java'), false)]
@@ -22,6 +20,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.math.BigDecimal;
 //[/protected]
 
 public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity {
@@ -52,9 +53,6 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
             public void onClick(View view) {
                 saveData();
 
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
             }
         });
 
@@ -64,7 +62,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 
     private void loadData() {
 		[for (p : Property | persistentEntityProperties)]
-		String [p.name.toLowerFirst()/] = MySharedPreferencesHelper.getValue([aClass.name.toUpperFirst()/]FormActivity.this, "[p.name.toLowerFirst()/]"); 
+		String [p.name.toLowerFirst()/] = StorageManager.getValue([aClass.name.toUpperFirst()/]FormActivity.this, "[p.name.toLowerFirst()/]"); 
 		[/for]
 
 		[for (p : Property | persistentEntityProperties)]
@@ -73,13 +71,26 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
     }
 
     private void saveData() {
+		
 		[for (p : Property | persistentEntityProperties)]
 		String [p.name.toLowerFirst()/] = tie[p.name.toUpperFirst()/].getText().toString(); 
 		[/for]
+	
+		try {
+			// Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.
+		    [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator (', ')][p.getJavaKVConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst())/][/for]);
 
-		[for (p : Property | persistentEntityProperties)]
-		MySharedPreferencesHelper.save([aClass.name.toUpperFirst()/]FormActivity.this, "[p.name.toLowerFirst()/]", [p.name.toLowerFirst()/]); 
-		[/for]
+			[for (p : Property | persistentEntityProperties)]
+			StorageManager.save([aClass.name.toUpperFirst()/]FormActivity.this, "[p.name.toLowerFirst()/]", [p.name.toLowerFirst()/]); 
+			[/for]
+	
+
+	        Intent returnIntent = new Intent();
+	        setResult(Activity.RESULT_OK, returnIntent);
+	        finish();
+		}catch (Exception e){
+            Toast.makeText(UserFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
@@ -97,13 +108,9 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateKVFormActivitiesLayout(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_form_','.xml'), false)]
@@ -142,7 +149,5 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 </LinearLayout>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 

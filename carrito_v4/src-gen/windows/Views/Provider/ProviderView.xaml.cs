@@ -52,10 +52,16 @@ namespace CarritoDeCompras.Views
 
 
         private void ReadAllProvider_Loaded(object sender, RoutedEventArgs e)
-        {        
-            providerList = provider.getAllProvider();//Get all DB provider  
-            listBoxobj.ItemsSource = providerList.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest provider ID can Display first.  
-            loadedElementsCount();
+        {     
+			try {   
+	            providerList = provider.getAllProvider();//Get all DB provider  
+	            listBoxobj.ItemsSource = providerList.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest provider ID can Display first.  
+	            loadedElementsCount();
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
 
         private void btnAddProvider_click(object sender, RoutedEventArgs e)
@@ -80,5 +86,3 @@ namespace CarritoDeCompras.Views
 
     }
 }
-
-

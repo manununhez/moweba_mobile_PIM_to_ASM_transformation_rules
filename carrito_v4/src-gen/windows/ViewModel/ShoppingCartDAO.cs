@@ -11,12 +11,12 @@ namespace CarritoDeCompras.ViewModels
 {
     class ShoppingCartDAO
     {
-        private SQLiteConnection dbConn = new SQLiteConnection(MySQLiteHelper.DbPath);
+        private SQLiteConnection dbConn = new SQLiteConnection(SQLiteHelper.DbPath);
 
         // Insert the new shoppingCart in the ShoppingCart table. 
         public void addShoppingCart(ShoppingCart shoppingCart)
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 dbConn.RunInTransaction(() =>
                 {
@@ -65,9 +65,9 @@ namespace CarritoDeCompras.ViewModels
                 var queryResult = dbConn.Query<ShoppingCart>("select * from ShoppingCart where idCart = "+ shoppingCart.idCart).FirstOrDefault();
                 if (queryResult != null)
                 {
-					queryResult.syncTime = shoppingCart.syncTime;		
-					queryResult.quantity = shoppingCart.quantity;		
 					queryResult.idCart = shoppingCart.idCart;		
+					queryResult.quantity = shoppingCart.quantity;		
+					queryResult.syncTime = shoppingCart.syncTime;		
 
                     dbConn.RunInTransaction(() =>
                     {
@@ -82,7 +82,7 @@ namespace CarritoDeCompras.ViewModels
         //Delete specific ShoppingCart 
         public void deleteShoppingCart(ShoppingCart shoppingCart)
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 var queryResult = dbConn.Query<ShoppingCart>("select * from ShoppingCart where idCart = "+ shoppingCart.idCart).FirstOrDefault();
 
@@ -98,7 +98,7 @@ namespace CarritoDeCompras.ViewModels
         //Delete all shoppingCartList or delete ShoppingCart table 
         public void deleteAllShoppingCart()
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 //dbConn.RunInTransaction(() => 
                 //   { 

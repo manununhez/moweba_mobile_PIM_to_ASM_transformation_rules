@@ -7,17 +7,20 @@
 [template public createWindowsDatabaseHelper(aPackage : Package, namespace : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[file ('windows/Common/MySQLiteHelper.cs', false)]
+[file ('windows/Common/SQLiteHelper.cs', false)]
 //[protected ('imports')]
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using [namespace.toUpperFirst()/].Model;
 using Windows.Storage;
+using Windows.UI.Popups;
 //[/protected]
 
 namespace [namespace.toUpperFirst()/].Common
 {
-    class MySQLiteHelper
+    class SQLiteHelper
     {
         //Database name
         public static string DbName = "[aPackage.name.toLowerFirst()/].sqlite";
@@ -39,7 +42,7 @@ namespace [namespace.toUpperFirst()/].Common
 					[for (aClass : Class | aClasses)]		
 					[if (aClass.hasStereotype('persistentEntity'))]
 					[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
-					connection.CreateTable<Model.[aClass.name.toUpperFirst()/]>();
+					connection.CreateTable<[aClass.name.toUpperFirst()/]>();
 					[/if]
 					[/if]		
 					[/for]
@@ -47,10 +50,14 @@ namespace [namespace.toUpperFirst()/].Common
                 }
 
                 connection.Close();
+                Debug.WriteLine("Base de datos creada correctamente.");
                 return true;
             }
             else
+            {
+                Debug.WriteLine("Error al crear la base de datos.");
                 return false;
+            }
         }
 
         public static async Task<bool> Checkdatabase()
@@ -63,8 +70,11 @@ namespace [namespace.toUpperFirst()/].Common
             }
             catch (Exception ex)
             {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
                 dbexist = false;
             }
+
             return dbexist;
         }
 
@@ -79,6 +89,8 @@ namespace [namespace.toUpperFirst()/].Common
             }
             catch (Exception ex)
             {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
             }
             return false;
         }

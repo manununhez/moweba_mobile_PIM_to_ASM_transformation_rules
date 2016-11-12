@@ -27,7 +27,7 @@
 
 	[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses)]		
-		[if (aClass.hasStereotype('WebInterface'))]
+		[if (aClass.hasStereotype('WebServiceInterface'))]
  	<!-- Para retrofit -->
     <uses-permission android:name="android.permission.INTERNET" />
 		[/if]
@@ -111,7 +111,7 @@
 
 	[if (aPackage.hasStereotype('DataProvider'))]
 	[for (aClass : Class | aClasses) separator('\n')]
-	[if (aClass.hasStereotype('WebInterface'))]
+	[if (aClass.hasStereotype('WebServiceInterface'))]
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
 		
 	[/if]

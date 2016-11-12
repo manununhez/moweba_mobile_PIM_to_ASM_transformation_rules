@@ -6,8 +6,6 @@
 
 
 [template public generateBDFormActivities(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('android/activities/', aClass, 'FormActivity','.java'), false)]
@@ -22,6 +20,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.math.BigDecimal;
 //[/protected]
 
 public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity {
@@ -60,22 +61,27 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
             load[aClass.name.toUpperFirst()/]Data();
         }
 
-        MySQLiteHelper db = new MySQLiteHelper(this);
+        SQLiteHelper db = new SQLiteHelper(this);
         final [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO(db);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = get[aClass.name.toUpperFirst()/]FromEditext();
-                if (booleanEditMode) {
-                    [aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
-                }else{
-                    [aClass.name.toLowerFirst()/]DAO.add[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
-                }
-
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
+				try {
+	               // Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.               
+	               [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = get[aClass.name.toUpperFirst()/]FromEditext();
+	                if (booleanEditMode) {
+	                    [aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
+	                }else{
+	                    [aClass.name.toLowerFirst()/]DAO.add[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
+	                }
+	
+	                Intent returnIntent = new Intent();
+	                setResult(Activity.RESULT_OK, returnIntent);
+	                finish();
+				}catch (Exception e){
+	                  Toast.makeText(ProductFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+				}
             }
         });
 
@@ -119,13 +125,9 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateBDFormActivitiesLayout(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_form_','.xml'), false)]
@@ -164,7 +166,5 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 </LinearLayout>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 

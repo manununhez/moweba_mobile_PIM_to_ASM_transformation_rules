@@ -14,7 +14,7 @@ public class ImageProductActivity extends AppCompatActivity {
 
 	private TextInputEditText tieIdImageProduct; 
 	private TextInputEditText tieImage; 
- 	private static String FILENAME = "prueba.txt";
+ 	private static String FILENAME = "ImageProductFile.txt";
     private static String FILE_ENCODING = "UTF-8";
 
     @Override
@@ -40,14 +40,16 @@ public class ImageProductActivity extends AppCompatActivity {
         btnReadFromFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                etContent.setText(MyFilesHelper.readFile(getFilesDir().getPath() + FILENAME, FILE_ENCODING));
+                etContent.setText(FilesHelper.readFile(getFilesDir().getPath() + FILENAME, FILE_ENCODING));
+                Toast.makeText(ImageProductActivity.this, "Leyendo: "+getFilesDir().getPath() + FILENAME, Toast.LENGTH_SHORT).show();
             }
         });
 
         btnWriteToFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyFilesHelper.writeFile(getFilesDir().getPath() + FILENAME, getContent());
+                FilesHelper.writeFile(getFilesDir().getPath() + FILENAME, getContent());
+                Toast.makeText(ImageProductActivity.this, "Escribiendo en: "+getFilesDir().getPath() + FILENAME, Toast.LENGTH_SHORT).show();
             }
         });
     }

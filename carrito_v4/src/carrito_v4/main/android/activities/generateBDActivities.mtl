@@ -5,9 +5,6 @@
 [import common::utils_gen/]
 
 [template public generateBDActivities(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
-
 [file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
 
 //[protected ('imports')]
@@ -33,7 +30,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private [aClass.name.toUpperFirst()/]Adapter mAdapter;
     private List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new ArrayList<>();
-    private MySQLiteHelper db;
+    private SQLiteHelper db;
     private TextView tvDataCount;
     private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO;
 
@@ -48,7 +45,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
             actionBar.setTitle("[aClass.name.toUpperFirst()/]");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        db = new MySQLiteHelper(this);
+        db = new SQLiteHelper(this);
         [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO(db);
 
         tvDataCount = (TextView) findViewById(R.id.tvDataCount);
@@ -123,14 +120,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 }
 
 [/file]
-[/if]
-[/if]
 [/template]
 
 [template public generateaBDActivitiesLayout(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
-
 [file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -190,6 +182,4 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 </LinearLayout>
 
 [/file]
-[/if]
-[/if]
 [/template]

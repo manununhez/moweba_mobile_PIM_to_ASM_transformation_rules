@@ -12,7 +12,7 @@ namespace CarritoDeCompras.Views
     public sealed partial class ImageProductView : Page
     {
         private NavigationHelper navigationHelper;
-        private string FILENAME = "prueba.txt";
+        private string FILENAME = "ImageProductFile.txt";
 
         public ImageProductView()
         {
@@ -50,12 +50,12 @@ namespace CarritoDeCompras.Views
         private async void btnWriteFile_Click(object sender, RoutedEventArgs e)
         {
 			String content = idImageProductTbx.Text + "," + imageTbx.Text;
-            await FileHelper.WriteTextFile(FILENAME, content);
+            await FilesHelper.WriteTextFile(FILENAME, content);
         }
 
         private async void btnReadFile_Click(object sender, RoutedEventArgs e)
         {
-            ResultTbx.Text = await FileHelper.ReadTextFile(FILENAME);
+            ResultTbx.Text = await FilesHelper.ReadTextFile(FILENAME);
         }
     }
 }

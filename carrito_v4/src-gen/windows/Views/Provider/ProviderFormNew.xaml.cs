@@ -53,11 +53,18 @@ namespace CarritoDeCompras.Views
         private async void btnAddProvider_Click(object sender, RoutedEventArgs e)
         {
      		ProviderDAO providerDAO = new ProviderDAO();
-			if(idProviderTbx.Text != "" & rucTbx.Text != "" & descriptionTbx.Text != "" & nombreTbx.Text != "")
+			if(idProviderTbx.Text != "" & nombreTbx.Text != "" & descriptionTbx.Text != "" & rucTbx.Text != "")
             {
-				providerDAO.addProvider(new Provider(Int32.Parse(idProviderTbx.Text), rucTbx.Text, descriptionTbx.Text, nombreTbx.Text)); 			
-
-                Frame.Navigate(typeof(ProviderView));//after add provider redirect to provider listbox page
+				try {
+					providerDAO.addProvider(new Provider(Int32.Parse(idProviderTbx.Text), nombreTbx.Text, descriptionTbx.Text, float.Parse(rucTbx.Text, CultureInfo.InvariantCulture.NumberFormat))); 			
+	
+	                Frame.Navigate(typeof(ProviderView));//after add provider redirect to provider listbox page
+				}
+                catch (Exception ex)
+                {
+                    await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                    Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+                }
             }
             else
             {

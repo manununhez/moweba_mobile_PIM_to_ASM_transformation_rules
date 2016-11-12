@@ -5,8 +5,6 @@
 [import common::utils_gen/]
 
 [template public generateFileActivities(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
@@ -27,7 +25,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     [for (p : Property | persistentEntityProperties)]
 	private TextInputEditText tie[p.name.toUpperFirst()/]; 
 	[/for]
- 	private static String FILENAME = "prueba.txt";
+ 	private static String FILENAME = "[aClass.name.toUpperFirst()/]File.txt";
     private static String FILE_ENCODING = "UTF-8";
 
     @Override
@@ -54,14 +52,16 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         btnReadFromFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                etContent.setText(MyFilesHelper.readFile(getFilesDir().getPath() + FILENAME, FILE_ENCODING));
+                etContent.setText(FilesHelper.readFile(getFilesDir().getPath() + FILENAME, FILE_ENCODING));
+                Toast.makeText(ImageProductActivity.this, "Leyendo: "+getFilesDir().getPath() + FILENAME, Toast.LENGTH_SHORT).show();
             }
         });
 
         btnWriteToFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyFilesHelper.writeFile(getFilesDir().getPath() + FILENAME, getContent());
+                FilesHelper.writeFile(getFilesDir().getPath() + FILENAME, getContent());
+                Toast.makeText(ImageProductActivity.this, "Escribiendo en: "+getFilesDir().getPath() + FILENAME, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -85,13 +85,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateFileActivitiesLayout(aClass : Class)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
@@ -147,6 +143,4 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]

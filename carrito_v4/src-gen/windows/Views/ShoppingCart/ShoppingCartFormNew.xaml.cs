@@ -53,11 +53,18 @@ namespace CarritoDeCompras.Views
         private async void btnAddShoppingCart_Click(object sender, RoutedEventArgs e)
         {
      		ShoppingCartDAO shoppingCartDAO = new ShoppingCartDAO();
-			if(syncTimeTbx.Text != "" & quantityTbx.Text != "" & idCartTbx.Text != "")
+			if(idCartTbx.Text != "" & quantityTbx.Text != "" & syncTimeTbx.Text != "")
             {
-				shoppingCartDAO.addShoppingCart(new ShoppingCart(double.Parse(syncTimeTbx.Text, System.Globalization.CultureInfo.InvariantCulture), Int32.Parse(quantityTbx.Text), Int32.Parse(idCartTbx.Text))); 			
-
-                Frame.Navigate(typeof(ShoppingCartView));//after add shoppingCart redirect to shoppingCart listbox page
+				try {
+					shoppingCartDAO.addShoppingCart(new ShoppingCart(Int32.Parse(idCartTbx.Text), Int32.Parse(quantityTbx.Text), double.Parse(syncTimeTbx.Text, System.Globalization.CultureInfo.InvariantCulture))); 			
+	
+	                Frame.Navigate(typeof(ShoppingCartView));//after add shoppingCart redirect to shoppingCart listbox page
+				}
+                catch (Exception ex)
+                {
+                    await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                    Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+                }
             }
             else
             {

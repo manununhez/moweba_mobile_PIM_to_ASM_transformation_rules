@@ -6,15 +6,16 @@
 
 
 [template public generateKVDeleteUpdateFormPage(aClass : Class, namespace : String)]
-
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormDeleteUpdate','.xaml.cs'), false)]
 //[protected ('imports')]
 using [namespace/].Common;
 using [namespace/].Model;
+using System;
+using System.Diagnostics;
+using System.Globalization;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -27,7 +28,7 @@ namespace [namespace/].Views
     public sealed partial class [aClass.name.toUpperFirst()/]FormDeleteUpdate : Page
     {
         private NavigationHelper navigationHelper;
-        private Model.User selectedUser;
+        private [aClass.name.toUpperFirst()/] selected[aClass.name.toUpperFirst()/];
 
         public [aClass.name.toUpperFirst()/]FormDeleteUpdate()
         {
@@ -76,21 +77,37 @@ namespace [namespace/].Views
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-        private void btnDelete_click(object sender, RoutedEventArgs e)
+        private async void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            [aClass.name.toUpperFirst()/] user = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator(', ')][p.name.toLowerFirst()/]Tbx.Text[/for]);
-            StorageManager storage = new StorageManager("dataPersistence", false);
-            storage.Remove("[aClass.name.toLowerFirst()/]");
-            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+		 	try
+            {
+	            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for]);
+	            StorageManager storage = new StorageManager("dataPersistence", false);
+	            storage.Remove("[aClass.name.toLowerFirst()/]");
+	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			}
+            catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
 
         }
 
-        private void btnUpdate_click(object sender, RoutedEventArgs e)
+        private async void btnUpdate_click(object sender, RoutedEventArgs e)
         {
-            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator(', ')][p.name.toLowerFirst()/]Tbx.Text[/for]);
-            StorageManager storage = new StorageManager("dataPersistence", false);
-            storage.Save("[aClass.name.toLowerFirst()/]", [aClass.name.toLowerFirst()/]);
-            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			try
+            {
+	            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for]);
+	            StorageManager storage = new StorageManager("dataPersistence", false);
+	            storage.Save("[aClass.name.toLowerFirst()/]", [aClass.name.toLowerFirst()/]);
+	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			}
+            catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
 
     }
@@ -98,14 +115,9 @@ namespace [namespace/].Views
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateKVDeleteUpdateFormPageLayout(aClass : Class, namespace : String)]
-
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'KeyValue')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormDeleteUpdate','.xaml'), false)]
@@ -135,7 +147,5 @@ namespace [namespace/].Views
 </Page>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 

@@ -6,8 +6,6 @@
 
 
 [template public generateBDDeleteUpdateFormPage(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormDeleteUpdate','.xaml.cs'), false)]
@@ -79,9 +77,15 @@ namespace [namespace/].Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/](selected[aClass.name.toUpperFirst()/]);//Delete selected DB contact Id. 
-            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
-        }
+			try{
+	            [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/](selected[aClass.name.toUpperFirst()/]);//Delete selected DB contact Id. 
+	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+	     }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
@@ -90,21 +94,22 @@ namespace [namespace/].Views
 			current[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/] = [p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/];
 			[/for]
 
-			[aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/](current[aClass.name.toUpperFirst()/]);//Update selected DB current [aClass.name.toLowerFirst()/]
-            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			try{
+				[aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/](current[aClass.name.toUpperFirst()/]);//Update selected DB current [aClass.name.toLowerFirst()/]
+	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
     }
 }
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateBDDeleteUpdateFormPageLayout(aClass : Class, namespace : String)]
-
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormDeleteUpdate','.xaml'), false)]
@@ -135,7 +140,5 @@ namespace [namespace/].Views
 </Page>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 

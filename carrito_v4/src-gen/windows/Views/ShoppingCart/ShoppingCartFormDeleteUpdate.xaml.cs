@@ -48,9 +48,9 @@ namespace CarritoDeCompras.Views
                 selectedShoppingCart = e.Parameter as ShoppingCart;
 				if (selectedShoppingCart != null)
                 {
-					syncTimeTbx.Text = Convert.ToString(selectedShoppingCart.syncTime);
-					quantityTbx.Text = Convert.ToString(selectedShoppingCart.quantity);
 					idCartTbx.Text = Convert.ToString(selectedShoppingCart.idCart);
+					quantityTbx.Text = Convert.ToString(selectedShoppingCart.quantity);
+					syncTimeTbx.Text = Convert.ToString(selectedShoppingCart.syncTime);
 				}
             }
         }
@@ -62,19 +62,31 @@ namespace CarritoDeCompras.Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            shoppingCartDAO.deleteShoppingCart(selectedShoppingCart);//Delete selected DB contact Id. 
-            Frame.Navigate(typeof(ShoppingCartView));
-        }
+			try{
+	            shoppingCartDAO.deleteShoppingCart(selectedShoppingCart);//Delete selected DB contact Id. 
+	            Frame.Navigate(typeof(ShoppingCartView));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+	     }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
             ShoppingCart currentShoppingCart = new ShoppingCart();
-			currentShoppingCart.syncTime = double.Parse(syncTimeTbx.Text, System.Globalization.CultureInfo.InvariantCulture);
-			currentShoppingCart.quantity = Int32.Parse(quantityTbx.Text);
 			currentShoppingCart.idCart = Int32.Parse(idCartTbx.Text);
+			currentShoppingCart.quantity = Int32.Parse(quantityTbx.Text);
+			currentShoppingCart.syncTime = double.Parse(syncTimeTbx.Text, System.Globalization.CultureInfo.InvariantCulture);
 
-			shoppingCartDAO.updateShoppingCart(currentShoppingCart);//Update selected DB current shoppingCart
-            Frame.Navigate(typeof(ShoppingCartView));
+			try{
+				shoppingCartDAO.updateShoppingCart(currentShoppingCart);//Update selected DB current shoppingCart
+	            Frame.Navigate(typeof(ShoppingCartView));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
     }
 }

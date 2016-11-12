@@ -9,14 +9,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import java.math.BigDecimal;
 //End of user code
 
 public class ShoppingCartFormActivity extends AppCompatActivity {
     private Boolean booleanEditMode = false;
 
-	private TextInputEditText tieSyncTime; 
-	private TextInputEditText tieQuantity; 
 	private TextInputEditText tieIdCart; 
+	private TextInputEditText tieQuantity; 
+	private TextInputEditText tieSyncTime; 
 	private Intent intent;
 
     @Override
@@ -35,9 +38,9 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-		tieSyncTime =  (TextInputEditText) findViewById(R.id.tieSyncTime); 
-		tieQuantity =  (TextInputEditText) findViewById(R.id.tieQuantity); 
 		tieIdCart =  (TextInputEditText) findViewById(R.id.tieIdCart); 
+		tieQuantity =  (TextInputEditText) findViewById(R.id.tieQuantity); 
+		tieSyncTime =  (TextInputEditText) findViewById(R.id.tieSyncTime); 
 
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
@@ -47,22 +50,27 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
             loadShoppingCartData();
         }
 
-        MySQLiteHelper db = new MySQLiteHelper(this);
+        SQLiteHelper db = new SQLiteHelper(this);
         final ShoppingCartDAO shoppingCartDAO = new ShoppingCartDAO(db);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               ShoppingCart shoppingCart = getShoppingCartFromEditext();
-                if (booleanEditMode) {
-                    shoppingCartDAO.updateShoppingCart(shoppingCart);
-                }else{
-                    shoppingCartDAO.addShoppingCart(shoppingCart);
-                }
-
-                Intent returnIntent = new Intent();
-                setResult(Activity.RESULT_OK, returnIntent);
-                finish();
+				try {
+	               // Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.               
+	               ShoppingCart shoppingCart = getShoppingCartFromEditext();
+	                if (booleanEditMode) {
+	                    shoppingCartDAO.updateShoppingCart(shoppingCart);
+	                }else{
+	                    shoppingCartDAO.addShoppingCart(shoppingCart);
+	                }
+	
+	                Intent returnIntent = new Intent();
+	                setResult(Activity.RESULT_OK, returnIntent);
+	                finish();
+				}catch (Exception e){
+	                  Toast.makeText(ProductFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+				}
             }
         });
 
@@ -70,17 +78,17 @@ public class ShoppingCartFormActivity extends AppCompatActivity {
 
 	private void loadShoppingCartData(){
 		ShoppingCart shoppingCart = (ShoppingCart) intent.getSerializableExtra("shoppingCart");
-		tieSyncTime.setText(String.valueOf(shoppingCart.getSyncTime()));
-		tieQuantity.setText(String.valueOf(shoppingCart.getQuantity()));
 		tieIdCart.setText(String.valueOf(shoppingCart.getIdCart()));
+		tieQuantity.setText(String.valueOf(shoppingCart.getQuantity()));
+		tieSyncTime.setText(String.valueOf(shoppingCart.getSyncTime()));
 	}
 
     private ShoppingCart getShoppingCartFromEditext() {
-		BigDecimal syncTime = new BigDecimal(tieSyncTime.getText().toString());
-		Integer quantity = Integer.valueOf(tieQuantity.getText().toString());
 		Integer idCart = Integer.valueOf(tieIdCart.getText().toString());
+		Integer quantity = Integer.valueOf(tieQuantity.getText().toString());
+		BigDecimal syncTime = new BigDecimal(tieSyncTime.getText().toString());
         
-        return new ShoppingCart(syncTime, quantity, idCart);
+        return new ShoppingCart(idCart, quantity, syncTime);
     }
 
     @Override

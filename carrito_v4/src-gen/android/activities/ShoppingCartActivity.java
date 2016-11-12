@@ -22,7 +22,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ShoppingCartAdapter mAdapter;
     private List<ShoppingCart> shoppingCartList = new ArrayList<>();
-    private MySQLiteHelper db;
+    private SQLiteHelper db;
     private TextView tvDataCount;
     private ShoppingCartDAO shoppingCartDAO;
 
@@ -37,7 +37,7 @@ public class ShoppingCartActivity extends AppCompatActivity {
             actionBar.setTitle("ShoppingCart");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        db = new MySQLiteHelper(this);
+        db = new SQLiteHelper(this);
         shoppingCartDAO = new ShoppingCartDAO(db);
 
         tvDataCount = (TextView) findViewById(R.id.tvDataCount);

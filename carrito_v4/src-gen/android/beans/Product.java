@@ -1,21 +1,11 @@
+
 //Start of user code imports
 import java.io.Serializable;
+import java.math.BigDecimal;
 //End of user code
 
 public class Product  implements Serializable{
 	
-
-	/**
-	* the idProvider attribute.
-	*/
-	private Integer idProvider;
-
-
-	/**
-	* the price attribute.
-	*/
-	private String price;
-
 
 	/**
 	* the description attribute.
@@ -30,21 +20,33 @@ public class Product  implements Serializable{
 
 
 	/**
-	* the code attribute.
-	*/
-	private Integer code;
-
-
-	/**
 	* the name attribute.
 	*/
 	private String name;
 
 
 	/**
+	* the idProvider attribute.
+	*/
+	private Integer idProvider;
+
+
+	/**
 	* the idImageProduct attribute.
 	*/
 	private Integer idImageProduct;
+
+
+	/**
+	* the price attribute.
+	*/
+	private BigDecimal price;
+
+
+	/**
+	* the code attribute.
+	*/
+	private Integer code;
 	
 
 	/**
@@ -56,23 +58,15 @@ public class Product  implements Serializable{
 	/**
 	* Constructor.
 	*/
-	public Product (Integer idProvider, String price, String description, Integer idProducto, Integer code, String name, Integer idImageProduct){
-		this.idProvider = idProvider;
-		this.price = price;
+	public Product (String description, Integer idProducto, String name, Integer idProvider, Integer idImageProduct, BigDecimal price, Integer code){
 		this.description = description;
 		this.idProducto = idProducto;
-		this.code = code;
 		this.name = name;
+		this.idProvider = idProvider;
 		this.idImageProduct = idImageProduct;
+		this.price = price;
+		this.code = code;
 	}
-
-	public Integer getIdProvider() {
-       return this.idProvider;
-     }
-
-	public String getPrice() {
-       return this.price;
-     }
 
 	public String getDescription() {
        return this.description;
@@ -82,26 +76,26 @@ public class Product  implements Serializable{
        return this.idProducto;
      }
 
-	public Integer getCode() {
-       return this.code;
-     }
-
 	public String getName() {
        return this.name;
+     }
+
+	public Integer getIdProvider() {
+       return this.idProvider;
      }
 
 	public Integer getIdImageProduct() {
        return this.idImageProduct;
      }
+
+	public BigDecimal getPrice() {
+       return this.price;
+     }
+
+	public Integer getCode() {
+       return this.code;
+     }
  
-     public void setIdProvider(Integer idProvider) {
-        this.idProvider = idProvider;
-     }
-
-     public void setPrice(String price) {
-        this.price = price;
-     }
-
      public void setDescription(String description) {
         this.description = description;
      }
@@ -110,16 +104,24 @@ public class Product  implements Serializable{
         this.idProducto = idProducto;
      }
 
-     public void setCode(Integer code) {
-        this.code = code;
-     }
-
      public void setName(String name) {
         this.name = name;
      }
 
+     public void setIdProvider(Integer idProvider) {
+        this.idProvider = idProvider;
+     }
+
      public void setIdImageProduct(Integer idImageProduct) {
         this.idImageProduct = idImageProduct;
+     }
+
+     public void setPrice(BigDecimal price) {
+        this.price = price;
+     }
+
+     public void setCode(Integer code) {
+        this.code = code;
      }
 
 	public String getProductPriceWithCurrency() {

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 	        });
 			
 
+
 			Button btnHardwareDevice = (Button) findViewById(R.id.btnHardwareDevice);
 			btnHardwareDevice.setOnClickListener(new View.OnClickListener() {
 	            @Override
@@ -37,10 +38,9 @@ public class MainActivity extends AppCompatActivity {
 	            }
 	        });
 			
-
 	
 
-
+		
 			//Handle incoming data
 	        Intent intent = getIntent();
 	        String action = intent.getAction();
@@ -48,12 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
 			//all the data type options to receive
 	        if (Intent.ACTION_SEND.equals(action) && type != null) {
-	            if ("text/plain".equals(type)) {
+				
+				if ("text/plain".equals(type)) {
 	                handleSendText(intent, "text"); // Handle text being sent
-	            } else if (type.startsWith("image/"))
-	            {
-	                handleSendData(intent,"image" ); // Handle single image being sent
-	            } else if (type.startsWith("audio/"))
+	            }
+	        
+				
+				if (type.startsWith("audio/"))
 	            {
 	                handleSendData(intent,"audio" ); // Handle single audio being sent
 	
@@ -64,13 +65,26 @@ public class MainActivity extends AppCompatActivity {
 	            {
 	                handleSendData(intent,"application" ); // Handle single file being sent
 	            }
-	        }
+	        
+				
+				if (type.startsWith("image/"))
+	            {
+	                handleSendData(intent,"image" ); // Handle single image being sent
+	            }  
+	        
+				
+				if ("text/plain".equals(type)) {
+	                handleSendText(intent, "text"); // Handle text being sent
+	            }
+	        
+			}
 
-			Button btnProvider = (Button) findViewById(R.id.btnProvider);
-			btnProvider.setOnClickListener(new View.OnClickListener() {
+
+			Button btnUser = (Button) findViewById(R.id.btnUser);
+			btnUser.setOnClickListener(new View.OnClickListener() {
 	            @Override
 	            public void onClick(View view) {
-	                startActivity(new Intent(MainActivity.this, ProviderActivity.class));
+	                startActivity(new Intent(MainActivity.this, UserActivity.class));
 	            }
 	        });
 
@@ -90,6 +104,14 @@ public class MainActivity extends AppCompatActivity {
 	            }
 	        });
 
+			Button btnProvider = (Button) findViewById(R.id.btnProvider);
+			btnProvider.setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, ProviderActivity.class));
+	            }
+	        });
+
 			Button btnImageProduct = (Button) findViewById(R.id.btnImageProduct);
 			btnImageProduct.setOnClickListener(new View.OnClickListener() {
 	            @Override
@@ -97,19 +119,10 @@ public class MainActivity extends AppCompatActivity {
 	                startActivity(new Intent(MainActivity.this, ImageProductActivity.class));
 	            }
 	        });
-
-			Button btnUser = (Button) findViewById(R.id.btnUser);
-			btnUser.setOnClickListener(new View.OnClickListener() {
-	            @Override
-	            public void onClick(View view) {
-	                startActivity(new Intent(MainActivity.this, UserActivity.class));
-	            }
-	        });
 	
 
 	
     }
-
 
     void handleSendText(Intent intent, String type) {
         String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
@@ -127,4 +140,5 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 }

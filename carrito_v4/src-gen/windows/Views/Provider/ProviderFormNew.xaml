@@ -19,12 +19,12 @@
             <StackPanel Margin="20,129,19,0" Grid.RowSpan="4">
                 <TextBlock Text="idProvider" FontSize="14"/>
                 <TextBox x:Name="idProviderTbx" TextWrapping="Wrap" Width="350"/>
-                <TextBlock Text="ruc" FontSize="14"/>
-                <TextBox x:Name="rucTbx" TextWrapping="Wrap" Width="350"/>
-                <TextBlock Text="description" FontSize="14"/>
-                <TextBox x:Name="descriptionTbx" TextWrapping="Wrap" Width="350"/>
                 <TextBlock Text="nombre" FontSize="14"/>
                 <TextBox x:Name="nombreTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="description" FontSize="14"/>
+                <TextBox x:Name="descriptionTbx" TextWrapping="Wrap" Width="350"/>
+                <TextBlock Text="ruc" FontSize="14"/>
+                <TextBox x:Name="rucTbx" TextWrapping="Wrap" Width="350"/>
                 <Button x:Name="btnAddProvider" Content="Add Provider" HorizontalAlignment="Center"  Height="71" Width="304" Click="btnAddProvider_Click"/>
             </StackPanel>
         </Grid>                 

@@ -11,12 +11,12 @@ namespace CarritoDeCompras.ViewModels
 {
     class ProviderDAO
     {
-        private SQLiteConnection dbConn = new SQLiteConnection(MySQLiteHelper.DbPath);
+        private SQLiteConnection dbConn = new SQLiteConnection(SQLiteHelper.DbPath);
 
         // Insert the new provider in the Provider table. 
         public void addProvider(Provider provider)
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 dbConn.RunInTransaction(() =>
                 {
@@ -66,9 +66,9 @@ namespace CarritoDeCompras.ViewModels
                 if (queryResult != null)
                 {
 					queryResult.idProvider = provider.idProvider;		
-					queryResult.ruc = provider.ruc;		
-					queryResult.description = provider.description;		
 					queryResult.nombre = provider.nombre;		
+					queryResult.description = provider.description;		
+					queryResult.ruc = provider.ruc;		
 
                     dbConn.RunInTransaction(() =>
                     {
@@ -83,7 +83,7 @@ namespace CarritoDeCompras.ViewModels
         //Delete specific Provider 
         public void deleteProvider(Provider provider)
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 var queryResult = dbConn.Query<Provider>("select * from Provider where idProvider = "+ provider.idProvider).FirstOrDefault();
 
@@ -99,7 +99,7 @@ namespace CarritoDeCompras.ViewModels
         //Delete all providerList or delete Provider table 
         public void deleteAllProvider()
         {
-            using (var dbConn = new SQLiteConnection(MySQLiteHelper.DbPath))
+            using (dbConn)
             {
                 //dbConn.RunInTransaction(() => 
                 //   { 

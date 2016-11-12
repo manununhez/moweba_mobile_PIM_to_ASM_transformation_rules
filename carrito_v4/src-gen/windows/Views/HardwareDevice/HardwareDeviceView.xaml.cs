@@ -1,6 +1,8 @@
+
 //Start of user code imports
 using CarritoDeCompras.Common;
 using System;
+using System.Diagnostics;
 using Windows.Devices.Geolocation;
 using Windows.Devices.Sensors;
 using Windows.Foundation;
@@ -15,10 +17,10 @@ namespace CarritoDeCompras.Views
     public sealed partial class HardwareDeviceView : Page
     {
         private NavigationHelper navigationHelper;	
-	    public Gyrometer mGyroscopeGyroscope { get; set; }
 	    public LightSensor mAmbientLightLight { get; set; }
-	    public Compass mCompassIntentCompass { get; set; }
 		public Accelerometer mAccelerometerAccelerometer { get; set; }
+	    public Gyrometer mGyroscopeGyroscope { get; set; }
+	    public Compass mCompassIntentCompass { get; set; }
         //Use for get efficient signal intervals between accelerometer responses
         private uint desiredReportInterval { get; set; }
         
@@ -30,31 +32,31 @@ namespace CarritoDeCompras.Views
             this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
             this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
 
-		    mGyroscopeGyroscope = Gyrometer.GetDefault();
 		    mAmbientLightLight = LightSensor.GetDefault();
-		    mCompassIntentCompass = Compass.GetDefault();
 			mAccelerometerAccelerometer = Accelerometer.GetDefault();
+		    mGyroscopeGyroscope = Gyrometer.GetDefault();
+		    mCompassIntentCompass = Compass.GetDefault();
 
-            if (mGyroscopeGyroscope != null && mAmbientLightLight != null && mCompassIntentCompass != null && mAccelerometerAccelerometer != null)
+            if (mAmbientLightLight != null && mAccelerometerAccelerometer != null && mGyroscopeGyroscope != null && mCompassIntentCompass != null)
 			{
                 // Select a report interval that is both suitable for the purposes of the app and supported by the sensor.
                 // This value will be used later to activate the sensor.
                 uint minReportInterval;
 
 			//add event for sensors readings
-             mGyroscopeGyroscope.ReadingChanged += new TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>(ReadingChanged);
-			
-			//add event for sensors readings
             mAmbientLightLight.ReadingChanged += new TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>(ReadingChanged);
-			
-			//add event for sensors readings
-            mCompassIntentCompass.ReadingChanged += new TypedEventHandler<Compass, CompassReadingChangedEventArgs>(ReadingChanged);
 			
 			minReportInterval = mAccelerometerAccelerometer.MinimumReportInterval;
             desiredReportInterval = minReportInterval > 16 ? minReportInterval : 16;
 			mAccelerometerAccelerometer.ReportInterval = desiredReportInterval;
 			//add event for sensors readings
             mAccelerometerAccelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
+			
+			//add event for sensors readings
+             mGyroscopeGyroscope.ReadingChanged += new TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>(ReadingChanged);
+			
+			//add event for sensors readings
+            mCompassIntentCompass.ReadingChanged += new TypedEventHandler<Compass, CompassReadingChangedEventArgs>(ReadingChanged);
 			
 
             }
@@ -147,10 +149,6 @@ namespace CarritoDeCompras.Views
             });
         }
 
-	    private void btnMyMicAudioRecord_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(AudioRecordView));
-        }
 	    private async void btnMyLocationGPS_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Geolocator geolocator = new Geolocator();
@@ -168,10 +166,14 @@ namespace CarritoDeCompras.Views
             }
             //If an error is catch 2 are the main causes: the first is that you forgot to include ID_CAP_LOCATION in your app manifest. 
             //The second is that the user doesn't turned on the Location Services
-            catch (Exception ex)
-            {
-                //exception
+            catch (Exception ex) {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
             }
+        }
+	    private void btnMyMicAudioRecord_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AudioRecordView));
         }
         private void btnCameraIntentCamera_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

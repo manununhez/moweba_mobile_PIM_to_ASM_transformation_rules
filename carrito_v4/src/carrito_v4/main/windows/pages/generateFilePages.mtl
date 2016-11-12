@@ -5,8 +5,6 @@
 [import common::utils_gen/]
 
 [template public generateFilePages(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
@@ -24,7 +22,7 @@ namespace [namespace/].Views
     public sealed partial class [aClass.name.toUpperFirst()/]View : Page
     {
         private NavigationHelper navigationHelper;
-        private string FILENAME = "prueba.txt";
+        private string FILENAME = "[aClass.name.toUpperFirst()/]File.txt";
 
         public [aClass.name.toUpperFirst()/]View()
         {
@@ -62,25 +60,21 @@ namespace [namespace/].Views
         private async void btnWriteFile_Click(object sender, RoutedEventArgs e)
         {
 			String content = [for (p : Property | persistentEntityProperties) separator(' + "," + ')][p.name.toLowerFirst()/]Tbx.Text[/for];
-            await FileHelper.WriteTextFile(FILENAME, content);
+            await FilesHelper.WriteTextFile(FILENAME, content);
         }
 
         private async void btnReadFile_Click(object sender, RoutedEventArgs e)
         {
-            ResultTbx.Text = await FileHelper.ReadTextFile(FILENAME);
+            ResultTbx.Text = await FilesHelper.ReadTextFile(FILENAME);
         }
     }
 }
 
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]
 
 [template public generateFilePagesLayout(aClass : Class, namespace : String)]
-[if (aClass.hasStereotype('persistentEntity'))]
-[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
 [file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
@@ -113,6 +107,4 @@ namespace [namespace/].Views
 </Page>
 [/file]
 [/let]
-[/if]
-[/if]
 [/template]

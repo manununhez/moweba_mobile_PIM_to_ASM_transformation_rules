@@ -49,9 +49,9 @@ namespace CarritoDeCompras.Views
 				if (selectedProvider != null)
                 {
 					idProviderTbx.Text = Convert.ToString(selectedProvider.idProvider);
-					rucTbx.Text = selectedProvider.ruc;
-					descriptionTbx.Text = selectedProvider.description;
 					nombreTbx.Text = selectedProvider.nombre;
+					descriptionTbx.Text = selectedProvider.description;
+					rucTbx.Text = Convert.ToString(selectedProvider.ruc);
 				}
             }
         }
@@ -63,20 +63,32 @@ namespace CarritoDeCompras.Views
 
         private void btnDelete_click(object sender, RoutedEventArgs e)
         {
-            providerDAO.deleteProvider(selectedProvider);//Delete selected DB contact Id. 
-            Frame.Navigate(typeof(ProviderView));
-        }
+			try{
+	            providerDAO.deleteProvider(selectedProvider);//Delete selected DB contact Id. 
+	            Frame.Navigate(typeof(ProviderView));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+	     }
 
         private void btnUpdate_click(object sender, RoutedEventArgs e)
         {
             Provider currentProvider = new Provider();
 			currentProvider.idProvider = Int32.Parse(idProviderTbx.Text);
-			currentProvider.ruc = rucTbx.Text;
-			currentProvider.description = descriptionTbx.Text;
 			currentProvider.nombre = nombreTbx.Text;
+			currentProvider.description = descriptionTbx.Text;
+			currentProvider.ruc = float.Parse(rucTbx.Text, CultureInfo.InvariantCulture.NumberFormat);
 
-			providerDAO.updateProvider(currentProvider);//Update selected DB current provider
-            Frame.Navigate(typeof(ProviderView));
+			try{
+				providerDAO.updateProvider(currentProvider);//Update selected DB current provider
+	            Frame.Navigate(typeof(ProviderView));
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
         }
     }
 }
