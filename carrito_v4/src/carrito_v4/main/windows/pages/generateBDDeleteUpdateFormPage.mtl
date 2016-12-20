@@ -14,6 +14,9 @@ using [namespace/].Common;
 using [namespace/].Model;
 using [namespace/].ViewModels;
 using System;
+using System.Diagnostics;
+using System.Globalization;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -54,11 +57,13 @@ namespace [namespace/].Views
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             this.navigationHelper.OnNavigatedTo(e);
+			// Receiving data from the bd pageView
             if (e != null)
             {
                 selected[aClass.name.toUpperFirst()/] = e.Parameter as [aClass.name.toUpperFirst()/];
 				if (selected[aClass.name.toUpperFirst()/] != null)
                 {
+				//Fill the form with the received data
 				[for (p : Property | persistentEntityProperties)]
 					[if(p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType') <> 'string')]
 					[p.name.toLowerFirst()/]Tbx.Text = Convert.ToString(selected[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/]);
@@ -75,11 +80,15 @@ namespace [namespace/].Views
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-        private void btnDelete_click(object sender, RoutedEventArgs e)
+		/*
+		* Deleting an specific entry of the database
+		*/
+        private async void btnDelete_click(object sender, RoutedEventArgs e)
         {
 			try{
 	            [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/](selected[aClass.name.toUpperFirst()/]);//Delete selected DB contact Id. 
 	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			}
 			catch (Exception ex)
             {
                 await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
@@ -87,8 +96,12 @@ namespace [namespace/].Views
             }
 	     }
 
-        private void btnUpdate_click(object sender, RoutedEventArgs e)
+		/*
+		* Updating an specific entry of the database
+		*/
+        private async void btnUpdate_click(object sender, RoutedEventArgs e)
         {
+			//Create an object with data from form
             [aClass.name.toUpperFirst()/] current[aClass.name.toUpperFirst()/] = new [aClass.name.toUpperFirst()/]();
 			[for (p : Property | persistentEntityProperties)]
 			current[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/] = [p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/];
@@ -97,6 +110,7 @@ namespace [namespace/].Views
 			try{
 				[aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/](current[aClass.name.toUpperFirst()/]);//Update selected DB current [aClass.name.toLowerFirst()/]
 	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			}
 			catch (Exception ex)
             {
                 await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();

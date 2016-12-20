@@ -56,13 +56,20 @@ namespace [namespace/].Views
         {
             this.navigationHelper.OnNavigatedFrom(e);
         }
-
+		
+		/*
+		* Writing data in file.
+		*	Data Format: <data1> , <data2>, <data3>, so on...
+		*/
         private async void btnWriteFile_Click(object sender, RoutedEventArgs e)
         {
 			String content = [for (p : Property | persistentEntityProperties) separator(' + "," + ')][p.name.toLowerFirst()/]Tbx.Text[/for];
             await FilesHelper.WriteTextFile(FILENAME, content);
         }
-
+		
+		/*
+		* Reading data from file
+		*/
         private async void btnReadFile_Click(object sender, RoutedEventArgs e)
         {
             ResultTbx.Text = await FilesHelper.ReadTextFile(FILENAME);

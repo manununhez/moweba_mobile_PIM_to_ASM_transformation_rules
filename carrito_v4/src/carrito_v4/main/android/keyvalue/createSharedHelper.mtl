@@ -2,8 +2,10 @@
 [module createSharedHelper('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 
-[template public createSharedHelper(aPackage : Package)]
-[file ('android/helpers/StorageManager.java', false)]
+[template public createSharedHelper(aPackage : Package, namespace : String)]
+[file ('android/app/src/main/java/com/example/'+namespace+'/helpers/StorageManager.java', false)]
+
+package com.example.[namespace/].helpers;
 
 //[protected ('imports')]
 import android.content.Context;
@@ -12,6 +14,9 @@ import android.content.SharedPreferences;
 	
 public class StorageManager {
     
+	/*
+	* Saving data in sharedPreferences
+	*/
 	public static void save(Context context, String key, String value) {
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(),
                 Context.MODE_PRIVATE);
@@ -20,13 +25,19 @@ public class StorageManager {
         editor.apply();
     }
 
+	/*
+	* Getting value from sharedPreferences
+	*/
     public static String getValue(Context context, String key) {
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(),
                 Context.MODE_PRIVATE);
         return preferences.getString(key, null);
     }
 
-    public static void clearSharedPreference(Context context) {
+    /*
+	* Clear the sharedPreferences. Delete all the saved data in sharedPreferences
+	*/
+	public static void clearSharedPreference(Context context) {
 
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(),
                 Context.MODE_PRIVATE);
@@ -36,6 +47,9 @@ public class StorageManager {
         editor.apply();
     }
 
+	/*
+	* Remove or delete an specific value from the sharedPreferences
+	*/
     public static void removeValue(Context context, String key) {
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(),
                 Context.MODE_PRIVATE);

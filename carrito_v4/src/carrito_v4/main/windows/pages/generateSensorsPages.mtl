@@ -65,6 +65,8 @@ namespace [namespace/].Views
 		[/let]	
 		[/for]
 
+			[comment]Si existe por lo menos un sensor[/comment]
+			[if(isClassHasSensors(aClass, 'HardwareDeviceProperty', 'hardwareDeviceType'))] 
 			[comment]Solo preguntamos por los sensores, sin contar a camara, microfono y GPS. [/comment]
             if ([for (p : Property | persistentEntityProperties->select(p | p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')<>'Camera' and p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')<>'Microphone' and p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')<>'GPS')) separator(' && ')][let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')][if (deviceType = 'Accelerometer')]m[p.name.toUpperFirst()/]Accelerometer != null[elseif (deviceType = 'Ambient_Light')]m[p.name.toUpperFirst()/]Light != null[elseif (deviceType = 'Gyroscope')]m[p.name.toUpperFirst()/]Gyroscope != null[elseif (deviceType = 'Compass')]m[p.name.toUpperFirst()/]Compass != null[/if][/let][/for])
 			{
@@ -72,8 +74,8 @@ namespace [namespace/].Views
                 // This value will be used later to activate the sensor.
                 uint minReportInterval;
 
-		[for (p : Property | persistentEntityProperties)]
-		[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+			[for (p : Property | persistentEntityProperties)]
+			[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
 			[if (deviceType = 'Accelerometer')]
 			minReportInterval = m[p.name.toUpperFirst()/]Accelerometer.MinimumReportInterval;
             desiredReportInterval = minReportInterval > 16 ? minReportInterval : 16;
@@ -94,8 +96,8 @@ namespace [namespace/].Views
             m[p.name.toUpperFirst()/]Compass.ReadingChanged += new TypedEventHandler<Compass, CompassReadingChangedEventArgs>(ReadingChanged);
 			
 			[/if]
-		[/let]	
-		[/for]
+			[/let]	
+			[/for]
 
             }
             else
@@ -103,6 +105,7 @@ namespace [namespace/].Views
                 MessageDialog ms = new MessageDialog("No accelerometer Found");
                 ms.ShowAsync();
             }
+			[/if]
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
@@ -131,6 +134,8 @@ namespace [namespace/].Views
         }
 
 
+		[comment]Si existe por lo menos un sensor[/comment]
+		[if(isClassHasSensors(aClass, 'HardwareDeviceProperty', 'hardwareDeviceType'))] 
 		/// <summary>
         /// reading accelerometer changes
         /// </summary>
@@ -202,6 +207,7 @@ namespace [namespace/].Views
 			[/for]
             });
         }
+		[/if]
 
 	[for (p : Property | persistentEntityProperties)]
 	[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]

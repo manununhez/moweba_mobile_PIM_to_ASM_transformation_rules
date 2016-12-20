@@ -4,10 +4,12 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateRestActivities(aClass : Class)]
+[template public generateRestActivities(aClass : Class, namespace : String)]
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
-[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+
+package com.example.[namespace/].activities;
 
 //[protected ('imports')]
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +19,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].conn.ApiClient;
+import com.example.[namespace/].conn.ApiInterface;
+
 
 import java.util.List;
 
@@ -33,6 +42,13 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_[aClass.name.toLower()/]);
+
+		// Setting the toolbar title
+		ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setTitle("[aClass.name.toUpperFirst()/]");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         tvResults = (TextView) findViewById(R.id.tvResults);
         apiService = ApiClient.getClient().create(ApiInterface.class);
@@ -56,7 +72,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 		Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Completar [o.name.toLowerFirst()/]()", Toast.LENGTH_SHORT).show();
 		
 		/*
-		 *  Completar este metodo para realizar la llamada al servicio correspondiente
+		 *  Complete this method to make the call to the corresponding service
 		 */
 
        /* Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call = apiService.[o.name.toLowerFirst()/]();
@@ -76,6 +92,18 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         }); */
 	}
 	[/for]
+
+  	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
     
 }
 
@@ -86,7 +114,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 [template public generateRestActivitiesLayout(aClass : Class)]
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
-[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"

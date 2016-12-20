@@ -5,10 +5,12 @@
 [import common::utils_gen/]
 
 
-[template public generateBDFormActivities(aClass : Class)]
+[template public generateBDFormActivities(aClass : Class, namespace:String)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/activities/', aClass, 'FormActivity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'FormActivity','.java'), false)]
+
+package com.example.[namespace/].activities;
 
 //[protected ('imports')]
 import android.app.Activity;
@@ -22,11 +24,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.[namespace/].R;
+import com.example.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
+import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.example.[namespace/].helpers.SQLiteHelper;
+
 import java.math.BigDecimal;
 //[/protected]
 
 public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity {
-    private Boolean booleanEditMode = false;
+    private Boolean booleanEditMode = false; //Determine the type of operation to be performed
 
 	[for (p : Property | persistentEntityProperties)]
 	private TextInputEditText tie[p.name.toUpperFirst()/]; 
@@ -43,9 +50,10 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
             booleanEditMode = true;
         }
 
+		// Setting the toolbar title
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(booleanEditMode ? "Edit [aClass.name.toUpperFirst()/]" : "Add [aClass.name.toUpperFirst()/]");
+            actionBar.setTitle(booleanEditMode ? "Edit [aClass.name.toUpperFirst()/]" : "Add [aClass.name.toUpperFirst()/]"); //Change the boton label according to the operation
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
@@ -56,19 +64,19 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
        
         Button btnSave = (Button) findViewById(R.id.btnSave);
 
-        if (booleanEditMode) {
+        if (booleanEditMode) { //Edit mode
             btnSave.setText("Save Changes");
-            load[aClass.name.toUpperFirst()/]Data();
+            load[aClass.name.toUpperFirst()/]Data(); //Populating the form with the provided data
         }
 
-        SQLiteHelper db = new SQLiteHelper(this);
-        final [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO(db);
+        SQLiteHelper db = new SQLiteHelper(this); //Instantiating the helper
+        final [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO(db); //Instantiating the DAO functionalities
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 				try {
-	               // Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.               
+	               // We use the constructor of the object to verify that the data entered are of the correct type, and then store them               
 	               [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = get[aClass.name.toUpperFirst()/]FromEditext();
 	                if (booleanEditMode) {
 	                    [aClass.name.toLowerFirst()/]DAO.update[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
@@ -80,13 +88,16 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 	                setResult(Activity.RESULT_OK, returnIntent);
 	                finish();
 				}catch (Exception e){
-	                  Toast.makeText(ProductFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+	                  Toast.makeText([aClass.name.toUpperFirst()/]FormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
 				}
             }
         });
 
     }
 
+	/*
+	*	Retrieving all the data to show in form
+	*/
 	private void load[aClass.name.toUpperFirst()/]Data(){
 		[aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = ([aClass.name.toUpperFirst()/]) intent.getSerializableExtra("[aClass.name.toLowerFirst()/]");
         [for (p : Property | persistentEntityProperties)]
@@ -98,6 +109,9 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 		[/for]
 	}
 
+	/*
+	*	Getting data from each field of the form, and initializing the model with these data
+	*/
     private [aClass.name.toUpperFirst()/] get[aClass.name.toUpperFirst()/]FromEditext() {
 		[for (p : Property | persistentEntityProperties)]
 		[if(p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType') <> 'String')]
@@ -130,7 +144,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 [template public generateBDFormActivitiesLayout(aClass : Class)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_form_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_form_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

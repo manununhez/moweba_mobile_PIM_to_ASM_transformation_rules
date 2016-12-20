@@ -9,6 +9,10 @@
 	= invoke('services.UML2Services', 'hasStereotype(org.eclipse.uml2.uml.Package, java.lang.String)', Sequence{arg0, arg1})
 /]
 
+[query public isClassHasSensors(arg0 : Class, arg1 : String, arg2 : String) : Boolean
+	= invoke('services.UML2Services', 'isClassHasSensors(org.eclipse.uml2.uml.Class, java.lang.String, java.lang.String)', Sequence{arg0, arg1, arg2})
+/]
+
 [query public isPackageHasThisClassStereotype(arg0 : Package, arg1 : String) : Boolean
 	= invoke('services.UML2Services', 'isPackageHasThisClassStereotype(org.eclipse.uml2.uml.Package, java.lang.String)', Sequence{arg0, arg1})
 /]

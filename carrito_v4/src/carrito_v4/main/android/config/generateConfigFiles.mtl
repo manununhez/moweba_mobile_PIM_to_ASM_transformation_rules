@@ -10,38 +10,41 @@
 
 [file ('android/AndroidManifest.xml', false)]
 [comment]	PERMISOS[/comment]
-[for (aPackage : Package | aPackages)]
-	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
-
-	[if (aPackage.hasStereotype('DataPersistence'))]
-	[for (aClass : Class | aClasses)]		
-	[if (aClass.hasStereotype('persistentEntity'))]
-	[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'File')]
 	<!-- External storage for files. -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	[/if]
-	[/if]		
-	[/for]
-	[/if]
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
 	[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses)]		
-		[if (aClass.hasStereotype('WebServiceInterface'))]
+			[if (aClass.hasStereotype('WebServiceInterface'))]
  	<!-- Para retrofit -->
     <uses-permission android:name="android.permission.INTERNET" />
-		[/if]
+			[/if]
 	[comment]PERMISOS para los sensores[/comment]
-		[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+			[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+				[for (p : Property | persistentEntityProperties)]
+				[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+					[if (hardwareDeviceType = 'Microphone')]
+	<!-- AUDIO -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+					[/if]
+					[if (hardwareDeviceType = 'GPS')]
 	<!-- GPS -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+					[/if]
+					[if (hardwareDeviceType = 'Camera')]
     <!-- CAMERA -->
     <uses-permission android:name="android.permission.CAMERA" />
-    <!-- AUDIO -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-		[/if]		
+					[/if]
+		    
+				[/let]
+				[/for]
+			[/let]
+			[/if]		
 		[/for]
 	[/if]
 [/let]
@@ -59,6 +62,7 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+			<!-- Management of incoming data -->
 [for (aPackage : Package | aPackages)]
 	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 		[if (aPackage.hasStereotype('DataProvider'))]
@@ -92,6 +96,7 @@
 	[/let]
 [/for]
         </activity>
+		<!-- Activities from the DataPersistence Package -->
 [for (aPackage : Package | aPackages)]
 	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 		[if (aPackage.hasStereotype('DataPersistence'))]
@@ -109,15 +114,15 @@
 		[/for]
 		[/if]
 
+		<!-- Activities from the DataProvider Package -->
 	[if (aPackage.hasStereotype('DataProvider'))]
 	[for (aClass : Class | aClasses) separator('\n')]
 	[if (aClass.hasStereotype('WebServiceInterface'))]
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
-		
 	[/if]
+
 	[if (aClass.hasStereotype('HardwareDeviceInterface'))]
 		<activity android:name=".activities.[aClass.name.toUpperFirst()/]Activity" />
-		[comment]TODO Deberian generarse una sola vez[/comment]
 		<activity android:name=".activities.AudioRecordActivity" />
 		<activity android:name=".activities.CameraActivity" />
 	[/if]

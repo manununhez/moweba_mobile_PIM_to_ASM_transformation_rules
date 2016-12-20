@@ -61,17 +61,9 @@ namespace [namespace/].Views
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-
-        private void listBoxobj_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (listBoxobj.SelectedIndex != -1)
-            {
-
-                [aClass.name.toUpperFirst()/] listitem = listBoxobj.SelectedItem as [aClass.name.toUpperFirst()/];//Get slected listbox item contact ID 
-                Frame.Navigate(typeof([aClass.name.toUpperFirst()/]FormDeleteUpdate), listitem);
-            }
-        }
-
+		/*
+		* When the page is loaded, the list is loaded with data from database.
+		*/
         private void ReadAllData_Loaded(object sender, RoutedEventArgs e)
         {
             StorageManager storage = new StorageManager("dataPersistence", false);
@@ -81,6 +73,20 @@ namespace [namespace/].Views
             [aClass.name.toLowerFirst()/]List.Add([aClass.name.toLowerFirst()/]);
             listBoxobj.ItemsSource = [aClass.name.toLowerFirst()/]List;//Binding data to LISTBOX  
             txbQuantity.Text = Convert.ToString([aClass.name.toLowerFirst()/]List.Count);
+        }
+
+
+		/*
+		* When an item of the list is selected, go to the update page form
+		*/
+        private void listBoxobj_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxobj.SelectedIndex != -1)
+            {
+
+                [aClass.name.toUpperFirst()/] listitem = listBoxobj.SelectedItem as [aClass.name.toUpperFirst()/];//Get slected listbox item contact ID 
+                Frame.Navigate(typeof([aClass.name.toUpperFirst()/]FormDeleteUpdate), listitem);
+            }
         }
 
     }

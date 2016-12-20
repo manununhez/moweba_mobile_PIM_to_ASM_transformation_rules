@@ -6,14 +6,16 @@
 [import common::utils_gen/]
 
 
-[template public beansGenAndroid(aPackage : Package)]
+[template public beansGenAndroid(aPackage : Package, namespace : String)]
 	[comment]Generamos los modelos para las entidades persistentes[/comment]
 
 [for (aClass : Class | aPackage.ownedElement->filter(Class))]
 [if (aClass.hasStereotype('persistentEntity'))]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/beans/', aClass, '' , '.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/beans/', aClass, '' , '.java'), false)]
+
+package com.example.[namespace/].beans;
 
 //[protected ('imports')]
 import java.io.Serializable;

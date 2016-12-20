@@ -13,6 +13,9 @@ using [namespace/].ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Diagnostics;
+using System.Globalization;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -58,13 +61,16 @@ namespace [namespace/].Views
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-
-        private void ReadAll[aClass.name.toUpperFirst()/]_Loaded(object sender, RoutedEventArgs e)
+		/*
+		* When the page is loaded, the list is loaded with data from database.
+		*/
+        private async void ReadAll[aClass.name.toUpperFirst()/]_Loaded(object sender, RoutedEventArgs e)
         {     
 			try {   
 	            [aClass.name.toLowerFirst()/]List = [aClass.name.toLowerFirst()/].getAll[aClass.name.toUpperFirst()/]();//Get all DB [aClass.name.toLowerFirst()/]  
 	            listBoxobj.ItemsSource = [aClass.name.toLowerFirst()/]List.OrderByDescending(i => i.Id).ToList();//Binding DB data to LISTBOX and Latest [aClass.name.toLowerFirst()/] ID can Display first.  
 	            loadedElementsCount();
+			}
 			catch (Exception ex)
             {
                 await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
@@ -72,11 +78,17 @@ namespace [namespace/].Views
             }
         }
 
+		/*
+		* Go to the form to create an entry in the database
+		*/
         private void btnAdd[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof([aClass.name.toUpperFirst()/]FormNew));
         }
 
+		/*
+		* When an item of the list is selected, go to the update page form
+		*/
         private void listBoxobj_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (listBoxobj.SelectedIndex != -1)
@@ -86,6 +98,9 @@ namespace [namespace/].Views
             }
         }
 
+		/*
+		* Update the total items count from list
+		*/
         private void loadedElementsCount()
         {
             txbQuantity.Text = Convert.ToString([aClass.name.toLowerFirst()/]List.Count);//Text should not be empty 

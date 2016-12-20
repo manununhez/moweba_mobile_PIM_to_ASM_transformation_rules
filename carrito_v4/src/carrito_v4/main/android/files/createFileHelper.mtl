@@ -2,8 +2,11 @@
 [module createFileHelper('http://www.eclipse.org/uml2/5.0.0/UML')]
 
 
-[template public createFileHelper(aPackage : Package)]
-[file ('android/helpers/FilesHelper.java', false)]
+[template public createFileHelper(aPackage : Package, namespace : String)]
+[file ('android/app/src/main/java/com/example/'+namespace+'/helpers/FilesHelper.java', false)]
+
+package com.example.[namespace/].helpers;
+
 //[protected ('imports')]
 import android.text.TextUtils;
 

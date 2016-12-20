@@ -3,10 +3,13 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateRestClient(aClass : Class)]
-[file ('android/conn/ApiClient.java', false)]
+[template public generateRestClient(aClass : Class, namespace : String)]
+[file ('android/app/src/main/java/com/example/'+namespace+'/conn/ApiClient.java', false)]
 [let protocol : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebServiceInterface', 'protocol')]
 [let domain : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebServiceInterface', 'domain')]
+
+package com.example.[namespace/].conn;
+
 //[protected ('imports')]
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

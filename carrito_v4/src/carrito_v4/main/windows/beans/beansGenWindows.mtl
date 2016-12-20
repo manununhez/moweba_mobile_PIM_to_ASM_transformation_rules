@@ -18,6 +18,7 @@
 
 [file (aClass.classFileName('windows/Model/', aClass, '' , '.cs'), false)]
 //[protected ('imports')]
+using System;
 using System.Runtime.Serialization;
 using System.Collections.Generic;
 //[/protected]

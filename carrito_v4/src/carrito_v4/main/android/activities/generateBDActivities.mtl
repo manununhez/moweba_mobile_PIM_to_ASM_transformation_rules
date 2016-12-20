@@ -4,8 +4,10 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateBDActivities(aClass : Class)]
-[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
+[template public generateBDActivities(aClass : Class, namespace : String)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+
+package com.example.[namespace/].activities;
 
 //[protected ('imports')]
 import android.content.Intent;
@@ -20,6 +22,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].adapters.[aClass.name.toUpperFirst()/]Adapter;
+import com.example.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
+import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.example.[namespace/].helpers.SQLiteHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,13 +48,16 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_[aClass.name.toLower()/]);
 
+		// Setting the toolbar title
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {
             actionBar.setTitle("[aClass.name.toUpperFirst()/]");
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-        db = new SQLiteHelper(this);
-        [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO(db);
+
+
+        db = new SQLiteHelper(this); //Instantiating the helper
+        [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO(db); //Instantiating the DAO functionalities
 
         tvDataCount = (TextView) findViewById(R.id.tvDataCount);
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -54,6 +65,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 		ivNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+				// Go to the Form to add a new entry in the database
                 Intent intent = new Intent([aClass.name.toUpperFirst()/]Activity.this, [aClass.name.toUpperFirst()/]FormActivity.class);
                 intent.putExtra("typeOperation","add");
                 startActivityForResult(intent, REQUEST_CODE);
@@ -67,6 +79,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 		
     }
 
+	/* 
+	*	Initializing the recycler view with the data provided
+	*/
     private void setupRecyclerView() {
         mAdapter = new [aClass.name.toUpperFirst()/]Adapter(this, [aClass.name.toLowerFirst()/]List, [aClass.name.toLowerFirst()/]DAO);
 
@@ -76,16 +91,26 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
+	/*
+	*	Retrieving all the data to show
+	*/
 	private void load[aClass.name.toUpperFirst()/]Data() {
 		get[aClass.name.toUpperFirst()/]Count();
 		get[aClass.name.toUpperFirst()/]();
 	}
 
 
+	/*
+	*	Updating the total items count
+	*/
     public void get[aClass.name.toUpperFirst()/]Count() {
         tvDataCount.setText(String.valueOf([aClass.name.toLowerFirst()/]DAO.get[aClass.name.toUpperFirst()/]Count()));
     }
 
+
+	/*
+	*	Getting data  from database
+	*/
     private void get[aClass.name.toUpperFirst()/]() {
         Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Retrieving data from database", Toast.LENGTH_SHORT).show();
 
@@ -98,10 +123,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE) {
             // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-                [aClass.name.toLowerFirst()/]List.clear();
-                
-				load[aClass.name.toUpperFirst()/]Data();
+            if (resultCode == RESULT_OK) { //if it´s ok, we update the list to show the changes
+                [aClass.name.toLowerFirst()/]List.clear(); //clear the list            
+				load[aClass.name.toUpperFirst()/]Data();	//reload data
             }
         }
     }
@@ -123,7 +147,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 [/template]
 
 [template public generateaBDActivitiesLayout(aClass : Class)]
-[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

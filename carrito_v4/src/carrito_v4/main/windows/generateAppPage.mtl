@@ -136,6 +136,10 @@ namespace [p.name.toUpperFirst()/]
 		[if (aPackage.hasStereotype('DataProvider'))]
 		[for (aClass : Class | aClasses)]		
 		[if (aClass.hasStereotype('MobileAppDataInterface'))]
+		/*
+		* Handling the incoming data.
+		* Go to ShareTargetPageView
+		*/
          protected override void OnShareTargetActivated(ShareTargetActivatedEventArgs args)
         {
             Frame frame = Window.Current.Content as Frame;

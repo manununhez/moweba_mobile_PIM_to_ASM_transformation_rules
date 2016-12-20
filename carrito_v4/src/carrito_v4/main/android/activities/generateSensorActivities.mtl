@@ -4,10 +4,12 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateSensorActivities(aClass : Class)]
+[template public generateSensorActivities(aClass : Class, namespace : String)]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
 
-[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+
+package com.example.[namespace/].activities;
 
 //[protected ('imports')]
 import android.content.Context;
@@ -18,11 +20,17 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].utils.GPSTracker;
+
 //[/protected]
 
 public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
@@ -63,13 +71,20 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_[aClass.name.toLower()/]);
 
+		// Setting the toolbar title
+		ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setTitle("[aClass.name.toUpperFirst()/]");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
         // Get an instance of the sensor service, and use that to get an instance of a particular sensor.
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
 	[for (p : Property | persistentEntityProperties)]
 	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
 		[if (hardwareDeviceType = 'Microphone')]
-		//Mic
+		//Microphone
         btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
         btn[p.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,7 +146,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         }
 
 		[elseif (hardwareDeviceType = 'Camera')]
-		//Camara
+		//Camera
         btn[p.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[p.name.toUpperFirst()/]);
         btn[p.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,8 +176,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        // Register a listener for the sensor.
         super.onResume();
+
+        // Register a listener for the sensor.
 	[for (p : Property | persistentEntityProperties)]
 	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
 		[if (hardwareDeviceType = 'Accelerometer')]
@@ -181,8 +197,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        // Be sure to unregister the sensor when the activity pauses.
         super.onPause();
+
+        // Be sure to unregister the sensor when the activity pauses.
 	[for (p : Property | persistentEntityProperties)]
 	[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
 		[if (hardwareDeviceType = 'Accelerometer')]
@@ -275,19 +292,33 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 	[/let]
 	[/for]
 
-    
-		public void getLocation() {
-		        GPSTracker gps = new GPSTracker([aClass.name.toUpperFirst()/]Activity.this);
-		        if (gps.canGetLocation()) {
-		            location = gps.getLocation();
-		
-		        } else {
-		            // can't get location
-		            // GPS or Network is not enabled
-		            Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Turn on your GPS", Toast.LENGTH_SHORT).show();
-		        }
-		    }
-		}
+    /*
+	*	Getting our current location
+	*/
+	public void getLocation() {
+        GPSTracker gps = new GPSTracker([aClass.name.toUpperFirst()/]Activity.this);
+        if (gps.canGetLocation()) {
+            location = gps.getLocation();
+
+        } else {
+            // can't get location
+            // GPS or Network is not enabled
+            Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Turn on your GPS", Toast.LENGTH_SHORT).show();
+        }
+	}
+
+  	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+}
 
 [/file]
 [/let]
@@ -296,7 +327,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 [template public generateSensorActivitiesLayout(aClass : Class)]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
 
-[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -513,8 +544,12 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 [/template]
 
 
-[template public generateGPSClass(aClass : Class)]
-[file ('android/utils/GPSTracker.java', false)]
+[template public generateGPSClass(aClass : Class, namespace : String)]
+[file ('android/app/src/main/java/com/example/'+namespace+'/utils/GPSTracker.java', false)]
+
+package com.example.[namespace/].utils;
+
+
 //[protected ('imports')]
 import android.Manifest;
 import android.app.Service;
@@ -524,6 +559,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.support.v4.app.ActivityCompat;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -634,12 +670,22 @@ public class GPSTracker extends Service implements LocationListener {
         return location;
     }
 
-    /**
+       /**
      * Stop using GPS listener
      * Calling this function will stop using GPS in your app
      * */
-    public void stopUsingGPS(){
-        if(locationManager != null){
+    public void stopUsingGPS() {
+        if (locationManager != null) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String['['/][']'/] permissions,
+                //                                          int['['/][']'/] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             locationManager.removeUpdates(GPSTracker.this);
         }
     }
@@ -702,18 +748,27 @@ public class GPSTracker extends Service implements LocationListener {
 [/file]
 [/template]
 
-[template public generateAudioActivity(aClass : Class)]
-[file ('android/activities/AudioRecordActivity.java', false)]
+[template public generateAudioActivity(aClass : Class, namespace : String)]
+[file ('android/app/src/main/java/com/example/'+namespace+'/activities/AudioRecordActivity.java', false)]
+
+package com.example.[namespace/].activities;
+
+
 //[protected ('imports')]
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.[namespace/].R;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -729,18 +784,26 @@ public class AudioRecordActivity extends AppCompatActivity {
     private Button stopBtn;
     private Button playBtn;
     private Button stopPlayBtn;
-    private TextView text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_audio_record);
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
-        String date = dateFormat.format(new Date());
-       	String audioRecordFile = "AudioRecord_" + date + ".3gpp";
+		ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("AudioRecord");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
-        text = (TextView) findViewById(R.id.text1);
+		initialize();
+    }
+
+	private void initialize() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
+        String date = dateFormat.format(new Date());
+        String audioRecordFile = "AudioRecord_" + date + ".3gpp";
+
         // store it to sd card
         outputFile = Environment.getExternalStorageDirectory().
                 getAbsolutePath() + "/" + audioRecordFile;
@@ -751,7 +814,7 @@ public class AudioRecordActivity extends AppCompatActivity {
         myRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         myRecorder.setOutputFile(outputFile);
 
-        startBtn = (Button)findViewById(R.id.start);
+        startBtn = (Button) findViewById(R.id.start);
         startBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -761,7 +824,7 @@ public class AudioRecordActivity extends AppCompatActivity {
             }
         });
 
-        stopBtn = (Button)findViewById(R.id.stop);
+        stopBtn = (Button) findViewById(R.id.stop);
         stopBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -771,7 +834,7 @@ public class AudioRecordActivity extends AppCompatActivity {
             }
         });
 
-        playBtn = (Button)findViewById(R.id.play);
+        playBtn = (Button) findViewById(R.id.play);
         playBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -781,7 +844,7 @@ public class AudioRecordActivity extends AppCompatActivity {
             }
         });
 
-        stopPlayBtn = (Button)findViewById(R.id.stopPlay);
+        stopPlayBtn = (Button) findViewById(R.id.stopPlay);
         stopPlayBtn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -792,6 +855,9 @@ public class AudioRecordActivity extends AppCompatActivity {
         });
     }
 
+	/*
+	* Start recording
+	*/
     public void start(View view){
         try {
             myRecorder.prepare();
@@ -805,7 +871,6 @@ public class AudioRecordActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        text.setText("Recording Point: Recording");
         startBtn.setEnabled(false);
         stopBtn.setEnabled(true);
 
@@ -813,6 +878,9 @@ public class AudioRecordActivity extends AppCompatActivity {
                 Toast.LENGTH_SHORT).show();
     }
 
+	/*
+	* Stop recording
+	*/
     public void stop(View view){
         try {
             myRecorder.stop();
@@ -821,7 +889,6 @@ public class AudioRecordActivity extends AppCompatActivity {
 
             stopBtn.setEnabled(false);
             playBtn.setEnabled(true);
-            text.setText("Recording Point: Stop recording");
 
             Toast.makeText(getApplicationContext(), "Stop recording...",
                     Toast.LENGTH_SHORT).show();
@@ -834,6 +901,9 @@ public class AudioRecordActivity extends AppCompatActivity {
         }
     }
 
+	/*
+	* Play captured record
+	*/
     public void play(View view) {
         try{
             myPlayer = new MediaPlayer();
@@ -843,7 +913,6 @@ public class AudioRecordActivity extends AppCompatActivity {
 
             playBtn.setEnabled(false);
             stopPlayBtn.setEnabled(true);
-            text.setText("Recording Point: Playing");
 
             Toast.makeText(getApplicationContext(), "Start play the recording...",
                     Toast.LENGTH_SHORT).show();
@@ -853,6 +922,9 @@ public class AudioRecordActivity extends AppCompatActivity {
         }
     }
 
+	/*
+	* Stop captured record
+	*/
     public void stopPlay(View view) {
         try {
             if (myPlayer != null) {
@@ -861,7 +933,6 @@ public class AudioRecordActivity extends AppCompatActivity {
                 myPlayer = null;
                 playBtn.setEnabled(true);
                 stopPlayBtn.setEnabled(false);
-                text.setText("Recording Point: Stop playing");
 
                 Toast.makeText(getApplicationContext(), "Stop playing the recording...",
                         Toast.LENGTH_SHORT).show();
@@ -871,92 +942,91 @@ public class AudioRecordActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+ 	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
 }
 
 [/file]
 [/template]
 
 [template public generateAudioActivityLayout(aClass : Class)]
-[file ('android/layout/activity_audio_record.xml', false)]
+[file ('android/app/src/main/res/layout/activity_audio_record.xml', false)]
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Recording Point: -"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/micImage"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_below="@+id/text1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:src="@android:drawable/presence_audio_online" />
 
     <LinearLayout
+        android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:layout_below="@+id/micImage"
-        android:id="@+id/linear1"
-        android:orientation="horizontal" >
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="start" />
+            android:text="Capture Audio"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/stop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
             android:enabled="false"
-            android:text="stop" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/linear1"
-        android:id="@+id/linear2"
-        android:orientation="horizontal" >
+            android:text="Stop Capture"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/play"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:enabled="false"
-            android:text="play" />
+            android:text="Play Capture"
+            android:textAllCaps="false" />
 
         <Button
             android:id="@+id/stopPlay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:enabled="false"
-            android:layout_marginLeft="10dp"
-            android:text="stop playing" />
+            android:text="Stop Playing"
+            android:textAllCaps="false" />
     </LinearLayout>
-
 </RelativeLayout>
 [/file]
 [/template]
 
 
 
-[template public generateCameraActivity(aClass : Class)]
-[file ('android/activities/CameraActivity.java', false)]
+[template public generateCameraActivity(aClass : Class, namespace : String)]
+[file ('android/app/src/main/java/com/example/'+namespace+'/activities/CameraActivity.java', false)]
+
+package com.example.[namespace/].activities;
+
 //[protected ('imports')]
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -964,47 +1034,71 @@ import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 import android.util.Log;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.[namespace/].R;
+
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 //[/protected]
 
 public class CameraActivity extends AppCompatActivity {
-    private final static String DEBUG_TAG = "CameraActivity";
-    private Camera camera;
-    private int cameraId = 0;
+    private Camera mCamera;
+    private CameraPreview mPreview;
+    private Camera.PictureCallback mPicture;
+    private Button capture, switchCamera;
+    private Context myContext;
+    private LinearLayout cameraPreview;
+    private boolean cameraFront = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        // do we have a camera?
-        if (!getPackageManager()
-                .hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
-            Toast.makeText(this, "No camera on this device", Toast.LENGTH_LONG)
-                    .show();
-        } else {
-            cameraId = findFrontFacingCamera();
-            if (cameraId < 0) {
-                Toast.makeText(this, "No front facing camera found.",
-                        Toast.LENGTH_LONG).show();
-            } else {
-                camera = Camera.open(cameraId);
-            }
+		// Setting the toolbar title
+		ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle("AudioRecord");
+            actionBar.setDisplayHomeAsUpEnabled(true);
         }
+
+        myContext = this;
+
+        initialize();
+
     }
 
-    public void onClick(View view) {
-        camera.takePicture(null, null,
-                new PhotoHandler(getApplicationContext()));
+	/*
+	* Initializing the preview Camera
+	*/
+    public void initialize() {
+        cameraPreview = (LinearLayout) findViewById(R.id.camera_preview);
+        mPreview = new CameraPreview(myContext, mCamera);
+        cameraPreview.addView(mPreview);
+
+        capture = (Button) findViewById(R.id.button_capture);
+        capture.setOnClickListener(captrureListener);
+
+        switchCamera = (Button) findViewById(R.id.button_ChangeCamera);
+        switchCamera.setOnClickListener(switchCameraListener);
     }
 
+	/*
+	* Search for the front facing camera
+	*/
     private int findFrontFacingCamera() {
         int cameraId = -1;
         // Search for the front facing camera
@@ -1013,72 +1107,277 @@ public class CameraActivity extends AppCompatActivity {
             Camera.CameraInfo info = new Camera.CameraInfo();
             Camera.getCameraInfo(i, info);
             if (info.facing == Camera.CameraInfo.CAMERA_FACING_FRONT) {
-                Log.d(DEBUG_TAG, "Camera found");
                 cameraId = i;
+                cameraFront = true;
                 break;
             }
         }
         return cameraId;
     }
 
-    @Override
-    protected void onPause() {
-        if (camera != null) {
-            camera.release();
-            camera = null;
+	/*
+	* Search for the back facing camera
+	*/
+    private int findBackFacingCamera() {
+        int cameraId = -1;
+        //Search for the back facing camera
+        //get the number of cameras
+        int numberOfCameras = Camera.getNumberOfCameras();
+        //for every camera check
+        for (int i = 0; i < numberOfCameras; i++) {
+            Camera.CameraInfo info = new Camera.CameraInfo();
+            Camera.getCameraInfo(i, info);
+            if (info.facing == Camera.CameraInfo.CAMERA_FACING_BACK) {
+                cameraId = i;
+                cameraFront = false;
+                break;
+            }
         }
-        super.onPause();
+        return cameraId;
+    }
+
+    public void onResume() {
+        super.onResume();
+        if (!hasCamera(myContext)) {
+            Toast toast = Toast.makeText(myContext, "Sorry, your phone does not have a camera!", Toast.LENGTH_LONG);
+            toast.show();
+            finish();
+        }
+        if (mCamera == null) {
+            //if the front facing camera does not exist
+            if (findFrontFacingCamera() < 0) {
+                Toast.makeText(this, "No front facing camera found.", Toast.LENGTH_LONG).show();
+                switchCamera.setVisibility(View.GONE);
+            }
+            mCamera = Camera.open(findBackFacingCamera());
+            mPicture = getPictureCallback();
+            mPreview.refreshCamera(mCamera);
+        }
     }
 
 
-    public class PhotoHandler implements Camera.PictureCallback {
+	/*
+	* Switch camera, from the front and the back and vice versa
+	*/
+    View.OnClickListener switchCameraListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            //get the number of cameras
+            int camerasNumber = Camera.getNumberOfCameras();
+            if (camerasNumber > 1) {
+                //release the old camera instance
+                //switch camera, from the front and the back and vice versa
 
-        private final Context context;
+                releaseCamera();
+                chooseCamera();
+            } else {
+                Toast toast = Toast.makeText(myContext, "Sorry, your phone has only one camera!", Toast.LENGTH_LONG);
+                toast.show();
+            }
+        }
+    };
 
-        public PhotoHandler(Context context) {
-            this.context = context;
+	/*
+	* Choose camera, front or back
+	*/
+    public void chooseCamera() {
+        //if the camera preview is the front
+        if (cameraFront) {
+            int cameraId = findBackFacingCamera();
+            if (cameraId >= 0) {
+                //open the backFacingCamera
+                //set a picture callback
+                //refresh the preview
+
+                mCamera = Camera.open(cameraId);
+                mPicture = getPictureCallback();
+                mPreview.refreshCamera(mCamera);
+            }
+        } else {
+            int cameraId = findFrontFacingCamera();
+            if (cameraId >= 0) {
+                //open the backFacingCamera
+                //set a picture callback
+                //refresh the preview
+
+                mCamera = Camera.open(cameraId);
+                mPicture = getPictureCallback();
+                mPreview.refreshCamera(mCamera);
+            }
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //when on Pause, release camera in order to be used from other applications
+        releaseCamera();
+    }
+
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+ 
+	/*
+	* Checking if the device has camera
+	*/
+    private boolean hasCamera(Context context) {
+        //check if the device has camera
+        if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private Camera.PictureCallback getPictureCallback() {
+        Camera.PictureCallback picture = new Camera.PictureCallback() {
+
+            @Override
+            public void onPictureTaken(byte['['/][']'/] data, Camera camera) {
+                //make a new picture file
+                File pictureFile = getOutputMediaFile();
+
+                if (pictureFile == null) {
+                    return;
+                }
+                try {
+                    //write the file
+                    FileOutputStream fos = new FileOutputStream(pictureFile);
+                    fos.write(data);
+                    fos.close();
+                    Toast toast = Toast.makeText(myContext, "Picture saved: " + pictureFile.getName(), Toast.LENGTH_LONG);
+                    toast.show();
+
+                } catch (FileNotFoundException e) {
+                } catch (IOException e) {
+                }
+
+                //refresh camera to continue preview
+                mPreview.refreshCamera(mCamera);
+            }
+        };
+        return picture;
+    }
+
+    View.OnClickListener captrureListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            mCamera.takePicture(null, null, mPicture);
+        }
+    };
+
+    /*
+	* Make picture and save to a folder
+	*/
+    private static File getOutputMediaFile() {
+        //make a new file directory inside the "sdcard" folder
+        File mediaStorageDir = new File(Environment.getExternalStorageDirectory(), "CameraDemo");
+
+        //if this "CameraDemo folder does not exist
+        if (!mediaStorageDir.exists()) {
+            //if you cannot make this folder return
+            if (!mediaStorageDir.mkdirs()) {
+                return null;
+            }
+        }
+
+        //take the current timeStamp
+        String timeStamp = new SimpleDateFormat("yyyymmddhhmmss").format(new Date());
+        File mediaFile;
+        //and make a media file:
+        mediaFile = new File(mediaStorageDir.getPath() + File.separator + "Picture_" + timeStamp + ".jpg");
+
+        return mediaFile;
+    }
+
+    private void releaseCamera() {
+        // stop and release camera
+        if (mCamera != null) {
+            mCamera.release();
+            mCamera = null;
+        }
+    }
+
+
+    public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback {
+        private SurfaceHolder mHolder;
+        private Camera mCamera;
+
+        public CameraPreview(Context context, Camera camera) {
+            super(context);
+            mCamera = camera;
+            mHolder = getHolder();
+            mHolder.addCallback(this);
+            // deprecated setting, but required on Android versions prior to 3.0
+            mHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+        }
+
+		/*
+		* Create the surface and start camera preview
+		*/
+        public void surfaceCreated(SurfaceHolder holder) {
+            try {
+                // create the surface and start camera preview
+                if (mCamera == null) {
+                    mCamera.setPreviewDisplay(holder);
+                    mCamera.startPreview();
+                }
+            } catch (IOException e) {
+                Log.d(VIEW_LOG_TAG, "Error setting camera preview: " + e.getMessage());
+            }
+        }
+
+		/*
+		* start preview with new settings
+		*/
+        public void refreshCamera(Camera camera) {
+            if (mHolder.getSurface() == null) {
+                // preview surface does not exist
+                return;
+            }
+            // stop preview before making changes
+            try {
+                mCamera.stopPreview();
+            } catch (Exception e) {
+                // ignore: tried to stop a non-existent preview
+            }
+            // set preview size and make any resize, rotate or
+            // reformatting changes here
+            // start preview with new settings
+            setCamera(camera);
+            try {
+                mCamera.setPreviewDisplay(mHolder);
+                mCamera.startPreview();
+            } catch (Exception e) {
+                Log.d(VIEW_LOG_TAG, "Error starting camera preview: " + e.getMessage());
+            }
+        }
+
+        public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
+            // If your preview can change or rotate, take care of those events here.
+            // Make sure to stop the preview before resizing or reformatting it.
+            refreshCamera(mCamera);
+        }
+
+        public void setCamera(Camera camera) {
+            //method to set a camera instance
+            mCamera = camera;
         }
 
         @Override
-        public void onPictureTaken(byte['['/][']'/] data, Camera camera) {
+        public void surfaceDestroyed(SurfaceHolder holder) {
+            // TODO Auto-generated method stub
+            // mCamera.release();
 
-            File pictureFileDir = getDir();
-
-            if (!pictureFileDir.exists() && !pictureFileDir.mkdirs()) {
-
-                Log.d("Debug", "Can't create directory to save image.");
-                Toast.makeText(context, "Can't create directory to save image.",
-                        Toast.LENGTH_LONG).show();
-                return;
-
-            }
-
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyymmddhhmmss");
-            String date = dateFormat.format(new Date());
-            String photoFile = "Picture_" + date + ".jpg";
-
-            String filename = pictureFileDir.getPath() + File.separator + photoFile;
-
-            File pictureFile = new File(filename);
-
-            try {
-                FileOutputStream fos = new FileOutputStream(pictureFile);
-                fos.write(data);
-                fos.close();
-                Toast.makeText(context, "New Image saved:" + photoFile,
-                        Toast.LENGTH_LONG).show();
-            } catch (Exception error) {
-                Log.d("Debug", "File" + filename + "not saved: "
-                        + error.getMessage());
-                Toast.makeText(context, "Image could not be saved.",
-                        Toast.LENGTH_LONG).show();
-            }
-        }
-
-        private File getDir() {
-            File sdDir = Environment
-                    .getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-            return new File(sdDir, "CameraAPIDemo");
         }
     }
 }
@@ -1087,18 +1386,44 @@ public class CameraActivity extends AppCompatActivity {
 
 
 [template public generateCameraActivityLayout(aClass : Class)]
-[file ('android/layout/activity_camera.xml', false)]
+[file ('android/app/src/main/res/layout/activity_camera.xml', false)]
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-    <Button
-        android:id="@+id/captureFront"
-        android:layout_width="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/buttonsLayout"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/buttonsLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:onClick="onClick"
-        android:text="Make Photo" />
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <Button
+            android:id="@+id/button_ChangeCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="Switch Camera" />
+
+        <Button
+            android:id="@+id/button_capture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capture Photo" />
+    </LinearLayout>
 </RelativeLayout>
 [/file]
 [/template]

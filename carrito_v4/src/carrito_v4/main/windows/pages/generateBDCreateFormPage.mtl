@@ -14,6 +14,8 @@ using [namespace/].Common;
 using [namespace/].Model;
 using [namespace/].ViewModels;
 using System;
+using System.Diagnostics;
+using System.Globalization;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -61,7 +63,12 @@ namespace [namespace/].Views
             this.navigationHelper.OnNavigatedFrom(e);
         }
 
-        private async void btnAdd[aClass.name.toUpperFirst()/]_Click(object sender, RoutedEventArgs e)
+        
+		/*
+		* Add data to the database.
+		* A object with data from form is created and then added to database.
+		*/
+		private async void btnAdd[aClass.name.toUpperFirst()/]_Click(object sender, RoutedEventArgs e)
         {
      		[aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO();
 			if([for (p : Property | persistentEntityProperties) separator (' & ')][p.name.toLowerFirst()+'Tbx.Text != ""'/][/for])

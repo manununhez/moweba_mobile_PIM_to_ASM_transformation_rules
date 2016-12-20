@@ -4,10 +4,12 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public generateKVActivities(aClass : Class)]
+[template public generateKVActivities(aClass : Class, namespace : String)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+
+package com.example.[namespace/].activities;
 
 //[protected ('imports')]
 import android.content.Intent;
@@ -19,6 +21,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].adapters.[aClass.name.toUpperFirst()/]Adapter;
+import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.example.[namespace/].helpers.StorageManager;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -36,6 +43,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_[aClass.name.toLower()/]);
 
+		// Setting the toolbar title
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null) {
             actionBar.setTitle("[aClass.name.toUpperFirst()/]");
@@ -51,6 +59,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 		
     }
 
+	/* 
+	*	Initializing the recycler view with the data provided
+	*/
     private void setupRecyclerView() {
         mAdapter = new [aClass.name.toUpperFirst()/]Adapter(this, [aClass.name.toLowerFirst()/]List);
 
@@ -60,16 +71,21 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
         recyclerView.setAdapter(mAdapter);
     }
 
+	/*
+	*	Retrieving all the data to show
+	*/
 	private void load[aClass.name.toUpperFirst()/]Data(){
-		Toast.makeText(UserActivity.this, "Retrieving data from sharedPreferences", Toast.LENGTH_SHORT).show();
+		Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Retrieving data from sharedPreferences", Toast.LENGTH_SHORT).show();
+		// Getting data from the sharedPreferences
 		[for (p : Property | persistentEntityProperties)]
 		String [p.name.toLowerFirst()/] = StorageManager.getValue(this, "[p.name.toLowerFirst()/]");
 		[/for]
         
+		//Initializing the model
 		[aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator (', ')][p.getJavaKVConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst())/][/for]);
-        
+        //Adding to list
 		[aClass.name.toLowerFirst()/]List.add([aClass.name.toLowerFirst()/]);
-
+		//update the recyclerView
         mAdapter.notifyDataSetChanged();
 	}
 
@@ -77,9 +93,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CODE) {
             // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-                [aClass.name.toLowerFirst()/]List.clear();
-                load[aClass.name.toUpperFirst()/]Data();
+            if (resultCode == RESULT_OK) { //if it´s ok, we update the list to show the changes
+                [aClass.name.toLowerFirst()/]List.clear(); //clear the list
+                load[aClass.name.toUpperFirst()/]Data(); // reload data
             }
         }
     }
@@ -104,7 +120,7 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 [template public generateKVActivitiesLayout(aClass : Class)]
 
-[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

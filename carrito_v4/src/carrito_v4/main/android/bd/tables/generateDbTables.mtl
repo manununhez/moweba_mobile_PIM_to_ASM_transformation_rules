@@ -5,10 +5,14 @@
 [import common::utils_gen/]
 
 
-[template public generateDbTables(aClass : Class)]
+[template public generateDbTables(aClass : Class, namespace : String)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/bd/tables/', aClass, 'Table', '.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/bd/tables/', aClass, 'Table', '.java'), false)]
+
+package com.example.[namespace/].bd.tables;
+
+
 //[protected ('imports')]
 import android.content.ContentResolver;
 import android.database.sqlite.SQLiteDatabase;

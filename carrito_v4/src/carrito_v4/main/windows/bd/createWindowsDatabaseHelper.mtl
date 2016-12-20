@@ -8,6 +8,7 @@
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
 [file ('windows/Common/SQLiteHelper.cs', false)]
+
 //[protected ('imports')]
 using System;
 using System.Diagnostics;
@@ -28,7 +29,10 @@ namespace [namespace.toUpperFirst()/].Common
         //Full Database Path
         public static string DbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
 
-        public async static Task<bool> Createdatabase()
+        /*
+		* Creating database and tables
+		*/
+		public async static Task<bool> Createdatabase()
         {
             var result = await Checkdatabase();
             if (!result)
@@ -59,26 +63,26 @@ namespace [namespace.toUpperFirst()/].Common
                 return false;
             }
         }
-
-        public static async Task<bool> Checkdatabase()
+		
+		/*
+		* Check if exists the database
+		*/
+        private static async Task<bool> Checkdatabase()
         {
-            var dbexist = true;
             try
             {
-                var storageFile = await ApplicationData.Current.LocalFolder.GetFileAsync(DbName);
-                if (storageFile == null) dbexist = false;
+                var store = await ApplicationData.Current.LocalFolder.GetFileAsync(DbName);
+                return true;
             }
-            catch (Exception ex)
+            catch
             {
-                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
-                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
-                dbexist = false;
+                return false;
             }
-
-            return dbexist;
         }
 
-
+		/*
+		* Delete the database
+		*/
         public static async Task<bool> DeleteDatabase()
         {
             try

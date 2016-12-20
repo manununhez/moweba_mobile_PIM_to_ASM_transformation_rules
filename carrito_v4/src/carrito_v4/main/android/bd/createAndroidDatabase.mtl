@@ -5,15 +5,27 @@
 [import services::uml2services/]
 [import common::utils_gen/]
 
-[template public createDatabaseAndroid(aPackage: Package)]
+[template public createDatabaseAndroid(aPackage: Package, namespace : String)]
 [let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
 
-[file ('android/helpers/SQLiteHelper.java', false)]
+[file ('android/app/src/main/java/com/example/'+namespace+'/helpers/SQLiteHelper.java', false)]
+
+package com.example.[namespace/].helpers;
+
 //[protected ('imports')]
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+[for (aClass : Class | aClasses)]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+		[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+import com.example.[namespace/].bd.tables.[aClass.name/]Table;
+		[/if]
+		[/if]		
+[/for]
+
 //[/protected]
 	
 

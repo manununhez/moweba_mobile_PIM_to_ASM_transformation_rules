@@ -5,10 +5,12 @@
 [import common::utils_gen/]
 
 
-[template public generateKVFormActivities(aClass : Class)]
+[template public generateKVFormActivities(aClass : Class, namespace : String)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/activities/', aClass, 'FormActivity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'FormActivity','.java'), false)]
+
+package com.example.[namespace/].activities;
 
 //[protected ('imports')]
 import android.app.Activity;
@@ -21,6 +23,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.example.[namespace/].helpers.StorageManager;
 
 import java.math.BigDecimal;
 //[/protected]
@@ -35,6 +41,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_[aClass.name.toLower()/]);
 
+		// Setting the toolbar title
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setTitle("Edit [aClass.name.toUpperFirst()/]");
@@ -60,6 +67,9 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 
     }
 
+	/*
+	*	Populating the form with the stored data
+	*/
     private void loadData() {
 		[for (p : Property | persistentEntityProperties)]
 		String [p.name.toLowerFirst()/] = StorageManager.getValue([aClass.name.toUpperFirst()/]FormActivity.this, "[p.name.toLowerFirst()/]"); 
@@ -70,6 +80,9 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 		[/for]
     }
 
+	/*
+	* Saving data in sharedPreferences
+	*/
     private void saveData() {
 		
 		[for (p : Property | persistentEntityProperties)]
@@ -77,7 +90,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 		[/for]
 	
 		try {
-			// Utilizamos el constructor del objeto para comprobar que los datos introducidos sean del tipo correcto, para luego almacenarlos.
+	        // We use the constructor of the object to verify that the data entered are of the correct type, and then store them               
 		    [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator (', ')][p.getJavaKVConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst())/][/for]);
 
 			[for (p : Property | persistentEntityProperties)]
@@ -89,7 +102,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 	        setResult(Activity.RESULT_OK, returnIntent);
 	        finish();
 		}catch (Exception e){
-            Toast.makeText(UserFormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText([aClass.name.toUpperFirst()/]FormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -113,7 +126,7 @@ public class [aClass.name.toUpperFirst()/]FormActivity extends AppCompatActivity
 [template public generateKVFormActivitiesLayout(aClass : Class)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileNameInvert('android/layout/', aClass, 'activity_form_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_form_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"

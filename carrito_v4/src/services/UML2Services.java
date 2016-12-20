@@ -2,9 +2,11 @@ package services;
 
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.uml2.uml.Class;
 import org.eclipse.uml2.uml.Element;
 import org.eclipse.uml2.uml.Package;
+import org.eclipse.uml2.uml.Property;
 import org.eclipse.uml2.uml.Stereotype;
 import org.eclipse.uml2.uml.internal.impl.EnumerationLiteralImpl;
 
@@ -35,6 +37,27 @@ public class UML2Services {
 		return false;
 	}
 
+	//Verificamos que la clase tenga sensores entre sus propiedades del tipo stereotypeName
+	// Los sensores son: Accelerometer, Ambient_Light, Gyroscope y Compass 
+	// TRUE : por lo menos existe un sensor
+	public boolean isClassHasSensors(Class clazz, String stereotypeName, String propertyName){
+		EList<Property> attributes = clazz.getAllAttributes();
+		
+		for(Property attr : attributes){
+			List<Stereotype> stereotypes = attr.getAppliedStereotypes();
+			for (Stereotype stereotype : stereotypes) {
+				if(stereotype.getName().equals(stereotypeName)){
+					Object object = attr.getValue(stereotype, propertyName);
+					if (((EnumerationLiteralImpl) object).getName().equals("Accelerometer") || ((EnumerationLiteralImpl) object).getName().equals("Ambient_Light") || 
+							((EnumerationLiteralImpl) object).getName().equals("Gyroscope") || ((EnumerationLiteralImpl) object).getName().equals("Compass")) {
+						return true;
+					}
+				}
+			}
+		}
+		//aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty')
+		return false;
+	}
 	public boolean isPackageHasThisClassStereotype(Package packageT, String stereotypeName) {
 		List<Element> elements = packageT.getOwnedElements();
 

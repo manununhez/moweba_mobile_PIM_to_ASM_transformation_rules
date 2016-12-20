@@ -5,10 +5,13 @@
 [import common::utils_gen/]
 
 
-[template public generateBDAdapters(aClass : Class)]
+[template public generateBDAdapters(aClass : Class, namespace : String)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/adapters/', aClass, 'Adapter','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/adapters/', aClass, 'Adapter','.java'), false)]
+
+package com.example.[namespace/].adapters;
+
 //[protected ('imports')]
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +21,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].activities.[aClass.name.toUpperFirst()/]Activity;
+import com.example.[namespace/].activities.[aClass.name.toUpperFirst()/]FormActivity;
+import com.example.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
+import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
 
 import java.util.List;
 //[/protected]
@@ -76,6 +85,7 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
         holder.ivEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+				// Go to the Form to edit an entry
                 Intent intent = new Intent(context, [aClass.name.toUpperFirst()/]FormActivity.class);
                 intent.putExtra("typeOperation", "edit");
                 intent.putExtra("[aClass.name.toLowerFirst()/]", [aClass.name.toLowerFirst()/]);
@@ -86,9 +96,14 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
         holder.ivDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+				//Delete an entry from the database
                 [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
-                [aClass.name.toLowerFirst()/]List.remove(holder.getAdapterPosition());
+                
+				// Updating the recyclerView
+				[aClass.name.toLowerFirst()/]List.remove(holder.getAdapterPosition());
                 notifyDataSetChanged();
+
+				//Updating the total items count
                 (([aClass.name.toUpperFirst()/]Activity) context).get[aClass.name.toUpperFirst()/]Count();
             }
         });
@@ -107,7 +122,7 @@ public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[
 [template public generateBDAdapterLayout(aClass : Class)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileNameInvert('android/layout/', aClass, 'list_row_','.xml'), false)]
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'list_row_','.xml'), false)]
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
