@@ -12,8 +12,8 @@
     <imports href="android/bd/createAndroidDatabase.emtl#/0"/>
     <imports href="android/bd/tables/generateDbTables.emtl#/0"/>
     <imports href="android/bd/dao/generateDaoAndroid.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/files/createFileHelper.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/keyvalue/createSharedHelper.emtl#/0"/>
+    <imports href="android/files/createFileHelper.emtl#/0"/>
+    <imports href="android/keyvalue/createSharedHelper.emtl#/0"/>
     <imports href="android/adapter/generateBDAdapters.emtl#/0"/>
     <imports href="android/adapter/generateKVAdapters.emtl#/0"/>
     <imports href="android/activities/generateMainActivity.emtl#/0"/>
@@ -24,24 +24,24 @@
     <imports href="android/activities/generateBDFormActivities.emtl#/0"/>
     <imports href="android/activities/generateKVFormActivities.emtl#/0"/>
     <imports href="android/activities/generateSensorActivities.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateMainPage.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDPages.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDCreateFormPage.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateFilePages.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVPages.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVDeleteUpdateFormPage.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateRestPages.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/beans/beansGenWindows.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/generateAppPage.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/bd/createWindowsDatabaseHelper.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/bd/dao/generateDaoWindows.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/files/createFileHelperWindows.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/keyvalue/createSharedHelperWindows.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/rest/generateRestWindowsInterface.emtl#/0"/>
+    <imports href="windows/pages/generateMainPage.emtl#/0"/>
+    <imports href="windows/pages/generateBDPages.emtl#/0"/>
+    <imports href="windows/pages/generateBDCreateFormPage.emtl#/0"/>
+    <imports href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0"/>
+    <imports href="windows/pages/generateFilePages.emtl#/0"/>
+    <imports href="windows/pages/generateKVPages.emtl#/0"/>
+    <imports href="windows/pages/generateKVDeleteUpdateFormPage.emtl#/0"/>
+    <imports href="windows/pages/generateRestPages.emtl#/0"/>
+    <imports href="windows/pages/generateSensorsPages.emtl#/0"/>
+    <imports href="windows/beans/beansGenWindows.emtl#/0"/>
+    <imports href="windows/generateAppPage.emtl#/0"/>
+    <imports href="windows/bd/createWindowsDatabaseHelper.emtl#/0"/>
+    <imports href="windows/bd/dao/generateDaoWindows.emtl#/0"/>
+    <imports href="windows/files/createFileHelperWindows.emtl#/0"/>
+    <imports href="windows/keyvalue/createSharedHelperWindows.emtl#/0"/>
+    <imports href="windows/rest/generateRestWindowsInterface.emtl#/0"/>
     <imports href="../../services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
@@ -452,7 +452,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/generateAppPage.emtl#/0/generateAppPage"/>
+        <definition href="windows/generateAppPage.emtl#/0/generateAppPage"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralWindowsClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -460,7 +460,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
+        <definition href="windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralWindowsClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -468,7 +468,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
+        <definition href="windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralWindowsClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -597,7 +597,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.5/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -659,7 +659,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
+          <definition href="windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateDBForWindows/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -670,7 +670,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/beans/beansGenWindows.emtl#/0/beansGenWindows"/>
+          <definition href="windows/beans/beansGenWindows.emtl#/0/beansGenWindows"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateDBForWindows/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -683,7 +683,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
+                <definition href="windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -694,7 +694,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
+                <definition href="windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -705,7 +705,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
+                <definition href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -716,7 +716,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
+                <definition href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -727,7 +727,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
+                <definition href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -738,7 +738,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
+                <definition href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -750,7 +750,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
+                <definition href="windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -763,7 +763,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.5/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -825,7 +825,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/files/createFileHelper.emtl#/0/createFileHelper"/>
+          <definition href="android/files/createFileHelper.emtl#/0/createFileHelper"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateFilesForAndroid/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -861,7 +861,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForAndroid/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -923,7 +923,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
+          <definition href="windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateFilesForWindows/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -938,7 +938,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
+                <definition href="windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -949,7 +949,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
+                <definition href="windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -962,7 +962,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForWindows/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -1024,7 +1024,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
+          <definition href="android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateKVForAndroid/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -1098,7 +1098,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -1160,7 +1160,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
+          <definition href="windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateKVForWindows/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -1172,7 +1172,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
+                <definition href="windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1183,7 +1183,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
+                <definition href="windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1194,7 +1194,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPage"/>
+                <definition href="windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPage"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1205,7 +1205,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPageLayout"/>
+                <definition href="windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPageLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1218,7 +1218,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -1346,7 +1346,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
+          <definition href="windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1357,7 +1357,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateRestPages.emtl#/0/generateRestPages"/>
+          <definition href="windows/pages/generateRestPages.emtl#/0/generateRestPages"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1368,7 +1368,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateRestPages.emtl#/0/generateRestPagesLayout"/>
+          <definition href="windows/pages/generateRestPages.emtl#/0/generateRestPagesLayout"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1495,7 +1495,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateCameraPages"/>
+        <definition href="windows/pages/generateSensorsPages.emtl#/0/generateCameraPages"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsWindows/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1506,7 +1506,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateCameraPagesLayout"/>
+        <definition href="windows/pages/generateSensorsPages.emtl#/0/generateCameraPagesLayout"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsWindows/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1517,7 +1517,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPages"/>
+        <definition href="windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPages"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsWindows/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1528,7 +1528,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPagesLayout"/>
+        <definition href="windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPagesLayout"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsWindows/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1541,7 +1541,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateSensorsPages"/>
+          <definition href="windows/pages/generateSensorsPages.emtl#/0/generateSensorsPages"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1552,7 +1552,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateSensorsPagesLayout"/>
+          <definition href="windows/pages/generateSensorsPages.emtl#/0/generateSensorsPagesLayout"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1897,7 +1897,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/files/createFileHelper.emtl#/0/createFileHelper"/>
+          <references href="android/files/createFileHelper.emtl#/0/createFileHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -1912,7 +1912,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
+          <references href="android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2263,7 +2263,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
+          <references href="windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -2275,7 +2275,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
+          <references href="windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -2287,7 +2287,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
+          <references href="windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2302,7 +2302,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
+          <references href="windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2317,7 +2317,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
+          <references href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2332,7 +2332,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
+          <references href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2347,7 +2347,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
+          <references href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2362,7 +2362,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
+          <references href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2377,7 +2377,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
+          <references href="windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2392,7 +2392,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
+          <references href="windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2407,7 +2407,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
+          <references href="windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2422,7 +2422,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
+          <references href="windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2437,7 +2437,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPage"/>
+          <references href="windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2452,7 +2452,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPageLayout"/>
+          <references href="windows/pages/generateKVDeleteUpdateFormPage.emtl#/0/generateKVDeleteUpdateFormPageLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2467,7 +2467,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateRestPages.emtl#/0/generateRestPages"/>
+          <references href="windows/pages/generateRestPages.emtl#/0/generateRestPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2482,7 +2482,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateRestPages.emtl#/0/generateRestPagesLayout"/>
+          <references href="windows/pages/generateRestPages.emtl#/0/generateRestPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2497,7 +2497,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateSensorsPages"/>
+          <references href="windows/pages/generateSensorsPages.emtl#/0/generateSensorsPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2512,7 +2512,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateSensorsPagesLayout"/>
+          <references href="windows/pages/generateSensorsPages.emtl#/0/generateSensorsPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2527,7 +2527,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateCameraPages"/>
+          <references href="windows/pages/generateSensorsPages.emtl#/0/generateCameraPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2542,7 +2542,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateCameraPagesLayout"/>
+          <references href="windows/pages/generateSensorsPages.emtl#/0/generateCameraPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2557,7 +2557,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPages"/>
+          <references href="windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2572,7 +2572,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPagesLayout"/>
+          <references href="windows/pages/generateSensorsPages.emtl#/0/generateAudioRecordPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2587,7 +2587,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/beans/beansGenWindows.emtl#/0/beansGenWindows"/>
+          <references href="windows/beans/beansGenWindows.emtl#/0/beansGenWindows"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2599,7 +2599,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/generateAppPage.emtl#/0/generateAppPage"/>
+          <references href="windows/generateAppPage.emtl#/0/generateAppPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -2611,7 +2611,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
+          <references href="windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2626,7 +2626,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
+          <references href="windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2641,7 +2641,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
+          <references href="windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2656,7 +2656,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
+          <references href="windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2668,7 +2668,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/carrito_v4/main/windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
+          <references href="windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2734,7 +2734,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/carrito_v4/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
