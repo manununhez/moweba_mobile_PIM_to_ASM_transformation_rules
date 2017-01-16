@@ -1,0 +1,82 @@
+<Page
+    x:Class="CarritoDeCompras.Views.ShoppingCartView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CarritoDeCompras.Views">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="ShoppingCart" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <TextBlock  x:Name="txbQuantity" TextWrapping="Wrap"  Text="0" Margin="0,10,330,455" FontSize="16"  HorizontalAlignment="Right" Width="16"/>
+            <TextBlock Text="elementos" TextWrapping="Wrap" Margin="31,9,251,453" FontSize="16" />
+            <Button x:Name="btnAddShoppingCart" Content="Add ShoppingCart" HorizontalAlignment="Right" Margin="222,-9,0,0" VerticalAlignment="Top" Click="btnAddShoppingCart_click"/>
+
+            <!--TODO: Content should be placed within the following grid-->
+            <Grid Margin="-2,1,12,-3">
+                <ListBox BorderBrush="#FF141EE4" Height="auto" BorderThickness="2" MaxHeight="580" x:Name="listBoxobj" SelectionChanged="listBoxobj_SelectionChanged" Margin="10,51,-10,35" Loaded="ReadAllShoppingCart_Loaded">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="Gray" Width="480">
+                                <Border BorderBrush="White" BorderThickness="1">
+                                    <StackPanel Grid.Column="2" Margin="19,0,0,0">
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="IdCart:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="idCartTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding idCart}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Price:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="priceTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding price}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="Quantity:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="quantityTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding quantity}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="IdProduct:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="idProductTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding idProduct}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="SyncTime:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="syncTimeTxt" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding syncTime}" FontSize="17" Foreground="White"/>
+                                        </Grid>				
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

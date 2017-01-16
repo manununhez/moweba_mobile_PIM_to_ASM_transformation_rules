@@ -72,7 +72,12 @@
 
 	[comment]Si existe el paquete DataPersistence[/comment]
 	[if (aPackage.hasStereotype('DataPersistence'))]
-	    [comment]Solo creamos este archivo Si existe por lo menos una entidad tipo Database[/comment]
+	    
+		[comment]Genera los beans o modelos de la aplicacion[/comment]
+		[beansGenAndroid(aPackage, p.name.toLower())/]
+		[beansGenWindows(aPackage)/]
+
+		[comment]Solo creamos este archivo Si existe por lo menos una entidad tipo Database[/comment]
 		[if (aPackage.isPackageHasThisPropertyStereotype('persistentEntity', 'persistentType', 'Database'))]
 			[generateDBForAndroid(aPackage, p.name.toLower())/]
 			[generateDBForWindows(aPackage, p.name.toUpperFirst())/]
@@ -159,8 +164,6 @@ por cada tabla. Por cada tabla se generan dos pantallas:
 [comment]Generamos el helper para base de datos: MySqliteHelper.java[/comment]
 [createDatabaseAndroid(aPackage, namespace)/]
 
-[comment]Genera los beans o modelos de la aplicacion[/comment]
-[beansGenAndroid(aPackage, namespace)/]
 
 	[for (aClass : Class | aClasses)]
 		[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]
@@ -200,8 +203,6 @@ por cada tabla. Por cada tabla se generan dos pantallas:
 [comment]Generamos el helper para base de datos: SQLiteHelper.cs[/comment]
 [createWindowsDatabaseHelper(aPackage, namespace)/]
 
-[comment]Genera los beans o modelos de la aplicacion[/comment]
-[beansGenWindows(aPackage)/]
 
 [for (aClass : Class | aClasses)]
 	[comment]Verificamos que la clase tenga el estereotipo 'persistentEntity'[/comment]

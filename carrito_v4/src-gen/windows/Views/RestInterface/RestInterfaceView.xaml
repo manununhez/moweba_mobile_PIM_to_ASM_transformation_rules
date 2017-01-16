@@ -1,0 +1,49 @@
+<Page
+    x:Class="CarritoDeCompras.Views.RestInterfaceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CarritoDeCompras.Views">
+    <ScrollViewer>
+        <StackPanel VerticalAlignment="Top">
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="login" Click="btnLogin_Click" />
+                <TextBlock Grid.Column="1" x:Name="loginTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="logout" Click="btnLogout_Click" />
+                <TextBlock Grid.Column="1" x:Name="logoutTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="getAllProducts" Click="btnGetAllProducts_Click" />
+                <TextBlock Grid.Column="1" x:Name="getAllProductsTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="getProduct" Click="btnGetProduct_Click" />
+                <TextBlock Grid.Column="1" x:Name="getProductTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="getAllProviders" Click="btnGetAllProviders_Click" />
+                <TextBlock Grid.Column="1" x:Name="getAllProvidersTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="getProvider" Click="btnGetProvider_Click" />
+                <TextBlock Grid.Column="1" x:Name="getProviderTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="checkOut" Click="btnCheckOut_Click" />
+                <TextBlock Grid.Column="1" x:Name="checkOutTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="getUserCart" Click="btnGetUserCart_Click" />
+                <TextBlock Grid.Column="1" x:Name="getUserCartTbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
