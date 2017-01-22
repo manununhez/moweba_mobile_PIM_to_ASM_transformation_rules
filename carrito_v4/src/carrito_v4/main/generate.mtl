@@ -152,7 +152,7 @@ Generamos las clases principales de WindowsPhone:
 
 [comment]*****************************************
 Generamos los archivos necesarios para la configuracion de SQLite en Android:
-el helper, las tablas, los modelos y los DAO.
+el helper, las tablas y los DAO.
 A parte, se generan las pantallas para poder probar las funciones CRUD
 por cada tabla. Por cada tabla se generan dos pantallas:
 - Una pantalla donde se listan todos los datos de la tabla
