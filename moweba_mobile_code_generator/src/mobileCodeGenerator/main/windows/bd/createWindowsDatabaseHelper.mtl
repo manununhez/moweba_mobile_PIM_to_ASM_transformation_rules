@@ -1,0 +1,107 @@
+[comment encoding = UTF-8 /]
+[module createWindowsDatabaseHelper('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public createWindowsDatabaseHelper(aPackage : Package, namespace : String)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+[file ('windows/Common/SQLiteHelper.cs', false)]
+
+//[protected ('imports')]
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Threading.Tasks;
+using [namespace.toUpperFirst()/].Model;
+using Windows.Storage;
+using Windows.UI.Popups;
+//[/protected]
+
+namespace [namespace.toUpperFirst()/].Common
+{
+    class SQLiteHelper
+    {
+        //Database name
+        public static string DbName = "[aPackage.name.toLowerFirst()/].sqlite";
+
+        //Full Database Path
+        public static string DbPath = Path.Combine(ApplicationData.Current.LocalFolder.Path, DbName);
+
+        /*
+		* Creating database and tables
+		*/
+		public async static Task<bool> Createdatabase()
+        {
+            var result = await Checkdatabase();
+            if (!result)
+            {
+                //Creating a database
+                var connection = new SQLite.SQLiteConnection(DbPath);
+                {
+                    //Creating a table
+                    connection.RunInTransaction(() =>
+                    {
+					[for (aClass : Class | aClasses)]		
+					[if (aClass.hasStereotype('persistentEntity'))]
+					[if (aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType') = 'Database')]
+					connection.CreateTable<[aClass.name.toUpperFirst()/]>();
+					[/if]
+					[/if]		
+					[/for]
+                    });
+                }
+
+                connection.Close();
+                Debug.WriteLine("Base de datos creada correctamente.");
+                return true;
+            }
+            else
+            {
+                Debug.WriteLine("Error al crear la base de datos.");
+                return false;
+            }
+        }
+		
+		/*
+		* Check if exists the database
+		*/
+        private static async Task<bool> Checkdatabase()
+        {
+            try
+            {
+                var store = await ApplicationData.Current.LocalFolder.GetFileAsync(DbName);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+		/*
+		* Delete the database
+		*/
+        public static async Task<bool> DeleteDatabase()
+        {
+            try
+            {
+                var storageFile = await StorageFile.GetFileFromPathAsync(DbPath);
+                await storageFile.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+            return false;
+        }
+
+    }
+}
+[/file]
+[/let]
+[/template]
+

@@ -1,0 +1,159 @@
+[comment encoding = UTF-8 /]
+[module generateKVDeleteUpdateFormPage('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateKVDeleteUpdateFormPage(aClass : Class, namespace : String)]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormDeleteUpdate','.xaml.cs'), false)]
+//[protected ('imports')]
+using [namespace/].Common;
+using [namespace/].Model;
+using System;
+using System.Diagnostics;
+using System.Globalization;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using WindowsStore.Common.Storage;
+//[/protected]
+
+namespace [namespace/].Views
+{
+
+    public sealed partial class [aClass.name.toUpperFirst()/]FormDeleteUpdate : Page
+    {
+        private NavigationHelper navigationHelper;
+        private [aClass.name.toUpperFirst()/] selected[aClass.name.toUpperFirst()/];
+
+        public [aClass.name.toUpperFirst()/]FormDeleteUpdate()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+			// Receiving data from the KV pageView
+            if (e != null)
+            {
+				//Fill the form with the received data
+                selected[aClass.name.toUpperFirst()/] = e.Parameter as [aClass.name.toUpperFirst()/];
+				if (selected[aClass.name.toUpperFirst()/] != null)
+				{
+				[for (p : Property | persistentEntityProperties)]
+					[if(p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType') <> 'string')]
+					[p.name.toLowerFirst()/]Tbx.Text = Convert.ToString(selected[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/]);
+					[else]
+					[p.name.toLowerFirst()/]Tbx.Text = selected[aClass.name.toUpperFirst()/].[p.name.toLowerFirst()/];
+					[/if]
+				[/for]
+            	}
+			}
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+		/*
+		* Delete an specific entry from the storemanager
+		*/
+        private async void btnDelete_click(object sender, RoutedEventArgs e)
+        {
+		 	try
+            {
+	            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for]);
+	            StorageManager storage = new StorageManager("dataPersistence", false);
+	            storage.Remove("[aClass.name.toLowerFirst()/]");
+	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			}
+            catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+
+        }
+		
+		/*
+		* Update an specific entry from the storemanager
+		*/
+        private async void btnUpdate_click(object sender, RoutedEventArgs e)
+        {
+			try
+            {
+	            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for]);
+	            StorageManager storage = new StorageManager("dataPersistence", false);
+	            storage.Save("[aClass.name.toLowerFirst()/]", [aClass.name.toLowerFirst()/]);
+	            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+			}
+            catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+        }
+
+    }
+}
+
+[/file]
+[/let]
+[/template]
+
+[template public generateKVDeleteUpdateFormPageLayout(aClass : Class, namespace : String)]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormDeleteUpdate','.xaml'), false)]
+<Page
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]FormDeleteUpdate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[namespace/].Views">
+<ScrollViewer>
+    <Grid x:Name="LayoutRoot">
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+                <TextBlock Text="Delete/Update" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+            </StackPanel>
+
+            <StackPanel Margin="20,129,19,0" Grid.RowSpan="4">
+			[for (p : Property | persistentEntityProperties)]
+                <TextBlock Text="[p.name.toLowerFirst()/]" FontSize="14"/>
+                <TextBox x:Name="[p.name.toLowerFirst()/]Tbx" TextWrapping="Wrap" Width="350"/>
+			[/for]
+				<Button x:Name="btnDelete[aClass.name.toUpperFirst()/]" Content="Delete [aClass.name.toUpperFirst()/]" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnDelete_click" />
+                <Button x:Name="btnUpdate[aClass.name.toUpperFirst()/]" Content="Update [aClass.name.toUpperFirst()/]" HorizontalAlignment="Center" VerticalAlignment="Top" Height="71" Width="304" Click="btnUpdate_click"/>
+            </StackPanel>
+        </Grid>                 
+</ScrollViewer>
+</Page>
+[/file]
+[/let]
+[/template]
+

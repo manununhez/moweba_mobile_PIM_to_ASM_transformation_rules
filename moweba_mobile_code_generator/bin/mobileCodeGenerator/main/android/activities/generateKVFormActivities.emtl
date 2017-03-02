@@ -1,0 +1,2004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="generateKVFormActivities" nsURI="mobileCodeGenerator::main::android::activities::generateKVFormActivities" startHeaderPosition="29" endHeaderPosition="135">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateKVFormActivities" visibility="Public">
+      <body xsi:type="mtl:LetBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.example."/>
+          <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVFormActivities/namespace">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".activities;&#xA;&#xA;//"/>
+          <body xsi:type="mtl:ProtectedAreaBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;import android.app.Activity;&#xA;import android.content.Intent;&#xA;import android.os.Bundle;&#xA;import android.support.design.widget.TextInputEditText;&#xA;import android.support.v7.app.ActionBar;&#xA;import android.support.v7.app.AppCompatActivity;&#xA;import android.view.MenuItem;&#xA;import android.view.View;&#xA;import android.widget.Button;&#xA;import android.widget.Toast;&#xA;&#xA;import com.example."/>
+            <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVFormActivities/namespace">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".R;&#xA;import com.example."/>
+            <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVFormActivities/namespace">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".beans."/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;import com.example."/>
+            <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVFormActivities/namespace">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".helpers.StorageManager;&#xA;&#xA;import java.math.BigDecimal;&#xA;//"/>
+            <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="imports">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </marker>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;public class "/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="FormActivity extends AppCompatActivity {&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;private TextInputEditText tie"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.6/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="; &#xA;"/>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;    @Override&#xA;    protected void onCreate(Bundle savedInstanceState) {&#xA;        super.onCreate(savedInstanceState);&#xA;        setContentView(R.layout.activity_form_"/>
+          <body xsi:type="ocl.ecore:OperationCallExp">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/toLower"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;&#xA;&#x9;&#x9;// Setting the toolbar title&#xA;        ActionBar actionBar = getSupportActionBar();&#xA;        if (actionBar != null) {&#xA;            actionBar.setTitle(&quot;Edit "/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;);&#xA;            actionBar.setDisplayHomeAsUpEnabled(true);&#xA;        }&#xA;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;tie"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.12/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" =  (TextInputEditText) findViewById(R.id.tie"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.12/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="); &#xA;"/>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;       &#xA;        Button btnSave = (Button) findViewById(R.id.btnSave);&#xA;&#xA;        btnSave.setOnClickListener(new View.OnClickListener() {&#xA;            @Override&#xA;            public void onClick(View view) {&#xA;                saveData();&#xA;&#xA;            }&#xA;        });&#xA;&#xA;&#x9;&#x9;loadData();&#xA;&#xA;    }&#xA;&#xA;&#x9;/*&#xA;&#x9;*&#x9;Populating the form with the stored data&#xA;&#x9;*/&#xA;    private void loadData() {&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;String "/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.14/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = StorageManager.getValue("/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="FormActivity.this, &quot;"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.14/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;); &#xA;"/>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;tie"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.16/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".setText("/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.16/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" == null ? &quot;&quot; : "/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.16/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="); &#xA;"/>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    }&#xA;&#xA;&#x9;/*&#xA;&#x9;* Saving data in sharedPreferences&#xA;&#x9;*/&#xA;    private void saveData() {&#xA;&#x9;&#x9;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;String "/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.18/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = tie"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.18/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".getText().toString(); &#xA;"/>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;&#x9;&#x9;try {&#xA;&#x9;        // We use the constructor of the object to verify that the data entered are of the correct type, and then store them               &#xA;&#x9;&#x9;    "/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" "/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = new "/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="("/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="mtl:QueryInvocation">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <definition href="../../../../common/utils_gen.emtl#/0/getJavaKVConstructorDescription"/>
+              <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.26/p">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::persistentEntityProperty">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+              <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.26/p">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                </source>
+              </argument>
+            </body>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties"/>
+            <each xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", ">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </each>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;StorageManager.save("/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="FormActivity.this, &quot;"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.28/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;, "/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivities/%/%.1/%.28/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="); &#xA;"/>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#xA;&#xA;&#x9;        Intent returnIntent = new Intent();&#xA;&#x9;        setResult(Activity.RESULT_OK, returnIntent);&#xA;&#x9;        finish();&#xA;&#x9;&#x9;}catch (Exception e){&#xA;            Toast.makeText("/>
+          <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:PropertyCallExp">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+            </source>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="FormActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();&#xA;        }&#xA;    }&#xA;&#xA;    @Override&#xA;    public boolean onOptionsItemSelected(MenuItem item) {&#xA;        switch (item.getItemId()) {&#xA;            // Respond to the action bar's Up/Home button&#xA;            case android.R.id.home:&#xA;                finish();&#xA;                return true;&#xA;        }&#xA;        return super.onOptionsItemSelected(item);&#xA;&#xA;    }&#xA;}&#xA;&#xA;"/>
+          <fileUrl xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
+            <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/example/">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </source>
+                <argument xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVFormActivities/namespace">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+              </source>
+              <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/activities/">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              </argument>
+            </argument>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="FormActivity">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".java">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </fileUrl>
+        </body>
+        <letVariable name="persistentEntityProperties" eType="/6/Set(Property)">
+          <initExpression xsi:type="ocl.ecore:IteratorExp" name="select" eType="/6/Set(Property)">
+            <source xsi:type="ocl.ecore:OperationCallExp" eType="/6/Set(Property)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivities/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/getAllAttributes"/>
+            </source>
+            <body xsi:type="ocl.ecore:IteratorExp" name="exists">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" eType="/6/Set(Stereotype)">
+                <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties/select/temp1">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/getAppliedStereotypes"/>
+              </source>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="s" referredVariable="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/s">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntityProperty">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="s">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+              </iterator>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp1">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </iterator>
+          </initExpression>
+        </letVariable>
+      </body>
+      <parameter name="aClass">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </parameter>
+      <parameter name="namespace">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateKVFormActivitiesLayout" visibility="Public">
+      <body xsi:type="mtl:LetBlock">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+        <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?>&#xA;&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&#xA;    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&#xA;    android:layout_width=&quot;match_parent&quot;&#xA;    android:layout_height=&quot;match_parent&quot;&#xA;    android:paddingBottom=&quot;@dimen/activity_vertical_margin&quot;&#xA;    android:paddingLeft=&quot;@dimen/activity_horizontal_margin&quot;&#xA;    android:paddingRight=&quot;@dimen/activity_horizontal_margin&quot;&#xA;    android:paddingTop=&quot;@dimen/activity_vertical_margin&quot;&#xA;    android:orientation=&quot;vertical&quot;>&#xA;&#xA;"/>
+          <body xsi:type="mtl:ForBlock">
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&lt;android.support.design.widget.TextInputLayout&#xA;        android:id=&quot;@+id/til"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivitiesLayout/%/%.1/%.1/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;&#xA;        android:layout_width=&quot;match_parent&quot;&#xA;        android:layout_height=&quot;wrap_content&quot;>&#xA;&#xA;        &lt;android.support.design.widget.TextInputEditText&#xA;            android:id=&quot;@+id/tie"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivitiesLayout/%/%.1/%.1/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot;&#xA;            android:layout_width=&quot;match_parent&quot;&#xA;            android:layout_height=&quot;wrap_content&quot;&#xA;            android:hint=&quot;"/>
+            <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+              <source xsi:type="ocl.ecore:PropertyCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVFormActivitiesLayout/%/%.1/%.1/p">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+              </source>
+            </body>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; />&#xA;    &lt;/android.support.design.widget.TextInputLayout>&#xA;"/>
+            <loopVariable name="p">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </loopVariable>
+            <iterSet xsi:type="ocl.ecore:VariableExp" name="persistentEntityProperties" eType="/6/Set(Property)" referredVariable="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties"/>
+            <each xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </each>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;    &lt;Button&#xA;        android:id=&quot;@+id/btnSave&quot;&#xA;        android:layout_width=&quot;wrap_content&quot;&#xA;        android:layout_height=&quot;wrap_content&quot;&#xA;&#x9;&#x9;android:textAllCaps=&quot;false&quot;&#xA;        android:layout_gravity=&quot;center_horizontal&quot;&#xA;        android:text=&quot;Save Changes&quot;/>&#xA;&lt;/LinearLayout>&#xA;"/>
+          <fileUrl xsi:type="mtl:QueryInvocation">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileNameInvert"/>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/res/layout/">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivitiesLayout/aClass">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="activity_form_">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+            <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".xml">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </fileUrl>
+        </body>
+        <letVariable name="persistentEntityProperties" eType="/6/Set(Property)">
+          <initExpression xsi:type="ocl.ecore:IteratorExp" name="select" eType="/6/Set(Property)">
+            <source xsi:type="ocl.ecore:OperationCallExp" eType="/6/Set(Property)">
+              <source xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVFormActivitiesLayout/aClass">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+              </source>
+              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Classifier/getAllAttributes"/>
+            </source>
+            <body xsi:type="ocl.ecore:IteratorExp" name="exists">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+              <source xsi:type="ocl.ecore:OperationCallExp" eType="/6/Set(Stereotype)">
+                <source xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/temp2">
+                  <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+                </source>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element/getAppliedStereotypes"/>
+              </source>
+              <body xsi:type="ocl.ecore:OperationCallExp">
+                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
+                <source xsi:type="ocl.ecore:PropertyCallExp">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                  <source xsi:type="ocl.ecore:VariableExp" name="s" referredVariable="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/s">
+                    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+                  </source>
+                  <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
+                </source>
+                <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="persistentEntityProperty">
+                  <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+                </argument>
+                <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/="/>
+              </body>
+              <iterator xsi:type="ocl.ecore:Variable" name="s">
+                <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+              </iterator>
+            </body>
+            <iterator xsi:type="ocl.ecore:Variable" name="temp2">
+              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+            </iterator>
+          </initExpression>
+        </letVariable>
+      </body>
+      <parameter name="aClass">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="toUpperFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="toLowerFirst">
+        <eAnnotations source="MTL"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eOperations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateKVFormActivities">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateKVFormActivities"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+        <eParameters name="namespace">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateKVFormActivitiesLayout">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateKVFormActivitiesLayout"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aClass">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="classFileName">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+        <eParameters name="arg2">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arg3">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="classFileNameInvert">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../../services/uml2services.emtl#/0/classFileNameInvert"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="arg0">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arg1">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+        </eParameters>
+        <eParameters name="arg2">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="arg3">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="getJavaKVConstructorDescription">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../../../../common/utils_gen.emtl#/0/getJavaKVConstructorDescription"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="elem">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+        </eParameters>
+        <eParameters name="stereotype_name">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+        <eParameters name="propertyName">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Class_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Package_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Element_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Element"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Property)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(Stereotype)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Stereotype"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateKVFormActivities">
+      <details key="start" value="168"/>
+      <details key="end" value="4201"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateKVFormActivities/%">
+      <details key="start" value="247"/>
+      <details key="end" value="4189"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateKVFormActivities/%/%">
+      <details key="start" value="415"/>
+      <details key="end" value="416"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateKVFormActivities/%/%.1">
+      <details key="start" value="416"/>
+      <details key="end" value="4182"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateKVFormActivities/%/%.1/%">
+      <details key="start" value="552"/>
+      <details key="end" value="573"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateKVFormActivities/%/%.1/namespace">
+      <details key="start" value="574"/>
+      <details key="end" value="583"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateKVFormActivities/%/%.1/%.1">
+      <details key="start" value="585"/>
+      <details key="end" value="601"/>
+      <details key="line" value="13"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateKVFormActivities/%/%.1/%.2">
+      <details key="start" value="601"/>
+      <details key="end" value="1177"/>
+      <details key="line" value="15"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateKVFormActivities/%/%.1/%.2/%">
+      <details key="start" value="624"/>
+      <details key="end" value="992"/>
+      <details key="line" value="16"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateKVFormActivities/%/%.1/%.2/namespace">
+      <details key="start" value="993"/>
+      <details key="end" value="1002"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateKVFormActivities/%/%.1/%.2/%.1">
+      <details key="start" value="1004"/>
+      <details key="end" value="1027"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateKVFormActivities/%/%.1/%.2/namespace.1">
+      <details key="start" value="1028"/>
+      <details key="end" value="1037"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateKVFormActivities/%/%.1/%.2/%.2">
+      <details key="start" value="1039"/>
+      <details key="end" value="1046"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateKVFormActivities/%/%.1/%.2/%.3">
+      <details key="start" value="1047"/>
+      <details key="end" value="1073"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateKVFormActivities/%/%.1/%.2/%.3/%">
+      <details key="start" value="1047"/>
+      <details key="end" value="1058"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateKVFormActivities/%/%.1/%.2/%.3/%/aClass">
+      <details key="start" value="1047"/>
+      <details key="end" value="1053"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateKVFormActivities/%/%.1/%.2/%.4">
+      <details key="start" value="1075"/>
+      <details key="end" value="1096"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateKVFormActivities/%/%.1/%.2/namespace.2">
+      <details key="start" value="1097"/>
+      <details key="end" value="1106"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateKVFormActivities/%/%.1/%.2/%.5">
+      <details key="start" value="1108"/>
+      <details key="end" value="1165"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateKVFormActivities/%/%.1/%.2/%.6">
+      <details key="start" value="613"/>
+      <details key="end" value="622"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateKVFormActivities/%/%.1/%.3">
+      <details key="start" value="1177"/>
+      <details key="end" value="1192"/>
+      <details key="line" value="33"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateKVFormActivities/%/%.1/%.4">
+      <details key="start" value="1193"/>
+      <details key="end" value="1219"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateKVFormActivities/%/%.1/%.4/%">
+      <details key="start" value="1193"/>
+      <details key="end" value="1204"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateKVFormActivities/%/%.1/%.4/%/aClass">
+      <details key="start" value="1193"/>
+      <details key="end" value="1199"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateKVFormActivities/%/%.1/%.5">
+      <details key="start" value="1221"/>
+      <details key="end" value="1262"/>
+      <details key="line" value="34"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateKVFormActivities/%/%.1/%.6">
+      <details key="start" value="1263"/>
+      <details key="end" value="1377"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateKVFormActivities/%/%.1/%.6/%">
+      <details key="start" value="1313"/>
+      <details key="end" value="1343"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateKVFormActivities/%/%.1/%.6/%.1">
+      <details key="start" value="1344"/>
+      <details key="end" value="1365"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateKVFormActivities/%/%.1/%.6/%.1/%">
+      <details key="start" value="1344"/>
+      <details key="end" value="1350"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateKVFormActivities/%/%.1/%.6/%.1/%/p">
+      <details key="start" value="1344"/>
+      <details key="end" value="1345"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateKVFormActivities/%/%.1/%.6/%.2">
+      <details key="start" value="1367"/>
+      <details key="end" value="1370"/>
+      <details key="line" value="36"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateKVFormActivities/%/%.1/%.6/p">
+      <details key="start" value="1269"/>
+      <details key="end" value="1281"/>
+      <details key="line" value="35"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateKVFormActivities/%/%.1/%.6/persistentEntityProperties">
+      <details key="start" value="1284"/>
+      <details key="end" value="1310"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateKVFormActivities/%/%.1/%.7">
+      <details key="start" value="1378"/>
+      <details key="end" value="1540"/>
+      <details key="line" value="38"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateKVFormActivities/%/%.1/%.8">
+      <details key="start" value="1541"/>
+      <details key="end" value="1562"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateKVFormActivities/%/%.1/%.8/%">
+      <details key="start" value="1541"/>
+      <details key="end" value="1552"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateKVFormActivities/%/%.1/%.8/%/aClass">
+      <details key="start" value="1541"/>
+      <details key="end" value="1547"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateKVFormActivities/%/%.1/%.9">
+      <details key="start" value="1564"/>
+      <details key="end" value="1722"/>
+      <details key="line" value="42"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateKVFormActivities/%/%.1/%.10">
+      <details key="start" value="1723"/>
+      <details key="end" value="1749"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateKVFormActivities/%/%.1/%.10/%">
+      <details key="start" value="1723"/>
+      <details key="end" value="1734"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateKVFormActivities/%/%.1/%.10/%/aClass">
+      <details key="start" value="1723"/>
+      <details key="end" value="1729"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateKVFormActivities/%/%.1/%.11">
+      <details key="start" value="1751"/>
+      <details key="end" value="1821"/>
+      <details key="line" value="47"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateKVFormActivities/%/%.1/%.12">
+      <details key="start" value="1823"/>
+      <details key="end" value="1983"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateKVFormActivities/%/%.1/%.12/%">
+      <details key="start" value="1873"/>
+      <details key="end" value="1878"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateKVFormActivities/%/%.1/%.12/%.1">
+      <details key="start" value="1879"/>
+      <details key="end" value="1900"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateKVFormActivities/%/%.1/%.12/%.1/%">
+      <details key="start" value="1879"/>
+      <details key="end" value="1885"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateKVFormActivities/%/%.1/%.12/%.1/%/p">
+      <details key="start" value="1879"/>
+      <details key="end" value="1880"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateKVFormActivities/%/%.1/%.12/%.2">
+      <details key="start" value="1902"/>
+      <details key="end" value="1947"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateKVFormActivities/%/%.1/%.12/%.3">
+      <details key="start" value="1948"/>
+      <details key="end" value="1969"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateKVFormActivities/%/%.1/%.12/%.3/%">
+      <details key="start" value="1948"/>
+      <details key="end" value="1954"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateKVFormActivities/%/%.1/%.12/%.3/%/p">
+      <details key="start" value="1948"/>
+      <details key="end" value="1949"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateKVFormActivities/%/%.1/%.12/%.4">
+      <details key="start" value="1971"/>
+      <details key="end" value="1975"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateKVFormActivities/%/%.1/%.12/p">
+      <details key="start" value="1829"/>
+      <details key="end" value="1841"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateKVFormActivities/%/%.1/%.12/persistentEntityProperties">
+      <details key="start" value="1844"/>
+      <details key="end" value="1870"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateKVFormActivities/%/%.1/%.13">
+      <details key="start" value="1984"/>
+      <details key="end" value="2347"/>
+      <details key="line" value="54"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateKVFormActivities/%/%.1/%.14">
+      <details key="start" value="2349"/>
+      <details key="end" value="2545"/>
+      <details key="line" value="74"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateKVFormActivities/%/%.1/%.14/%">
+      <details key="start" value="2399"/>
+      <details key="end" value="2408"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateKVFormActivities/%/%.1/%.14/%.1">
+      <details key="start" value="2409"/>
+      <details key="end" value="2430"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateKVFormActivities/%/%.1/%.14/%.1/%">
+      <details key="start" value="2409"/>
+      <details key="end" value="2415"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateKVFormActivities/%/%.1/%.14/%.1/%/p">
+      <details key="start" value="2409"/>
+      <details key="end" value="2410"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateKVFormActivities/%/%.1/%.14/%.2">
+      <details key="start" value="2432"/>
+      <details key="end" value="2459"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateKVFormActivities/%/%.1/%.14/%.3">
+      <details key="start" value="2460"/>
+      <details key="end" value="2486"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateKVFormActivities/%/%.1/%.14/%.3/%">
+      <details key="start" value="2460"/>
+      <details key="end" value="2471"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateKVFormActivities/%/%.1/%.14/%.3/%/aClass">
+      <details key="start" value="2460"/>
+      <details key="end" value="2466"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateKVFormActivities/%/%.1/%.14/%.4">
+      <details key="start" value="2488"/>
+      <details key="end" value="2508"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateKVFormActivities/%/%.1/%.14/%.5">
+      <details key="start" value="2509"/>
+      <details key="end" value="2530"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateKVFormActivities/%/%.1/%.14/%.5/%">
+      <details key="start" value="2509"/>
+      <details key="end" value="2515"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateKVFormActivities/%/%.1/%.14/%.5/%/p">
+      <details key="start" value="2509"/>
+      <details key="end" value="2510"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateKVFormActivities/%/%.1/%.14/%.6">
+      <details key="start" value="2532"/>
+      <details key="end" value="2537"/>
+      <details key="line" value="75"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateKVFormActivities/%/%.1/%.14/p">
+      <details key="start" value="2355"/>
+      <details key="end" value="2367"/>
+      <details key="line" value="74"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateKVFormActivities/%/%.1/%.14/persistentEntityProperties">
+      <details key="start" value="2370"/>
+      <details key="end" value="2396"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateKVFormActivities/%/%.1/%.15">
+      <details key="start" value="2546"/>
+      <details key="end" value="2547"/>
+      <details key="line" value="77"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateKVFormActivities/%/%.1/%.16">
+      <details key="start" value="2549"/>
+      <details key="end" value="2713"/>
+      <details key="line" value="78"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateKVFormActivities/%/%.1/%.16/%">
+      <details key="start" value="2599"/>
+      <details key="end" value="2604"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateKVFormActivities/%/%.1/%.16/%.1">
+      <details key="start" value="2605"/>
+      <details key="end" value="2626"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateKVFormActivities/%/%.1/%.16/%.1/%">
+      <details key="start" value="2605"/>
+      <details key="end" value="2611"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateKVFormActivities/%/%.1/%.16/%.1/%/p">
+      <details key="start" value="2605"/>
+      <details key="end" value="2606"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateKVFormActivities/%/%.1/%.16/%.2">
+      <details key="start" value="2628"/>
+      <details key="end" value="2637"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateKVFormActivities/%/%.1/%.16/%.3">
+      <details key="start" value="2638"/>
+      <details key="end" value="2659"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateKVFormActivities/%/%.1/%.16/%.3/%">
+      <details key="start" value="2638"/>
+      <details key="end" value="2644"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateKVFormActivities/%/%.1/%.16/%.3/%/p">
+      <details key="start" value="2638"/>
+      <details key="end" value="2639"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateKVFormActivities/%/%.1/%.16/%.4">
+      <details key="start" value="2661"/>
+      <details key="end" value="2677"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateKVFormActivities/%/%.1/%.16/%.5">
+      <details key="start" value="2678"/>
+      <details key="end" value="2699"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateKVFormActivities/%/%.1/%.16/%.5/%">
+      <details key="start" value="2678"/>
+      <details key="end" value="2684"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateKVFormActivities/%/%.1/%.16/%.5/%/p">
+      <details key="start" value="2678"/>
+      <details key="end" value="2679"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateKVFormActivities/%/%.1/%.16/%.6">
+      <details key="start" value="2701"/>
+      <details key="end" value="2705"/>
+      <details key="line" value="79"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateKVFormActivities/%/%.1/%.16/p">
+      <details key="start" value="2555"/>
+      <details key="end" value="2567"/>
+      <details key="line" value="78"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateKVFormActivities/%/%.1/%.16/persistentEntityProperties">
+      <details key="start" value="2570"/>
+      <details key="end" value="2596"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateKVFormActivities/%/%.1/%.17">
+      <details key="start" value="2714"/>
+      <details key="end" value="2798"/>
+      <details key="line" value="81"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateKVFormActivities/%/%.1/%.18">
+      <details key="start" value="2800"/>
+      <details key="end" value="2945"/>
+      <details key="line" value="88"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateKVFormActivities/%/%.1/%.18/%">
+      <details key="start" value="2850"/>
+      <details key="end" value="2859"/>
+      <details key="line" value="89"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateKVFormActivities/%/%.1/%.18/%.1">
+      <details key="start" value="2860"/>
+      <details key="end" value="2881"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateKVFormActivities/%/%.1/%.18/%.1/%">
+      <details key="start" value="2860"/>
+      <details key="end" value="2866"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateKVFormActivities/%/%.1/%.18/%.1/%/p">
+      <details key="start" value="2860"/>
+      <details key="end" value="2861"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateKVFormActivities/%/%.1/%.18/%.2">
+      <details key="start" value="2883"/>
+      <details key="end" value="2889"/>
+      <details key="line" value="89"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateKVFormActivities/%/%.1/%.18/%.3">
+      <details key="start" value="2890"/>
+      <details key="end" value="2911"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateKVFormActivities/%/%.1/%.18/%.3/%">
+      <details key="start" value="2890"/>
+      <details key="end" value="2896"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateKVFormActivities/%/%.1/%.18/%.3/%/p">
+      <details key="start" value="2890"/>
+      <details key="end" value="2891"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateKVFormActivities/%/%.1/%.18/%.4">
+      <details key="start" value="2913"/>
+      <details key="end" value="2937"/>
+      <details key="line" value="89"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateKVFormActivities/%/%.1/%.18/p">
+      <details key="start" value="2806"/>
+      <details key="end" value="2818"/>
+      <details key="line" value="88"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateKVFormActivities/%/%.1/%.18/persistentEntityProperties">
+      <details key="start" value="2821"/>
+      <details key="end" value="2847"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateKVFormActivities/%/%.1/%.19">
+      <details key="start" value="2946"/>
+      <details key="end" value="3103"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateKVFormActivities/%/%.1/%.20">
+      <details key="start" value="3104"/>
+      <details key="end" value="3130"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateKVFormActivities/%/%.1/%.20/%">
+      <details key="start" value="3104"/>
+      <details key="end" value="3115"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateKVFormActivities/%/%.1/%.20/%/aClass">
+      <details key="start" value="3104"/>
+      <details key="end" value="3110"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateKVFormActivities/%/%.1/%.21">
+      <details key="start" value="3132"/>
+      <details key="end" value="3133"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateKVFormActivities/%/%.1/%.22">
+      <details key="start" value="3134"/>
+      <details key="end" value="3160"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateKVFormActivities/%/%.1/%.22/%">
+      <details key="start" value="3134"/>
+      <details key="end" value="3145"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateKVFormActivities/%/%.1/%.22/%/aClass">
+      <details key="start" value="3134"/>
+      <details key="end" value="3140"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateKVFormActivities/%/%.1/%.23">
+      <details key="start" value="3162"/>
+      <details key="end" value="3169"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateKVFormActivities/%/%.1/%.24">
+      <details key="start" value="3170"/>
+      <details key="end" value="3196"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateKVFormActivities/%/%.1/%.24/%">
+      <details key="start" value="3170"/>
+      <details key="end" value="3181"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateKVFormActivities/%/%.1/%.24/%/aClass">
+      <details key="start" value="3170"/>
+      <details key="end" value="3176"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateKVFormActivities/%/%.1/%.25">
+      <details key="start" value="3198"/>
+      <details key="end" value="3199"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateKVFormActivities/%/%.1/%.26">
+      <details key="start" value="3199"/>
+      <details key="end" value="3373"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateKVFormActivities/%/%.1/%.26/%">
+      <details key="start" value="3265"/>
+      <details key="end" value="3365"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateKVFormActivities/%/%.1/%.26/%/p">
+      <details key="start" value="3265"/>
+      <details key="end" value="3266"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateKVFormActivities/%/%.1/%.26/%/%">
+      <details key="start" value="3299"/>
+      <details key="end" value="3341"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateKVFormActivities/%/%.1/%.26/%/%.1">
+      <details key="start" value="3343"/>
+      <details key="end" value="3364"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateKVFormActivities/%/%.1/%.26/%/%.1/%">
+      <details key="start" value="3343"/>
+      <details key="end" value="3349"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateKVFormActivities/%/%.1/%.26/%/%.1/%/p">
+      <details key="start" value="3343"/>
+      <details key="end" value="3344"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateKVFormActivities/%/%.1/%.26/p">
+      <details key="start" value="3205"/>
+      <details key="end" value="3217"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateKVFormActivities/%/%.1/%.26/persistentEntityProperties">
+      <details key="start" value="3220"/>
+      <details key="end" value="3246"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateKVFormActivities/%/%.1/%.26/%.1">
+      <details key="start" value="3258"/>
+      <details key="end" value="3262"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateKVFormActivities/%/%.1/%.27">
+      <details key="start" value="3373"/>
+      <details key="end" value="3377"/>
+      <details key="line" value="94"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateKVFormActivities/%/%.1/%.28">
+      <details key="start" value="3380"/>
+      <details key="end" value="3566"/>
+      <details key="line" value="96"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateKVFormActivities/%/%.1/%.28/%">
+      <details key="start" value="3430"/>
+      <details key="end" value="3453"/>
+      <details key="line" value="97"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateKVFormActivities/%/%.1/%.28/%.1">
+      <details key="start" value="3454"/>
+      <details key="end" value="3480"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateKVFormActivities/%/%.1/%.28/%.1/%">
+      <details key="start" value="3454"/>
+      <details key="end" value="3465"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateKVFormActivities/%/%.1/%.28/%.1/%/aClass">
+      <details key="start" value="3454"/>
+      <details key="end" value="3460"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateKVFormActivities/%/%.1/%.28/%.2">
+      <details key="start" value="3482"/>
+      <details key="end" value="3502"/>
+      <details key="line" value="97"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateKVFormActivities/%/%.1/%.28/%.3">
+      <details key="start" value="3503"/>
+      <details key="end" value="3524"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateKVFormActivities/%/%.1/%.28/%.3/%">
+      <details key="start" value="3503"/>
+      <details key="end" value="3509"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateKVFormActivities/%/%.1/%.28/%.3/%/p">
+      <details key="start" value="3503"/>
+      <details key="end" value="3504"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateKVFormActivities/%/%.1/%.28/%.4">
+      <details key="start" value="3526"/>
+      <details key="end" value="3529"/>
+      <details key="line" value="97"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateKVFormActivities/%/%.1/%.28/%.5">
+      <details key="start" value="3530"/>
+      <details key="end" value="3551"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateKVFormActivities/%/%.1/%.28/%.5/%">
+      <details key="start" value="3530"/>
+      <details key="end" value="3536"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateKVFormActivities/%/%.1/%.28/%.5/%/p">
+      <details key="start" value="3530"/>
+      <details key="end" value="3531"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateKVFormActivities/%/%.1/%.28/%.6">
+      <details key="start" value="3553"/>
+      <details key="end" value="3557"/>
+      <details key="line" value="97"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateKVFormActivities/%/%.1/%.28/p">
+      <details key="start" value="3386"/>
+      <details key="end" value="3398"/>
+      <details key="line" value="96"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateKVFormActivities/%/%.1/%.28/persistentEntityProperties">
+      <details key="start" value="3401"/>
+      <details key="end" value="3427"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateKVFormActivities/%/%.1/%.29">
+      <details key="start" value="3567"/>
+      <details key="end" value="3739"/>
+      <details key="line" value="99"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateKVFormActivities/%/%.1/%.30">
+      <details key="start" value="3740"/>
+      <details key="end" value="3766"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateKVFormActivities/%/%.1/%.30/%">
+      <details key="start" value="3740"/>
+      <details key="end" value="3751"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateKVFormActivities/%/%.1/%.30/%/aClass">
+      <details key="start" value="3740"/>
+      <details key="end" value="3746"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.145" references="/0/generateKVFormActivities/%/%.1/%.31">
+      <details key="start" value="3768"/>
+      <details key="end" value="4175"/>
+      <details key="line" value="105"/>
+    </eAnnotations>
+    <eAnnotations source="positions.146" references="/0/generateKVFormActivities/%/%.1/%.32">
+      <details key="start" value="423"/>
+      <details key="end" value="542"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.147" references="/0/generateKVFormActivities/%/%.1/%.32/%">
+      <details key="start" value="444"/>
+      <details key="end" value="509"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.148" references="/0/generateKVFormActivities/%/%.1/%.32/%/%">
+      <details key="start" value="444"/>
+      <details key="end" value="494"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.149" references="/0/generateKVFormActivities/%/%.1/%.32/%/%/%">
+      <details key="start" value="444"/>
+      <details key="end" value="484"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.150" references="/0/generateKVFormActivities/%/%.1/%.32/%/%/namespace">
+      <details key="start" value="485"/>
+      <details key="end" value="494"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.151" references="/0/generateKVFormActivities/%/%.1/%.32/%/%.1">
+      <details key="start" value="495"/>
+      <details key="end" value="509"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.152" references="/0/generateKVFormActivities/%/%.1/%.32/aClass">
+      <details key="start" value="511"/>
+      <details key="end" value="517"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.153" references="/0/generateKVFormActivities/%/%.1/%.32/%.1">
+      <details key="start" value="519"/>
+      <details key="end" value="533"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.154" references="/0/generateKVFormActivities/%/%.1/%.32/%.2">
+      <details key="start" value="534"/>
+      <details key="end" value="541"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.155" references="/0/generateKVFormActivities/%/persistentEntityProperties">
+      <details key="start" value="252"/>
+      <details key="end" value="412"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.156" references="/0/generateKVFormActivities/%/persistentEntityProperties/select">
+      <details key="start" value="297"/>
+      <details key="end" value="413"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.157" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/%">
+      <details key="start" value="297"/>
+      <details key="end" value="322"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.158" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/%/aClass">
+      <details key="start" value="297"/>
+      <details key="end" value="303"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.159" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists">
+      <details key="start" value="331"/>
+      <details key="end" value="412"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.160" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/%">
+      <details key="start" value="331"/>
+      <details key="end" value="354"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.161" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.162" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/%.1">
+      <details key="start" value="378"/>
+      <details key="end" value="411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.163" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/%.1/%">
+      <details key="start" value="378"/>
+      <details key="end" value="384"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.164" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/%.1/%/s">
+      <details key="start" value="378"/>
+      <details key="end" value="379"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.165" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/%.1/%.1">
+      <details key="start" value="385"/>
+      <details key="end" value="411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.166" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/exists/s">
+      <details key="start" value="363"/>
+      <details key="end" value="376"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.167" references="/0/generateKVFormActivities/%/persistentEntityProperties/select/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.168" references="/0/generateKVFormActivities/aClass">
+      <details key="start" value="210"/>
+      <details key="end" value="224"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.169" references="/0/generateKVFormActivities/namespace">
+      <details key="start" value="226"/>
+      <details key="end" value="244"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.170" references="/0/generateKVFormActivitiesLayout">
+      <details key="start" value="4203"/>
+      <details key="end" value="5952"/>
+      <details key="line" value="126"/>
+    </eAnnotations>
+    <eAnnotations source="positions.171" references="/0/generateKVFormActivitiesLayout/%">
+      <details key="start" value="4268"/>
+      <details key="end" value="5940"/>
+      <details key="line" value="127"/>
+    </eAnnotations>
+    <eAnnotations source="positions.172" references="/0/generateKVFormActivitiesLayout/%/%">
+      <details key="start" value="4436"/>
+      <details key="end" value="4437"/>
+      <details key="line" value="127"/>
+    </eAnnotations>
+    <eAnnotations source="positions.173" references="/0/generateKVFormActivitiesLayout/%/%.1">
+      <details key="start" value="4437"/>
+      <details key="end" value="5933"/>
+      <details key="line" value="129"/>
+    </eAnnotations>
+    <eAnnotations source="positions.174" references="/0/generateKVFormActivitiesLayout/%/%.1/%">
+      <details key="start" value="4549"/>
+      <details key="end" value="5068"/>
+      <details key="line" value="130"/>
+    </eAnnotations>
+    <eAnnotations source="positions.175" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1">
+      <details key="start" value="5069"/>
+      <details key="end" value="5654"/>
+      <details key="line" value="141"/>
+    </eAnnotations>
+    <eAnnotations source="positions.176" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%">
+      <details key="start" value="5134"/>
+      <details key="end" value="5210"/>
+      <details key="line" value="142"/>
+    </eAnnotations>
+    <eAnnotations source="positions.177" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.1">
+      <details key="start" value="5211"/>
+      <details key="end" value="5232"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.178" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.1/%">
+      <details key="start" value="5211"/>
+      <details key="end" value="5217"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.179" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.1/%/p">
+      <details key="start" value="5211"/>
+      <details key="end" value="5212"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.180" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.2">
+      <details key="start" value="5234"/>
+      <details key="end" value="5416"/>
+      <details key="line" value="143"/>
+    </eAnnotations>
+    <eAnnotations source="positions.181" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.3">
+      <details key="start" value="5417"/>
+      <details key="end" value="5438"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.182" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.3/%">
+      <details key="start" value="5417"/>
+      <details key="end" value="5423"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.183" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.3/%/p">
+      <details key="start" value="5417"/>
+      <details key="end" value="5418"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.184" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.4">
+      <details key="start" value="5440"/>
+      <details key="end" value="5565"/>
+      <details key="line" value="148"/>
+    </eAnnotations>
+    <eAnnotations source="positions.185" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.5">
+      <details key="start" value="5566"/>
+      <details key="end" value="5587"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.186" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.5/%">
+      <details key="start" value="5566"/>
+      <details key="end" value="5572"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.187" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.5/%/p">
+      <details key="start" value="5566"/>
+      <details key="end" value="5567"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.188" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.6">
+      <details key="start" value="5589"/>
+      <details key="end" value="5647"/>
+      <details key="line" value="151"/>
+    </eAnnotations>
+    <eAnnotations source="positions.189" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/p">
+      <details key="start" value="5075"/>
+      <details key="end" value="5087"/>
+      <details key="line" value="141"/>
+    </eAnnotations>
+    <eAnnotations source="positions.190" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/persistentEntityProperties">
+      <details key="start" value="5090"/>
+      <details key="end" value="5116"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/generateKVFormActivitiesLayout/%/%.1/%.1/%.7">
+      <details key="start" value="5127"/>
+      <details key="end" value="5131"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/generateKVFormActivitiesLayout/%/%.1/%.2">
+      <details key="start" value="5655"/>
+      <details key="end" value="5926"/>
+      <details key="line" value="154"/>
+    </eAnnotations>
+    <eAnnotations source="positions.193" references="/0/generateKVFormActivitiesLayout/%/%.1/%.3">
+      <details key="start" value="4444"/>
+      <details key="end" value="4539"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.194" references="/0/generateKVFormActivitiesLayout/%/%.1/%.3/%">
+      <details key="start" value="4471"/>
+      <details key="end" value="4505"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.195" references="/0/generateKVFormActivitiesLayout/%/%.1/%.3/aClass">
+      <details key="start" value="4507"/>
+      <details key="end" value="4513"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.196" references="/0/generateKVFormActivitiesLayout/%/%.1/%.3/%.1">
+      <details key="start" value="4515"/>
+      <details key="end" value="4531"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.197" references="/0/generateKVFormActivitiesLayout/%/%.1/%.3/%.2">
+      <details key="start" value="4532"/>
+      <details key="end" value="4538"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.198" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties">
+      <details key="start" value="4273"/>
+      <details key="end" value="4433"/>
+      <details key="line" value="127"/>
+    </eAnnotations>
+    <eAnnotations source="positions.199" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select">
+      <details key="start" value="4318"/>
+      <details key="end" value="4434"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.200" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/%">
+      <details key="start" value="4318"/>
+      <details key="end" value="4343"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.201" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/%/aClass">
+      <details key="start" value="4318"/>
+      <details key="end" value="4324"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.202" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists">
+      <details key="start" value="4352"/>
+      <details key="end" value="4433"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.203" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/%">
+      <details key="start" value="4352"/>
+      <details key="end" value="4375"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.204" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/%/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.205" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/%.1">
+      <details key="start" value="4399"/>
+      <details key="end" value="4432"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.206" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/%.1/%">
+      <details key="start" value="4399"/>
+      <details key="end" value="4405"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.207" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
+      <details key="start" value="4399"/>
+      <details key="end" value="4400"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.208" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
+      <details key="start" value="4406"/>
+      <details key="end" value="4432"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.209" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/exists/s">
+      <details key="start" value="4384"/>
+      <details key="end" value="4397"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.210" references="/0/generateKVFormActivitiesLayout/%/persistentEntityProperties/select/temp2">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.211" references="/0/generateKVFormActivitiesLayout/aClass">
+      <details key="start" value="4251"/>
+      <details key="end" value="4265"/>
+      <details key="line" value="126"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

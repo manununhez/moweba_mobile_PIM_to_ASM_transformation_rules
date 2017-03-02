@@ -1,0 +1,135 @@
+[comment encoding = UTF-8 /]
+[module generateBDCreateFormPage('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateBDCreateFormPage(aClass : Class, namespace : String)]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass,  'FormNew','.xaml.cs'), false)]
+//[protected ('imports')]
+using [namespace/].Common;
+using [namespace/].Model;
+using [namespace/].ViewModels;
+using System;
+using System.Diagnostics;
+using System.Globalization;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+
+namespace [namespace/].Views
+{
+
+    public sealed partial class [aClass.name.toUpperFirst()/]FormNew : Page
+    {
+        private NavigationHelper navigationHelper;
+
+        public [aClass.name.toUpperFirst()/]FormNew()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+        
+		/*
+		* Add data to the database.
+		* A object with data from form is created and then added to database.
+		*/
+		private async void btnAdd[aClass.name.toUpperFirst()/]_Click(object sender, RoutedEventArgs e)
+        {
+     		[aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO = new [aClass.name.toUpperFirst()/]DAO();
+			if([for (p : Property | persistentEntityProperties) separator (' & ')][p.name.toLowerFirst()+'Tbx.Text != ""'/][/for])
+            {
+				try {
+					[aClass.name.toLowerFirst()/]DAO.add[aClass.name.toUpperFirst()/](new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties) separator (', ')][p.getCSharpConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst()+'Tbx.Text')/][/for])); 			
+	
+	                Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));//after add [aClass.name.toLowerFirst()/] redirect to [aClass.name.toLowerFirst()/] listbox page
+				}
+                catch (Exception ex)
+                {
+                    await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                    Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+                }
+            }
+            else
+            {
+                var dialog = new MessageDialog("Please fill the fields");//Text should not be empty 
+                await dialog.ShowAsync();
+            }
+        }
+    }
+}
+
+[/file]
+[/let]
+[/template]
+
+[template public generateBDCreateFormPageLayout(aClass : Class, namespace : String)]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'FormNew','.xaml'), false)]
+<Page
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]FormNew"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[namespace/].Views">
+<ScrollViewer>
+    <Grid x:Name="LayoutRoot">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+                <TextBlock Text="Add [aClass.name.toUpperFirst()/]" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+            </StackPanel>
+
+            <StackPanel Margin="20,129,19,0" Grid.RowSpan="4">
+			[for (p : Property | persistentEntityProperties)]
+                <TextBlock Text="[p.name.toLowerFirst()/]" FontSize="14"/>
+                <TextBox x:Name="[p.name.toLowerFirst()/]Tbx" TextWrapping="Wrap" Width="350"/>
+			[/for]
+                <Button x:Name="btnAdd[aClass.name.toUpperFirst()/]" Content="Add [aClass.name.toUpperFirst()/]" HorizontalAlignment="Center"  Height="71" Width="304" Click="btnAdd[aClass.name.toUpperFirst()/]_Click"/>
+            </StackPanel>
+        </Grid>                 
+</ScrollViewer>
+</Page>
+[/file]
+[/let]
+[/template]
+

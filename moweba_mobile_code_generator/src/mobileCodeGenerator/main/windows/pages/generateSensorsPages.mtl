@@ -1,0 +1,596 @@
+[comment encoding = UTF-8 /]
+[module generateSensorsPages('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateSensorsPages(aClass : Class, namespace : String)]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
+
+//[protected ('imports')]
+using [namespace/].Common;
+using System;
+using System.Diagnostics;
+using Windows.Devices.Geolocation;
+using Windows.Devices.Sensors;
+using Windows.Foundation;
+using Windows.UI.Core;
+using Windows.UI.Popups;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+namespace [namespace/].Views
+{
+    public sealed partial class [aClass.name.toUpperFirst()/]View : Page
+    {
+        private NavigationHelper navigationHelper;	
+	[for (p : Property | persistentEntityProperties)]
+	[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (deviceType = 'Accelerometer')]
+		public Accelerometer m[p.name.toUpperFirst()/]Accelerometer { get; set; }
+		[elseif (deviceType = 'Ambient_Light')]
+	    public LightSensor m[p.name.toUpperFirst()/]Light { get; set; }
+		[elseif (deviceType = 'Gyroscope')]
+	    public Gyrometer m[p.name.toUpperFirst()/]Gyroscope { get; set; }
+		[elseif (deviceType = 'Compass')]
+	    public Compass m[p.name.toUpperFirst()/]Compass { get; set; }
+		[/if]
+	[/let]	
+	[/for]
+        //Use for get efficient signal intervals between accelerometer responses
+        private uint desiredReportInterval { get; set; }
+        
+		public [aClass.name.toUpperFirst()/]View()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+		[for (p : Property | persistentEntityProperties)]
+		[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+			[if (deviceType = 'Accelerometer')]
+			m[p.name.toUpperFirst()/]Accelerometer = Accelerometer.GetDefault();
+			[elseif (deviceType = 'Ambient_Light')]
+		    m[p.name.toUpperFirst()/]Light = LightSensor.GetDefault();
+			[elseif (deviceType = 'Gyroscope')]
+		    m[p.name.toUpperFirst()/]Gyroscope = Gyrometer.GetDefault();
+			[elseif (deviceType = 'Compass')]
+		    m[p.name.toUpperFirst()/]Compass = Compass.GetDefault();
+			[/if]
+		[/let]	
+		[/for]
+
+			[comment]Si existe por lo menos un sensor[/comment]
+			[if(isClassHasSensors(aClass, 'HardwareDeviceProperty', 'hardwareDeviceType'))] 
+			[comment]Solo preguntamos por los sensores, sin contar a camara, microfono y GPS. [/comment]
+            if ([for (p : Property | persistentEntityProperties->select(p | p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')<>'Camera' and p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')<>'Microphone' and p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')<>'GPS')) separator(' && ')][let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')][if (deviceType = 'Accelerometer')]m[p.name.toUpperFirst()/]Accelerometer != null[elseif (deviceType = 'Ambient_Light')]m[p.name.toUpperFirst()/]Light != null[elseif (deviceType = 'Gyroscope')]m[p.name.toUpperFirst()/]Gyroscope != null[elseif (deviceType = 'Compass')]m[p.name.toUpperFirst()/]Compass != null[/if][/let][/for])
+			{
+                // Select a report interval that is both suitable for the purposes of the app and supported by the sensor.
+                // This value will be used later to activate the sensor.
+                uint minReportInterval;
+
+			[for (p : Property | persistentEntityProperties)]
+			[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+			[if (deviceType = 'Accelerometer')]
+			minReportInterval = m[p.name.toUpperFirst()/]Accelerometer.MinimumReportInterval;
+            desiredReportInterval = minReportInterval > 16 ? minReportInterval : 16;
+			m[p.name.toUpperFirst()/]Accelerometer.ReportInterval = desiredReportInterval;
+			//add event for sensors readings
+            m[p.name.toUpperFirst()/]Accelerometer.ReadingChanged += new TypedEventHandler<Accelerometer, AccelerometerReadingChangedEventArgs>(ReadingChanged);
+			
+			[elseif (deviceType = 'Ambient_Light')]
+			//add event for sensors readings
+            m[p.name.toUpperFirst()/]Light.ReadingChanged += new TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>(ReadingChanged);
+			
+			[elseif (deviceType = 'Gyroscope')]
+			//add event for sensors readings
+             m[p.name.toUpperFirst()/]Gyroscope.ReadingChanged += new TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>(ReadingChanged);
+			
+			[elseif (deviceType = 'Compass')]
+			//add event for sensors readings
+            m[p.name.toUpperFirst()/]Compass.ReadingChanged += new TypedEventHandler<Compass, CompassReadingChangedEventArgs>(ReadingChanged);
+			
+			[/if]
+			[/let]	
+			[/for]
+
+            }
+            else
+            {
+                MessageDialog ms = new MessageDialog("No accelerometer Found");
+                ms.ShowAsync();
+            }
+			[/if]
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+
+		[comment]Si existe por lo menos un sensor[/comment]
+		[if(isClassHasSensors(aClass, 'HardwareDeviceProperty', 'hardwareDeviceType'))] 
+		/// <summary>
+        /// reading accelerometer changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private async void ReadingChanged(Accelerometer sender, AccelerometerReadingChangedEventArgs args)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                AccelerometerReading reading = args.Reading;
+			[for (p : Property | persistentEntityProperties)]
+			[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Accelerometer')]
+                [p.name.toUpperFirst()/]Tbx.Text = reading.AccelerationX+","+ reading.AccelerationY+","+ reading.AccelerationZ;
+			[/if]	
+			[/for]
+            });
+        }
+		
+		/// <summary>
+        /// reading ambient light changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private async void ReadingChanged(LightSensor sender, LightSensorReadingChangedEventArgs args)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                LightSensorReading reading = args.Reading;
+			[for (p : Property | persistentEntityProperties)]
+			[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Ambient_Light')]
+                [p.name.toUpperFirst()/]Tbx.Text = reading.IlluminanceInLux+"/"+reading.Timestamp;
+			[/if]	
+			[/for]
+            });
+        }
+
+		/// <summary>
+        /// reading gyroscope changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private async void ReadingChanged(Gyrometer sender, GyrometerReadingChangedEventArgs args)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                GyrometerReading reading = args.Reading;
+			[for (p : Property | persistentEntityProperties)]
+			[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Gyroscope')]
+                [p.name.toUpperFirst()/]Tbx.Text = reading.AngularVelocityX+","+reading.AngularVelocityY+","+reading.AngularVelocityZ;
+			[/if]	
+			[/for]
+            });
+        }
+	
+		/// <summary>
+        /// reading compass changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private async void ReadingChanged(Compass sender, CompassReadingChangedEventArgs args)
+        {
+            await Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                CompassReading reading = args.Reading;
+			[for (p : Property | persistentEntityProperties)]
+			[if (p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType') = 'Compass')]
+                [p.name.toUpperFirst()/]Tbx.Text = reading.HeadingAccuracy+","+reading.HeadingMagneticNorth+","+reading.HeadingTrueNorth;
+			[/if]	
+			[/for]
+            });
+        }
+		[/if]
+
+	[for (p : Property | persistentEntityProperties)]
+	[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (deviceType = 'Microphone')]
+	    private void btn[p.name.toUpperFirst()/]AudioRecord_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AudioRecordView));
+        }
+		[elseif (deviceType = 'Camera')]
+        private void btn[p.name.toUpperFirst()/]Camera_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(CameraView));
+        }
+		[elseif (deviceType = 'GPS')]
+	    private async void btn[p.name.toUpperFirst()/]GPS_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Geolocator geolocator = new Geolocator();
+            geolocator.DesiredAccuracyInMeters = 50;
+
+            try
+            {
+                Geoposition geoposition = await geolocator.GetGeopositionAsync(
+                     maximumAge: TimeSpan.FromMinutes(5),
+                     timeout: TimeSpan.FromSeconds(10)
+                    );
+
+                //With this 2 lines of code, the app is able to write on a Text Label the Latitude and the Longitude, given by {{Icode|geoposition}}
+                [p.name.toUpperFirst()/]GPSTbx.Text = "GPS:" + geoposition.Coordinate.Point.Position.Latitude.ToString("0.00") + ", " + geoposition.Coordinate.Point.Position.Longitude.ToString("0.00");
+            }
+            //If an error is catch 2 are the main causes: the first is that you forgot to include ID_CAP_LOCATION in your app manifest. 
+            //The second is that the user doesn't turned on the Location Services
+            catch (Exception ex) {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+        }
+		[/if]
+	[/let]
+	[/for]
+    }
+}
+[/file]
+[/let]
+[/template]
+
+[template public generateSensorsPagesLayout(aClass : Class, namespace : String)]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
+<Page
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[namespace/].Views">
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" Margin="19,40,0,0">
+	[for (p : Property | persistentEntityProperties)]
+	[let deviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+		[if (deviceType = 'Accelerometer' or deviceType = 'Ambient_Light' or deviceType = 'Gyroscope' or deviceType = 'Compass')]
+ 				<TextBlock Text="[p.name.toUpperFirst()+''+p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')/]:" FontSize="18"/>
+                <TextBlock x:Name="[p.name.toUpperFirst()/]Tbx" Height="66" Text="0" Width="350"/>
+		[elseif (deviceType = 'GPS')]
+	    		<Button x:Name="btn[p.name.toUpperFirst()/]GPS" Content="GPS" Click="btn[p.name.toUpperFirst()/]GPS_Click" />
+                <TextBlock x:Name="[p.name.toUpperFirst()/]GPSTbx" Height="66" Text="0" Width="350"/>
+		[elseif (deviceType = 'Camera')]
+				<Button x:Name="btn[p.name.toUpperFirst()/]Camera" Content="Camera" Click="btn[p.name.toUpperFirst()/]Camera_Click" />
+		[elseif (deviceType = 'Microphone')]
+				<Button x:Name="btn[p.name.toUpperFirst()/]Audio" Content="Audio" Click="btn[p.name.toUpperFirst()/]AudioRecord_Click" />
+		[/if]
+	[/let]	
+	[/for]
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
+[/file]
+[/let]
+[/template]
+
+
+[template public generateCameraPages(aClass : Class, namespace : String)]
+[file ('windows/Views/Camera/CameraView.xaml.cs', false)]
+using System;
+using System.Diagnostics;
+
+using Windows.Media.Capture;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+
+using Windows.Media.MediaProperties;    //For Encoding Image in JPEG format
+using Windows.Storage;                  //For storing Capture Image in App storage or in Picture Library
+using Windows.UI.Xaml.Media.Imaging;    //For BitmapImage. for showing image on screen we need BitmapImage format.
+using [namespace/].Common;
+using Windows.UI.Popups;
+
+
+namespace [namespace/].Views
+{
+
+    public sealed partial class CameraView : Page
+    {
+        private NavigationHelper navigationHelper;
+
+        public CameraView()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+
+        }
+
+        //Declare MediaCapture object globally
+        MediaCapture captureManager;
+
+
+        async private void Start_Capture_Preview_Click(object sender, RoutedEventArgs e)
+        {
+            captureManager = new MediaCapture();        //Define MediaCapture object
+            await captureManager.InitializeAsync();     //Initialize MediaCapture and 
+            capturePreview.Source = captureManager;     //Start preiving on CaptureElement
+            await captureManager.StartPreviewAsync();   //Start camera capturing 
+        }
+
+        async private void Stop_Capture_Preview_Click(object sender, RoutedEventArgs e)
+        {
+            await captureManager.StopPreviewAsync();    //stop camera capturing
+        }
+
+        async private void Capture_Photo_Click(object sender, RoutedEventArgs e)
+        {
+			string currentDate = DateTime.Now.ToString("yyyyMMddhhmmss");
+            string photoFile = "Picture_" + currentDate + ".jpg";
+
+            //Create JPEG image Encoding format for storing image in JPEG type
+            ImageEncodingProperties imgFormat = ImageEncodingProperties.CreateJpeg();
+
+			try{
+                // create storage file in Picture Library
+                StorageFile file = await KnownFolders.PicturesLibrary.CreateFileAsync(photoFile, CreationCollisionOption.GenerateUniqueName);
+                
+				// take photo and store it on file location.
+                await captureManager.CapturePhotoToStorageFileAsync(imgFormat, file);
+
+                // Get photo as a BitmapImage using storage file path.
+                BitmapImage bmpImage = new BitmapImage(new Uri(file.Path));
+
+                // show captured image on Image UIElement.
+                imagePreview.Source = bmpImage;
+
+            } 
+			catch (Exception ex) {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+				Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+        
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+    }
+}
+[/file]
+[/template]
+
+[template public generateCameraPagesLayout(aClass : Class, namespace : String)]
+[file ('windows/Views/Camera/CameraView.xaml', false)]
+<Page
+    x:Class="[namespace/].Views.CameraView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[namespace/].Views">
+    <Grid>
+        <CaptureElement x:Name="capturePreview" Margin="0,0,0,378" />
+        <Image x:Name="imagePreview" Margin="0,262,0,115" />
+
+        <Button Click="Start_Capture_Preview_Click" Content="Start Capture Preview" Margin="8,529,0,51" Height="60" Width="221" />
+        <Button Click="Capture_Photo_Click" Content="Capture Photo" Margin="243,529,0,1" Width="147" Height="110"/>
+        <Button Click="Stop_Capture_Preview_Click" Content="Stop Capture Preview" Margin="10,580,0,0" Height="60" Width="219"/>
+    </Grid>
+</Page>
+
+[/file]
+[/template]
+[template public generateAudioRecordPages(aClass : Class, namespace : String)]
+[file ('windows/Views/AudioRecord/AudioRecordView.xaml.cs', false)]
+using [namespace/].Common;
+using System;
+using System.Diagnostics;
+using Windows.Media;
+using Windows.Media.Capture;
+using Windows.Media.MediaProperties;
+using Windows.Storage;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+
+
+namespace [namespace/].Views
+{
+
+    public sealed partial class AudioRecordView : Page
+    {
+        private NavigationHelper navigationHelper;
+
+        private MediaCapture _mediaCaptureManager;
+        private StorageFile _recordStorageFile;
+        private bool _recording;
+        private bool _userRequestedRaw;
+        private bool _rawAudioSupported;
+
+        public AudioRecordView()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+
+            InitializeAudioRecording();
+        }
+
+        private async void InitializeAudioRecording()
+        {
+			try {
+	            _mediaCaptureManager = new MediaCapture();
+	            var settings = new MediaCaptureInitializationSettings();
+	            settings.StreamingCaptureMode = StreamingCaptureMode.Audio;
+	            settings.MediaCategory = MediaCategory.Other;
+	            settings.AudioProcessing = (_rawAudioSupported && _userRequestedRaw) ? AudioProcessing.Raw : AudioProcessing.Default;
+	
+	            await _mediaCaptureManager.InitializeAsync(settings);
+	
+	            Debug.WriteLine("Device initialised successfully");
+			}
+			catch (Exception ex)
+            {
+                await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+				Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+            }
+        }
+
+        private async void CaptureAudio()
+        {
+            try
+            {
+                Debug.WriteLine("Starting record");
+				string currentDate = DateTime.Now.ToString("yyyyMMddhhmmss");
+                string audioRecordFile = "AudioRecord_" + currentDate + ".m4a";
+
+                _recordStorageFile = await KnownFolders.VideosLibrary.CreateFileAsync(audioRecordFile, CreationCollisionOption.GenerateUniqueName);
+
+                Debug.WriteLine("Create record file successfully");
+
+                MediaEncodingProfile recordProfile = MediaEncodingProfile.CreateM4a(AudioEncodingQuality.Auto);
+                await _mediaCaptureManager.StartRecordToStorageFileAsync(recordProfile, this._recordStorageFile);
+
+                Debug.WriteLine("Start Record successful");
+
+                _recording = true;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine("Failed to capture audio");
+            }
+        }
+
+        private async void StopCapture()
+        {
+
+            if (_recording)
+            {
+                Debug.WriteLine("Stopping recording");
+                await _mediaCaptureManager.StopRecordAsync();
+                Debug.WriteLine("Stop recording successful");
+                _recording = false;
+            }
+
+        }
+
+        private async void PlayRecordedCapture()
+        {
+            if (!_recording)
+            {
+                try
+                {
+                    var stream = await _recordStorageFile.OpenAsync(FileAccessMode.Read);
+                    Debug.WriteLine("Recording file opened");
+                    playbackElement1.AutoPlay = true;
+                    playbackElement1.SetSource(stream, _recordStorageFile.FileType);
+                    playbackElement1.Play();
+                }
+                catch (Exception ex)
+                {
+                    await new MessageDialog((ex.Message + " " + ex.StackTrace), "Unknown Error").ShowAsync();
+                    Debug.WriteLine((ex.Message + " " + ex.StackTrace));
+                }
+            }
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+        private void CaptureButton_Click(object sender, RoutedEventArgs e)
+        {
+            CaptureAudio();
+        }
+
+        private void StopCaptureButton_Click(object sender, RoutedEventArgs e)
+        {
+            StopCapture();
+        }
+
+        private void PlayRecordButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlayRecordedCapture();
+        }
+    }
+}
+
+[/file]
+[/template]
+
+[template public generateAudioRecordPagesLayout(aClass : Class, namespace : String)]
+[file ('windows/Views/AudioRecord/AudioRecordView.xaml', false)]
+<Page
+    x:Class="[namespace/].Views.AudioRecordView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[namespace/].Views">
+    <Grid>
+        <MediaElement x:Name="playbackElement1" ></MediaElement>
+        <Button x:Name="CaptureButton" Content="Capture Audio" HorizontalAlignment="Center" Margin="0,184,0,0" VerticalAlignment="Top" Click="CaptureButton_Click" Width="145"/>
+        <Button x:Name="StopCaptureButton" Content="Stop Capture" HorizontalAlignment="Center" Margin="0,284,0,0" VerticalAlignment="Top" Click="StopCaptureButton_Click" Width="145"/>
+        <Button x:Name="PlayRecordButton" Content="Play Capture" HorizontalAlignment="Center" Margin="0,380,0,0" VerticalAlignment="Top" Click="PlayRecordButton_Click" Width="145"/>
+    </Grid>
+</Page>
+[/file]
+[/template]

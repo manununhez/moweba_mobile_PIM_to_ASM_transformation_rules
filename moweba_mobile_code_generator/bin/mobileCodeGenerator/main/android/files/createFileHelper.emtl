@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="createFileHelper" nsURI="mobileCodeGenerator::main::android::files::createFileHelper" startHeaderPosition="29" endHeaderPosition="299">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="createFileHelper" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.example."/>
+        <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createFileHelper/namespace">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".helpers;&#xA;&#xA;//"/>
+        <body xsi:type="mtl:ProtectedAreaBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;import android.text.TextUtils;&#xA;&#xA;import java.io.BufferedReader;&#xA;import java.io.File;&#xA;import java.io.FileInputStream;&#xA;import java.io.FileNotFoundException;&#xA;import java.io.FileOutputStream;&#xA;import java.io.FileWriter;&#xA;import java.io.IOException;&#xA;import java.io.InputStream;&#xA;import java.io.InputStreamReader;&#xA;import java.io.OutputStream;&#xA;import java.util.ArrayList;&#xA;import java.util.List;&#xA;//"/>
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="imports">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </marker>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#xA;public class FilesHelper {&#xA;    &#xA;&#x9;public final static String FILE_EXTENSION_SEPARATOR = &quot;.&quot;;&#xA;&#xA;        private FilesHelper() {&#xA;            throw new AssertionError();&#xA;        }&#xA;&#xA;        /**&#xA;         * read file&#xA;         *&#xA;         * @param filePath&#xA;         * @param charsetName The name of a supported {@link java.nio.charset.Charset &lt;/code>charset&lt;code>}&#xA;         * @return if file not exist, return null, else return content of file&#xA;         * @throws RuntimeException if an error occurs while operator BufferedReader&#xA;         */&#xA;        public static StringBuilder readFile(String filePath, String charsetName) {&#xA;            File file = new File(filePath);&#xA;            StringBuilder fileContent = new StringBuilder(&quot;&quot;);&#xA;            if (file == null || !file.isFile()) {&#xA;                return null;&#xA;            }&#xA;&#xA;            BufferedReader reader = null;&#xA;            try {&#xA;                InputStreamReader is = new InputStreamReader(new FileInputStream(file), charsetName);&#xA;                reader = new BufferedReader(is);&#xA;                String line = null;&#xA;                while ((line = reader.readLine()) != null) {&#xA;                    if (!fileContent.toString().equals(&quot;&quot;)) {&#xA;                        fileContent.append(&quot;\r\n&quot;);&#xA;                    }&#xA;                    fileContent.append(line);&#xA;                }&#xA;                return fileContent;&#xA;            } catch (IOException e) {&#xA;                throw new RuntimeException(&quot;IOException occurred. &quot;, e);&#xA;            } finally {&#xA;                try {&#xA;                    if (reader != null) {&#xA;                        reader.close();&#xA;                    }&#xA;                } catch (IOException e) {&#xA;                    e.printStackTrace();&#xA;                }&#xA;            }&#xA;        }&#xA;&#xA;        /**&#xA;         * write file&#xA;         *&#xA;         * @param filePath&#xA;         * @param content&#xA;         * @param append is append, if true, write to the end of file, else clear content of file and write into it&#xA;         * @return return false if content is empty, true otherwise&#xA;         * @throws RuntimeException if an error occurs while operator FileWriter&#xA;         */&#xA;        public static boolean writeFile(String filePath, String content, boolean append) {&#xA;            if (content.isEmpty()) {&#xA;                return false;&#xA;            }&#xA;&#xA;            FileWriter fileWriter = null;&#xA;            try {&#xA;                makeDirs(filePath);&#xA;                fileWriter = new FileWriter(filePath, append);&#xA;                fileWriter.write(content);&#xA;                return true;&#xA;            } catch (IOException e) {&#xA;                throw new RuntimeException(&quot;IOException occurred. &quot;, e);&#xA;            } finally {&#xA;                try {&#xA;                    if (fileWriter != null) {&#xA;                        fileWriter.close();&#xA;                    }&#xA;                } catch (IOException e) {&#xA;                    e.printStackTrace();&#xA;                }&#xA;            }&#xA;        }&#xA;&#xA;        /**&#xA;         * write file&#xA;         *&#xA;         * @param filePath&#xA;         * @param contentList&#xA;         * @param append is append, if true, write to the end of file, else clear content of file and write into it&#xA;         * @return return false if contentList is empty, true otherwise&#xA;         * @throws RuntimeException if an error occurs while operator FileWriter&#xA;         */&#xA;        public static boolean writeFile(String filePath, List&lt;String> contentList, boolean append) {&#xA;            if (contentList.isEmpty()) {&#xA;                return false;&#xA;            }&#xA;&#xA;            FileWriter fileWriter = null;&#xA;            try {&#xA;                makeDirs(filePath);&#xA;                fileWriter = new FileWriter(filePath, append);&#xA;                int i = 0;&#xA;                for (String line : contentList) {&#xA;                    if (i++ > 0) {&#xA;                        fileWriter.write(&quot;\r\n&quot;);&#xA;                    }&#xA;                    fileWriter.write(line);&#xA;                }&#xA;                return true;&#xA;            } catch (IOException e) {&#xA;                throw new RuntimeException(&quot;IOException occurred. &quot;, e);&#xA;            } finally {&#xA;                try {&#xA;                    if (fileWriter != null) {&#xA;                        fileWriter.close();&#xA;                    }&#xA;                } catch (IOException e) {&#xA;                    e.printStackTrace();&#xA;                }&#xA;            }&#xA;        }&#xA;&#xA;        /**&#xA;         * write file, the string will be written to the begin of the file&#xA;         *&#xA;         * @param filePath&#xA;         * @param content&#xA;         * @return&#xA;         */&#xA;        public static boolean writeFile(String filePath, String content) {&#xA;            return writeFile(filePath, content, false);&#xA;        }&#xA;&#xA;        /**&#xA;         * write file, the string list will be written to the begin of the file&#xA;         *&#xA;         * @param filePath&#xA;         * @param contentList&#xA;         * @return&#xA;         */&#xA;        public static boolean writeFile(String filePath, List&lt;String> contentList) {&#xA;            return writeFile(filePath, contentList, false);&#xA;        }&#xA;&#xA;        /**&#xA;         * write file, the bytes will be written to the begin of the file&#xA;         *&#xA;         * @param filePath&#xA;         * @param stream&#xA;         * @return&#xA;         * @see {@link #writeFile(String, InputStream, boolean)}&#xA;         */&#xA;        public static boolean writeFile(String filePath, InputStream stream) {&#xA;            return writeFile(filePath, stream, false);&#xA;        }&#xA;&#xA;        /**&#xA;         * write file&#xA;         *&#xA;         * @param filePath the file to be opened for writing.&#xA;         * @param stream the input stream&#xA;         * @param append if &lt;code>true&lt;/code>, then bytes will be written to the end of the file rather than the beginning&#xA;         * @return return true&#xA;         * @throws RuntimeException if an error occurs while operator FileOutputStream&#xA;         */&#xA;        public static boolean writeFile(String filePath, InputStream stream, boolean append) {&#xA;            return writeFile(filePath != null ? new File(filePath) : null, stream, append);&#xA;        }&#xA;&#xA;        /**&#xA;         * write file, the bytes will be written to the begin of the file&#xA;         *&#xA;         * @param file&#xA;         * @param stream&#xA;         * @return&#xA;         * @see {@link #writeFile(File, InputStream, boolean)}&#xA;         */&#xA;        public static boolean writeFile(File file, InputStream stream) {&#xA;            return writeFile(file, stream, false);&#xA;        }&#xA;&#xA;        /**&#xA;         * write file&#xA;         *&#xA;         * @param file the file to be opened for writing.&#xA;         * @param stream the input stream&#xA;         * @param append if &lt;code>true&lt;/code>, then bytes will be written to the end of the file rather than the beginning&#xA;         * @return return true&#xA;         * @throws RuntimeException if an error occurs while operator FileOutputStream&#xA;         */&#xA;        public static boolean writeFile(File file, InputStream stream, boolean append) {&#xA;            OutputStream o = null;&#xA;            try {&#xA;                makeDirs(file.getAbsolutePath());&#xA;                o = new FileOutputStream(file, append);&#xA;                byte data"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = new byte"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1024"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;                int length = -1;&#xA;                while ((length = stream.read(data)) != -1) {&#xA;                    o.write(data, 0, length);&#xA;                }&#xA;                o.flush();&#xA;                return true;&#xA;            } catch (FileNotFoundException e) {&#xA;                throw new RuntimeException(&quot;FileNotFoundException occurred. &quot;, e);&#xA;            } catch (IOException e) {&#xA;                throw new RuntimeException(&quot;IOException occurred. &quot;, e);&#xA;            } finally {&#xA;                try {&#xA;                    if (o != null) {&#xA;                        o.close();&#xA;                    }&#xA;                    stream.close();&#xA;                } catch (IOException e) {&#xA;                    e.printStackTrace();&#xA;                }&#xA;            }&#xA;        }&#xA;&#xA;        /**&#xA;         * move file&#xA;         *&#xA;         * @param sourceFilePath&#xA;         * @param destFilePath&#xA;         */&#xA;        public static void moveFile(String sourceFilePath, String destFilePath) {&#xA;            if (TextUtils.isEmpty(sourceFilePath) || TextUtils.isEmpty(destFilePath)) {&#xA;                throw new RuntimeException(&quot;Both sourceFilePath and destFilePath cannot be null.&quot;);&#xA;            }&#xA;            moveFile(new File(sourceFilePath), new File(destFilePath));&#xA;        }&#xA;&#xA;        /**&#xA;         * move file&#xA;         *&#xA;         * @param srcFile&#xA;         * @param destFile&#xA;         */&#xA;        public static void moveFile(File srcFile, File destFile) {&#xA;            boolean rename = srcFile.renameTo(destFile);&#xA;            if (!rename) {&#xA;                copyFile(srcFile.getAbsolutePath(), destFile.getAbsolutePath());&#xA;                deleteFile(srcFile.getAbsolutePath());&#xA;            }&#xA;        }&#xA;&#xA;        /**&#xA;         * copy file&#xA;         *&#xA;         * @param sourceFilePath&#xA;         * @param destFilePath&#xA;         * @return&#xA;         * @throws RuntimeException if an error occurs while operator FileOutputStream&#xA;         */&#xA;        public static boolean copyFile(String sourceFilePath, String destFilePath) {&#xA;            InputStream inputStream = null;&#xA;            try {&#xA;                inputStream = new FileInputStream(sourceFilePath);&#xA;            } catch (FileNotFoundException e) {&#xA;                throw new RuntimeException(&quot;FileNotFoundException occurred. &quot;, e);&#xA;            }&#xA;            return writeFile(destFilePath, inputStream);&#xA;        }&#xA;&#xA;        /**&#xA;         * read file to string list, a element of list is a line&#xA;         *&#xA;         * @param filePath&#xA;         * @param charsetName The name of a supported {@link java.nio.charset.Charset &lt;/code>charset&lt;code>}&#xA;         * @return if file not exist, return null, else return content of file&#xA;         * @throws RuntimeException if an error occurs while operator BufferedReader&#xA;         */&#xA;        public static List&lt;String> readFileToList(String filePath, String charsetName) {&#xA;            File file = new File(filePath);&#xA;            List&lt;String> fileContent = new ArrayList&lt;String>();&#xA;            if (file == null || !file.isFile()) {&#xA;                return null;&#xA;            }&#xA;&#xA;            BufferedReader reader = null;&#xA;            try {&#xA;                InputStreamReader is = new InputStreamReader(new FileInputStream(file), charsetName);&#xA;                reader = new BufferedReader(is);&#xA;                String line = null;&#xA;                while ((line = reader.readLine()) != null) {&#xA;                    fileContent.add(line);&#xA;                }&#xA;                return fileContent;&#xA;            } catch (IOException e) {&#xA;                throw new RuntimeException(&quot;IOException occurred. &quot;, e);&#xA;            } finally {&#xA;                try {&#xA;                    if (reader != null) {&#xA;                        reader.close();&#xA;                    }&#xA;                } catch (IOException e) {&#xA;                    e.printStackTrace();&#xA;                }&#xA;            }&#xA;        }&#xA;&#xA;        /**&#xA;         * get file name from path, not include suffix&#xA;         *&#xA;         * &lt;pre>&#xA;         *      getFileNameWithoutExtension(null)               =   null&#xA;         *      getFileNameWithoutExtension(&quot;&quot;)                 =   &quot;&quot;&#xA;         *      getFileNameWithoutExtension(&quot;   &quot;)              =   &quot;   &quot;&#xA;         *      getFileNameWithoutExtension(&quot;abc&quot;)              =   &quot;abc&quot;&#xA;         *      getFileNameWithoutExtension(&quot;a.mp3&quot;)            =   &quot;a&quot;&#xA;         *      getFileNameWithoutExtension(&quot;a.b.rmvb&quot;)         =   &quot;a.b&quot;&#xA;         *      getFileNameWithoutExtension(&quot;c:\\&quot;)              =   &quot;&quot;&#xA;         *      getFileNameWithoutExtension(&quot;c:\\a&quot;)             =   &quot;a&quot;&#xA;         *      getFileNameWithoutExtension(&quot;c:\\a.b&quot;)           =   &quot;a&quot;&#xA;         *      getFileNameWithoutExtension(&quot;c:a.txt\\a&quot;)        =   &quot;a&quot;&#xA;         *      getFileNameWithoutExtension(&quot;/home/admin&quot;)      =   &quot;admin&quot;&#xA;         *      getFileNameWithoutExtension(&quot;/home/admin/a.txt/b.mp3&quot;)  =   &quot;b&quot;&#xA;         * &lt;/pre>&#xA;         *&#xA;         * @param filePath&#xA;         * @return file name from path, not include suffix&#xA;         * @see&#xA;         */&#xA;        public static String getFileNameWithoutExtension(String filePath) {&#xA;            if (filePath.isEmpty()) {&#xA;                return filePath;&#xA;            }&#xA;&#xA;            int extenPosi = filePath.lastIndexOf(FILE_EXTENSION_SEPARATOR);&#xA;            int filePosi = filePath.lastIndexOf(File.separator);&#xA;            if (filePosi == -1) {&#xA;                return (extenPosi == -1 ? filePath : filePath.substring(0, extenPosi));&#xA;            }&#xA;            if (extenPosi == -1) {&#xA;                return filePath.substring(filePosi + 1);&#xA;            }&#xA;            return (filePosi &lt; extenPosi ? filePath.substring(filePosi + 1, extenPosi) : filePath.substring(filePosi + 1));&#xA;        }&#xA;&#xA;        /**&#xA;         * get file name from path, include suffix&#xA;         *&#xA;         * &lt;pre>&#xA;         *      getFileName(null)               =   null&#xA;         *      getFileName(&quot;&quot;)                 =   &quot;&quot;&#xA;         *      getFileName(&quot;   &quot;)              =   &quot;   &quot;&#xA;         *      getFileName(&quot;a.mp3&quot;)            =   &quot;a.mp3&quot;&#xA;         *      getFileName(&quot;a.b.rmvb&quot;)         =   &quot;a.b.rmvb&quot;&#xA;         *      getFileName(&quot;abc&quot;)              =   &quot;abc&quot;&#xA;         *      getFileName(&quot;c:\\&quot;)              =   &quot;&quot;&#xA;         *      getFileName(&quot;c:\\a&quot;)             =   &quot;a&quot;&#xA;         *      getFileName(&quot;c:\\a.b&quot;)           =   &quot;a.b&quot;&#xA;         *      getFileName(&quot;c:a.txt\\a&quot;)        =   &quot;a&quot;&#xA;         *      getFileName(&quot;/home/admin&quot;)      =   &quot;admin&quot;&#xA;         *      getFileName(&quot;/home/admin/a.txt/b.mp3&quot;)  =   &quot;b.mp3&quot;&#xA;         * &lt;/pre>&#xA;         *&#xA;         * @param filePath&#xA;         * @return file name from path, include suffix&#xA;         */&#xA;        public static String getFileName(String filePath) {&#xA;            if (filePath.isEmpty()) {&#xA;                return filePath;&#xA;            }&#xA;&#xA;            int filePosi = filePath.lastIndexOf(File.separator);&#xA;            return (filePosi == -1) ? filePath : filePath.substring(filePosi + 1);&#xA;        }&#xA;&#xA;        /**&#xA;         * get folder name from path&#xA;         *&#xA;         * &lt;pre>&#xA;         *      getFolderName(null)               =   null&#xA;         *      getFolderName(&quot;&quot;)                 =   &quot;&quot;&#xA;         *      getFolderName(&quot;   &quot;)              =   &quot;&quot;&#xA;         *      getFolderName(&quot;a.mp3&quot;)            =   &quot;&quot;&#xA;         *      getFolderName(&quot;a.b.rmvb&quot;)         =   &quot;&quot;&#xA;         *      getFolderName(&quot;abc&quot;)              =   &quot;&quot;&#xA;         *      getFolderName(&quot;c:\\&quot;)              =   &quot;c:&quot;&#xA;         *      getFolderName(&quot;c:\\a&quot;)             =   &quot;c:&quot;&#xA;         *      getFolderName(&quot;c:\\a.b&quot;)           =   &quot;c:&quot;&#xA;         *      getFolderName(&quot;c:a.txt\\a&quot;)        =   &quot;c:a.txt&quot;&#xA;         *      getFolderName(&quot;c:a\\b\\c\\d.txt&quot;)    =   &quot;c:a\\b\\c&quot;&#xA;         *      getFolderName(&quot;/home/admin&quot;)      =   &quot;/home&quot;&#xA;         *      getFolderName(&quot;/home/admin/a.txt/b.mp3&quot;)  =   &quot;/home/admin/a.txt&quot;&#xA;         * &lt;/pre>&#xA;         *&#xA;         * @param filePath&#xA;         * @return&#xA;         */&#xA;        public static String getFolderName(String filePath) {&#xA;&#xA;            if (filePath.isEmpty()) {&#xA;                return filePath;&#xA;            }&#xA;&#xA;            int filePosi = filePath.lastIndexOf(File.separator);&#xA;            return (filePosi == -1) ? &quot;&quot; : filePath.substring(0, filePosi);&#xA;        }&#xA;&#xA;        /**&#xA;         * get suffix of file from path&#xA;         *&#xA;         * &lt;pre>&#xA;         *      getFileExtension(null)               =   &quot;&quot;&#xA;         *      getFileExtension(&quot;&quot;)                 =   &quot;&quot;&#xA;         *      getFileExtension(&quot;   &quot;)              =   &quot;   &quot;&#xA;         *      getFileExtension(&quot;a.mp3&quot;)            =   &quot;mp3&quot;&#xA;         *      getFileExtension(&quot;a.b.rmvb&quot;)         =   &quot;rmvb&quot;&#xA;         *      getFileExtension(&quot;abc&quot;)              =   &quot;&quot;&#xA;         *      getFileExtension(&quot;c:\\&quot;)              =   &quot;&quot;&#xA;         *      getFileExtension(&quot;c:\\a&quot;)             =   &quot;&quot;&#xA;         *      getFileExtension(&quot;c:\\a.b&quot;)           =   &quot;b&quot;&#xA;         *      getFileExtension(&quot;c:a.txt\\a&quot;)        =   &quot;&quot;&#xA;         *      getFileExtension(&quot;/home/admin&quot;)      =   &quot;&quot;&#xA;         *      getFileExtension(&quot;/home/admin/a.txt/b&quot;)  =   &quot;&quot;&#xA;         *      getFileExtension(&quot;/home/admin/a.txt/b.mp3&quot;)  =   &quot;mp3&quot;&#xA;         * &lt;/pre>&#xA;         *&#xA;         * @param filePath&#xA;         * @return&#xA;         */&#xA;        public static String getFileExtension(String filePath) {&#xA;            if (filePath.isEmpty()) {&#xA;                return filePath;&#xA;            }&#xA;&#xA;            int extenPosi = filePath.lastIndexOf(FILE_EXTENSION_SEPARATOR);&#xA;            int filePosi = filePath.lastIndexOf(File.separator);&#xA;            if (extenPosi == -1) {&#xA;                return &quot;&quot;;&#xA;            }&#xA;            return (filePosi >= extenPosi) ? &quot;&quot; : filePath.substring(extenPosi + 1);&#xA;        }&#xA;&#xA;        /**&#xA;         * Creates the directory named by the trailing filename of this file, including the complete directory path required&#xA;         * to create this directory. &lt;br/>&#xA;         */&#xA;        public static boolean makeDirs(String filePath) {&#xA;            String folderName = getFolderName(filePath);&#xA;            if (folderName.isEmpty()) {&#xA;                return false;&#xA;            }&#xA;&#xA;            File folder = new File(folderName);&#xA;            return (folder.exists() &amp;&amp; folder.isDirectory()) ? true : folder.mkdirs();&#xA;        }&#xA;&#xA;        /**&#xA;         * @param filePath&#xA;         * @return&#xA;         * @see #makeDirs(String)&#xA;         */&#xA;        public static boolean makeFolders(String filePath) {&#xA;            return makeDirs(filePath);&#xA;        }&#xA;&#xA;        /**&#xA;         * Indicates if this file represents a file on the underlying file system.&#xA;         *&#xA;         * @param filePath&#xA;         * @return&#xA;         */&#xA;        public static boolean isFileExist(String filePath) {&#xA;            if ((filePath.isEmpty())) {&#xA;                return false;&#xA;            }&#xA;&#xA;            File file = new File(filePath);&#xA;            return (file.exists() &amp;&amp; file.isFile());&#xA;        }&#xA;&#xA;        /**&#xA;         * Indicates if this file represents a directory on the underlying file system.&#xA;         *&#xA;         * @param directoryPath&#xA;         * @return&#xA;         */&#xA;        public static boolean isFolderExist(String directoryPath) {&#xA;            if (directoryPath.isEmpty()) {&#xA;                return false;&#xA;            }&#xA;&#xA;            File dire = new File(directoryPath);&#xA;            return (dire.exists() &amp;&amp; dire.isDirectory());&#xA;        }&#xA;&#xA;        /**&#xA;         * delete file or directory&#xA;         * &lt;ul>&#xA;         * &lt;li>if path is null or empty, return true&lt;/li>&#xA;         * &lt;li>if path not exist, return true&lt;/li>&#xA;         * &lt;li>if path exist, delete recursion. return true&lt;/li>&#xA;         * &lt;ul>&#xA;         *&#xA;         * @param path&#xA;         * @return&#xA;         */&#xA;        public static boolean deleteFile(String path) {&#xA;            if (path.isEmpty()) {&#xA;                return true;&#xA;            }&#xA;&#xA;            File file = new File(path);&#xA;            if (!file.exists()) {&#xA;                return true;&#xA;            }&#xA;            if (file.isFile()) {&#xA;                return file.delete();&#xA;            }&#xA;            if (!file.isDirectory()) {&#xA;                return false;&#xA;            }&#xA;            for (File f : file.listFiles()) {&#xA;                if (f.isFile()) {&#xA;                    f.delete();&#xA;                } else if (f.isDirectory()) {&#xA;                    deleteFile(f.getAbsolutePath());&#xA;                }&#xA;            }&#xA;            return file.delete();&#xA;        }&#xA;&#xA;        /**&#xA;         * get file size&#xA;         * &lt;ul>&#xA;         * &lt;li>if path is null or empty, return -1&lt;/li>&#xA;         * &lt;li>if path exist and it is a file, return file size, else return -1&lt;/li>&#xA;         * &lt;ul>&#xA;         *&#xA;         * @param path&#xA;         * @return returns the length of this file in bytes. returns -1 if the file does not exist.&#xA;         */&#xA;        public static long getFileSize(String path) {&#xA;            if (path.isEmpty()) {&#xA;                return -1;&#xA;            }&#xA;&#xA;            File file = new File(path);&#xA;            return (file.exists() &amp;&amp; file.isFile() ? file.length() : -1);&#xA;        }&#xA;}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/example/">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </source>
+            <argument xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createFileHelper/namespace">
+              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+            </argument>
+          </source>
+          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/helpers/FilesHelper.java">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </argument>
+        </fileUrl>
+      </body>
+      <parameter name="aPackage">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </parameter>
+      <parameter name="namespace">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+      <eOperations name="+">
+        <eAnnotations source="MTL non-standard"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="other">
+          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="createFileHelper">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/createFileHelper"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPackage">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+        <eParameters name="namespace">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Package_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/createFileHelper">
+      <details key="start" value="98"/>
+      <details key="end" value="20621"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/createFileHelper/%">
+      <details key="start" value="173"/>
+      <details key="end" value="20609"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/createFileHelper/%/%">
+      <details key="start" value="268"/>
+      <details key="end" value="289"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/createFileHelper/%/namespace">
+      <details key="start" value="290"/>
+      <details key="end" value="299"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/createFileHelper/%/%.1">
+      <details key="start" value="301"/>
+      <details key="end" value="314"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/createFileHelper/%/%.2">
+      <details key="start" value="314"/>
+      <details key="end" value="736"/>
+      <details key="line" value="10"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/createFileHelper/%/%.2/%">
+      <details key="start" value="337"/>
+      <details key="end" value="724"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/createFileHelper/%/%.2/%.1">
+      <details key="start" value="326"/>
+      <details key="end" value="335"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/createFileHelper/%/%.3">
+      <details key="start" value="736"/>
+      <details key="end" value="7765"/>
+      <details key="line" value="26"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/createFileHelper/%/%.4">
+      <details key="start" value="7766"/>
+      <details key="end" value="7769"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/createFileHelper/%/%.5">
+      <details key="start" value="7772"/>
+      <details key="end" value="7775"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/createFileHelper/%/%.6">
+      <details key="start" value="7777"/>
+      <details key="end" value="7788"/>
+      <details key="line" value="220"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/createFileHelper/%/%.7">
+      <details key="start" value="7789"/>
+      <details key="end" value="7792"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/createFileHelper/%/%.8">
+      <details key="start" value="7794"/>
+      <details key="end" value="7798"/>
+      <details key="line" value="220"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/createFileHelper/%/%.9">
+      <details key="start" value="7799"/>
+      <details key="end" value="7802"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/createFileHelper/%/%.10">
+      <details key="start" value="7804"/>
+      <details key="end" value="20602"/>
+      <details key="line" value="220"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/createFileHelper/%/%.11">
+      <details key="start" value="180"/>
+      <details key="end" value="258"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/createFileHelper/%/%.11/%">
+      <details key="start" value="180"/>
+      <details key="end" value="230"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/createFileHelper/%/%.11/%/%">
+      <details key="start" value="180"/>
+      <details key="end" value="220"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/createFileHelper/%/%.11/%/namespace">
+      <details key="start" value="221"/>
+      <details key="end" value="230"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/createFileHelper/%/%.11/%.1">
+      <details key="start" value="231"/>
+      <details key="end" value="258"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/createFileHelper/aPackage">
+      <details key="start" value="132"/>
+      <details key="end" value="150"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/createFileHelper/namespace">
+      <details key="start" value="152"/>
+      <details key="end" value="170"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

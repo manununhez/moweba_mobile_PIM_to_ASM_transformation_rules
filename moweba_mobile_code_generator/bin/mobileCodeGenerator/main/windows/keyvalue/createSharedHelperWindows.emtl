@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="createSharedHelperWindows" nsURI="mobileCodeGenerator::main::windows::keyvalue::createSharedHelperWindows" startHeaderPosition="29" endHeaderPosition="1747">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="createSharedHelperWindows" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="//"/>
+        <body xsi:type="mtl:ProtectedAreaBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;using System.IO;&#xA;using System.Xml.Serialization;&#xA;using Windows.Storage;&#xA;//"/>
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="imports">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </marker>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#xA;namespace WindowsStore.Common.Storage&#xA;{&#xA;    public class StorageManager&#xA;    {&#xA;        /// &lt;summary>&#xA;        /// Initializes a new instance of the  &lt;see cref=&quot;StorageManager&quot; /> class.&#xA;        /// As the LocalSettings is divided in containers the constructor needs the key of the container to use.&#xA;        /// &lt;/summary>&#xA;        /// &lt;param name=&quot;containerKey&quot;>The key.&lt;/param>&#xA;        /// &lt;param name=&quot;isRoaming&quot;>if set to &lt;c>true&lt;/c> is roaming.&lt;/param>&#xA;        public StorageManager(string containerKey, bool isRoaming)&#xA;        {&#xA;            if (isRoaming)&#xA;            {&#xA;                InitializeRoamingAppContainer(containerKey);&#xA;            }&#xA;            else&#xA;            {&#xA;                InitializeLocalAppContainer(containerKey);&#xA;            }&#xA;        }&#xA;&#xA;        /// &lt;summary>&#xA;        /// Determines whether the local storage contains an object associated to the specified key.&#xA;        /// &lt;/summary>&#xA;        public bool Contains(string key)&#xA;        {&#xA;            return AppSettingsContainer.Values.ContainsKey(key);&#xA;        }&#xA;&#xA;        /// &lt;summary>&#xA;        /// Saves the specified object associated to the specified key.&#xA;        /// &lt;/summary>&#xA;        public void Save(string key, object value)&#xA;        {&#xA;            var serializedValue = XMLSerializer.SerializeToString(value);&#xA;&#xA;            if (AppSettingsContainer.Values.ContainsKey(key))&#xA;            {&#xA;                AppSettingsContainer.Values"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="key"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = serializedValue;&#xA;            }&#xA;            else&#xA;            {&#xA;                AppSettingsContainer.Values.Add(key, serializedValue);&#xA;            }&#xA;        }&#xA;&#xA;        /// &lt;summary>&#xA;        /// Loads an object associated to the specified key.&#xA;        /// &lt;/summary>&#xA;        public T Load&lt;T>(string key)&#xA;        {&#xA;            if (AppSettingsContainer.Values.ContainsKey(key))&#xA;            {&#xA;                return XMLSerializer.DeserializeFromString&lt;T>(AppSettingsContainer.Values"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="key"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".ToString());&#xA;            }&#xA;&#xA;            return default(T);&#xA;        }&#xA;&#xA;        /// &lt;summary>&#xA;        /// Removes the object associated to the specified key.&#xA;        /// &lt;/summary>&#xA;        public bool Remove(string key)&#xA;        {&#xA;            if (AppSettingsContainer.Values.ContainsKey(key))&#xA;            {&#xA;                return AppSettingsContainer.Values.Remove(key);&#xA;            }&#xA;            return false;&#xA;        }&#xA;&#xA;        #region privates&#xA;&#xA;        /// &lt;summary>&#xA;        /// Initializes a roaming application container.&#xA;        /// &lt;/summary>&#xA;        /// &lt;param name=&quot;containerKey&quot;>The container key.&lt;/param>&#xA;        private void InitializeRoamingAppContainer(string containerKey)&#xA;        {&#xA;            // todo RoamingQuota&#xA;            if (!ApplicationData.Current.RoamingSettings.Containers.ContainsKey(containerKey))&#xA;            {&#xA;                ApplicationData.Current.RoamingSettings.CreateContainer(containerKey,&#xA;                    ApplicationDataCreateDisposition.Always);&#xA;            }&#xA;&#xA;            this.AppSettingsContainer = ApplicationData.Current.RoamingSettings.Containers"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="containerKey"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;        }&#xA;&#xA;        /// &lt;summary>&#xA;        /// Initializes a local application container.&#xA;        /// &lt;/summary>&#xA;        /// &lt;param name=&quot;containerKey&quot;>The container key.&lt;/param>&#xA;        private void InitializeLocalAppContainer(string containerKey)&#xA;        {&#xA;            if (!ApplicationData.Current.LocalSettings.Containers.ContainsKey(containerKey))&#xA;            {&#xA;                ApplicationData.Current.LocalSettings.CreateContainer(containerKey,&#xA;                    ApplicationDataCreateDisposition.Always);&#xA;            }&#xA;&#xA;            this.AppSettingsContainer = ApplicationData.Current.LocalSettings.Containers"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="containerKey"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;        }&#xA;&#xA;        private async void clearLocalData()&#xA;        {&#xA;            ApplicationData.Current.ClearAsync();&#xA;        }&#xA;&#xA;        /// &lt;summary>&#xA;        /// Gets or sets the application settings container.&#xA;        /// &lt;/summary>&#xA;        private ApplicationDataContainer AppSettingsContainer { get; set; }&#xA;&#xA;        #endregion&#xA;&#xA;        public static class XMLSerializer&#xA;        {&#xA;            /// &lt;summary>&#xA;            /// Serializes an object to string using XML.&#xA;            /// &lt;/summary>&#xA;            /// &lt;param name=&quot;obj&quot;>The object.&lt;/param>&#xA;            public static string SerializeToString(object obj)&#xA;            {&#xA;                XmlSerializer serializer = new XmlSerializer(obj.GetType());&#xA;                using (StringWriter writer = new StringWriter())&#xA;                {&#xA;                    serializer.Serialize(writer, obj);&#xA;                    return writer.ToString();&#xA;                }&#xA;            }&#xA;&#xA;            /// &lt;summary>&#xA;            /// De-serializes an object from XML string.&#xA;            /// &lt;/summary>&#xA;            /// &lt;typeparam name=&quot;T&quot;>Type of the object to deserialize&lt;/typeparam>&#xA;            /// &lt;param name=&quot;xml&quot;>The XML.&lt;/param>&#xA;            public static T DeserializeFromString&lt;T>(string xml)&#xA;            {&#xA;                XmlSerializer deserializer = new XmlSerializer(typeof(T));&#xA;                using (StringReader reader = new StringReader(xml))&#xA;                {&#xA;                    return (T)deserializer.Deserialize(reader);&#xA;                }&#xA;            }&#xA;        }&#xA;&#xA;    }&#xA;}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="windows/Common/StorageManager.cs">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+      </body>
+      <parameter name="aPackage">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="createSharedHelperWindows">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/createSharedHelperWindows"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPackage">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Package_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/createSharedHelperWindows">
+      <details key="start" value="107"/>
+      <details key="end" value="5542"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/createSharedHelperWindows/%">
+      <details key="start" value="171"/>
+      <details key="end" value="5530"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/createSharedHelperWindows/%/%">
+      <details key="start" value="222"/>
+      <details key="end" value="224"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/createSharedHelperWindows/%/%.1">
+      <details key="start" value="224"/>
+      <details key="end" value="334"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/createSharedHelperWindows/%/%.1/%">
+      <details key="start" value="247"/>
+      <details key="end" value="322"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/createSharedHelperWindows/%/%.1/%.1">
+      <details key="start" value="236"/>
+      <details key="end" value="245"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/createSharedHelperWindows/%/%.2">
+      <details key="start" value="334"/>
+      <details key="end" value="1743"/>
+      <details key="line" value="12"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/createSharedHelperWindows/%/%.3">
+      <details key="start" value="1744"/>
+      <details key="end" value="1747"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/createSharedHelperWindows/%/%.4">
+      <details key="start" value="1749"/>
+      <details key="end" value="1752"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/createSharedHelperWindows/%/%.5">
+      <details key="start" value="1753"/>
+      <details key="end" value="1756"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/createSharedHelperWindows/%/%.6">
+      <details key="start" value="1758"/>
+      <details key="end" value="2237"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/createSharedHelperWindows/%/%.7">
+      <details key="start" value="2238"/>
+      <details key="end" value="2241"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/createSharedHelperWindows/%/%.8">
+      <details key="start" value="2243"/>
+      <details key="end" value="2246"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/createSharedHelperWindows/%/%.9">
+      <details key="start" value="2247"/>
+      <details key="end" value="2250"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/createSharedHelperWindows/%/%.10">
+      <details key="start" value="2252"/>
+      <details key="end" value="3343"/>
+      <details key="line" value="67"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/createSharedHelperWindows/%/%.11">
+      <details key="start" value="3344"/>
+      <details key="end" value="3347"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/createSharedHelperWindows/%/%.12">
+      <details key="start" value="3349"/>
+      <details key="end" value="3361"/>
+      <details key="line" value="100"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/createSharedHelperWindows/%/%.13">
+      <details key="start" value="3362"/>
+      <details key="end" value="3365"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/createSharedHelperWindows/%/%.14">
+      <details key="start" value="3367"/>
+      <details key="end" value="3982"/>
+      <details key="line" value="100"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/createSharedHelperWindows/%/%.15">
+      <details key="start" value="3983"/>
+      <details key="end" value="3986"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/createSharedHelperWindows/%/%.16">
+      <details key="start" value="3988"/>
+      <details key="end" value="4000"/>
+      <details key="line" value="115"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/createSharedHelperWindows/%/%.17">
+      <details key="start" value="4001"/>
+      <details key="end" value="4004"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/createSharedHelperWindows/%/%.18">
+      <details key="start" value="4006"/>
+      <details key="end" value="5523"/>
+      <details key="line" value="115"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/createSharedHelperWindows/%/%.19">
+      <details key="start" value="178"/>
+      <details key="end" value="212"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/createSharedHelperWindows/aPackage">
+      <details key="start" value="150"/>
+      <details key="end" value="168"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

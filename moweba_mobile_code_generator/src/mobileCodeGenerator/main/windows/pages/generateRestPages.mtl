@@ -1,0 +1,115 @@
+[comment encoding = UTF-8 /]
+[module generateRestPages('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateRestPages(aClass : Class, namespace : String)]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
+//[protected ('imports')]
+using System;
+using Kulman.WPA81.BaseRestService.Services.Exceptions;
+using [namespace/].Common;
+using [namespace/].Model;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
+//[/protected]
+
+namespace [namespace/].Views
+{
+    public sealed partial class [aClass.name.toUpperFirst()/]View : Page
+    {
+        private NavigationHelper navigationHelper;
+        private ApiInterface apiInterface = new ApiInterface();
+
+        public [aClass.name.toUpperFirst()/]View()
+        {
+            this.InitializeComponent();
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+		[for (o : Operation | webServiceOperations)separator('\n')]
+        private void btn[o.name.toUpperFirst()/]_Click(object sender, RoutedEventArgs e)
+        {
+            [o.name.toLowerFirst()/]();          
+        }
+
+        private async void [o.name.toLowerFirst()/]() {
+            MessageDialog ms = new MessageDialog("Completar [o.name.toLowerFirst()/]()");
+            ms.ShowAsync();
+			/*
+			*	TODO completar metodo
+			*/
+			/*try
+            {
+				[comment]instancia de los servicios. Se limita a un solo parametro de entrada porque la libreria solo acepta un solo parametro de entrada - para el POST[/comment]
+                [if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if] data = await apiInterface.[o.name.toLowerFirst()/]([for(p: Parameter | o.ownedParameter->select(p | p.name<>''))][if (i=1)] [p.type.name/] [p.name.toLowerFirst()/][/if][/for]);			
+                [o.name.toLowerFirst()/]Tbx.Text = data.ToString();
+            }
+            catch (DeserializationException d)
+            {
+                System.Diagnostics.Debug.WriteLine(d.ToString());
+            }*/
+        }
+		[/for]
+
+    }
+
+}
+[/file]
+[/let]
+[/template]
+
+[template public generateRestPagesLayout(aClass : Class, namespace : String)]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
+<Page
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[namespace/].Views">
+    <ScrollViewer>
+        <StackPanel VerticalAlignment="Top">
+			[for (o : Operation | webServiceOperations)separator('\n')]
+            <StackPanel VerticalAlignment="Top">
+                <Button Grid.Column="0" Content="[o.name.toLowerFirst()/]" Click="btn[o.name.toUpperFirst()/]_Click" />
+                <TextBlock Grid.Column="1" x:Name="[o.name.toLowerFirst()/]Tbx" FontSize="16" Height="100" TextWrapping="Wrap" />
+            </StackPanel>
+			[/for]         
+        </StackPanel>
+    </ScrollViewer>
+</Page>
+[/file]
+[/let]
+[/template]
+

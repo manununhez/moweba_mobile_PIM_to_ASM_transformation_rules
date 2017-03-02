@@ -1,0 +1,187 @@
+[comment encoding = UTF-8 /]
+[module generateBDAdapters('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateBDAdapters(aClass : Class, namespace : String)]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/adapters/', aClass, 'Adapter','.java'), false)]
+
+package com.example.[namespace/].adapters;
+
+//[protected ('imports')]
+import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].activities.[aClass.name.toUpperFirst()/]Activity;
+import com.example.[namespace/].activities.[aClass.name.toUpperFirst()/]FormActivity;
+import com.example.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
+import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
+
+import java.util.List;
+//[/protected]
+
+public class [aClass.name.toUpperFirst()/]Adapter extends RecyclerView.Adapter<[aClass.name.toUpperFirst()/]Adapter.MyViewHolder> {
+
+    private List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List;
+    private Context context;
+    private [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO;
+    private int REQUEST_CODE = 1;
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        [for (p : Property | persistentEntityProperties)]
+		private TextView tv[p.name.toUpperFirst()/];
+		[/for]
+        private ImageView ivDelete;
+        private ImageView ivEdit;
+
+
+        public MyViewHolder(View view) {
+            super(view);
+			[for (p : Property | persistentEntityProperties)]
+			tv[p.name.toUpperFirst()/] = (TextView) view.findViewById(R.id.tv[p.name.toUpperFirst()/]);
+			[/for]
+            ivDelete = (ImageView) view.findViewById(R.id.ivDelete);
+            ivEdit = (ImageView) view.findViewById(R.id.ivEdit);
+        }
+    }
+
+
+    public [aClass.name.toUpperFirst()/]Adapter(Context context, List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List, [aClass.name.toUpperFirst()/]DAO [aClass.name.toLowerFirst()/]DAO) {
+        this.context = context;
+		this.[aClass.name.toLowerFirst()/]List = [aClass.name.toLowerFirst()/]List;
+        this.[aClass.name.toLowerFirst()/]DAO = [aClass.name.toLowerFirst()/]DAO;
+    }
+
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row_[aClass.name.toLowerCase()/], parent, false);
+
+        return new MyViewHolder(itemView);
+    }
+
+    @Override
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
+        final [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = [aClass.name.toLowerFirst()/]List.get(position);
+        [for (p : Property | persistentEntityProperties)]
+		[if(p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType') <> 'String')]
+		holder.tv[p.name.toUpperFirst()/].setText(String.valueOf([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]()));
+		[else]
+		holder.tv[p.name.toUpperFirst()/].setText([aClass.name.toLowerFirst()/].get[p.name.toUpperFirst()/]());
+		[/if] 
+		[/for]
+
+
+        holder.ivEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+				// Go to the Form to edit an entry
+                Intent intent = new Intent(context, [aClass.name.toUpperFirst()/]FormActivity.class);
+                intent.putExtra("typeOperation", "edit");
+                intent.putExtra("[aClass.name.toLowerFirst()/]", [aClass.name.toLowerFirst()/]);
+                (([aClass.name.toUpperFirst()/]Activity) context).startActivityForResult(intent, REQUEST_CODE);
+            }
+        });
+
+        holder.ivDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+				//Delete an entry from the database
+                [aClass.name.toLowerFirst()/]DAO.delete[aClass.name.toUpperFirst()/]([aClass.name.toLowerFirst()/]);
+                
+				// Updating the recyclerView
+				[aClass.name.toLowerFirst()/]List.remove(holder.getAdapterPosition());
+                notifyDataSetChanged();
+
+				//Updating the total items count
+                (([aClass.name.toUpperFirst()/]Activity) context).get[aClass.name.toUpperFirst()/]Count();
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return [aClass.name.toLowerFirst()/]List.size();
+    }
+}
+
+[/file]
+[/let]
+[/template]
+
+[template public generateBDAdapterLayout(aClass : Class)]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'list_row_','.xml'), false)]
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    android:paddingBottom="10dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp">
+
+    <ImageView
+        android:id="@+id/ivEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@+id/ivDelete"
+        android:src="@android:drawable/ic_menu_edit" />
+
+    <ImageView
+        android:id="@+id/ivDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerInParent="true"
+        android:src="@android:drawable/ic_menu_delete" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/ivEdit"
+        android:layout_toStartOf="@+id/ivEdit"
+        android:orientation="vertical">
+
+		[for (p : Property | persistentEntityProperties)separator('\n')]
+		<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[p.name.toLowerFirst()/]:"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv[p.name.toUpperFirst()/]"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:textSize="16sp" />
+        </LinearLayout>
+		[/for]
+    </LinearLayout>
+</RelativeLayout>
+[/file]
+[/let]
+[/template]
+

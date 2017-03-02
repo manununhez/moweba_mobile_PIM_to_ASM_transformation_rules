@@ -1,0 +1,86 @@
+[comment encoding = UTF-8 /]
+[module beansGenWindows('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment Se importa el mtl de services para poder utilizar las funciones definidas/]
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+
+[template public beansGenWindows(aPackage : Package)]
+	[comment]Generamos los modelos para las entidades persistentes[/comment]
+
+[for (aClass : Class | aPackage.ownedElement->filter(Class))]
+[if (aClass.hasStereotype('persistentEntity'))]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
+[let p : Package = aPackage.ancestors(Package)->first()]	
+
+[file (aClass.classFileName('windows/Model/', aClass, '' , '.cs'), false)]
+//[protected ('imports')]
+using System;
+using System.Runtime.Serialization;
+using System.Collections.Generic;
+//[/protected]
+
+namespace [p.name.toUpperFirst()/].Model
+{
+    ['['/]DataContract[']'/]
+    public class [aClass.name.toUpperFirst()/] 
+    {
+		[comment]Solo si DB lo declaramos con el PK de SQLITE[/comment]
+		[if (persistentType = 'Database')]
+		//The Id property is marked as the Primary Key
+        ['['/]SQLite.PrimaryKey, SQLite.AutoIncrement[']'/]
+        ['['/]DataMember[']'/]
+        public int Id { get; set; }
+		[/if]
+
+	[for (p : Property | persistentEntityProperties) separator('\n')]	
+		['['/]DataMember[']'/]
+		[if (p.upper = -1 or p.upper > 1)]
+		public List<[p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toLowerFirst()/]  { get; set; }
+		[else]
+		public [p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType')/] [p.name.toLowerFirst()/] { get; set; }
+		[/if]	
+	[/for]
+
+		/**
+		* Empty Constructor.
+		*/
+		public [aClass.name.toUpperFirst()/] (){
+		}
+	
+		/**
+		* Constructor.
+		*/
+		public [aClass.name.toUpperFirst()/] ([for (p : Property | persistentEntityProperties) separator(', ')][if (p.upper = -1 or p.upper > 1)]List<[p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toLowerFirst()/][else][p.getMatchedTypeForCSharp('Mobile Profile::persistentEntityProperty', 'dataType')/] [p.name.toLowerFirst()/][/if][/for]){
+		[for (p: Property | persistentEntityProperties)]
+			this.[p.name.toLowerFirst()/] = [p.name.toLowerFirst()/];     
+			[comment][if (p.upper = -1 or p.upper > 1)]
+			this.[p.name/] = [p.name/];
+			[else]
+			this.[p.name/] = [p.name/];
+			[/if]   [/comment]
+	   [/for]
+		}
+
+		[comment]Funciones declaradas en Operations[/comment]
+		[for (o: Operation | aClass.ownedOperation) separator('\n')]
+		public [o.type.name/] [o.name/]([for (p: Parameter | o.ownedParameter->select(p | p.name<>'')) separator(',')] [p.type.name/] [p.name.toLowerFirst()/] [/for]) {
+		// [protected (o.name)]
+		// TODO should be implemented
+		// [/protected]
+			return;
+		}
+	   	[/for]  
+    }
+}
+
+ [/file]
+[/let]
+[/let]
+[/let]
+[/if]
+[/for]
+[/template]

@@ -1,0 +1,345 @@
+[comment encoding = UTF-8 /]
+[module generateMainActivity('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateMainActivity(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+
+[file ('android/MainActivity.java', false)]
+
+//[protected ('imports')]
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.net.Uri;
+import android.widget.Toast;
+//[/protected]
+
+
+public class MainActivity extends AppCompatActivity {
+    static final int PERMISSIONS_REQUEST = 0x3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+	[if (aPackage.hasStereotype('DataPersistence'))]
+	[for (aClass : Class | aClasses) separator('\n')]
+	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (persistentType = 'Database' or persistentType = 'File' or persistentType = 'KeyValue')]
+			Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
+			btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, [aClass.name.toUpperFirst()/]Activity.class));
+	            }
+	        });
+			[/if]
+		[/if]
+	[/let]		
+	[/for]
+	[/if]
+	
+	[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses) separator('\n')]
+			[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+			Button btn[aClass.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[aClass.name.toUpperFirst()/]);
+			btn[aClass.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+	            @Override
+	            public void onClick(View view) {
+	                startActivity(new Intent(MainActivity.this, [aClass.name.toUpperFirst()/]Activity.class));
+	            }
+	        });
+			
+			[/if]
+		[/for]
+	
+		[for (aClass : Class | aClasses) separator('\n')]
+			[if (aClass.hasStereotype('MobileAppDataInterface'))]
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='MobileAppDataProperty'))) ]			
+		
+			//Handle incoming data
+	        Intent intent = getIntent();
+	        String action = intent.getAction();
+	        String type = intent.getType();
+
+			//all the data type options to receive
+	        if (Intent.ACTION_SEND.equals(action) && type != null) {
+			[for (p : Property | persistentEntityProperties)]
+				[let receivedDataType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::MobileAppDataProperty', 'receivedDataType')]
+				
+				[if (receivedDataType = 'FILE')]
+				if (type.startsWith("audio/"))
+	            {
+	                handleSendData(intent,"audio" ); // Handle single audio being sent
+	
+	            } else if (type.startsWith("video/"))
+	            {
+	                handleSendData(intent,"video" ); // Handle single video being sent
+	            } else if (type.startsWith("application/"))
+	            {
+	                handleSendData(intent,"application" ); // Handle single file being sent
+	            }
+				[/if]
+				[if (receivedDataType = 'URL' or receivedDataType = 'TEXT')]
+				if ("text/plain".equals(type)) {
+	                handleSendText(intent, "text"); // Handle text being sent
+	            }
+				[/if]
+				[if (receivedDataType = 'IMAGE')]
+				if (type.startsWith("image/"))
+	            {
+	                handleSendData(intent,"image" ); // Handle single image being sent
+	            }  
+				[/if] 
+	        
+			[/let]
+			[/for]
+			}
+			[/let]
+			[/if]
+		[/for]
+	[/if]
+[/let]
+[/for]
+//Asking permissions for all the hardware in use
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED ||
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED 
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses)]		
+			
+	[comment]PERMISOS para los sensores[/comment]
+			[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+				[for (p : Property | persistentEntityProperties)]
+				[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+					[if (hardwareDeviceType = 'Microphone')]
+	|| ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED //AUDIO
+					[/if]
+					[if (hardwareDeviceType = 'Camera')]
+	|| ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED   //CAMERA
+					[/if]
+					[if (hardwareDeviceType = 'GPS')]
+    || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED  //GPS
+					[/if]
+		    
+				[/let]
+				[/for]
+			[/let]
+			[/if]		
+		[/for]
+	[/if]
+[/let]
+[/for]
+				) {
+                askForPermission(PERMISSIONS_REQUEST);
+            }
+        }
+    }
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+[if (aPackage.hasStereotype('DataProvider'))]
+[for (aClass : Class | aClasses) separator('\n')]
+[if (aClass.hasStereotype('MobileAppDataInterface'))]
+    void handleSendText(Intent intent, String type) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            // Update UI to reflect text being shared
+            Toast.makeText(MainActivity.this, type+" => "+sharedText, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void handleSendData(Intent intent, String type) {
+        Uri imageUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+        if (imageUri != null) {
+            // Update UI to reflect image being shared
+            Toast.makeText(MainActivity.this, type+" => "+imageUri.toString(), Toast.LENGTH_SHORT).show();
+
+        }
+    }
+[/if]
+[/for]
+[/if]
+[/let]
+[/for]
+
+
+    private void askForPermission(Integer requestCode) {
+
+        String['['/][']'/] permission = {
+				Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses)]		
+			
+	[comment]PERMISOS para los sensores[/comment]
+			[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+				[for (p : Property | persistentEntityProperties)]
+				[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+					[if (hardwareDeviceType = 'Microphone')]
+	, Manifest.permission.RECORD_AUDIO //AUDIO
+					[/if]
+					[if (hardwareDeviceType = 'Camera')]
+	, Manifest.permission.CAMERA   //CAMERA
+					[/if]
+					[if (hardwareDeviceType = 'GPS')]
+    , Manifest.permission.ACCESS_FINE_LOCATION  //GPS
+					[/if]
+		    
+				[/let]
+				[/for]
+			[/let]
+			[/if]		
+		[/for]
+	[/if]
+[/let]
+[/for]};
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+           || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+		[for (aClass : Class | aClasses)]		
+			
+	[comment]PERMISOS para los sensores[/comment]
+			[if (aClass.hasStereotype('HardwareDeviceInterface'))]
+			[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
+				[for (p : Property | persistentEntityProperties)]
+				[let hardwareDeviceType : String = p.getValueOfStereotypePropertyEnumLit('Mobile Profile::HardwareDeviceProperty', 'hardwareDeviceType')]
+					[if (hardwareDeviceType = 'Microphone')]
+	||    ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED //AUDIO
+					[/if]
+					[if (hardwareDeviceType = 'Camera')]
+	||    ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED    //CAMERA
+					[/if]
+					[if (hardwareDeviceType = 'GPS')]
+    ||   ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED  //GPS
+					[/if]
+		    
+				[/let]
+				[/for]
+			[/let]
+			[/if]		
+		[/for]
+	[/if]
+[/let]
+[/for]) {
+
+            ActivityCompat.requestPermissions(MainActivity.this, permission, requestCode);
+
+        } else {
+            Toast.makeText(this, "Permissions are already granted.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String['['/][']'/] permissions, @NonNull int['['/][']'/] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (ActivityCompat.checkSelfPermission(this, permissions['['/]0[']'/]) == PackageManager.PERMISSION_GRANTED) {
+            switch (requestCode) {
+                //Permission granted
+                case PERMISSIONS_REQUEST:
+                    break;
+            }
+
+            Toast.makeText(this, "Permission granted", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Permission denied", Toast.LENGTH_SHORT).show();
+        }
+    }
+}
+[/file]
+
+[/let]
+[/template]
+
+[template public generateMainActivityLayout(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+
+[file ('android/app/src/main/res/layout/activity_main.xml', false)]
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".activities.MainActivity">
+
+[for (aPackage : Package | aPackages)]
+	[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+	[if (aPackage.hasStereotype('DataPersistence'))]
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="::DataPersistence::"
+	        android:textStyle="bold" />
+	[for (aClass : Class | aClasses) separator('\n')]
+	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]				
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (persistentType = 'Database' or persistentType = 'File' or persistentType = 'KeyValue')]
+			<Button
+		        android:id="@+id/btn[aClass.name.toUpperFirst()/]"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:textAllCaps="false"
+		        android:text="[aClass.name.toUpperFirst()/]" />	
+			[/if]
+		[/if]
+	[/let]		
+	[/for]	
+	[/if]
+
+	[if (aPackage.hasStereotype('DataProvider'))]
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="::DataProvider::"
+	        android:textStyle="bold" />
+		[for (aClass : Class | aClasses) separator('\n')]
+		[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+			<Button
+		        android:id="@+id/btn[aClass.name.toUpperFirst()/]"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+				android:textAllCaps="false"
+		        android:text="[aClass.name.toUpperFirst()/]" />
+		[/if]
+		[/for]
+	[/if]
+[/let]
+[/for]
+</LinearLayout>
+[/file]
+[/let]
+
+[/template]

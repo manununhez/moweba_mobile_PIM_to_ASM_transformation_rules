@@ -1,0 +1,119 @@
+[comment encoding = UTF-8 /]
+[module generateMainPage('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateMainPage(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+[let p : Package = aPackages->first()]
+
+[file ('windows/MainPage.xaml.cs', false)]
+//[protected ('imports')]
+using [p.name.toUpperFirst()/].Views;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+//[/protected]
+
+namespace [p.name.toUpperFirst()/]
+{
+    public sealed partial class MainPage : Page
+    {
+        public MainPage()
+        {
+            this.InitializeComponent();
+
+            this.NavigationCacheMode = NavigationCacheMode.Required;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            // TODO: Prepare page for display here.
+        }
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+	[if (aPackage.hasStereotype('DataPersistence'))]
+	[for (aClass : Class | aClasses) separator('\n')]
+	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (persistentType = 'Database' or persistentType = 'File' or persistentType = 'KeyValue')]
+		private void btn[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+        }
+			[/if]
+		[/if]
+	[/let]		
+	[/for]
+	[/if]
+	
+	[if (aPackage.hasStereotype('DataProvider'))]
+	[for (aClass : Class | aClasses) separator('\n')]
+	[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+		private void btn[aClass.name.toUpperFirst()/]_click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof([aClass.name.toUpperFirst()/]View));
+        }
+		[/if]
+	[/for]
+	[/if]
+[/let]
+[/for]
+    }
+}
+
+[/file]
+[/let]
+[/let]
+[/template]
+
+[template public generateMainPageLayout(model : Model)]
+[let aPackages: Sequence(Package) = model.eAllContents(Package) ]
+[let p : Package = aPackages->first()]
+[file ('windows/MainPage.xaml', false)]
+<Page
+    x:Class="[p.name.toUpperFirst()/].MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[p.name.toUpperFirst()/]">
+    <ScrollViewer>
+        <Grid x:Name="LayoutRoot">
+            <!-- Title Panel -->
+            <StackPanel Grid.Row="0" Margin="19,0,0,0">
+                <TextBlock Text="PERSISTENCE APP" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            </StackPanel>
+			<StackPanel Grid.Row="1" Margin="19,40,19,19">
+[for (aPackage : Package | aPackages)]
+[let aClasses: Set(Class) = aPackage.ownedElement->filter(Class) ]
+	[if (aPackage.hasStereotype('DataPersistence'))]
+			<TextBlock Text="::DataPersistence::" Style="{ThemeResource TitleTextBlockStyle}"/>
+	[for (aClass : Class | aClasses)]
+	[let persistentType : String = aClass.getValueOfStereotypePropertyEnumLit('Mobile Profile::persistentEntity', 'persistentType')]		
+		[if (aClass.hasStereotype('persistentEntity'))]
+			[if (persistentType = 'Database' or persistentType = 'File' or persistentType = 'KeyValue')]
+			<Button x:Name="btn[aClass.name.toUpperFirst()/]" Content="[aClass.name.toUpperFirst()/]" Click="btn[aClass.name.toUpperFirst()/]_click"/>
+			[/if]
+		[/if]
+	[/let]		
+	[/for]	
+	[/if]
+	[if (aPackage.hasStereotype('DataProvider'))]
+			<TextBlock Text="::DataProvider::" Style="{ThemeResource TitleTextBlockStyle}"/>
+	[for (aClass : Class | aClasses) separator('\n')]
+	[if (aClass.hasStereotype('WebServiceInterface') or aClass.hasStereotype('HardwareDeviceInterface'))]
+			<Button x:Name="btn[aClass.name.toUpperFirst()/]" Content="[aClass.name.toUpperFirst()/]" Click="btn[aClass.name.toUpperFirst()/]_click"/>
+	[/if]
+	[/for]
+	[/if]
+[/let]
+[/for]
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
+
+[/file]
+[/let]
+[/let]
+[/template]

@@ -1,0 +1,91 @@
+[comment encoding = UTF-8 /]
+[module beansGenAndroid('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[comment Se importa el mtl de services para poder utilizar las funciones definidas/]
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public beansGenAndroid(aPackage : Package, namespace : String)]
+	[comment]Generamos los modelos para las entidades persistentes[/comment]
+
+[for (aClass : Class | aPackage.ownedElement->filter(Class))]
+[if (aClass.hasStereotype('persistentEntity'))]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/beans/', aClass, '' , '.java'), false)]
+
+package com.example.[namespace/].beans;
+
+//[protected ('imports')]
+import java.io.Serializable;
+import java.math.BigDecimal;
+//[/protected]
+
+[comment Getter y setters /]
+public class [aClass.name.toUpperFirst()/]  implements Serializable{
+	
+[comment]Declaracion de los atributos incluyendo el List[/comment]
+[for (p : Property | persistentEntityProperties) separator('\n')]
+
+	[if (p.upper = -1 or p.upper > 1)]
+	/**
+	* the [p.name.toLowerFirst()/] attribute.
+	*/
+	private List<[p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toLowerFirst()/];
+	[else]
+	/**
+	* the [p.name.toLowerFirst()/] attribute.
+	*/
+	private [p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/] [p.name.toLowerFirst()/];
+	[/if]
+[/for]
+	
+
+	/**
+	* Empty Constructor.
+	*/
+	public [aClass.name.toUpperFirst()/] (){
+	}
+
+	/**
+	* Constructor.
+	*/
+	public [aClass.name.toUpperFirst()/] ([for (p : Property | persistentEntityProperties) separator(', ')][if (p.upper = -1 or p.upper > 1)]List<[p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toLowerFirst()/][else][p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/] [p.name.toLowerFirst()/][/if][/for]){
+	[for (p: Property | persistentEntityProperties)]     
+		this.[p.name.toLowerFirst()/] = [p.name.toLowerFirst()/];
+   [/for]
+	}
+
+	[comment]Getters [/comment]
+   [for (p: Property | persistentEntityProperties) separator('\n')]     
+	public [if (p.upper = -1 or p.upper > 1)]List<[p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toUpperFirst()/][else][p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/][/if] get[p.name.toUpperFirst()/]() {
+       return this.[p.name.toLowerFirst()/];
+     }
+   [/for]
+ 
+	[comment]Setters[/comment]
+	[for (p: Property | persistentEntityProperties) separator('\n')]
+     public void set[p.name.toUpperFirst()/]([if (p.upper = -1 or p.upper > 1)]List<[p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/]> [p.name.toLowerFirst()/][else][p.getMatchedTypeForJava('Mobile Profile::persistentEntityProperty', 'dataType')/] [p.name.toLowerFirst()/][/if]) {
+        this.[p.name.toLowerFirst()/] = [p.name.toLowerFirst()/];
+     }
+   [/for]
+
+	[comment]Funciones declaradas en Operations[/comment]
+	[for (o: Operation | aClass.ownedOperation) separator('\n')]
+	public [o.type.name/] [o.name/]([for (p: Parameter | o.ownedParameter->select(p | p.name<>'')) separator(',')] [p.type.name/] [p.name.toLowerFirst()/] [/for]) {
+	// [protected (o.name)]
+	// TODO should be implemented
+	// [/protected]
+		return;
+	}
+   	[/for]   
+
+}
+ [/file]
+[/let]
+[/if]
+[/for]
+[/template]
+
+

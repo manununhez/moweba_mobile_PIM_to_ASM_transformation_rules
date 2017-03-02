@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="createFileHelperWindows" nsURI="mobileCodeGenerator::main::windows::files::createFileHelperWindows" startHeaderPosition="29" endHeaderPosition="1001">
+    <input>
+      <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="createFileHelperWindows" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="/* &#xA;    Copyright (c) 2012 - 2013 Microsoft Corporation.  All rights reserved.&#xA;    Use of this sample source code is subject to the terms of the Microsoft license &#xA;    agreement under which you licensed this sample source code and is provided AS-IS.&#xA;    If you did not accept the terms of the license agreement, you are not authorized &#xA;    to use this sample source code.  For the terms of the license, please see the &#xA;    license agreement between you and Microsoft.&#xA;  &#xA;    To see all Code Samples for Windows Phone, visit http://code.msdn.microsoft.com/wpapps&#xA;  &#xA;*/&#xA;&#xA;//"/>
+        <body xsi:type="mtl:ProtectedAreaBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;using System;&#xA;using System.IO;&#xA;using System.Text;&#xA;using System.Threading.Tasks;&#xA;using Windows.Storage;&#xA;using Windows.Storage.Streams;&#xA;//"/>
+          <marker xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="imports">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </marker>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;&#x9;&#xA;namespace "/>
+        <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createFileHelperWindows/namespace">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Common&#xA;{&#xA;&#xA;    class FilesHelper&#xA;    {&#xA;        private static StringBuilder folderContents;&#xA;&#xA;        private const string FOLDER_PREFIX = &quot;\\&quot;;&#xA;        private const int PADDING_FACTOR = 3;&#xA;        private const char SPACE = ' ';&#xA;&#xA;        /*&#xA;&#x9;&#x9;* Creating new folders and files&#xA;&#x9;&#x9;*/&#xA;        public static async Task createFolder(string folderName)&#xA;        {&#xA;            StorageFolder localFolder = ApplicationData.Current.LocalFolder;&#xA;            StorageFolder newFolder = await localFolder.CreateFolderAsync(folderName, CreationCollisionOption.ReplaceExisting);&#xA;        }&#xA;&#xA;        /*&#xA;&#x9;&#x9;* create a new file in the local folder&#xA;&#x9;&#x9;*/&#xA;        public static async Task createFile(string newFileName)&#xA;        {&#xA;            StorageFolder localFolder = ApplicationData.Current.LocalFolder;&#xA;            StorageFile newFile = await localFolder.CreateFileAsync(newFileName, CreationCollisionOption.ReplaceExisting);&#xA;        }&#xA;&#xA;        /*&#xA;&#x9;&#x9;* Save a photo to the app's local folder&#xA;&#x9;&#x9;*/&#xA;        public static async Task&lt;string> SavePhoto(Stream photoToSave, string fileName)&#xA;        {&#xA;            StorageFolder localFolder = ApplicationData.Current.LocalFolder;&#xA;            StorageFile photoFile = await localFolder.CreateFileAsync(fileName, CreationCollisionOption.ReplaceExisting);&#xA;            using (var photoOutputStream = await photoFile.OpenStreamForWriteAsync())&#xA;            {&#xA;                await photoToSave.CopyToAsync(photoOutputStream);&#xA;            }&#xA;&#xA;            return photoFile.Path;&#xA;        }&#xA;&#xA;        /*&#xA;&#x9;&#x9;* Write a text file to the app's local folder&#xA;&#x9;&#x9;*/&#xA;        public static async Task&lt;string> WriteTextFile(string filename, string contents)&#xA;        {&#xA;            StorageFolder localFolder = ApplicationData.Current.LocalFolder;&#xA;            StorageFile textFile = await localFolder.CreateFileAsync(filename, CreationCollisionOption.ReplaceExisting);&#xA;            using (IRandomAccessStream textStream = await textFile.OpenAsync(FileAccessMode.ReadWrite))&#xA;            {&#xA;                using (DataWriter textWriter = new DataWriter(textStream))&#xA;                {&#xA;                    textWriter.WriteString(contents);&#xA;                    await textWriter.StoreAsync();&#xA;                }&#xA;            }&#xA;            return textFile.Path;&#xA;&#xA;        }&#xA;&#xA;        /*&#xA;&#x9;&#x9;* Read the contents of a text file from the app's local folder&#xA;&#x9;&#x9;*/&#xA;        public static async Task&lt;string> ReadTextFile(string filename)&#xA;        {&#xA;            string contents;&#xA;            StorageFolder localFolder = ApplicationData.Current.LocalFolder;&#xA;            StorageFile textFile = await localFolder.GetFileAsync(filename);&#xA;            using (IRandomAccessStream textStream = await textFile.OpenReadAsync())&#xA;            {&#xA;                using (DataReader textReader = new DataReader(textStream))&#xA;                {&#xA;                    uint textLength = (uint)textStream.Size;&#xA;                    await textReader.LoadAsync(textLength);&#xA;                    contents = textReader.ReadString(textLength);&#xA;                }&#xA;            }&#xA;            return contents;&#xA;        }&#xA;&#xA;&#xA;        /*&#xA;&#x9;&#x9;* Begin recursive enumeration of files and folders&#xA;&#x9;&#x9;*/&#xA;        public static async Task&lt;string> EnumerateFilesAndFolders(StorageFolder rootFolder)&#xA;        {&#xA;            // Initialize StringBuilder to contain output.&#xA;            folderContents = new StringBuilder();&#xA;            folderContents.AppendLine(FOLDER_PREFIX + rootFolder.Name);&#xA;&#xA;            await ListFilesInFolder(rootFolder, 1);&#xA;&#xA;            return folderContents.ToString();&#xA;        }&#xA;&#xA;        /*&#xA;&#x9;&#x9;* Continue recursive enumeration of files and folders&#xA;&#x9;&#x9;*/&#xA;        private static async Task ListFilesInFolder(StorageFolder folder, int indentationLevel)&#xA;        {&#xA;            string indentationPadding = String.Empty.PadRight(indentationLevel * PADDING_FACTOR, SPACE);&#xA;&#xA;            // Get the subfolders in the current folder.&#xA;            // Increase the indentation level of the output.&#xA;            // For each subfolder, call this method again recursively.&#xA;            var foldersInFolder = await folder.GetFoldersAsync();&#xA;            int childIndentationLevel = indentationLevel + 1;&#xA;            foreach (StorageFolder currentChildFolder in foldersInFolder)&#xA;            {&#xA;                folderContents.AppendLine(indentationPadding + FOLDER_PREFIX + currentChildFolder.Name);&#xA;                await ListFilesInFolder(currentChildFolder, childIndentationLevel);&#xA;            }&#xA;&#xA;            // Get the files in the current folder.&#xA;            var filesInFolder = await folder.GetFilesAsync();&#xA;            foreach (StorageFile currentFile in filesInFolder)&#xA;            {&#xA;                folderContents.AppendLine(indentationPadding + currentFile.Name);&#xA;            }&#xA;        }&#xA; &#xA;&#x9;}&#xA;}&#xA;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="windows/Common/FilesHelper.cs">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+      </body>
+      <parameter name="aPackage">
+        <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </parameter>
+      <parameter name="namespace">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="createFileHelperWindows">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/createFileHelperWindows"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aPackage">
+          <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+        </eParameters>
+        <eParameters name="namespace">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="uml_Package_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/createFileHelperWindows">
+      <details key="start" value="105"/>
+      <details key="end" value="5733"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/createFileHelperWindows/%">
+      <details key="start" value="187"/>
+      <details key="end" value="5721"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/createFileHelperWindows/%/%">
+      <details key="start" value="235"/>
+      <details key="end" value="806"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/createFileHelperWindows/%/%.1">
+      <details key="start" value="806"/>
+      <details key="end" value="978"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/createFileHelperWindows/%/%.1/%">
+      <details key="start" value="829"/>
+      <details key="end" value="966"/>
+      <details key="line" value="20"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/createFileHelperWindows/%/%.1/%.1">
+      <details key="start" value="818"/>
+      <details key="end" value="827"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/createFileHelperWindows/%/%.2">
+      <details key="start" value="978"/>
+      <details key="end" value="991"/>
+      <details key="line" value="27"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/createFileHelperWindows/%/namespace">
+      <details key="start" value="992"/>
+      <details key="end" value="1001"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/createFileHelperWindows/%/%.3">
+      <details key="start" value="1003"/>
+      <details key="end" value="5714"/>
+      <details key="line" value="28"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/createFileHelperWindows/%/%.4">
+      <details key="start" value="194"/>
+      <details key="end" value="225"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/createFileHelperWindows/aPackage">
+      <details key="start" value="146"/>
+      <details key="end" value="164"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/createFileHelperWindows/namespace">
+      <details key="start" value="166"/>
+      <details key="end" value="184"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

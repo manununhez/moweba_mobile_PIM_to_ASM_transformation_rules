@@ -1,0 +1,155 @@
+[comment encoding = UTF-8 /]
+[module generateKVPages('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+
+[template public generateKVPages(aClass : Class, namespace : String)]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml.cs'), false)]
+//[protected ('imports')]
+using [namespace/].Common;
+using [namespace/].Model;
+using System;
+using System.Collections.Generic;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
+using WindowsStore.Common.Storage;
+//[/protected]
+
+namespace [namespace/].Views
+{
+
+    public sealed partial class [aClass.name.toUpperFirst()/]View : Page
+    {
+        private NavigationHelper navigationHelper;
+        
+        public [aClass.name.toUpperFirst()/]View()
+        {
+            this.InitializeComponent();
+
+            this.navigationHelper = new NavigationHelper(this);
+            this.navigationHelper.LoadState += this.NavigationHelper_LoadState;
+            this.navigationHelper.SaveState += this.NavigationHelper_SaveState;
+        }
+
+        public NavigationHelper NavigationHelper
+        {
+            get { return this.navigationHelper; }
+        }
+
+
+        private void NavigationHelper_LoadState(object sender, LoadStateEventArgs e)
+        {
+        }
+
+        private void NavigationHelper_SaveState(object sender, SaveStateEventArgs e)
+        {
+        }
+
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            this.navigationHelper.OnNavigatedFrom(e);
+        }
+
+		/*
+		* When the page is loaded, the list is loaded with data from database.
+		*/
+        private void ReadAllData_Loaded(object sender, RoutedEventArgs e)
+        {
+            StorageManager storage = new StorageManager("dataPersistence", false);
+            [aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = storage.Load<[aClass.name.toUpperFirst()/]>("[aClass.name.toLowerFirst()/]");
+            
+            List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new List<[aClass.name.toUpperFirst()/]>();
+            [aClass.name.toLowerFirst()/]List.Add([aClass.name.toLowerFirst()/]);
+            listBoxobj.ItemsSource = [aClass.name.toLowerFirst()/]List;//Binding data to LISTBOX  
+            txbQuantity.Text = Convert.ToString([aClass.name.toLowerFirst()/]List.Count);
+        }
+
+
+		/*
+		* When an item of the list is selected, go to the update page form
+		*/
+        private void listBoxobj_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (listBoxobj.SelectedIndex != -1)
+            {
+
+                [aClass.name.toUpperFirst()/] listitem = listBoxobj.SelectedItem as [aClass.name.toUpperFirst()/];//Get slected listbox item contact ID 
+                Frame.Navigate(typeof([aClass.name.toUpperFirst()/]FormDeleteUpdate), listitem);
+            }
+        }
+
+    }
+}
+
+[/file]
+[/let]
+[/template]
+
+[template public generateKVPagesLayout(aClass : Class, namespace : String)]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
+
+[file (aClass.classFileName('windows/Views/'+aClass.name.toUpperFirst()+'/', aClass, 'View','.xaml'), false)]
+<Page
+    x:Class="[namespace/].Views.[aClass.name.toUpperFirst()/]View"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:[namespace/].Views">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Title Panel -->
+        <StackPanel Grid.Row="0" Margin="19,0,0,0">
+            <TextBlock Text="Persistence App" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+            <TextBlock Text="[aClass.name.toUpperFirst()/]" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+        </StackPanel>
+
+        <!--TODO: Content should be placed within the following grid-->
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <TextBlock  x:Name="txbQuantity" TextWrapping="Wrap"  Text="0" Margin="19,10,327,463" FontSize="16"/>
+            <TextBlock Text="elementos" TextWrapping="Wrap" Margin="40,10,242,461" FontSize="16" />
+            <!--TODO: Content should be placed within the following grid-->
+            <Grid Margin="19,24,19,-2.334">
+                <ListBox BorderBrush="#FF141EE4" Height="auto" BorderThickness="2" MaxHeight="580" x:Name="listBoxobj" SelectionChanged="listBoxobj_SelectionChanged" Margin="0,24,0.167,19" Loaded="ReadAllData_Loaded" Grid.ColumnSpan="3">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Background="Gray" Width="480">
+                                <Border BorderBrush="White" BorderThickness="1">
+                                    <StackPanel Grid.Column="2" Margin="19,0,0,0">
+                                        [for (p : Property | persistentEntityProperties)]
+										<Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" TextWrapping="Wrap" Text="[p.name.toUpperFirst()/]:" FontSize="17"/>
+                                            <TextBlock Grid.Column="1" x:Name="[p.name.toLowerFirst()/]Txt" TextWrapping="Wrap" Text="{Binding [p.name.toLowerFirst()/]}" FontSize="17" Foreground="White"/>
+                                        </Grid>
+										[/for]								
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
+[/file]
+[/let]
+[/template]

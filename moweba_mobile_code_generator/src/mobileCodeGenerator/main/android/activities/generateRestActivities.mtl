@@ -1,0 +1,156 @@
+[comment encoding = UTF-8 /]
+[module generateRestActivities('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateRestActivities(aClass : Class, namespace : String)]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
+
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+
+package com.example.[namespace/].activities;
+
+//[protected ('imports')]
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].conn.ApiClient;
+import com.example.[namespace/].conn.ApiInterface;
+
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+//[/protected]
+
+public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
+    private TextView tvResults;
+    private ApiInterface apiService;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_[aClass.name.toLower()/]);
+
+		// Setting the toolbar title
+		ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setTitle("[aClass.name.toUpperFirst()/]");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+
+        tvResults = (TextView) findViewById(R.id.tvResults);
+        apiService = ApiClient.getClient().create(ApiInterface.class);
+
+		[for (o : Operation | webServiceOperations)separator('\n')]
+		Button btn[o.name.toUpperFirst()/] = (Button) findViewById(R.id.btn[o.name.toUpperFirst()/]);
+
+        btn[o.name.toUpperFirst()/].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                [o.name.toLowerFirst()/]();
+            }
+        });
+		[/for]
+        
+
+    }
+
+	[for (o : Operation | webServiceOperations)separator('\n')]
+	private void [o.name.toLowerFirst()/]() {
+		Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Completar [o.name.toLowerFirst()/]()", Toast.LENGTH_SHORT).show();
+		
+		/*
+		 *  Complete this method to make the call to the corresponding service
+		 */
+
+       /* Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call = apiService.[o.name.toLowerFirst()/]();
+        call.enqueue(new Callback<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]>() {
+            @Override
+            public void onResponse(Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call, Response<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> response) {
+                //TODO do something
+
+            }
+
+            @Override
+            public void onFailure(Call<[if (o.upper = -1 or o.upper > 1)]List<[o.type.name/]>[else][o.type.name/][/if]> call, Throwable t) {
+                // Log error here since request failed
+                Log.e("Rest", t.toString());
+				//TODO do something
+            }
+        }); */
+	}
+	[/for]
+
+  	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+    
+}
+
+[/file]
+[/let]
+[/template]
+
+[template public generateRestActivitiesLayout(aClass : Class)]
+[let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
+
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_','.xml'), false)]
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/llButtons"
+            android:layout_width="150dp"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+			[for (o : Operation | webServiceOperations)separator('\n')]
+            <Button
+                android:id="@+id/btn[o.name.toUpperFirst()/]"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+				android:textAllCaps="false"
+                android:text="[o.name.toLowerFirst()/]"/>
+			[/for]
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/tvResults"
+            android:layout_toRightOf="@+id/llButtons"
+            android:layout_toEndOf="@+id/llButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</ScrollView>
+[/file]
+[/let]
+[/template]

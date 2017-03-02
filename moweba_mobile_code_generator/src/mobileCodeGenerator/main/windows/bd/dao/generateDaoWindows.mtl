@@ -1,0 +1,128 @@
+[comment encoding = UTF-8 /]
+[module generateDaoWindows('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateDaoWindows(aClass : Class, namespace : String)]
+[let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
+
+[file (aClass.classFileName('windows/ViewModel/', aClass, 'DAO','.cs'), false)]
+//[protected ('imports')]
+using [namespace/].Common;
+using [namespace/].Model;
+using SQLite;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+//[/protected]
+
+namespace [namespace/].ViewModels
+{
+    class [aClass.name.toUpperFirst()/]DAO
+    {
+        private SQLiteConnection dbConn = new SQLiteConnection(SQLiteHelper.DbPath);
+
+        // Insert the new [aClass.name.toLowerFirst()/] in the [aClass.name.toUpperFirst()/] table. 
+        public void add[aClass.name.toUpperFirst()/]([aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/])
+        {
+            using (dbConn)
+            {
+                dbConn.RunInTransaction(() =>
+                {
+                    dbConn.Insert([aClass.name.toLowerFirst()/]);
+                });
+            }
+        }
+
+		// Retrieve the specific [aClass.name.toUpperFirst()/] from the database. 
+        public [aClass.name.toUpperFirst()/] get[aClass.name.toUpperFirst()/](int id)
+        {
+            using (dbConn)
+            {
+				var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/][/if][/for] =" + id).FirstOrDefault();
+                return queryResult;
+            }
+        }
+
+        // Retrieve the all [aClass.name.toUpperFirst()/] List from the database. 
+        public ObservableCollection<[aClass.name.toUpperFirst()/]> getAll[aClass.name.toUpperFirst()/]()
+        {
+            using (dbConn)
+            {
+                List<[aClass.name.toUpperFirst()/]> myCollection = dbConn.Table<[aClass.name.toUpperFirst()/]>().ToList<[aClass.name.toUpperFirst()/]>();
+                ObservableCollection<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new ObservableCollection<[aClass.name.toUpperFirst()/]>(myCollection);
+                return [aClass.name.toLowerFirst()/]List;
+            }
+        }
+
+        // Retrieve the all [aClass.name.toUpperFirst()/] List from the database and get the Total Rows. 
+        public int get[aClass.name.toUpperFirst()/]Count()
+        {
+            using (dbConn)
+            {
+                 List<[aClass.name.toUpperFirst()/]> myCollection = dbConn.Table<[aClass.name.toUpperFirst()/]>().ToList<[aClass.name.toUpperFirst()/]>();
+                ObservableCollection<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new ObservableCollection<[aClass.name.toUpperFirst()/]>(myCollection);
+                return [aClass.name.toLowerFirst()/]List.Count;
+            }
+        }
+
+        //Update existing [aClass.name.toUpperFirst()/] 
+        public void update[aClass.name.toUpperFirst()/]([aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/])
+        {
+            using (dbConn)
+            {
+                var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/] = "+ [aClass.name.toLowerFirst()/].[p.name.toLowerFirst()/][/if][/for]).FirstOrDefault();
+                if (queryResult != null)
+                {
+					[for (p : Property | persistentEntityProperties)]				
+					queryResult.[p.name.toLowerFirst()/] = [aClass.name.toLowerFirst()/].[p.name.toLowerFirst()/];		
+					[/for]
+
+                    dbConn.RunInTransaction(() =>
+                    {
+                        dbConn.Update(queryResult);
+                    });
+                }
+            }
+        }
+
+
+
+        //Delete specific [aClass.name.toUpperFirst()/] 
+        public void delete[aClass.name.toUpperFirst()/]([aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/])
+        {
+            using (dbConn)
+            {
+		[comment]Seleccionamos el campo selectable definido en el modelo, para utilizarlo como id para borrar el registro[/comment]
+                var queryResult = dbConn.Query<[aClass.name.toUpperFirst()/]>("select * from [aClass.name.toUpperFirst()/] where [for (p : Property | persistentEntityProperties)][if (p.getValueOfStereotypePropertyBoolean('Mobile Profile::persistentEntityProperty', 'selectable'))][p.name.toLowerFirst()/] = "+ [aClass.name.toLowerFirst()/].[p.name.toLowerFirst()/][/if][/for]).FirstOrDefault();
+
+                if (queryResult != null)
+                {
+                    dbConn.RunInTransaction(() =>
+                    {
+                        dbConn.Delete(queryResult);
+                    });
+                }
+            }
+        }
+        //Delete all [aClass.name.toLowerFirst()/]List or delete [aClass.name.toUpperFirst()/] table 
+        public void deleteAll[aClass.name.toUpperFirst()/]()
+        {
+            using (dbConn)
+            {
+                //dbConn.RunInTransaction(() => 
+                //   { 
+                dbConn.DropTable<[aClass.name.toUpperFirst()/]>();
+                dbConn.CreateTable<[aClass.name.toUpperFirst()/]>();
+                dbConn.Dispose();
+                dbConn.Close();
+                //}); 
+            }
+        }
+    }
+
+}
+[/file]
+[/let]
+[/template]

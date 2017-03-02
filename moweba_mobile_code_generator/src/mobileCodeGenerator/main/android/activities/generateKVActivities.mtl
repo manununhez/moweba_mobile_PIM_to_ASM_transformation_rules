@@ -1,0 +1,143 @@
+[comment encoding = UTF-8 /]
+[module generateKVActivities('http://www.eclipse.org/uml2/5.0.0/UML')]
+
+[import services::uml2services/]
+[import common::utils_gen/]
+
+[template public generateKVActivities(aClass : Class, namespace : String)]
+[let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
+
+[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+
+package com.example.[namespace/].activities;
+
+//[protected ('imports')]
+import android.content.Intent;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.example.[namespace/].R;
+import com.example.[namespace/].adapters.[aClass.name.toUpperFirst()/]Adapter;
+import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.example.[namespace/].helpers.StorageManager;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+//[/protected]
+
+public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
+    private  RecyclerView recyclerView;
+    private [aClass.name.toUpperFirst()/]Adapter mAdapter;
+    private List<[aClass.name.toUpperFirst()/]> [aClass.name.toLowerFirst()/]List = new ArrayList<>();
+    private static int REQUEST_CODE = 1;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_[aClass.name.toLower()/]);
+
+		// Setting the toolbar title
+        ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null) {
+            actionBar.setTitle("[aClass.name.toUpperFirst()/]");
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+        
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        
+		setupRecyclerView();
+
+        load[aClass.name.toUpperFirst()/]Data();
+        
+		
+    }
+
+	/* 
+	*	Initializing the recycler view with the data provided
+	*/
+    private void setupRecyclerView() {
+        mAdapter = new [aClass.name.toUpperFirst()/]Adapter(this, [aClass.name.toLowerFirst()/]List);
+
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(mLayoutManager);
+		recyclerView.setItemAnimator(new DefaultItemAnimator());
+        recyclerView.setAdapter(mAdapter);
+    }
+
+	/*
+	*	Retrieving all the data to show
+	*/
+	private void load[aClass.name.toUpperFirst()/]Data(){
+		Toast.makeText([aClass.name.toUpperFirst()/]Activity.this, "Retrieving data from sharedPreferences", Toast.LENGTH_SHORT).show();
+		// Getting data from the sharedPreferences
+		[for (p : Property | persistentEntityProperties)]
+		String [p.name.toLowerFirst()/] = StorageManager.getValue(this, "[p.name.toLowerFirst()/]");
+		[/for]
+        
+		//Initializing the model
+		[aClass.name.toUpperFirst()/] [aClass.name.toLowerFirst()/] = new [aClass.name.toUpperFirst()/]([for (p : Property | persistentEntityProperties)separator (', ')][p.getJavaKVConstructorDescription('Mobile Profile::persistentEntityProperty', p.name.toLowerFirst())/][/for]);
+        //Adding to list
+		[aClass.name.toLowerFirst()/]List.add([aClass.name.toLowerFirst()/]);
+		//update the recyclerView
+        mAdapter.notifyDataSetChanged();
+	}
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) { //if it´s ok, we update the list to show the changes
+                [aClass.name.toLowerFirst()/]List.clear(); //clear the list
+                load[aClass.name.toUpperFirst()/]Data(); // reload data
+            }
+        }
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+}
+
+[/file]
+[/let]
+[/template]
+
+[template public generateKVActivitiesLayout(aClass : Class)]
+
+[file (aClass.classFileNameInvert('android/app/src/main/res/layout/', aClass, 'activity_','.xml'), false)]
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical" />
+</LinearLayout>
+
+[/file]
+[/template]
