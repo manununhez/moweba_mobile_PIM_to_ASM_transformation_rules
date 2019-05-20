@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateRestWindowsInterface" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="mtl:LetBlock">
@@ -761,7 +761,7 @@
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                       <initExpression xsi:type="mtl:QueryInvocation">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyString"/>
+                        <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyString"/>
                         <argument xsi:type="ocl.ecore:VariableExp" name="o" referredVariable="/0/generateRestWindowsInterface/%/%/%/%/%.6/o">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
                         </argument>
@@ -778,7 +778,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <initExpression xsi:type="mtl:QueryInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                      <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="o" referredVariable="/0/generateRestWindowsInterface/%/%/%/%/%.6/o">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Operation"/>
                       </argument>
@@ -804,7 +804,7 @@
                 <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypeProperty"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypeProperty"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestWindowsInterface/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -821,7 +821,7 @@
               <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
               <initExpression xsi:type="mtl:QueryInvocation">
                 <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-                <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypeProperty"/>
+                <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypeProperty"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestWindowsInterface/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -928,7 +928,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypeProperty"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypeProperty"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
         <eParameters name="elem">
@@ -946,7 +946,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyString"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyString"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -964,7 +964,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

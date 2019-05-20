@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateSensorsPages" visibility="Public">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -139,7 +139,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.6/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -271,7 +271,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.10/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -394,7 +394,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <initExpression xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -420,7 +420,7 @@
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                       <source xsi:type="mtl:QueryInvocation">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                        <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                         <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/select/p">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                         </argument>
@@ -440,7 +440,7 @@
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                       <source xsi:type="mtl:QueryInvocation">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                        <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                         <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/select/p">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                         </argument>
@@ -462,7 +462,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                     <source xsi:type="mtl:QueryInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                      <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/select/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -613,7 +613,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <initExpression xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.3/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -634,7 +634,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;            }&#xA;            else&#xA;            {&#xA;                MessageDialog ms = new MessageDialog(&quot;No accelerometer Found&quot;);&#xA;                ms.ShowAsync();&#xA;            }&#xA;"/>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isClassHasSensors"/>
+              <definition href="../../../../services/uml2services.emtl#/0/isClassHasSensors"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsPages/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -667,7 +667,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.1/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -708,7 +708,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.3/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -749,7 +749,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.5/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -790,7 +790,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.7/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -815,7 +815,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            });&#xA;        }&#xA;"/>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isClassHasSensors"/>
+              <definition href="../../../../services/uml2services.emtl#/0/isClassHasSensors"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsPages/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -917,7 +917,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.16/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -938,7 +938,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    }&#xA;}&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -1067,7 +1067,7 @@
                   </source>
                   <argument xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -1264,7 +1264,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -1285,7 +1285,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;/StackPanel>&#xA;        &lt;/Grid>&#xA;    &lt;/ScrollViewer>&#xA;&lt;/Page>&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -1569,7 +1569,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isClassHasSensors"/>
+          <references href="../../../../services/uml2services.emtl#/0/isClassHasSensors"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -1587,7 +1587,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -1608,7 +1608,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

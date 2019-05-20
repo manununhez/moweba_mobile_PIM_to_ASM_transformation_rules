@@ -13,9 +13,9 @@
 [if (aClass.hasStereotype('persistentEntity'))]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/beans/', aClass, '' , '.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/beans/', aClass, '' , '.java'), false)]
 
-package com.example.[namespace/].beans;
+package com.generatedcode.[namespace/].beans;
 
 //[protected ('imports')]
 import java.io.Serializable;

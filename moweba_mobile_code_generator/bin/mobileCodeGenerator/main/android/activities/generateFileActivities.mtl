@@ -7,9 +7,9 @@
 [template public generateFileActivities(aClass : Class, namespace : String)]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
 
-package com.example.[namespace/].activities;
+package com.generatedcode.[namespace/].activities;
 
 //[protected ('imports')]
 import android.support.design.widget.TextInputEditText;
@@ -22,8 +22,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.[namespace/].R;
-import com.example.[namespace/].helpers.FilesHelper;
+import com.generatedcode.[namespace/].R;
+import com.generatedcode.[namespace/].helpers.FilesHelper;
 
 //[/protected]
 

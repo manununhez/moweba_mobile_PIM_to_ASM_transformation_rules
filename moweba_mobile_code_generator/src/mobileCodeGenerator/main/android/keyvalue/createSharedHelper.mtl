@@ -3,9 +3,9 @@
 
 
 [template public createSharedHelper(aPackage : Package, namespace : String)]
-[file ('android/app/src/main/java/com/example/'+namespace+'/helpers/StorageManager.java', false)]
+[file ('android/app/src/main/java/com/generatedcode/'+namespace+'/helpers/StorageManager.java', false)]
 
-package com.example.[namespace/].helpers;
+package com.generatedcode.[namespace/].helpers;
 
 //[protected ('imports')]
 import android.content.Context;

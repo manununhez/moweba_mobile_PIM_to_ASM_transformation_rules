@@ -7,9 +7,9 @@
 [template public generateSensorActivities(aClass : Class, namespace : String)]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='HardwareDeviceProperty'))) ]			
 
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
 
-package com.example.[namespace/].activities;
+package com.generatedcode.[namespace/].activities;
 
 //[protected ('imports')]
 import android.content.Context;
@@ -28,8 +28,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.[namespace/].R;
-import com.example.[namespace/].utils.GPSTracker;
+import com.generatedcode.[namespace/].R;
+import com.generatedcode.[namespace/].utils.GPSTracker;
 
 //[/protected]
 
@@ -545,9 +545,9 @@ public class [aClass.name.toUpperFirst()/]Activity extends AppCompatActivity {
 
 
 [template public generateGPSClass(aClass : Class, namespace : String)]
-[file ('android/app/src/main/java/com/example/'+namespace+'/utils/GPSTracker.java', false)]
+[file ('android/app/src/main/java/com/generatedcode/'+namespace+'/utils/GPSTracker.java', false)]
 
-package com.example.[namespace/].utils;
+package com.generatedcode.[namespace/].utils;
 
 
 //[protected ('imports')]
@@ -749,9 +749,9 @@ public class GPSTracker extends Service implements LocationListener {
 [/template]
 
 [template public generateAudioActivity(aClass : Class, namespace : String)]
-[file ('android/app/src/main/java/com/example/'+namespace+'/activities/AudioRecordActivity.java', false)]
+[file ('android/app/src/main/java/com/generatedcode/'+namespace+'/activities/AudioRecordActivity.java', false)]
 
-package com.example.[namespace/].activities;
+package com.generatedcode.[namespace/].activities;
 
 
 //[protected ('imports')]
@@ -767,7 +767,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.[namespace/].R;
+import com.generatedcode.[namespace/].R;
 
 
 import java.text.SimpleDateFormat;
@@ -1023,9 +1023,9 @@ public class AudioRecordActivity extends AppCompatActivity {
 
 
 [template public generateCameraActivity(aClass : Class, namespace : String)]
-[file ('android/app/src/main/java/com/example/'+namespace+'/activities/CameraActivity.java', false)]
+[file ('android/app/src/main/java/com/generatedcode/'+namespace+'/activities/CameraActivity.java', false)]
 
-package com.example.[namespace/].activities;
+package com.generatedcode.[namespace/].activities;
 
 //[protected ('imports')]
 import android.content.Context;
@@ -1044,7 +1044,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.example.[namespace/].R;
+import com.generatedcode.[namespace/].R;
 
 import java.io.File;
 import java.io.FileNotFoundException;

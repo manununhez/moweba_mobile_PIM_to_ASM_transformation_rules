@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="createFileHelper" nsURI="mobileCodeGenerator::main::android::files::createFileHelper" startHeaderPosition="29" endHeaderPosition="299">
+  <mtl:Module name="createFileHelper" nsURI="mobileCodeGenerator::main::android::files::createFileHelper" startHeaderPosition="29" endHeaderPosition="311">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="createFileHelper" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.example."/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.generatedcode."/>
         <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createFileHelper/namespace">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -37,7 +37,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/example/">
+            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/generatedcode/">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </source>
             <argument xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createFileHelper/namespace">
@@ -163,107 +163,107 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/createFileHelper">
       <details key="start" value="98"/>
-      <details key="end" value="20621"/>
+      <details key="end" value="20633"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/createFileHelper/%">
       <details key="start" value="173"/>
-      <details key="end" value="20609"/>
+      <details key="end" value="20621"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/createFileHelper/%/%">
-      <details key="start" value="268"/>
-      <details key="end" value="289"/>
+      <details key="start" value="274"/>
+      <details key="end" value="301"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/createFileHelper/%/namespace">
-      <details key="start" value="290"/>
-      <details key="end" value="299"/>
+      <details key="start" value="302"/>
+      <details key="end" value="311"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/createFileHelper/%/%.1">
-      <details key="start" value="301"/>
-      <details key="end" value="314"/>
+      <details key="start" value="313"/>
+      <details key="end" value="326"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/createFileHelper/%/%.2">
-      <details key="start" value="314"/>
-      <details key="end" value="736"/>
+      <details key="start" value="326"/>
+      <details key="end" value="748"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/createFileHelper/%/%.2/%">
-      <details key="start" value="337"/>
-      <details key="end" value="724"/>
+      <details key="start" value="349"/>
+      <details key="end" value="736"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/createFileHelper/%/%.2/%.1">
-      <details key="start" value="326"/>
-      <details key="end" value="335"/>
+      <details key="start" value="338"/>
+      <details key="end" value="347"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/createFileHelper/%/%.3">
-      <details key="start" value="736"/>
-      <details key="end" value="7765"/>
+      <details key="start" value="748"/>
+      <details key="end" value="7777"/>
       <details key="line" value="26"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/createFileHelper/%/%.4">
-      <details key="start" value="7766"/>
-      <details key="end" value="7769"/>
+      <details key="start" value="7778"/>
+      <details key="end" value="7781"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/createFileHelper/%/%.5">
-      <details key="start" value="7772"/>
-      <details key="end" value="7775"/>
+      <details key="start" value="7784"/>
+      <details key="end" value="7787"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/createFileHelper/%/%.6">
-      <details key="start" value="7777"/>
-      <details key="end" value="7788"/>
+      <details key="start" value="7789"/>
+      <details key="end" value="7800"/>
       <details key="line" value="220"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/createFileHelper/%/%.7">
-      <details key="start" value="7789"/>
-      <details key="end" value="7792"/>
+      <details key="start" value="7801"/>
+      <details key="end" value="7804"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/createFileHelper/%/%.8">
-      <details key="start" value="7794"/>
-      <details key="end" value="7798"/>
+      <details key="start" value="7806"/>
+      <details key="end" value="7810"/>
       <details key="line" value="220"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/createFileHelper/%/%.9">
-      <details key="start" value="7799"/>
-      <details key="end" value="7802"/>
+      <details key="start" value="7811"/>
+      <details key="end" value="7814"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/createFileHelper/%/%.10">
-      <details key="start" value="7804"/>
-      <details key="end" value="20602"/>
+      <details key="start" value="7816"/>
+      <details key="end" value="20614"/>
       <details key="line" value="220"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/createFileHelper/%/%.11">
       <details key="start" value="180"/>
-      <details key="end" value="258"/>
+      <details key="end" value="264"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/createFileHelper/%/%.11/%">
       <details key="start" value="180"/>
-      <details key="end" value="230"/>
+      <details key="end" value="236"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/createFileHelper/%/%.11/%/%">
       <details key="start" value="180"/>
-      <details key="end" value="220"/>
+      <details key="end" value="226"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/createFileHelper/%/%.11/%/namespace">
-      <details key="start" value="221"/>
-      <details key="end" value="230"/>
+      <details key="start" value="227"/>
+      <details key="end" value="236"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/createFileHelper/%/%.11/%.1">
-      <details key="start" value="231"/>
-      <details key="end" value="258"/>
+      <details key="start" value="237"/>
+      <details key="end" value="264"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/createFileHelper/aPackage">

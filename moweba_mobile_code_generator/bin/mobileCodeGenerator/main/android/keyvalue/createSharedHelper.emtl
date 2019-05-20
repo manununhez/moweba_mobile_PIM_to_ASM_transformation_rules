@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="createSharedHelper" nsURI="mobileCodeGenerator::main::android::keyvalue::createSharedHelper" startHeaderPosition="29" endHeaderPosition="306">
+  <mtl:Module name="createSharedHelper" nsURI="mobileCodeGenerator::main::android::keyvalue::createSharedHelper" startHeaderPosition="29" endHeaderPosition="318">
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="createSharedHelper" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.example."/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.generatedcode."/>
         <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createSharedHelper/namespace">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -22,7 +22,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/example/">
+            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/generatedcode/">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </source>
             <argument xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createSharedHelper/namespace">
@@ -136,72 +136,72 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/createSharedHelper">
       <details key="start" value="100"/>
-      <details key="end" value="1972"/>
+      <details key="end" value="1984"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/createSharedHelper/%">
       <details key="start" value="177"/>
-      <details key="end" value="1960"/>
+      <details key="end" value="1972"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/createSharedHelper/%/%">
-      <details key="start" value="275"/>
-      <details key="end" value="296"/>
+      <details key="start" value="281"/>
+      <details key="end" value="308"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/createSharedHelper/%/namespace">
-      <details key="start" value="297"/>
-      <details key="end" value="306"/>
+      <details key="start" value="309"/>
+      <details key="end" value="318"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/createSharedHelper/%/%.1">
-      <details key="start" value="308"/>
-      <details key="end" value="321"/>
+      <details key="start" value="320"/>
+      <details key="end" value="333"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/createSharedHelper/%/%.2">
-      <details key="start" value="321"/>
-      <details key="end" value="433"/>
+      <details key="start" value="333"/>
+      <details key="end" value="445"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/createSharedHelper/%/%.2/%">
-      <details key="start" value="344"/>
-      <details key="end" value="421"/>
+      <details key="start" value="356"/>
+      <details key="end" value="433"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/createSharedHelper/%/%.2/%.1">
-      <details key="start" value="333"/>
-      <details key="end" value="342"/>
+      <details key="start" value="345"/>
+      <details key="end" value="354"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/createSharedHelper/%/%.3">
-      <details key="start" value="433"/>
-      <details key="end" value="1953"/>
+      <details key="start" value="445"/>
+      <details key="end" value="1965"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/createSharedHelper/%/%.4">
       <details key="start" value="184"/>
-      <details key="end" value="265"/>
+      <details key="end" value="271"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/createSharedHelper/%/%.4/%">
       <details key="start" value="184"/>
-      <details key="end" value="234"/>
+      <details key="end" value="240"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/createSharedHelper/%/%.4/%/%">
       <details key="start" value="184"/>
-      <details key="end" value="224"/>
+      <details key="end" value="230"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/createSharedHelper/%/%.4/%/namespace">
-      <details key="start" value="225"/>
-      <details key="end" value="234"/>
+      <details key="start" value="231"/>
+      <details key="end" value="240"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/createSharedHelper/%/%.4/%.1">
-      <details key="start" value="235"/>
-      <details key="end" value="265"/>
+      <details key="start" value="241"/>
+      <details key="end" value="271"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/createSharedHelper/aPackage">

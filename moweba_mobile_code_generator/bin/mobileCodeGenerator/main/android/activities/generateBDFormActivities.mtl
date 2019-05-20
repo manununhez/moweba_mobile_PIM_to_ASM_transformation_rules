@@ -8,9 +8,9 @@
 [template public generateBDFormActivities(aClass : Class, namespace:String)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'FormActivity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/activities/', aClass, 'FormActivity','.java'), false)]
 
-package com.example.[namespace/].activities;
+package com.generatedcode.[namespace/].activities;
 
 //[protected ('imports')]
 import android.app.Activity;
@@ -24,10 +24,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.[namespace/].R;
-import com.example.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
-import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
-import com.example.[namespace/].helpers.SQLiteHelper;
+import com.generatedcode.[namespace/].R;
+import com.generatedcode.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
+import com.generatedcode.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.generatedcode.[namespace/].helpers.SQLiteHelper;
 
 import java.math.BigDecimal;
 //[/protected]

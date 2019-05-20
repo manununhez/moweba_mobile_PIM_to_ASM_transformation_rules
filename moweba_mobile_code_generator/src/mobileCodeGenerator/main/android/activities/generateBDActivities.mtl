@@ -5,9 +5,9 @@
 [import common::utils_gen/]
 
 [template public generateBDActivities(aClass : Class, namespace : String)]
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
 
-package com.example.[namespace/].activities;
+package com.generatedcode.[namespace/].activities;
 
 //[protected ('imports')]
 import android.content.Intent;
@@ -23,11 +23,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.[namespace/].R;
-import com.example.[namespace/].adapters.[aClass.name.toUpperFirst()/]Adapter;
-import com.example.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
-import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
-import com.example.[namespace/].helpers.SQLiteHelper;
+import com.generatedcode.[namespace/].R;
+import com.generatedcode.[namespace/].adapters.[aClass.name.toUpperFirst()/]Adapter;
+import com.generatedcode.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
+import com.generatedcode.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.generatedcode.[namespace/].helpers.SQLiteHelper;
 
 import java.util.ArrayList;
 import java.util.List;

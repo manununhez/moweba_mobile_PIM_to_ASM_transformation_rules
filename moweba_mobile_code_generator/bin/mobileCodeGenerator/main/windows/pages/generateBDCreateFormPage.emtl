@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateBDCreateFormPage" visibility="Public">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -162,7 +162,7 @@
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
+              <definition href="../../../../common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDCreateFormPage/%/%.1/%.24/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </argument>
@@ -230,7 +230,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" listbox page&#xA;&#x9;&#x9;&#x9;&#x9;}&#xA;                catch (Exception ex)&#xA;                {&#xA;                    await new MessageDialog((ex.Message + &quot; &quot; + ex.StackTrace), &quot;Unknown Error&quot;).ShowAsync();&#xA;                    Debug.WriteLine((ex.Message + &quot; &quot; + ex.StackTrace));&#xA;                }&#xA;            }&#xA;            else&#xA;            {&#xA;                var dialog = new MessageDialog(&quot;Please fill the fields&quot;);//Text should not be empty &#xA;                await dialog.ShowAsync();&#xA;            }&#xA;        }&#xA;    }&#xA;}&#xA;&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -411,7 +411,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="_Click&quot;/>&#xA;            &lt;/StackPanel>&#xA;        &lt;/Grid>                 &#xA;&lt;/ScrollViewer>&#xA;&lt;/Page>&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -559,7 +559,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -580,7 +580,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

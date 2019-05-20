@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateFilePages" visibility="Public">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -82,7 +82,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;            await FilesHelper.WriteTextFile(FILENAME, content);&#xA;        }&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;/*&#xA;&#x9;&#x9;* Reading data from file&#xA;&#x9;&#x9;*/&#xA;        private async void btnReadFile_Click(object sender, RoutedEventArgs e)&#xA;        {&#xA;            ResultTbx.Text = await FilesHelper.ReadTextFile(FILENAME);&#xA;        }&#xA;    }&#xA;}&#xA;&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -230,7 +230,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;                &lt;Button x:Name=&quot;btnWriteToFile&quot; Content=&quot;Write to file&quot; HorizontalAlignment=&quot;Center&quot; Height=&quot;71&quot; Width=&quot;304&quot; Click=&quot;btnWriteFile_Click&quot;/>&#xA;                &lt;Button x:Name=&quot;btnReadFromFile&quot; Content=&quot;Read from file&quot; HorizontalAlignment=&quot;Center&quot; Height=&quot;71&quot; Width=&quot;304&quot; Click=&quot;btnReadFile_Click&quot;/>&#xA;            &lt;/StackPanel>&#xA;        &lt;/Grid>&#xA;    &lt;/ScrollViewer>&#xA;&lt;/Page>&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -378,7 +378,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">

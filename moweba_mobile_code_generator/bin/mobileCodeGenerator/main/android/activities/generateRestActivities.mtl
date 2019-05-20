@@ -7,9 +7,9 @@
 [template public generateRestActivities(aClass : Class, namespace : String)]
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/activities/', aClass, 'Activity','.java'), false)]
 
-package com.example.[namespace/].activities;
+package com.generatedcode.[namespace/].activities;
 
 //[protected ('imports')]
 import android.support.v7.app.AppCompatActivity;
@@ -22,9 +22,9 @@ import android.widget.Toast;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
-import com.example.[namespace/].R;
-import com.example.[namespace/].conn.ApiClient;
-import com.example.[namespace/].conn.ApiInterface;
+import com.generatedcode.[namespace/].R;
+import com.generatedcode.[namespace/].conn.ApiClient;
+import com.generatedcode.[namespace/].conn.ApiInterface;
 
 
 import java.util.List;

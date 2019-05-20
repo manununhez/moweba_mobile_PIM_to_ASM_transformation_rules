@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="moweba_mobile_code_generator">
-    <property name="ECLIPSE_HOME" value="../../../eclipse/modeling-neon/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../.."/>
+    <property name="ECLIPSE_HOME" value="C:/Users/manuelitox/eclipse/modeling-neon/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="C:/Users/manuelitox/workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="moweba_mobile_code_generator.libraryclasspath">

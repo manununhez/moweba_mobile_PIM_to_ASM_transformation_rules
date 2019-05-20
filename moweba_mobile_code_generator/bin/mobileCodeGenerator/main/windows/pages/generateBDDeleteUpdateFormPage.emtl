@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateBDDeleteUpdateFormPage" visibility="Public">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -184,7 +184,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDDeleteUpdateFormPage/%/%.1/%.24/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -346,7 +346,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = "/>
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
+              <definition href="../../../../common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDDeleteUpdateFormPage/%/%.1/%.40/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </argument>
@@ -434,7 +434,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="View));&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;catch (Exception ex)&#xA;            {&#xA;                await new MessageDialog((ex.Message + &quot; &quot; + ex.StackTrace), &quot;Unknown Error&quot;).ShowAsync();&#xA;                Debug.WriteLine((ex.Message + &quot; &quot; + ex.StackTrace));&#xA;            }&#xA;        }&#xA;    }&#xA;}&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -615,7 +615,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;71&quot; Width=&quot;304&quot; Click=&quot;btnUpdate_click&quot;/>&#xA;            &#xA;&#x9;&#x9;&#x9;&lt;/StackPanel>&#xA;        &lt;/Grid>                 &#xA;&lt;/ScrollViewer>&#xA;&lt;/Page>&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -763,7 +763,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -784,7 +784,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -802,7 +802,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

@@ -4,10 +4,10 @@
 [import common::utils_gen/]
 
 [template public generateRestInterface(aClass : Class, namespace : String)]
-[file ('android/app/src/main/java/com/example/'+namespace+'/conn/ApiInterface.java', false)]
+[file ('android/app/src/main/java/com/generatedcode/'+namespace+'/conn/ApiInterface.java', false)]
 [let webServiceOperations: OrderedSet(Operation) = aClass.ownedOperation->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='WebServiceOperation'))]	
 
-package com.example.[namespace/].conn;
+package com.generatedcode.[namespace/].conn;
 
 //[protected ('imports')]
 import java.util.List;

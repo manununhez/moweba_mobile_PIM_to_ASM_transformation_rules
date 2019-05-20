@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
-    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
+    <imports href="../../../../services/uml2services.emtl#/0"/>
+    <imports href="../../../../common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Comment">
       <body startPosition="104" endPosition="178" value=" Se importa el mtl de services para poder utilizar las funciones definidas"/>
     </ownedModuleElement>
@@ -100,7 +100,7 @@
                       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;public List&lt;"/>
                       <body xsi:type="mtl:QueryInvocation">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+                        <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
                         <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/beansGenWindows/%.1/%/%/%/%/%.1/%.13/p">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                         </argument>
@@ -163,7 +163,7 @@
                         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;public "/>
                         <body xsi:type="mtl:QueryInvocation">
                           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                          <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+                          <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
                           <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/beansGenWindows/%.1/%/%/%/%/%.1/%.13/p">
                             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                           </argument>
@@ -224,7 +224,7 @@
                       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="List&lt;"/>
                       <body xsi:type="mtl:QueryInvocation">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+                        <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
                         <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/beansGenWindows/%.1/%/%/%/%/%.1/%.19/p">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                         </argument>
@@ -285,7 +285,7 @@
                       <else>
                         <body xsi:type="mtl:QueryInvocation">
                           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                          <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+                          <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
                           <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/beansGenWindows/%.1/%/%/%/%/%.1/%.19/p">
                             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                           </argument>
@@ -455,7 +455,7 @@
                   <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    }&#xA;}&#xA;&#xA;"/>
                   <fileUrl xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+                    <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
                     <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="windows/Model/">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     </argument>
@@ -490,7 +490,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/beansGenWindows/%.1/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -545,7 +545,7 @@
           </body>
           <ifExpr xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
+            <definition href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/beansGenWindows/%.1/aClass">
               <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
             </argument>
@@ -624,7 +624,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
+          <references href="../../../../services/uml2services.emtl#/0/hasStereotype"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -639,7 +639,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
+          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -660,7 +660,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -678,7 +678,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+          <references href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

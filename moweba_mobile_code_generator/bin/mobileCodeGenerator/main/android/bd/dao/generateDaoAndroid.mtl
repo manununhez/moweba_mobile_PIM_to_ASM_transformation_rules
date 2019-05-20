@@ -8,18 +8,18 @@
 [template public generateDaoAndroid(aClass : Class, namespace : String)]
 [let persistentEntityProperties : Set(Property) = (aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))) ]			
 
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/bd/dao/', aClass, 'DAO','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/bd/dao/', aClass, 'DAO','.java'), false)]
 
-package com.example.[namespace/].bd.dao;//Start of user code imports
+package com.generatedcode.[namespace/].bd.dao;//Start of user code imports
 
 //[protected ('imports')]
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.[namespace/].bd.tables.[aClass.name.toUpperFirst()/]Table;
-import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
-import com.example.[namespace/].helpers.SQLiteHelper;
+import com.generatedcode.[namespace/].bd.tables.[aClass.name.toUpperFirst()/]Table;
+import com.generatedcode.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.generatedcode.[namespace/].helpers.SQLiteHelper;
 
 
 import java.math.BigDecimal;

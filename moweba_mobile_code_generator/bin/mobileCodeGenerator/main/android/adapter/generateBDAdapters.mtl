@@ -8,9 +8,9 @@
 [template public generateBDAdapters(aClass : Class, namespace : String)]
 [let persistentEntityProperties: Set(Property) = aClass.getAllAttributes()->select(getAppliedStereotypes()->exists(s: Stereotype |s.name='persistentEntityProperty'))]	
 
-[file (aClass.classFileName('android/app/src/main/java/com/example/'+namespace+'/adapters/', aClass, 'Adapter','.java'), false)]
+[file (aClass.classFileName('android/app/src/main/java/com/generatedcode/'+namespace+'/adapters/', aClass, 'Adapter','.java'), false)]
 
-package com.example.[namespace/].adapters;
+package com.generatedcode.[namespace/].adapters;
 
 //[protected ('imports')]
 import android.content.Context;
@@ -22,11 +22,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.[namespace/].R;
-import com.example.[namespace/].activities.[aClass.name.toUpperFirst()/]Activity;
-import com.example.[namespace/].activities.[aClass.name.toUpperFirst()/]FormActivity;
-import com.example.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
-import com.example.[namespace/].beans.[aClass.name.toUpperFirst()/];
+import com.generatedcode.[namespace/].R;
+import com.generatedcode.[namespace/].activities.[aClass.name.toUpperFirst()/]Activity;
+import com.generatedcode.[namespace/].activities.[aClass.name.toUpperFirst()/]FormActivity;
+import com.generatedcode.[namespace/].bd.dao.[aClass.name.toUpperFirst()/]DAO;
+import com.generatedcode.[namespace/].beans.[aClass.name.toUpperFirst()/];
 
 import java.util.List;
 //[/protected]

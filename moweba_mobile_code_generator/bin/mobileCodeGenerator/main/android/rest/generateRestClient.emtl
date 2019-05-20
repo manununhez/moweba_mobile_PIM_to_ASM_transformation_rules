@@ -10,7 +10,7 @@
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="mtl:LetBlock">
           <body xsi:type="mtl:LetBlock">
-            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.example."/>
+            <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.generatedcode."/>
             <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateRestClient/namespace">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </body>
@@ -68,7 +68,7 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/example/">
+            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/generatedcode/">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             </source>
             <argument xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateRestClient/namespace">
@@ -222,152 +222,152 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateRestClient">
       <details key="start" value="160"/>
-      <details key="end" value="1184"/>
+      <details key="end" value="1196"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateRestClient/%">
       <details key="start" value="233"/>
-      <details key="end" value="1172"/>
+      <details key="end" value="1184"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateRestClient/%/%">
-      <details key="start" value="323"/>
-      <details key="end" value="1164"/>
+      <details key="start" value="329"/>
+      <details key="end" value="1176"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateRestClient/%/%/%">
-      <details key="start" value="436"/>
-      <details key="end" value="1157"/>
+      <details key="start" value="442"/>
+      <details key="end" value="1169"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateRestClient/%/%/%/%">
-      <details key="start" value="545"/>
-      <details key="end" value="566"/>
+      <details key="start" value="551"/>
+      <details key="end" value="578"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateRestClient/%/%/%/namespace">
-      <details key="start" value="567"/>
-      <details key="end" value="576"/>
+      <details key="start" value="579"/>
+      <details key="end" value="588"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateRestClient/%/%/%/%.1">
-      <details key="start" value="578"/>
-      <details key="end" value="588"/>
+      <details key="start" value="590"/>
+      <details key="end" value="600"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateRestClient/%/%/%/%.2">
-      <details key="start" value="588"/>
-      <details key="end" value="707"/>
+      <details key="start" value="600"/>
+      <details key="end" value="719"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateRestClient/%/%/%/%.2/%">
-      <details key="start" value="611"/>
-      <details key="end" value="695"/>
+      <details key="start" value="623"/>
+      <details key="end" value="707"/>
       <details key="line" value="14"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateRestClient/%/%/%/%.2/%.1">
-      <details key="start" value="600"/>
-      <details key="end" value="609"/>
+      <details key="start" value="612"/>
+      <details key="end" value="621"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/generateRestClient/%/%/%/%.3">
-      <details key="start" value="707"/>
-      <details key="end" value="777"/>
+      <details key="start" value="719"/>
+      <details key="end" value="789"/>
       <details key="line" value="17"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/generateRestClient/%/%/%/protocol">
-      <details key="start" value="778"/>
-      <details key="end" value="786"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/generateRestClient/%/%/%/%.4">
-      <details key="start" value="788"/>
-      <details key="end" value="791"/>
-      <details key="line" value="19"/>
-    </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/generateRestClient/%/%/%/domain">
-      <details key="start" value="792"/>
+      <details key="start" value="790"/>
       <details key="end" value="798"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/generateRestClient/%/%/%/%.5">
+    <eAnnotations source="positions.12" references="/0/generateRestClient/%/%/%/%.4">
       <details key="start" value="800"/>
-      <details key="end" value="1151"/>
+      <details key="end" value="803"/>
+      <details key="line" value="19"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateRestClient/%/%/%/domain">
+      <details key="start" value="804"/>
+      <details key="end" value="810"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateRestClient/%/%/%/%.5">
+      <details key="start" value="812"/>
+      <details key="end" value="1163"/>
       <details key="line" value="19"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/generateRestClient/%/%/%/domain.1">
-      <details key="start" value="441"/>
-      <details key="end" value="543"/>
+      <details key="start" value="447"/>
+      <details key="end" value="549"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/generateRestClient/%/%/%/domain.1/%">
-      <details key="start" value="460"/>
-      <details key="end" value="544"/>
+      <details key="start" value="466"/>
+      <details key="end" value="550"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/generateRestClient/%/%/%/domain.1/%/aClass">
-      <details key="start" value="460"/>
-      <details key="end" value="466"/>
+      <details key="start" value="466"/>
+      <details key="end" value="472"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/generateRestClient/%/%/%/domain.1/%/%">
-      <details key="start" value="496"/>
-      <details key="end" value="533"/>
+      <details key="start" value="502"/>
+      <details key="end" value="539"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/generateRestClient/%/%/%/domain.1/%/%.1">
-      <details key="start" value="535"/>
-      <details key="end" value="543"/>
+      <details key="start" value="541"/>
+      <details key="end" value="549"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/generateRestClient/%/%/protocol">
-      <details key="start" value="328"/>
-      <details key="end" value="434"/>
+      <details key="start" value="334"/>
+      <details key="end" value="440"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/generateRestClient/%/%/protocol/%">
-      <details key="start" value="349"/>
-      <details key="end" value="435"/>
+      <details key="start" value="355"/>
+      <details key="end" value="441"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/generateRestClient/%/%/protocol/%/aClass">
-      <details key="start" value="349"/>
-      <details key="end" value="355"/>
+      <details key="start" value="355"/>
+      <details key="end" value="361"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/generateRestClient/%/%/protocol/%/%">
-      <details key="start" value="385"/>
-      <details key="end" value="422"/>
+      <details key="start" value="391"/>
+      <details key="end" value="428"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/generateRestClient/%/%/protocol/%/%.1">
-      <details key="start" value="424"/>
-      <details key="end" value="434"/>
+      <details key="start" value="430"/>
+      <details key="end" value="440"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/generateRestClient/%/%.1">
       <details key="start" value="240"/>
-      <details key="end" value="313"/>
+      <details key="end" value="319"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/generateRestClient/%/%.1/%">
       <details key="start" value="240"/>
-      <details key="end" value="290"/>
+      <details key="end" value="296"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/generateRestClient/%/%.1/%/%">
       <details key="start" value="240"/>
-      <details key="end" value="280"/>
+      <details key="end" value="286"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/generateRestClient/%/%.1/%/namespace">
-      <details key="start" value="281"/>
-      <details key="end" value="290"/>
+      <details key="start" value="287"/>
+      <details key="end" value="296"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/generateRestClient/%/%.1/%.1">
-      <details key="start" value="291"/>
-      <details key="end" value="313"/>
+      <details key="start" value="297"/>
+      <details key="end" value="319"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/generateRestClient/aClass">

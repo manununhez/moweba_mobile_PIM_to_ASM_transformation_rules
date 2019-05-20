@@ -13,7 +13,7 @@
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
         <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.example."/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;package com.generatedcode."/>
           <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createDatabaseAndroid/namespace">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
@@ -23,7 +23,7 @@
             <body xsi:type="mtl:ForBlock">
               <body xsi:type="mtl:IfBlock">
                 <body xsi:type="mtl:IfBlock">
-                  <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import com.example."/>
+                  <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="import com.generatedcode."/>
                   <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createDatabaseAndroid/namespace">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   </body>
@@ -194,7 +194,7 @@
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/example/">
+              <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="android/app/src/main/java/com/generatedcode/">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               </source>
               <argument xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/createDatabaseAndroid/namespace">
@@ -466,12 +466,12 @@
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/createDatabaseAndroid">
       <details key="start" value="249"/>
-      <details key="end" value="2401"/>
+      <details key="end" value="2419"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/createDatabaseAndroid/%">
       <details key="start" value="328"/>
-      <details key="end" value="2389"/>
+      <details key="end" value="2407"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/createDatabaseAndroid/%/%">
@@ -481,382 +481,382 @@
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/createDatabaseAndroid/%/%.1">
       <details key="start" value="396"/>
-      <details key="end" value="2382"/>
+      <details key="end" value="2400"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/createDatabaseAndroid/%/%.1/%">
-      <details key="start" value="492"/>
-      <details key="end" value="513"/>
+      <details key="start" value="498"/>
+      <details key="end" value="525"/>
       <details key="line" value="12"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/createDatabaseAndroid/%/%.1/namespace">
-      <details key="start" value="514"/>
-      <details key="end" value="523"/>
+      <details key="start" value="526"/>
+      <details key="end" value="535"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/createDatabaseAndroid/%/%.1/%.1">
-      <details key="start" value="525"/>
-      <details key="end" value="538"/>
+      <details key="start" value="537"/>
+      <details key="end" value="550"/>
       <details key="line" value="13"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/createDatabaseAndroid/%/%.1/%.2">
-      <details key="start" value="538"/>
-      <details key="end" value="1024"/>
+      <details key="start" value="550"/>
+      <details key="end" value="1042"/>
       <details key="line" value="15"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/createDatabaseAndroid/%/%.1/%.2/%">
-      <details key="start" value="561"/>
-      <details key="end" value="716"/>
+      <details key="start" value="573"/>
+      <details key="end" value="728"/>
       <details key="line" value="16"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1">
-      <details key="start" value="716"/>
-      <details key="end" value="1008"/>
+      <details key="start" value="728"/>
+      <details key="end" value="1026"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%">
-      <details key="start" value="754"/>
-      <details key="end" value="999"/>
+      <details key="start" value="766"/>
+      <details key="end" value="1017"/>
       <details key="line" value="22"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%">
-      <details key="start" value="804"/>
-      <details key="end" value="991"/>
+      <details key="start" value="816"/>
+      <details key="end" value="1009"/>
       <details key="line" value="23"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%">
-      <details key="start" value="921"/>
-      <details key="end" value="940"/>
+      <details key="start" value="933"/>
+      <details key="end" value="958"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/namespace">
-      <details key="start" value="941"/>
-      <details key="end" value="950"/>
+      <details key="start" value="959"/>
+      <details key="end" value="968"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.1">
-      <details key="start" value="952"/>
-      <details key="end" value="963"/>
+      <details key="start" value="970"/>
+      <details key="end" value="981"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.2">
-      <details key="start" value="964"/>
-      <details key="end" value="975"/>
+      <details key="start" value="982"/>
+      <details key="end" value="993"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.2/aClass">
-      <details key="start" value="964"/>
-      <details key="end" value="970"/>
+      <details key="start" value="982"/>
+      <details key="end" value="988"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.3">
-      <details key="start" value="977"/>
-      <details key="end" value="984"/>
+      <details key="start" value="995"/>
+      <details key="end" value="1002"/>
       <details key="line" value="24"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.4">
-      <details key="start" value="808"/>
-      <details key="end" value="919"/>
+      <details key="start" value="820"/>
+      <details key="end" value="931"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.4/%">
-      <details key="start" value="809"/>
-      <details key="end" value="905"/>
+      <details key="start" value="821"/>
+      <details key="end" value="917"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.4/%/aClass">
-      <details key="start" value="809"/>
-      <details key="end" value="815"/>
+      <details key="start" value="821"/>
+      <details key="end" value="827"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.4/%/%">
-      <details key="start" value="852"/>
-      <details key="end" value="886"/>
+      <details key="start" value="864"/>
+      <details key="end" value="898"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.4/%/%.1">
-      <details key="start" value="888"/>
-      <details key="end" value="904"/>
+      <details key="start" value="900"/>
+      <details key="end" value="916"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%/%.4/%.1">
-      <details key="start" value="908"/>
-      <details key="end" value="918"/>
+      <details key="start" value="920"/>
+      <details key="end" value="930"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%.1">
-      <details key="start" value="758"/>
-      <details key="end" value="800"/>
+      <details key="start" value="770"/>
+      <details key="end" value="812"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%.1/aClass">
-      <details key="start" value="759"/>
-      <details key="end" value="765"/>
+      <details key="start" value="771"/>
+      <details key="end" value="777"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/%/%.1/%">
-      <details key="start" value="780"/>
-      <details key="end" value="798"/>
+      <details key="start" value="792"/>
+      <details key="end" value="810"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/aClass">
-      <details key="start" value="722"/>
-      <details key="end" value="736"/>
+      <details key="start" value="734"/>
+      <details key="end" value="748"/>
       <details key="line" value="21"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/createDatabaseAndroid/%/%.1/%.2/%.1/aClasses">
-      <details key="start" value="739"/>
-      <details key="end" value="747"/>
+      <details key="start" value="751"/>
+      <details key="end" value="759"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/createDatabaseAndroid/%/%.1/%.2/%.2">
-      <details key="start" value="1009"/>
-      <details key="end" value="1012"/>
+      <details key="start" value="1027"/>
+      <details key="end" value="1030"/>
       <details key="line" value="28"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/createDatabaseAndroid/%/%.1/%.2/%.3">
-      <details key="start" value="550"/>
-      <details key="end" value="559"/>
+      <details key="start" value="562"/>
+      <details key="end" value="571"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/createDatabaseAndroid/%/%.1/%.3">
-      <details key="start" value="1024"/>
-      <details key="end" value="1176"/>
+      <details key="start" value="1042"/>
+      <details key="end" value="1194"/>
       <details key="line" value="30"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/createDatabaseAndroid/%/%.1/%.4">
-      <details key="start" value="1177"/>
-      <details key="end" value="1205"/>
+      <details key="start" value="1195"/>
+      <details key="end" value="1223"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/createDatabaseAndroid/%/%.1/%.4/%">
-      <details key="start" value="1177"/>
-      <details key="end" value="1190"/>
+      <details key="start" value="1195"/>
+      <details key="end" value="1208"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/createDatabaseAndroid/%/%.1/%.4/%/aPackage">
-      <details key="start" value="1177"/>
-      <details key="end" value="1185"/>
+      <details key="start" value="1195"/>
+      <details key="end" value="1203"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/createDatabaseAndroid/%/%.1/%.5">
-      <details key="start" value="1207"/>
-      <details key="end" value="1545"/>
+      <details key="start" value="1225"/>
+      <details key="end" value="1563"/>
       <details key="line" value="35"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/createDatabaseAndroid/%/%.1/%.6">
-      <details key="start" value="1547"/>
-      <details key="end" value="1826"/>
+      <details key="start" value="1565"/>
+      <details key="end" value="1844"/>
       <details key="line" value="45"/>
     </eAnnotations>
     <eAnnotations source="positions.38" references="/0/createDatabaseAndroid/%/%.1/%.6/%">
-      <details key="start" value="1585"/>
-      <details key="end" value="1815"/>
+      <details key="start" value="1603"/>
+      <details key="end" value="1833"/>
       <details key="line" value="46"/>
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%">
-      <details key="start" value="1635"/>
-      <details key="end" value="1807"/>
+      <details key="start" value="1653"/>
+      <details key="end" value="1825"/>
       <details key="line" value="47"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%">
-      <details key="start" value="1752"/>
-      <details key="end" value="1754"/>
+      <details key="start" value="1770"/>
+      <details key="end" value="1772"/>
       <details key="line" value="48"/>
     </eAnnotations>
     <eAnnotations source="positions.41" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.1">
-      <details key="start" value="1755"/>
-      <details key="end" value="1766"/>
+      <details key="start" value="1773"/>
+      <details key="end" value="1784"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.42" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.1/aClass">
-      <details key="start" value="1755"/>
-      <details key="end" value="1761"/>
+      <details key="start" value="1773"/>
+      <details key="end" value="1779"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.43" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.2">
-      <details key="start" value="1768"/>
-      <details key="end" value="1800"/>
+      <details key="start" value="1786"/>
+      <details key="end" value="1818"/>
       <details key="line" value="48"/>
     </eAnnotations>
     <eAnnotations source="positions.44" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.3">
-      <details key="start" value="1639"/>
-      <details key="end" value="1750"/>
+      <details key="start" value="1657"/>
+      <details key="end" value="1768"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.45" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.3/%">
-      <details key="start" value="1640"/>
-      <details key="end" value="1736"/>
+      <details key="start" value="1658"/>
+      <details key="end" value="1754"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.46" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.3/%/aClass">
-      <details key="start" value="1640"/>
-      <details key="end" value="1646"/>
+      <details key="start" value="1658"/>
+      <details key="end" value="1664"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.47" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.3/%/%">
-      <details key="start" value="1683"/>
-      <details key="end" value="1717"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.48" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.3/%/%.1">
-      <details key="start" value="1719"/>
+      <details key="start" value="1701"/>
       <details key="end" value="1735"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.3/%/%.1">
+      <details key="start" value="1737"/>
+      <details key="end" value="1753"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.49" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%/%.3/%.1">
-      <details key="start" value="1739"/>
-      <details key="end" value="1749"/>
+      <details key="start" value="1757"/>
+      <details key="end" value="1767"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%.1">
-      <details key="start" value="1589"/>
-      <details key="end" value="1631"/>
+      <details key="start" value="1607"/>
+      <details key="end" value="1649"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%.1/aClass">
-      <details key="start" value="1590"/>
-      <details key="end" value="1596"/>
+      <details key="start" value="1608"/>
+      <details key="end" value="1614"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/createDatabaseAndroid/%/%.1/%.6/%/%.1/%">
-      <details key="start" value="1611"/>
-      <details key="end" value="1629"/>
+      <details key="start" value="1629"/>
+      <details key="end" value="1647"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/createDatabaseAndroid/%/%.1/%.6/aClass">
-      <details key="start" value="1553"/>
-      <details key="end" value="1567"/>
+      <details key="start" value="1571"/>
+      <details key="end" value="1585"/>
       <details key="line" value="45"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/createDatabaseAndroid/%/%.1/%.6/aClasses">
-      <details key="start" value="1570"/>
-      <details key="end" value="1578"/>
+      <details key="start" value="1588"/>
+      <details key="end" value="1596"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/createDatabaseAndroid/%/%.1/%.7">
-      <details key="start" value="1827"/>
-      <details key="end" value="2058"/>
+      <details key="start" value="1845"/>
+      <details key="end" value="2076"/>
       <details key="line" value="52"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/createDatabaseAndroid/%/%.1/%.8">
-      <details key="start" value="2060"/>
-      <details key="end" value="2364"/>
+      <details key="start" value="2078"/>
+      <details key="end" value="2382"/>
       <details key="line" value="58"/>
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/createDatabaseAndroid/%/%.1/%.8/%">
-      <details key="start" value="2098"/>
-      <details key="end" value="2353"/>
+      <details key="start" value="2116"/>
+      <details key="end" value="2371"/>
       <details key="line" value="59"/>
     </eAnnotations>
     <eAnnotations source="positions.58" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%">
-      <details key="start" value="2148"/>
-      <details key="end" value="2345"/>
+      <details key="start" value="2166"/>
+      <details key="end" value="2363"/>
       <details key="line" value="60"/>
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%">
-      <details key="start" value="2265"/>
-      <details key="end" value="2267"/>
+      <details key="start" value="2283"/>
+      <details key="end" value="2285"/>
       <details key="line" value="61"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.1">
-      <details key="start" value="2268"/>
-      <details key="end" value="2279"/>
+      <details key="start" value="2286"/>
+      <details key="end" value="2297"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.1/aClass">
-      <details key="start" value="2268"/>
-      <details key="end" value="2274"/>
+      <details key="start" value="2286"/>
+      <details key="end" value="2292"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.2">
-      <details key="start" value="2281"/>
-      <details key="end" value="2338"/>
+      <details key="start" value="2299"/>
+      <details key="end" value="2356"/>
       <details key="line" value="61"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.3">
-      <details key="start" value="2152"/>
-      <details key="end" value="2263"/>
+      <details key="start" value="2170"/>
+      <details key="end" value="2281"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.64" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.3/%">
-      <details key="start" value="2153"/>
-      <details key="end" value="2249"/>
+      <details key="start" value="2171"/>
+      <details key="end" value="2267"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.65" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.3/%/aClass">
-      <details key="start" value="2153"/>
-      <details key="end" value="2159"/>
+      <details key="start" value="2171"/>
+      <details key="end" value="2177"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.66" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.3/%/%">
-      <details key="start" value="2196"/>
-      <details key="end" value="2230"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.67" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.3/%/%.1">
-      <details key="start" value="2232"/>
+      <details key="start" value="2214"/>
       <details key="end" value="2248"/>
       <details key="line" value="0"/>
     </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.3/%/%.1">
+      <details key="start" value="2250"/>
+      <details key="end" value="2266"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
     <eAnnotations source="positions.68" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%/%.3/%.1">
-      <details key="start" value="2252"/>
-      <details key="end" value="2262"/>
+      <details key="start" value="2270"/>
+      <details key="end" value="2280"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.69" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%.1">
-      <details key="start" value="2102"/>
-      <details key="end" value="2144"/>
+      <details key="start" value="2120"/>
+      <details key="end" value="2162"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.70" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%.1/aClass">
-      <details key="start" value="2103"/>
-      <details key="end" value="2109"/>
+      <details key="start" value="2121"/>
+      <details key="end" value="2127"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/createDatabaseAndroid/%/%.1/%.8/%/%.1/%">
-      <details key="start" value="2124"/>
-      <details key="end" value="2142"/>
+      <details key="start" value="2142"/>
+      <details key="end" value="2160"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.72" references="/0/createDatabaseAndroid/%/%.1/%.8/aClass">
-      <details key="start" value="2066"/>
-      <details key="end" value="2080"/>
+      <details key="start" value="2084"/>
+      <details key="end" value="2098"/>
       <details key="line" value="58"/>
     </eAnnotations>
     <eAnnotations source="positions.73" references="/0/createDatabaseAndroid/%/%.1/%.8/aClasses">
-      <details key="start" value="2083"/>
-      <details key="end" value="2091"/>
+      <details key="start" value="2101"/>
+      <details key="end" value="2109"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/createDatabaseAndroid/%/%.1/%.9">
-      <details key="start" value="2367"/>
-      <details key="end" value="2375"/>
+      <details key="start" value="2385"/>
+      <details key="end" value="2393"/>
       <details key="line" value="64"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/createDatabaseAndroid/%/%.1/%.10">
       <details key="start" value="403"/>
-      <details key="end" value="482"/>
+      <details key="end" value="488"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.76" references="/0/createDatabaseAndroid/%/%.1/%.10/%">
       <details key="start" value="403"/>
-      <details key="end" value="453"/>
+      <details key="end" value="459"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.77" references="/0/createDatabaseAndroid/%/%.1/%.10/%/%">
       <details key="start" value="403"/>
-      <details key="end" value="443"/>
+      <details key="end" value="449"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.78" references="/0/createDatabaseAndroid/%/%.1/%.10/%/namespace">
-      <details key="start" value="444"/>
-      <details key="end" value="453"/>
+      <details key="start" value="450"/>
+      <details key="end" value="459"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.79" references="/0/createDatabaseAndroid/%/%.1/%.10/%.1">
-      <details key="start" value="454"/>
-      <details key="end" value="482"/>
+      <details key="start" value="460"/>
+      <details key="end" value="488"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.80" references="/0/createDatabaseAndroid/%/aClasses">

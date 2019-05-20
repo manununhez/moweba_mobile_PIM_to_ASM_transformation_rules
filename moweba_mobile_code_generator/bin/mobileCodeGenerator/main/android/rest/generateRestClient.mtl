@@ -4,11 +4,11 @@
 [import common::utils_gen/]
 
 [template public generateRestClient(aClass : Class, namespace : String)]
-[file ('android/app/src/main/java/com/example/'+namespace+'/conn/ApiClient.java', false)]
+[file ('android/app/src/main/java/com/generatedcode/'+namespace+'/conn/ApiClient.java', false)]
 [let protocol : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebServiceInterface', 'protocol')]
 [let domain : OclAny = aClass.getValueOfStereotypeProperty('Mobile Profile::WebServiceInterface', 'domain')]
 
-package com.example.[namespace/].conn;
+package com.generatedcode.[namespace/].conn;
 
 //[protected ('imports')]
 import retrofit2.Retrofit;
