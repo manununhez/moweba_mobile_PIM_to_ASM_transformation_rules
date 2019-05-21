@@ -538,14 +538,18 @@
           <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateBDDeleteUpdateFormPageLayout/namespace">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&lt;ScrollViewer>&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;Persistence App&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;                &lt;TextBlock Text=&quot;Delete/Update&quot; Margin=&quot;0,-6.5,0,26.5&quot; Style=&quot;{ThemeResource HeaderTextBlockStyle}&quot; CharacterSpacing=&quot;{ThemeResource PivotHeaderItemCharacterSpacing}&quot;/>&#xA;            &lt;/StackPanel>&#xA;&#xA;            &lt;StackPanel Margin=&quot;20,129,19,0&quot; Grid.RowSpan=&quot;4&quot;>&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&lt;ScrollViewer>&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateBDDeleteUpdateFormPageLayout/namespace">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;                &lt;TextBlock Text=&quot;Delete/Update&quot; Margin=&quot;0,-6.5,0,26.5&quot; Style=&quot;{ThemeResource HeaderTextBlockStyle}&quot; CharacterSpacing=&quot;{ThemeResource PivotHeaderItemCharacterSpacing}&quot;/>&#xA;            &lt;/StackPanel>&#xA;&#xA;            &lt;StackPanel Margin=&quot;20,129,19,0&quot; Grid.RowSpan=&quot;4&quot;>&#xA;"/>
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="                &lt;TextBlock Text=&quot;"/>
             <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -556,7 +560,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1021,6 +1025,9 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -2031,12 +2038,12 @@
     </eAnnotations>
     <eAnnotations source="positions.191" references="/0/generateBDDeleteUpdateFormPageLayout">
       <details key="start" value="4655"/>
-      <details key="end" value="6605"/>
+      <details key="end" value="6602"/>
       <details key="line" value="126"/>
     </eAnnotations>
     <eAnnotations source="positions.192" references="/0/generateBDDeleteUpdateFormPageLayout/%">
       <details key="start" value="4746"/>
-      <details key="end" value="6593"/>
+      <details key="end" value="6590"/>
       <details key="line" value="127"/>
     </eAnnotations>
     <eAnnotations source="positions.193" references="/0/generateBDDeleteUpdateFormPageLayout/%/%">
@@ -2046,7 +2053,7 @@
     </eAnnotations>
     <eAnnotations source="positions.194" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1">
       <details key="start" value="4921"/>
-      <details key="end" value="6586"/>
+      <details key="end" value="6583"/>
       <details key="line" value="129"/>
     </eAnnotations>
     <eAnnotations source="positions.195" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%">
@@ -2091,280 +2098,290 @@
     </eAnnotations>
     <eAnnotations source="positions.203" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.4">
       <details key="start" value="5292"/>
-      <details key="end" value="5825"/>
+      <details key="end" value="5469"/>
       <details key="line" value="134"/>
     </eAnnotations>
-    <eAnnotations source="positions.204" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5">
-      <details key="start" value="5828"/>
-      <details key="end" value="6058"/>
+    <eAnnotations source="positions.204" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/namespace.2">
+      <details key="start" value="5470"/>
+      <details key="end" value="5479"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.205" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5">
+      <details key="start" value="5481"/>
+      <details key="end" value="5822"/>
+      <details key="line" value="139"/>
+    </eAnnotations>
+    <eAnnotations source="positions.206" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6">
+      <details key="start" value="5825"/>
+      <details key="end" value="6055"/>
       <details key="line" value="144"/>
     </eAnnotations>
-    <eAnnotations source="positions.205" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%">
-      <details key="start" value="5878"/>
-      <details key="end" value="5911"/>
+    <eAnnotations source="positions.207" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%">
+      <details key="start" value="5875"/>
+      <details key="end" value="5908"/>
       <details key="line" value="145"/>
     </eAnnotations>
-    <eAnnotations source="positions.206" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.1">
-      <details key="start" value="5912"/>
-      <details key="end" value="5933"/>
+    <eAnnotations source="positions.208" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.1">
+      <details key="start" value="5909"/>
+      <details key="end" value="5930"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.207" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.1/%">
-      <details key="start" value="5912"/>
-      <details key="end" value="5918"/>
+    <eAnnotations source="positions.209" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.1/%">
+      <details key="start" value="5909"/>
+      <details key="end" value="5915"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.208" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.1/%/p">
-      <details key="start" value="5912"/>
-      <details key="end" value="5913"/>
+    <eAnnotations source="positions.210" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.1/%/p">
+      <details key="start" value="5909"/>
+      <details key="end" value="5910"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.209" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.2">
-      <details key="start" value="5935"/>
-      <details key="end" value="5986"/>
+    <eAnnotations source="positions.211" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.2">
+      <details key="start" value="5932"/>
+      <details key="end" value="5983"/>
       <details key="line" value="145"/>
     </eAnnotations>
-    <eAnnotations source="positions.210" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.3">
-      <details key="start" value="5987"/>
-      <details key="end" value="6008"/>
+    <eAnnotations source="positions.212" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.3">
+      <details key="start" value="5984"/>
+      <details key="end" value="6005"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.211" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.3/%">
-      <details key="start" value="5987"/>
-      <details key="end" value="5993"/>
+    <eAnnotations source="positions.213" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.3/%">
+      <details key="start" value="5984"/>
+      <details key="end" value="5990"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.212" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.3/%/p">
-      <details key="start" value="5987"/>
-      <details key="end" value="5988"/>
+    <eAnnotations source="positions.214" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.3/%/p">
+      <details key="start" value="5984"/>
+      <details key="end" value="5985"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.213" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/%.4">
-      <details key="start" value="6010"/>
-      <details key="end" value="6049"/>
+    <eAnnotations source="positions.215" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/%.4">
+      <details key="start" value="6007"/>
+      <details key="end" value="6046"/>
       <details key="line" value="146"/>
     </eAnnotations>
-    <eAnnotations source="positions.214" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/p">
-      <details key="start" value="5834"/>
-      <details key="end" value="5846"/>
+    <eAnnotations source="positions.216" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/p">
+      <details key="start" value="5831"/>
+      <details key="end" value="5843"/>
       <details key="line" value="144"/>
     </eAnnotations>
-    <eAnnotations source="positions.215" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.5/persistentEntityProperties">
-      <details key="start" value="5849"/>
-      <details key="end" value="5875"/>
+    <eAnnotations source="positions.217" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6/persistentEntityProperties">
+      <details key="start" value="5846"/>
+      <details key="end" value="5872"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.216" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.6">
-      <details key="start" value="6059"/>
-      <details key="end" value="6088"/>
+    <eAnnotations source="positions.218" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.7">
+      <details key="start" value="6056"/>
+      <details key="end" value="6085"/>
       <details key="line" value="148"/>
     </eAnnotations>
-    <eAnnotations source="positions.217" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.7">
-      <details key="start" value="6089"/>
-      <details key="end" value="6115"/>
+    <eAnnotations source="positions.219" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.8">
+      <details key="start" value="6086"/>
+      <details key="end" value="6112"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.218" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.7/%">
-      <details key="start" value="6089"/>
-      <details key="end" value="6100"/>
+    <eAnnotations source="positions.220" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.8/%">
+      <details key="start" value="6086"/>
+      <details key="end" value="6097"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.219" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.7/%/aClass">
-      <details key="start" value="6089"/>
-      <details key="end" value="6095"/>
+    <eAnnotations source="positions.221" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.8/%/aClass">
+      <details key="start" value="6086"/>
+      <details key="end" value="6092"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.220" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.8">
-      <details key="start" value="6117"/>
-      <details key="end" value="6135"/>
+    <eAnnotations source="positions.222" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.9">
+      <details key="start" value="6114"/>
+      <details key="end" value="6132"/>
       <details key="line" value="148"/>
     </eAnnotations>
-    <eAnnotations source="positions.221" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.9">
-      <details key="start" value="6136"/>
-      <details key="end" value="6162"/>
+    <eAnnotations source="positions.223" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.10">
+      <details key="start" value="6133"/>
+      <details key="end" value="6159"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.222" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.9/%">
-      <details key="start" value="6136"/>
-      <details key="end" value="6147"/>
+    <eAnnotations source="positions.224" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.10/%">
+      <details key="start" value="6133"/>
+      <details key="end" value="6144"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.223" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.9/%/aClass">
-      <details key="start" value="6136"/>
-      <details key="end" value="6142"/>
+    <eAnnotations source="positions.225" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.10/%/aClass">
+      <details key="start" value="6133"/>
+      <details key="end" value="6139"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.224" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.10">
-      <details key="start" value="6164"/>
-      <details key="end" value="6311"/>
+    <eAnnotations source="positions.226" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.11">
+      <details key="start" value="6161"/>
+      <details key="end" value="6308"/>
       <details key="line" value="148"/>
     </eAnnotations>
-    <eAnnotations source="positions.225" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.11">
-      <details key="start" value="6312"/>
-      <details key="end" value="6338"/>
+    <eAnnotations source="positions.227" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.12">
+      <details key="start" value="6309"/>
+      <details key="end" value="6335"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.226" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.11/%">
-      <details key="start" value="6312"/>
-      <details key="end" value="6323"/>
+    <eAnnotations source="positions.228" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.12/%">
+      <details key="start" value="6309"/>
+      <details key="end" value="6320"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.227" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.11/%/aClass">
-      <details key="start" value="6312"/>
-      <details key="end" value="6318"/>
+    <eAnnotations source="positions.229" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.12/%/aClass">
+      <details key="start" value="6309"/>
+      <details key="end" value="6315"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.228" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.12">
-      <details key="start" value="6340"/>
-      <details key="end" value="6358"/>
+    <eAnnotations source="positions.230" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.13">
+      <details key="start" value="6337"/>
+      <details key="end" value="6355"/>
       <details key="line" value="149"/>
     </eAnnotations>
-    <eAnnotations source="positions.229" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.13">
-      <details key="start" value="6359"/>
-      <details key="end" value="6385"/>
+    <eAnnotations source="positions.231" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.14">
+      <details key="start" value="6356"/>
+      <details key="end" value="6382"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.230" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.13/%">
-      <details key="start" value="6359"/>
-      <details key="end" value="6370"/>
+    <eAnnotations source="positions.232" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.14/%">
+      <details key="start" value="6356"/>
+      <details key="end" value="6367"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.231" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.13/%/aClass">
-      <details key="start" value="6359"/>
-      <details key="end" value="6365"/>
+    <eAnnotations source="positions.233" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.14/%/aClass">
+      <details key="start" value="6356"/>
+      <details key="end" value="6362"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.232" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.14">
-      <details key="start" value="6387"/>
-      <details key="end" value="6579"/>
+    <eAnnotations source="positions.234" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15">
+      <details key="start" value="6384"/>
+      <details key="end" value="6576"/>
       <details key="line" value="149"/>
     </eAnnotations>
-    <eAnnotations source="positions.233" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15">
+    <eAnnotations source="positions.235" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16">
       <details key="start" value="4928"/>
       <details key="end" value="5033"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.234" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%">
+    <eAnnotations source="positions.236" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%">
       <details key="start" value="4949"/>
       <details key="end" value="4996"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.235" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%/%">
+    <eAnnotations source="positions.237" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%/%">
       <details key="start" value="4949"/>
       <details key="end" value="4992"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.236" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%">
+    <eAnnotations source="positions.238" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%">
       <details key="start" value="4949"/>
       <details key="end" value="4965"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.237" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%.1">
+    <eAnnotations source="positions.239" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%.1">
       <details key="start" value="4966"/>
       <details key="end" value="4992"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.238" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%.1/%">
+    <eAnnotations source="positions.240" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%.1/%">
       <details key="start" value="4966"/>
       <details key="end" value="4977"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.239" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%.1/%/aClass">
+    <eAnnotations source="positions.241" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%.1/%/aClass">
       <details key="start" value="4966"/>
       <details key="end" value="4972"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.240" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%/%.1">
+    <eAnnotations source="positions.242" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%/%.1">
       <details key="start" value="4993"/>
       <details key="end" value="4996"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.241" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/aClass">
+    <eAnnotations source="positions.243" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/aClass">
       <details key="start" value="4998"/>
       <details key="end" value="5004"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.242" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%.1">
+    <eAnnotations source="positions.244" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%.1">
       <details key="start" value="5006"/>
       <details key="end" value="5024"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.243" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.15/%.2">
+    <eAnnotations source="positions.245" references="/0/generateBDDeleteUpdateFormPageLayout/%/%.1/%.16/%.2">
       <details key="start" value="5025"/>
       <details key="end" value="5032"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.244" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties">
+    <eAnnotations source="positions.246" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties">
       <details key="start" value="4751"/>
       <details key="end" value="4914"/>
       <details key="line" value="127"/>
     </eAnnotations>
-    <eAnnotations source="positions.245" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select">
+    <eAnnotations source="positions.247" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select">
       <details key="start" value="4797"/>
       <details key="end" value="4915"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.246" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%">
+    <eAnnotations source="positions.248" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%">
       <details key="start" value="4798"/>
       <details key="end" value="4823"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.247" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%/aClass">
+    <eAnnotations source="positions.249" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%/aClass">
       <details key="start" value="4798"/>
       <details key="end" value="4804"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.248" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists">
+    <eAnnotations source="positions.250" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists">
       <details key="start" value="4832"/>
       <details key="end" value="4913"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.249" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%">
+    <eAnnotations source="positions.251" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%">
       <details key="start" value="4832"/>
       <details key="end" value="4855"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.250" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%/temp1">
+    <eAnnotations source="positions.252" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.251" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1">
+    <eAnnotations source="positions.253" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1">
       <details key="start" value="4879"/>
       <details key="end" value="4912"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.252" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%">
+    <eAnnotations source="positions.254" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%">
       <details key="start" value="4879"/>
       <details key="end" value="4885"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.253" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
+    <eAnnotations source="positions.255" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
       <details key="start" value="4879"/>
       <details key="end" value="4880"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.254" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
+    <eAnnotations source="positions.256" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
       <details key="start" value="4886"/>
       <details key="end" value="4912"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.255" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/s">
+    <eAnnotations source="positions.257" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/s">
       <details key="start" value="4864"/>
       <details key="end" value="4877"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.256" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/temp2">
+    <eAnnotations source="positions.258" references="/0/generateBDDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/temp2">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.257" references="/0/generateBDDeleteUpdateFormPageLayout/aClass">
+    <eAnnotations source="positions.259" references="/0/generateBDDeleteUpdateFormPageLayout/aClass">
       <details key="start" value="4709"/>
       <details key="end" value="4723"/>
       <details key="line" value="126"/>
     </eAnnotations>
-    <eAnnotations source="positions.258" references="/0/generateBDDeleteUpdateFormPageLayout/namespace">
+    <eAnnotations source="positions.260" references="/0/generateBDDeleteUpdateFormPageLayout/namespace">
       <details key="start" value="4725"/>
       <details key="end" value="4743"/>
       <details key="line" value="126"/>

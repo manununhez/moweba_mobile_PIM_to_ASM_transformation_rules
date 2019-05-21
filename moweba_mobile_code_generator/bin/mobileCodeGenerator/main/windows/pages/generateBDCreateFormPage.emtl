@@ -334,7 +334,11 @@
           <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateBDCreateFormPageLayout/namespace">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&lt;ScrollViewer>&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;Grid.RowDefinitions>&#xA;                &lt;RowDefinition Height=&quot;Auto&quot;/>&#xA;                &lt;RowDefinition Height=&quot;*&quot;/>&#xA;            &lt;/Grid.RowDefinitions>&#xA;&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;Persistence App&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;                &lt;TextBlock Text=&quot;Add "/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&lt;ScrollViewer>&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;Grid.RowDefinitions>&#xA;                &lt;RowDefinition Height=&quot;Auto&quot;/>&#xA;                &lt;RowDefinition Height=&quot;*&quot;/>&#xA;            &lt;/Grid.RowDefinitions>&#xA;&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateBDCreateFormPageLayout/namespace">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;                &lt;TextBlock Text=&quot;Add "/>
           <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -352,7 +356,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDCreateFormPageLayout/%/%.1/%.7/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDCreateFormPageLayout/%/%.1/%.8/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -363,7 +367,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDCreateFormPageLayout/%/%.1/%.7/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateBDCreateFormPageLayout/%/%.1/%.8/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -751,6 +755,9 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -1376,12 +1383,12 @@
     </eAnnotations>
     <eAnnotations source="positions.114" references="/0/generateBDCreateFormPageLayout">
       <details key="start" value="3442"/>
-      <details key="end" value="5331"/>
+      <details key="end" value="5328"/>
       <details key="line" value="100"/>
     </eAnnotations>
     <eAnnotations source="positions.115" references="/0/generateBDCreateFormPageLayout/%">
       <details key="start" value="3527"/>
-      <details key="end" value="5319"/>
+      <details key="end" value="5316"/>
       <details key="line" value="101"/>
     </eAnnotations>
     <eAnnotations source="positions.116" references="/0/generateBDCreateFormPageLayout/%/%">
@@ -1391,7 +1398,7 @@
     </eAnnotations>
     <eAnnotations source="positions.117" references="/0/generateBDCreateFormPageLayout/%/%.1">
       <details key="start" value="3702"/>
-      <details key="end" value="5312"/>
+      <details key="end" value="5309"/>
       <details key="line" value="103"/>
     </eAnnotations>
     <eAnnotations source="positions.118" references="/0/generateBDCreateFormPageLayout/%/%.1/%">
@@ -1436,280 +1443,290 @@
     </eAnnotations>
     <eAnnotations source="positions.126" references="/0/generateBDCreateFormPageLayout/%/%.1/%.4">
       <details key="start" value="4055"/>
-      <details key="end" value="4511"/>
+      <details key="end" value="4393"/>
       <details key="line" value="108"/>
     </eAnnotations>
-    <eAnnotations source="positions.127" references="/0/generateBDCreateFormPageLayout/%/%.1/%.5">
-      <details key="start" value="4512"/>
-      <details key="end" value="4538"/>
+    <eAnnotations source="positions.127" references="/0/generateBDCreateFormPageLayout/%/%.1/namespace.2">
+      <details key="start" value="4394"/>
+      <details key="end" value="4403"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.128" references="/0/generateBDCreateFormPageLayout/%/%.1/%.5/%">
-      <details key="start" value="4512"/>
-      <details key="end" value="4523"/>
+    <eAnnotations source="positions.128" references="/0/generateBDCreateFormPageLayout/%/%.1/%.5">
+      <details key="start" value="4405"/>
+      <details key="end" value="4508"/>
+      <details key="line" value="118"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateBDCreateFormPageLayout/%/%.1/%.6">
+      <details key="start" value="4509"/>
+      <details key="end" value="4535"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.129" references="/0/generateBDCreateFormPageLayout/%/%.1/%.5/%/aClass">
-      <details key="start" value="4512"/>
-      <details key="end" value="4518"/>
+    <eAnnotations source="positions.130" references="/0/generateBDCreateFormPageLayout/%/%.1/%.6/%">
+      <details key="start" value="4509"/>
+      <details key="end" value="4520"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.130" references="/0/generateBDCreateFormPageLayout/%/%.1/%.6">
-      <details key="start" value="4540"/>
-      <details key="end" value="4769"/>
+    <eAnnotations source="positions.131" references="/0/generateBDCreateFormPageLayout/%/%.1/%.6/%/aClass">
+      <details key="start" value="4509"/>
+      <details key="end" value="4515"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7">
+      <details key="start" value="4537"/>
+      <details key="end" value="4766"/>
       <details key="line" value="119"/>
     </eAnnotations>
-    <eAnnotations source="positions.131" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7">
-      <details key="start" value="4772"/>
-      <details key="end" value="5002"/>
+    <eAnnotations source="positions.133" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8">
+      <details key="start" value="4769"/>
+      <details key="end" value="4999"/>
       <details key="line" value="123"/>
     </eAnnotations>
-    <eAnnotations source="positions.132" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%">
-      <details key="start" value="4822"/>
-      <details key="end" value="4855"/>
+    <eAnnotations source="positions.134" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%">
+      <details key="start" value="4819"/>
+      <details key="end" value="4852"/>
       <details key="line" value="124"/>
     </eAnnotations>
-    <eAnnotations source="positions.133" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.1">
-      <details key="start" value="4856"/>
-      <details key="end" value="4877"/>
+    <eAnnotations source="positions.135" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.1">
+      <details key="start" value="4853"/>
+      <details key="end" value="4874"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.134" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.1/%">
-      <details key="start" value="4856"/>
-      <details key="end" value="4862"/>
+    <eAnnotations source="positions.136" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.1/%">
+      <details key="start" value="4853"/>
+      <details key="end" value="4859"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.135" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.1/%/p">
-      <details key="start" value="4856"/>
-      <details key="end" value="4857"/>
+    <eAnnotations source="positions.137" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.1/%/p">
+      <details key="start" value="4853"/>
+      <details key="end" value="4854"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.136" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.2">
-      <details key="start" value="4879"/>
-      <details key="end" value="4930"/>
+    <eAnnotations source="positions.138" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.2">
+      <details key="start" value="4876"/>
+      <details key="end" value="4927"/>
       <details key="line" value="124"/>
     </eAnnotations>
-    <eAnnotations source="positions.137" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.3">
-      <details key="start" value="4931"/>
-      <details key="end" value="4952"/>
+    <eAnnotations source="positions.139" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.3">
+      <details key="start" value="4928"/>
+      <details key="end" value="4949"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.138" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.3/%">
-      <details key="start" value="4931"/>
-      <details key="end" value="4937"/>
+    <eAnnotations source="positions.140" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.3/%">
+      <details key="start" value="4928"/>
+      <details key="end" value="4934"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.139" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.3/%/p">
-      <details key="start" value="4931"/>
-      <details key="end" value="4932"/>
+    <eAnnotations source="positions.141" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.3/%/p">
+      <details key="start" value="4928"/>
+      <details key="end" value="4929"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.140" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/%.4">
-      <details key="start" value="4954"/>
-      <details key="end" value="4993"/>
+    <eAnnotations source="positions.142" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/%.4">
+      <details key="start" value="4951"/>
+      <details key="end" value="4990"/>
       <details key="line" value="125"/>
     </eAnnotations>
-    <eAnnotations source="positions.141" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/p">
-      <details key="start" value="4778"/>
-      <details key="end" value="4790"/>
+    <eAnnotations source="positions.143" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/p">
+      <details key="start" value="4775"/>
+      <details key="end" value="4787"/>
       <details key="line" value="123"/>
     </eAnnotations>
-    <eAnnotations source="positions.142" references="/0/generateBDCreateFormPageLayout/%/%.1/%.7/persistentEntityProperties">
-      <details key="start" value="4793"/>
-      <details key="end" value="4819"/>
+    <eAnnotations source="positions.144" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8/persistentEntityProperties">
+      <details key="start" value="4790"/>
+      <details key="end" value="4816"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.143" references="/0/generateBDCreateFormPageLayout/%/%.1/%.8">
-      <details key="start" value="5003"/>
-      <details key="end" value="5041"/>
+    <eAnnotations source="positions.145" references="/0/generateBDCreateFormPageLayout/%/%.1/%.9">
+      <details key="start" value="5000"/>
+      <details key="end" value="5038"/>
       <details key="line" value="127"/>
     </eAnnotations>
-    <eAnnotations source="positions.144" references="/0/generateBDCreateFormPageLayout/%/%.1/%.9">
-      <details key="start" value="5042"/>
-      <details key="end" value="5068"/>
+    <eAnnotations source="positions.146" references="/0/generateBDCreateFormPageLayout/%/%.1/%.10">
+      <details key="start" value="5039"/>
+      <details key="end" value="5065"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.145" references="/0/generateBDCreateFormPageLayout/%/%.1/%.9/%">
-      <details key="start" value="5042"/>
-      <details key="end" value="5053"/>
+    <eAnnotations source="positions.147" references="/0/generateBDCreateFormPageLayout/%/%.1/%.10/%">
+      <details key="start" value="5039"/>
+      <details key="end" value="5050"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.146" references="/0/generateBDCreateFormPageLayout/%/%.1/%.9/%/aClass">
-      <details key="start" value="5042"/>
-      <details key="end" value="5048"/>
+    <eAnnotations source="positions.148" references="/0/generateBDCreateFormPageLayout/%/%.1/%.10/%/aClass">
+      <details key="start" value="5039"/>
+      <details key="end" value="5045"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.147" references="/0/generateBDCreateFormPageLayout/%/%.1/%.10">
-      <details key="start" value="5070"/>
-      <details key="end" value="5085"/>
+    <eAnnotations source="positions.149" references="/0/generateBDCreateFormPageLayout/%/%.1/%.11">
+      <details key="start" value="5067"/>
+      <details key="end" value="5082"/>
       <details key="line" value="127"/>
     </eAnnotations>
-    <eAnnotations source="positions.148" references="/0/generateBDCreateFormPageLayout/%/%.1/%.11">
-      <details key="start" value="5086"/>
-      <details key="end" value="5112"/>
+    <eAnnotations source="positions.150" references="/0/generateBDCreateFormPageLayout/%/%.1/%.12">
+      <details key="start" value="5083"/>
+      <details key="end" value="5109"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.149" references="/0/generateBDCreateFormPageLayout/%/%.1/%.11/%">
-      <details key="start" value="5086"/>
-      <details key="end" value="5097"/>
+    <eAnnotations source="positions.151" references="/0/generateBDCreateFormPageLayout/%/%.1/%.12/%">
+      <details key="start" value="5083"/>
+      <details key="end" value="5094"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.150" references="/0/generateBDCreateFormPageLayout/%/%.1/%.11/%/aClass">
-      <details key="start" value="5086"/>
-      <details key="end" value="5092"/>
+    <eAnnotations source="positions.152" references="/0/generateBDCreateFormPageLayout/%/%.1/%.12/%/aClass">
+      <details key="start" value="5083"/>
+      <details key="end" value="5089"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.151" references="/0/generateBDCreateFormPageLayout/%/%.1/%.12">
-      <details key="start" value="5114"/>
-      <details key="end" value="5183"/>
+    <eAnnotations source="positions.153" references="/0/generateBDCreateFormPageLayout/%/%.1/%.13">
+      <details key="start" value="5111"/>
+      <details key="end" value="5180"/>
       <details key="line" value="127"/>
     </eAnnotations>
-    <eAnnotations source="positions.152" references="/0/generateBDCreateFormPageLayout/%/%.1/%.13">
-      <details key="start" value="5184"/>
-      <details key="end" value="5210"/>
+    <eAnnotations source="positions.154" references="/0/generateBDCreateFormPageLayout/%/%.1/%.14">
+      <details key="start" value="5181"/>
+      <details key="end" value="5207"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.153" references="/0/generateBDCreateFormPageLayout/%/%.1/%.13/%">
-      <details key="start" value="5184"/>
-      <details key="end" value="5195"/>
+    <eAnnotations source="positions.155" references="/0/generateBDCreateFormPageLayout/%/%.1/%.14/%">
+      <details key="start" value="5181"/>
+      <details key="end" value="5192"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.154" references="/0/generateBDCreateFormPageLayout/%/%.1/%.13/%/aClass">
-      <details key="start" value="5184"/>
-      <details key="end" value="5190"/>
+    <eAnnotations source="positions.156" references="/0/generateBDCreateFormPageLayout/%/%.1/%.14/%/aClass">
+      <details key="start" value="5181"/>
+      <details key="end" value="5187"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.155" references="/0/generateBDCreateFormPageLayout/%/%.1/%.14">
-      <details key="start" value="5212"/>
-      <details key="end" value="5305"/>
+    <eAnnotations source="positions.157" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15">
+      <details key="start" value="5209"/>
+      <details key="end" value="5302"/>
       <details key="line" value="127"/>
     </eAnnotations>
-    <eAnnotations source="positions.156" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15">
+    <eAnnotations source="positions.158" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16">
       <details key="start" value="3709"/>
       <details key="end" value="3805"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.157" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%">
+    <eAnnotations source="positions.159" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%">
       <details key="start" value="3730"/>
       <details key="end" value="3777"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.158" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%/%">
+    <eAnnotations source="positions.160" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%/%">
       <details key="start" value="3730"/>
       <details key="end" value="3773"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.159" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%/%/%">
+    <eAnnotations source="positions.161" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%/%/%">
       <details key="start" value="3730"/>
       <details key="end" value="3746"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.160" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%/%/%.1">
+    <eAnnotations source="positions.162" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%/%/%.1">
       <details key="start" value="3747"/>
       <details key="end" value="3773"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.161" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%/%/%.1/%">
+    <eAnnotations source="positions.163" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%/%/%.1/%">
       <details key="start" value="3747"/>
       <details key="end" value="3758"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.162" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%/%/%.1/%/aClass">
+    <eAnnotations source="positions.164" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%/%/%.1/%/aClass">
       <details key="start" value="3747"/>
       <details key="end" value="3753"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.163" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%/%.1">
+    <eAnnotations source="positions.165" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%/%.1">
       <details key="start" value="3774"/>
       <details key="end" value="3777"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.164" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/aClass">
+    <eAnnotations source="positions.166" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/aClass">
       <details key="start" value="3779"/>
       <details key="end" value="3785"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.165" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%.1">
+    <eAnnotations source="positions.167" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%.1">
       <details key="start" value="3787"/>
       <details key="end" value="3796"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.166" references="/0/generateBDCreateFormPageLayout/%/%.1/%.15/%.2">
+    <eAnnotations source="positions.168" references="/0/generateBDCreateFormPageLayout/%/%.1/%.16/%.2">
       <details key="start" value="3797"/>
       <details key="end" value="3804"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.167" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties">
+    <eAnnotations source="positions.169" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties">
       <details key="start" value="3532"/>
       <details key="end" value="3695"/>
       <details key="line" value="101"/>
     </eAnnotations>
-    <eAnnotations source="positions.168" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select">
+    <eAnnotations source="positions.170" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select">
       <details key="start" value="3578"/>
       <details key="end" value="3696"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.169" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/%">
+    <eAnnotations source="positions.171" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/%">
       <details key="start" value="3579"/>
       <details key="end" value="3604"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.170" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/%/aClass">
+    <eAnnotations source="positions.172" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/%/aClass">
       <details key="start" value="3579"/>
       <details key="end" value="3585"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.171" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists">
+    <eAnnotations source="positions.173" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists">
       <details key="start" value="3613"/>
       <details key="end" value="3694"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.172" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%">
+    <eAnnotations source="positions.174" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%">
       <details key="start" value="3613"/>
       <details key="end" value="3636"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.173" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%/temp1">
+    <eAnnotations source="positions.175" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.174" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1">
+    <eAnnotations source="positions.176" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1">
       <details key="start" value="3660"/>
       <details key="end" value="3693"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.175" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%">
+    <eAnnotations source="positions.177" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%">
       <details key="start" value="3660"/>
       <details key="end" value="3666"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.176" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
+    <eAnnotations source="positions.178" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
       <details key="start" value="3660"/>
       <details key="end" value="3661"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.177" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
+    <eAnnotations source="positions.179" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
       <details key="start" value="3667"/>
       <details key="end" value="3693"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.178" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/s">
+    <eAnnotations source="positions.180" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/exists/s">
       <details key="start" value="3645"/>
       <details key="end" value="3658"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.179" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/temp2">
+    <eAnnotations source="positions.181" references="/0/generateBDCreateFormPageLayout/%/persistentEntityProperties/select/temp2">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.180" references="/0/generateBDCreateFormPageLayout/aClass">
+    <eAnnotations source="positions.182" references="/0/generateBDCreateFormPageLayout/aClass">
       <details key="start" value="3490"/>
       <details key="end" value="3504"/>
       <details key="line" value="100"/>
     </eAnnotations>
-    <eAnnotations source="positions.181" references="/0/generateBDCreateFormPageLayout/namespace">
+    <eAnnotations source="positions.183" references="/0/generateBDCreateFormPageLayout/namespace">
       <details key="start" value="3506"/>
       <details key="end" value="3524"/>
       <details key="line" value="100"/>

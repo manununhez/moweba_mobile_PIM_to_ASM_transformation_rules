@@ -312,7 +312,11 @@
           <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVPagesLayout/namespace">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;        &lt;Grid.RowDefinitions>&#xA;            &lt;RowDefinition Height=&quot;Auto&quot;/>&#xA;            &lt;RowDefinition Height=&quot;*&quot;/>&#xA;        &lt;/Grid.RowDefinitions>&#xA;&#xA;        &lt;!-- Title Panel -->&#xA;        &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;            &lt;TextBlock Text=&quot;Persistence App&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;            &lt;TextBlock Text=&quot;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;        &lt;Grid.RowDefinitions>&#xA;            &lt;RowDefinition Height=&quot;Auto&quot;/>&#xA;            &lt;RowDefinition Height=&quot;*&quot;/>&#xA;        &lt;/Grid.RowDefinitions>&#xA;&#xA;        &lt;!-- Title Panel -->&#xA;        &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;            &lt;TextBlock Text=&quot;"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVPagesLayout/namespace">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;            &lt;TextBlock Text=&quot;"/>
           <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toUpperFirst">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
             <source xsi:type="ocl.ecore:PropertyCallExp">
@@ -330,7 +334,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVPagesLayout/%/%.1/%.7/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVPagesLayout/%/%.1/%.8/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -341,7 +345,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVPagesLayout/%/%.1/%.7/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVPagesLayout/%/%.1/%.8/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -352,7 +356,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVPagesLayout/%/%.1/%.7/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVPagesLayout/%/%.1/%.8/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -662,6 +666,9 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -1236,12 +1243,12 @@
     </eAnnotations>
     <eAnnotations source="positions.105" references="/0/generateKVPagesLayout">
       <details key="start" value="3290"/>
-      <details key="end" value="6657"/>
+      <details key="end" value="6654"/>
       <details key="line" value="99"/>
     </eAnnotations>
     <eAnnotations source="positions.106" references="/0/generateKVPagesLayout/%">
       <details key="start" value="3366"/>
-      <details key="end" value="6645"/>
+      <details key="end" value="6642"/>
       <details key="line" value="100"/>
     </eAnnotations>
     <eAnnotations source="positions.107" references="/0/generateKVPagesLayout/%/%">
@@ -1251,7 +1258,7 @@
     </eAnnotations>
     <eAnnotations source="positions.108" references="/0/generateKVPagesLayout/%/%.1">
       <details key="start" value="3541"/>
-      <details key="end" value="6638"/>
+      <details key="end" value="6635"/>
       <details key="line" value="102"/>
     </eAnnotations>
     <eAnnotations source="positions.109" references="/0/generateKVPagesLayout/%/%.1/%">
@@ -1296,240 +1303,250 @@
     </eAnnotations>
     <eAnnotations source="positions.117" references="/0/generateKVPagesLayout/%/%.1/%.4">
       <details key="start" value="3888"/>
-      <details key="end" value="4294"/>
+      <details key="end" value="4184"/>
       <details key="line" value="107"/>
     </eAnnotations>
-    <eAnnotations source="positions.118" references="/0/generateKVPagesLayout/%/%.1/%.5">
-      <details key="start" value="4295"/>
-      <details key="end" value="4321"/>
+    <eAnnotations source="positions.118" references="/0/generateKVPagesLayout/%/%.1/namespace.2">
+      <details key="start" value="4185"/>
+      <details key="end" value="4194"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.119" references="/0/generateKVPagesLayout/%/%.1/%.5/%">
-      <details key="start" value="4295"/>
-      <details key="end" value="4306"/>
+    <eAnnotations source="positions.119" references="/0/generateKVPagesLayout/%/%.1/%.5">
+      <details key="start" value="4196"/>
+      <details key="end" value="4291"/>
+      <details key="line" value="117"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateKVPagesLayout/%/%.1/%.6">
+      <details key="start" value="4292"/>
+      <details key="end" value="4318"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.120" references="/0/generateKVPagesLayout/%/%.1/%.5/%/aClass">
-      <details key="start" value="4295"/>
-      <details key="end" value="4301"/>
+    <eAnnotations source="positions.121" references="/0/generateKVPagesLayout/%/%.1/%.6/%">
+      <details key="start" value="4292"/>
+      <details key="end" value="4303"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.121" references="/0/generateKVPagesLayout/%/%.1/%.6">
-      <details key="start" value="4323"/>
-      <details key="end" value="5510"/>
+    <eAnnotations source="positions.122" references="/0/generateKVPagesLayout/%/%.1/%.6/%/aClass">
+      <details key="start" value="4292"/>
+      <details key="end" value="4298"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateKVPagesLayout/%/%.1/%.7">
+      <details key="start" value="4320"/>
+      <details key="end" value="5507"/>
       <details key="line" value="118"/>
     </eAnnotations>
-    <eAnnotations source="positions.122" references="/0/generateKVPagesLayout/%/%.1/%.7">
-      <details key="start" value="5550"/>
-      <details key="end" value="6327"/>
+    <eAnnotations source="positions.124" references="/0/generateKVPagesLayout/%/%.1/%.8">
+      <details key="start" value="5547"/>
+      <details key="end" value="6324"/>
       <details key="line" value="133"/>
     </eAnnotations>
-    <eAnnotations source="positions.123" references="/0/generateKVPagesLayout/%/%.1/%.7/%">
-      <details key="start" value="5600"/>
-      <details key="end" value="6015"/>
+    <eAnnotations source="positions.125" references="/0/generateKVPagesLayout/%/%.1/%.8/%">
+      <details key="start" value="5597"/>
+      <details key="end" value="6012"/>
       <details key="line" value="134"/>
     </eAnnotations>
-    <eAnnotations source="positions.124" references="/0/generateKVPagesLayout/%/%.1/%.7/%.1">
-      <details key="start" value="6016"/>
-      <details key="end" value="6037"/>
+    <eAnnotations source="positions.126" references="/0/generateKVPagesLayout/%/%.1/%.8/%.1">
+      <details key="start" value="6013"/>
+      <details key="end" value="6034"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.125" references="/0/generateKVPagesLayout/%/%.1/%.7/%.1/%">
-      <details key="start" value="6016"/>
-      <details key="end" value="6022"/>
+    <eAnnotations source="positions.127" references="/0/generateKVPagesLayout/%/%.1/%.8/%.1/%">
+      <details key="start" value="6013"/>
+      <details key="end" value="6019"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.126" references="/0/generateKVPagesLayout/%/%.1/%.7/%.1/%/p">
-      <details key="start" value="6016"/>
-      <details key="end" value="6017"/>
+    <eAnnotations source="positions.128" references="/0/generateKVPagesLayout/%/%.1/%.8/%.1/%/p">
+      <details key="start" value="6013"/>
+      <details key="end" value="6014"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.127" references="/0/generateKVPagesLayout/%/%.1/%.7/%.2">
-      <details key="start" value="6039"/>
-      <details key="end" value="6137"/>
+    <eAnnotations source="positions.129" references="/0/generateKVPagesLayout/%/%.1/%.8/%.2">
+      <details key="start" value="6036"/>
+      <details key="end" value="6134"/>
       <details key="line" value="139"/>
     </eAnnotations>
-    <eAnnotations source="positions.128" references="/0/generateKVPagesLayout/%/%.1/%.7/%.3">
-      <details key="start" value="6138"/>
-      <details key="end" value="6159"/>
+    <eAnnotations source="positions.130" references="/0/generateKVPagesLayout/%/%.1/%.8/%.3">
+      <details key="start" value="6135"/>
+      <details key="end" value="6156"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.129" references="/0/generateKVPagesLayout/%/%.1/%.7/%.3/%">
-      <details key="start" value="6138"/>
-      <details key="end" value="6144"/>
+    <eAnnotations source="positions.131" references="/0/generateKVPagesLayout/%/%.1/%.8/%.3/%">
+      <details key="start" value="6135"/>
+      <details key="end" value="6141"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.130" references="/0/generateKVPagesLayout/%/%.1/%.7/%.3/%/p">
-      <details key="start" value="6138"/>
-      <details key="end" value="6139"/>
+    <eAnnotations source="positions.132" references="/0/generateKVPagesLayout/%/%.1/%.8/%.3/%/p">
+      <details key="start" value="6135"/>
+      <details key="end" value="6136"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.131" references="/0/generateKVPagesLayout/%/%.1/%.7/%.4">
-      <details key="start" value="6161"/>
-      <details key="end" value="6201"/>
+    <eAnnotations source="positions.133" references="/0/generateKVPagesLayout/%/%.1/%.8/%.4">
+      <details key="start" value="6158"/>
+      <details key="end" value="6198"/>
       <details key="line" value="140"/>
     </eAnnotations>
-    <eAnnotations source="positions.132" references="/0/generateKVPagesLayout/%/%.1/%.7/%.5">
-      <details key="start" value="6202"/>
-      <details key="end" value="6223"/>
+    <eAnnotations source="positions.134" references="/0/generateKVPagesLayout/%/%.1/%.8/%.5">
+      <details key="start" value="6199"/>
+      <details key="end" value="6220"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.133" references="/0/generateKVPagesLayout/%/%.1/%.7/%.5/%">
-      <details key="start" value="6202"/>
-      <details key="end" value="6208"/>
+    <eAnnotations source="positions.135" references="/0/generateKVPagesLayout/%/%.1/%.8/%.5/%">
+      <details key="start" value="6199"/>
+      <details key="end" value="6205"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.134" references="/0/generateKVPagesLayout/%/%.1/%.7/%.5/%/p">
-      <details key="start" value="6202"/>
-      <details key="end" value="6203"/>
+    <eAnnotations source="positions.136" references="/0/generateKVPagesLayout/%/%.1/%.8/%.5/%/p">
+      <details key="start" value="6199"/>
+      <details key="end" value="6200"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.135" references="/0/generateKVPagesLayout/%/%.1/%.7/%.6">
-      <details key="start" value="6225"/>
-      <details key="end" value="6311"/>
+    <eAnnotations source="positions.137" references="/0/generateKVPagesLayout/%/%.1/%.8/%.6">
+      <details key="start" value="6222"/>
+      <details key="end" value="6308"/>
       <details key="line" value="140"/>
     </eAnnotations>
-    <eAnnotations source="positions.136" references="/0/generateKVPagesLayout/%/%.1/%.7/p">
-      <details key="start" value="5556"/>
-      <details key="end" value="5568"/>
+    <eAnnotations source="positions.138" references="/0/generateKVPagesLayout/%/%.1/%.8/p">
+      <details key="start" value="5553"/>
+      <details key="end" value="5565"/>
       <details key="line" value="133"/>
     </eAnnotations>
-    <eAnnotations source="positions.137" references="/0/generateKVPagesLayout/%/%.1/%.7/persistentEntityProperties">
-      <details key="start" value="5571"/>
-      <details key="end" value="5597"/>
+    <eAnnotations source="positions.139" references="/0/generateKVPagesLayout/%/%.1/%.8/persistentEntityProperties">
+      <details key="start" value="5568"/>
+      <details key="end" value="5594"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.138" references="/0/generateKVPagesLayout/%/%.1/%.8">
-      <details key="start" value="6336"/>
-      <details key="end" value="6631"/>
+    <eAnnotations source="positions.140" references="/0/generateKVPagesLayout/%/%.1/%.9">
+      <details key="start" value="6333"/>
+      <details key="end" value="6628"/>
       <details key="line" value="142"/>
     </eAnnotations>
-    <eAnnotations source="positions.139" references="/0/generateKVPagesLayout/%/%.1/%.9">
+    <eAnnotations source="positions.141" references="/0/generateKVPagesLayout/%/%.1/%.10">
       <details key="start" value="3548"/>
       <details key="end" value="3641"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.140" references="/0/generateKVPagesLayout/%/%.1/%.9/%">
+    <eAnnotations source="positions.142" references="/0/generateKVPagesLayout/%/%.1/%.10/%">
       <details key="start" value="3569"/>
       <details key="end" value="3616"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.141" references="/0/generateKVPagesLayout/%/%.1/%.9/%/%">
+    <eAnnotations source="positions.143" references="/0/generateKVPagesLayout/%/%.1/%.10/%/%">
       <details key="start" value="3569"/>
       <details key="end" value="3612"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.142" references="/0/generateKVPagesLayout/%/%.1/%.9/%/%/%">
+    <eAnnotations source="positions.144" references="/0/generateKVPagesLayout/%/%.1/%.10/%/%/%">
       <details key="start" value="3569"/>
       <details key="end" value="3585"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.143" references="/0/generateKVPagesLayout/%/%.1/%.9/%/%/%.1">
+    <eAnnotations source="positions.145" references="/0/generateKVPagesLayout/%/%.1/%.10/%/%/%.1">
       <details key="start" value="3586"/>
       <details key="end" value="3612"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.144" references="/0/generateKVPagesLayout/%/%.1/%.9/%/%/%.1/%">
+    <eAnnotations source="positions.146" references="/0/generateKVPagesLayout/%/%.1/%.10/%/%/%.1/%">
       <details key="start" value="3586"/>
       <details key="end" value="3597"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.145" references="/0/generateKVPagesLayout/%/%.1/%.9/%/%/%.1/%/aClass">
+    <eAnnotations source="positions.147" references="/0/generateKVPagesLayout/%/%.1/%.10/%/%/%.1/%/aClass">
       <details key="start" value="3586"/>
       <details key="end" value="3592"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.146" references="/0/generateKVPagesLayout/%/%.1/%.9/%/%.1">
+    <eAnnotations source="positions.148" references="/0/generateKVPagesLayout/%/%.1/%.10/%/%.1">
       <details key="start" value="3613"/>
       <details key="end" value="3616"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.147" references="/0/generateKVPagesLayout/%/%.1/%.9/aClass">
+    <eAnnotations source="positions.149" references="/0/generateKVPagesLayout/%/%.1/%.10/aClass">
       <details key="start" value="3618"/>
       <details key="end" value="3624"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.148" references="/0/generateKVPagesLayout/%/%.1/%.9/%.1">
+    <eAnnotations source="positions.150" references="/0/generateKVPagesLayout/%/%.1/%.10/%.1">
       <details key="start" value="3626"/>
       <details key="end" value="3632"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.149" references="/0/generateKVPagesLayout/%/%.1/%.9/%.2">
+    <eAnnotations source="positions.151" references="/0/generateKVPagesLayout/%/%.1/%.10/%.2">
       <details key="start" value="3633"/>
       <details key="end" value="3640"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.150" references="/0/generateKVPagesLayout/%/persistentEntityProperties">
+    <eAnnotations source="positions.152" references="/0/generateKVPagesLayout/%/persistentEntityProperties">
       <details key="start" value="3371"/>
       <details key="end" value="3534"/>
       <details key="line" value="100"/>
     </eAnnotations>
-    <eAnnotations source="positions.151" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select">
+    <eAnnotations source="positions.153" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select">
       <details key="start" value="3417"/>
       <details key="end" value="3535"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.152" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/%">
+    <eAnnotations source="positions.154" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/%">
       <details key="start" value="3418"/>
       <details key="end" value="3443"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.153" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/%/aClass">
+    <eAnnotations source="positions.155" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/%/aClass">
       <details key="start" value="3418"/>
       <details key="end" value="3424"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.154" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists">
+    <eAnnotations source="positions.156" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists">
       <details key="start" value="3452"/>
       <details key="end" value="3533"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.155" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%">
+    <eAnnotations source="positions.157" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%">
       <details key="start" value="3452"/>
       <details key="end" value="3475"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.156" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%/temp1">
+    <eAnnotations source="positions.158" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.157" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1">
+    <eAnnotations source="positions.159" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1">
       <details key="start" value="3499"/>
       <details key="end" value="3532"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.158" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1/%">
+    <eAnnotations source="positions.160" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1/%">
       <details key="start" value="3499"/>
       <details key="end" value="3505"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.159" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
+    <eAnnotations source="positions.161" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
       <details key="start" value="3499"/>
       <details key="end" value="3500"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.160" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
+    <eAnnotations source="positions.162" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
       <details key="start" value="3506"/>
       <details key="end" value="3532"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.161" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/s">
+    <eAnnotations source="positions.163" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/exists/s">
       <details key="start" value="3484"/>
       <details key="end" value="3497"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.162" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/temp2">
+    <eAnnotations source="positions.164" references="/0/generateKVPagesLayout/%/persistentEntityProperties/select/temp2">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.163" references="/0/generateKVPagesLayout/aClass">
+    <eAnnotations source="positions.165" references="/0/generateKVPagesLayout/aClass">
       <details key="start" value="3329"/>
       <details key="end" value="3343"/>
       <details key="line" value="99"/>
     </eAnnotations>
-    <eAnnotations source="positions.164" references="/0/generateKVPagesLayout/namespace">
+    <eAnnotations source="positions.166" references="/0/generateKVPagesLayout/namespace">
       <details key="start" value="3345"/>
       <details key="end" value="3363"/>
       <details key="line" value="99"/>

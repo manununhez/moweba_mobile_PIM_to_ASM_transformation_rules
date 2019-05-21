@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../../../../services/uml2services.emtl#/0"/>
-    <imports href="../../../../common/utils_gen.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateKVDeleteUpdateFormPage" visibility="Public">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -147,7 +147,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVDeleteUpdateFormPage/%/%.1/%.18/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -242,7 +242,7 @@
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="../../../../common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVDeleteUpdateFormPage/%/%.1/%.26/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </argument>
@@ -333,7 +333,7 @@
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="../../../../common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVDeleteUpdateFormPage/%/%.1/%.38/p">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
               </argument>
@@ -401,7 +401,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="View));&#xA;&#x9;&#x9;&#x9;}&#xA;            catch (Exception ex)&#xA;            {&#xA;                await new MessageDialog((ex.Message + &quot; &quot; + ex.StackTrace), &quot;Unknown Error&quot;).ShowAsync();&#xA;                Debug.WriteLine((ex.Message + &quot; &quot; + ex.StackTrace));&#xA;            }&#xA;        }&#xA;&#xA;    }&#xA;}&#xA;&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
+            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -505,14 +505,18 @@
           <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVDeleteUpdateFormPageLayout/namespace">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&lt;ScrollViewer>&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;Persistence App&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;                &lt;TextBlock Text=&quot;Delete/Update&quot; Margin=&quot;0,-6.5,0,26.5&quot; Style=&quot;{ThemeResource HeaderTextBlockStyle}&quot; CharacterSpacing=&quot;{ThemeResource PivotHeaderItemCharacterSpacing}&quot;/>&#xA;            &lt;/StackPanel>&#xA;&#xA;            &lt;StackPanel Margin=&quot;20,129,19,0&quot; Grid.RowSpan=&quot;4&quot;>&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;&lt;ScrollViewer>&#xA;    &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateKVDeleteUpdateFormPageLayout/namespace">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;                &lt;TextBlock Text=&quot;Delete/Update&quot; Margin=&quot;0,-6.5,0,26.5&quot; Style=&quot;{ThemeResource HeaderTextBlockStyle}&quot; CharacterSpacing=&quot;{ThemeResource PivotHeaderItemCharacterSpacing}&quot;/>&#xA;            &lt;/StackPanel>&#xA;&#xA;            &lt;StackPanel Margin=&quot;20,129,19,0&quot; Grid.RowSpan=&quot;4&quot;>&#xA;"/>
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="                &lt;TextBlock Text=&quot;"/>
             <body xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/toLowerFirst">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -523,7 +527,7 @@
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:PropertyCallExp">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/p">
+                <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/p">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                 </source>
                 <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -582,7 +586,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; HorizontalAlignment=&quot;Center&quot; VerticalAlignment=&quot;Top&quot; Height=&quot;71&quot; Width=&quot;304&quot; Click=&quot;btnUpdate_click&quot;/>&#xA;            &lt;/StackPanel>&#xA;        &lt;/Grid>                 &#xA;&lt;/ScrollViewer>&#xA;&lt;/Page>&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
+            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -730,7 +734,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -751,7 +755,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getMatchedTypeForCSharp"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -769,7 +773,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getCSharpConstructorDescription"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -988,6 +992,9 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -1928,12 +1935,12 @@
     </eAnnotations>
     <eAnnotations source="positions.177" references="/0/generateKVDeleteUpdateFormPageLayout">
       <details key="start" value="4768"/>
-      <details key="end" value="6714"/>
+      <details key="end" value="6711"/>
       <details key="line" value="128"/>
     </eAnnotations>
     <eAnnotations source="positions.178" references="/0/generateKVDeleteUpdateFormPageLayout/%">
       <details key="start" value="4859"/>
-      <details key="end" value="6702"/>
+      <details key="end" value="6699"/>
       <details key="line" value="129"/>
     </eAnnotations>
     <eAnnotations source="positions.179" references="/0/generateKVDeleteUpdateFormPageLayout/%/%">
@@ -1943,7 +1950,7 @@
     </eAnnotations>
     <eAnnotations source="positions.180" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1">
       <details key="start" value="5034"/>
-      <details key="end" value="6695"/>
+      <details key="end" value="6692"/>
       <details key="line" value="131"/>
     </eAnnotations>
     <eAnnotations source="positions.181" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%">
@@ -1988,280 +1995,290 @@
     </eAnnotations>
     <eAnnotations source="positions.189" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.4">
       <details key="start" value="5405"/>
-      <details key="end" value="5938"/>
+      <details key="end" value="5582"/>
       <details key="line" value="136"/>
     </eAnnotations>
-    <eAnnotations source="positions.190" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5">
-      <details key="start" value="5941"/>
-      <details key="end" value="6171"/>
+    <eAnnotations source="positions.190" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/namespace.2">
+      <details key="start" value="5583"/>
+      <details key="end" value="5592"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.191" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5">
+      <details key="start" value="5594"/>
+      <details key="end" value="5935"/>
+      <details key="line" value="141"/>
+    </eAnnotations>
+    <eAnnotations source="positions.192" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6">
+      <details key="start" value="5938"/>
+      <details key="end" value="6168"/>
       <details key="line" value="146"/>
     </eAnnotations>
-    <eAnnotations source="positions.191" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%">
-      <details key="start" value="5991"/>
-      <details key="end" value="6024"/>
+    <eAnnotations source="positions.193" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%">
+      <details key="start" value="5988"/>
+      <details key="end" value="6021"/>
       <details key="line" value="147"/>
     </eAnnotations>
-    <eAnnotations source="positions.192" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.1">
-      <details key="start" value="6025"/>
-      <details key="end" value="6046"/>
+    <eAnnotations source="positions.194" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.1">
+      <details key="start" value="6022"/>
+      <details key="end" value="6043"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.193" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.1/%">
-      <details key="start" value="6025"/>
-      <details key="end" value="6031"/>
+    <eAnnotations source="positions.195" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.1/%">
+      <details key="start" value="6022"/>
+      <details key="end" value="6028"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.194" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.1/%/p">
-      <details key="start" value="6025"/>
-      <details key="end" value="6026"/>
+    <eAnnotations source="positions.196" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.1/%/p">
+      <details key="start" value="6022"/>
+      <details key="end" value="6023"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.195" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.2">
-      <details key="start" value="6048"/>
-      <details key="end" value="6099"/>
+    <eAnnotations source="positions.197" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.2">
+      <details key="start" value="6045"/>
+      <details key="end" value="6096"/>
       <details key="line" value="147"/>
     </eAnnotations>
-    <eAnnotations source="positions.196" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.3">
-      <details key="start" value="6100"/>
-      <details key="end" value="6121"/>
+    <eAnnotations source="positions.198" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.3">
+      <details key="start" value="6097"/>
+      <details key="end" value="6118"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.197" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.3/%">
-      <details key="start" value="6100"/>
-      <details key="end" value="6106"/>
+    <eAnnotations source="positions.199" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.3/%">
+      <details key="start" value="6097"/>
+      <details key="end" value="6103"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.198" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.3/%/p">
-      <details key="start" value="6100"/>
-      <details key="end" value="6101"/>
+    <eAnnotations source="positions.200" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.3/%/p">
+      <details key="start" value="6097"/>
+      <details key="end" value="6098"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.199" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/%.4">
-      <details key="start" value="6123"/>
-      <details key="end" value="6162"/>
+    <eAnnotations source="positions.201" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/%.4">
+      <details key="start" value="6120"/>
+      <details key="end" value="6159"/>
       <details key="line" value="148"/>
     </eAnnotations>
-    <eAnnotations source="positions.200" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/p">
-      <details key="start" value="5947"/>
-      <details key="end" value="5959"/>
+    <eAnnotations source="positions.202" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/p">
+      <details key="start" value="5944"/>
+      <details key="end" value="5956"/>
       <details key="line" value="146"/>
     </eAnnotations>
-    <eAnnotations source="positions.201" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.5/persistentEntityProperties">
-      <details key="start" value="5962"/>
-      <details key="end" value="5988"/>
+    <eAnnotations source="positions.203" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6/persistentEntityProperties">
+      <details key="start" value="5959"/>
+      <details key="end" value="5985"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.202" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.6">
-      <details key="start" value="6172"/>
-      <details key="end" value="6201"/>
+    <eAnnotations source="positions.204" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.7">
+      <details key="start" value="6169"/>
+      <details key="end" value="6198"/>
       <details key="line" value="150"/>
     </eAnnotations>
-    <eAnnotations source="positions.203" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.7">
-      <details key="start" value="6202"/>
-      <details key="end" value="6228"/>
+    <eAnnotations source="positions.205" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.8">
+      <details key="start" value="6199"/>
+      <details key="end" value="6225"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.204" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.7/%">
-      <details key="start" value="6202"/>
-      <details key="end" value="6213"/>
+    <eAnnotations source="positions.206" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.8/%">
+      <details key="start" value="6199"/>
+      <details key="end" value="6210"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.205" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.7/%/aClass">
-      <details key="start" value="6202"/>
-      <details key="end" value="6208"/>
+    <eAnnotations source="positions.207" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.8/%/aClass">
+      <details key="start" value="6199"/>
+      <details key="end" value="6205"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.206" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.8">
-      <details key="start" value="6230"/>
-      <details key="end" value="6248"/>
+    <eAnnotations source="positions.208" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.9">
+      <details key="start" value="6227"/>
+      <details key="end" value="6245"/>
       <details key="line" value="150"/>
     </eAnnotations>
-    <eAnnotations source="positions.207" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.9">
-      <details key="start" value="6249"/>
-      <details key="end" value="6275"/>
+    <eAnnotations source="positions.209" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.10">
+      <details key="start" value="6246"/>
+      <details key="end" value="6272"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.208" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.9/%">
-      <details key="start" value="6249"/>
-      <details key="end" value="6260"/>
+    <eAnnotations source="positions.210" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.10/%">
+      <details key="start" value="6246"/>
+      <details key="end" value="6257"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.209" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.9/%/aClass">
-      <details key="start" value="6249"/>
-      <details key="end" value="6255"/>
+    <eAnnotations source="positions.211" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.10/%/aClass">
+      <details key="start" value="6246"/>
+      <details key="end" value="6252"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.210" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.10">
-      <details key="start" value="6277"/>
-      <details key="end" value="6424"/>
+    <eAnnotations source="positions.212" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.11">
+      <details key="start" value="6274"/>
+      <details key="end" value="6421"/>
       <details key="line" value="150"/>
     </eAnnotations>
-    <eAnnotations source="positions.211" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.11">
-      <details key="start" value="6425"/>
-      <details key="end" value="6451"/>
+    <eAnnotations source="positions.213" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.12">
+      <details key="start" value="6422"/>
+      <details key="end" value="6448"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.212" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.11/%">
-      <details key="start" value="6425"/>
-      <details key="end" value="6436"/>
+    <eAnnotations source="positions.214" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.12/%">
+      <details key="start" value="6422"/>
+      <details key="end" value="6433"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.213" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.11/%/aClass">
-      <details key="start" value="6425"/>
-      <details key="end" value="6431"/>
+    <eAnnotations source="positions.215" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.12/%/aClass">
+      <details key="start" value="6422"/>
+      <details key="end" value="6428"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.214" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.12">
-      <details key="start" value="6453"/>
-      <details key="end" value="6471"/>
+    <eAnnotations source="positions.216" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.13">
+      <details key="start" value="6450"/>
+      <details key="end" value="6468"/>
       <details key="line" value="151"/>
     </eAnnotations>
-    <eAnnotations source="positions.215" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.13">
-      <details key="start" value="6472"/>
-      <details key="end" value="6498"/>
+    <eAnnotations source="positions.217" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.14">
+      <details key="start" value="6469"/>
+      <details key="end" value="6495"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.216" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.13/%">
-      <details key="start" value="6472"/>
-      <details key="end" value="6483"/>
+    <eAnnotations source="positions.218" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.14/%">
+      <details key="start" value="6469"/>
+      <details key="end" value="6480"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.217" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.13/%/aClass">
-      <details key="start" value="6472"/>
-      <details key="end" value="6478"/>
+    <eAnnotations source="positions.219" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.14/%/aClass">
+      <details key="start" value="6469"/>
+      <details key="end" value="6475"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.218" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.14">
-      <details key="start" value="6500"/>
-      <details key="end" value="6688"/>
+    <eAnnotations source="positions.220" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15">
+      <details key="start" value="6497"/>
+      <details key="end" value="6685"/>
       <details key="line" value="151"/>
     </eAnnotations>
-    <eAnnotations source="positions.219" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15">
+    <eAnnotations source="positions.221" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16">
       <details key="start" value="5041"/>
       <details key="end" value="5146"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.220" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%">
+    <eAnnotations source="positions.222" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%">
       <details key="start" value="5062"/>
       <details key="end" value="5109"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.221" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%/%">
+    <eAnnotations source="positions.223" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%/%">
       <details key="start" value="5062"/>
       <details key="end" value="5105"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.222" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%">
+    <eAnnotations source="positions.224" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%">
       <details key="start" value="5062"/>
       <details key="end" value="5078"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.223" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%.1">
+    <eAnnotations source="positions.225" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%.1">
       <details key="start" value="5079"/>
       <details key="end" value="5105"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.224" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%.1/%">
+    <eAnnotations source="positions.226" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%.1/%">
       <details key="start" value="5079"/>
       <details key="end" value="5090"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.225" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%/%/%.1/%/aClass">
+    <eAnnotations source="positions.227" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%/%/%.1/%/aClass">
       <details key="start" value="5079"/>
       <details key="end" value="5085"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.226" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%/%.1">
+    <eAnnotations source="positions.228" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%/%.1">
       <details key="start" value="5106"/>
       <details key="end" value="5109"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.227" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/aClass">
+    <eAnnotations source="positions.229" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/aClass">
       <details key="start" value="5111"/>
       <details key="end" value="5117"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.228" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%.1">
+    <eAnnotations source="positions.230" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%.1">
       <details key="start" value="5119"/>
       <details key="end" value="5137"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.229" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.15/%.2">
+    <eAnnotations source="positions.231" references="/0/generateKVDeleteUpdateFormPageLayout/%/%.1/%.16/%.2">
       <details key="start" value="5138"/>
       <details key="end" value="5145"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.230" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties">
+    <eAnnotations source="positions.232" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties">
       <details key="start" value="4864"/>
       <details key="end" value="5027"/>
       <details key="line" value="129"/>
     </eAnnotations>
-    <eAnnotations source="positions.231" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select">
+    <eAnnotations source="positions.233" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select">
       <details key="start" value="4910"/>
       <details key="end" value="5028"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.232" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%">
+    <eAnnotations source="positions.234" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%">
       <details key="start" value="4911"/>
       <details key="end" value="4936"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.233" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%/aClass">
+    <eAnnotations source="positions.235" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/%/aClass">
       <details key="start" value="4911"/>
       <details key="end" value="4917"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.234" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists">
+    <eAnnotations source="positions.236" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists">
       <details key="start" value="4945"/>
       <details key="end" value="5026"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.235" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%">
+    <eAnnotations source="positions.237" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%">
       <details key="start" value="4945"/>
       <details key="end" value="4968"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.236" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%/temp1">
+    <eAnnotations source="positions.238" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.237" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1">
+    <eAnnotations source="positions.239" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1">
       <details key="start" value="4992"/>
       <details key="end" value="5025"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.238" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%">
+    <eAnnotations source="positions.240" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%">
       <details key="start" value="4992"/>
       <details key="end" value="4998"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.239" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
+    <eAnnotations source="positions.241" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
       <details key="start" value="4992"/>
       <details key="end" value="4993"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.240" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
+    <eAnnotations source="positions.242" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
       <details key="start" value="4999"/>
       <details key="end" value="5025"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.241" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/s">
+    <eAnnotations source="positions.243" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/exists/s">
       <details key="start" value="4977"/>
       <details key="end" value="4990"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.242" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/temp2">
+    <eAnnotations source="positions.244" references="/0/generateKVDeleteUpdateFormPageLayout/%/persistentEntityProperties/select/temp2">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.243" references="/0/generateKVDeleteUpdateFormPageLayout/aClass">
+    <eAnnotations source="positions.245" references="/0/generateKVDeleteUpdateFormPageLayout/aClass">
       <details key="start" value="4822"/>
       <details key="end" value="4836"/>
       <details key="line" value="128"/>
     </eAnnotations>
-    <eAnnotations source="positions.244" references="/0/generateKVDeleteUpdateFormPageLayout/namespace">
+    <eAnnotations source="positions.246" references="/0/generateKVDeleteUpdateFormPageLayout/namespace">
       <details key="start" value="4838"/>
       <details key="end" value="4856"/>
       <details key="line" value="128"/>

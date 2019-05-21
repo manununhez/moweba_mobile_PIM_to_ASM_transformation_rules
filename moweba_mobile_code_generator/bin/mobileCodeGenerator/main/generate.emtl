@@ -4,44 +4,44 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="android/config/generateConfigFiles.emtl#/0"/>
-    <imports href="android/config/generateBuildGradle.emtl#/0"/>
-    <imports href="android/beans/beansGenAndroid.emtl#/0"/>
-    <imports href="android/rest/generateRestInterface.emtl#/0"/>
-    <imports href="android/rest/generateRestClient.emtl#/0"/>
-    <imports href="android/bd/createAndroidDatabase.emtl#/0"/>
-    <imports href="android/bd/tables/generateDbTables.emtl#/0"/>
-    <imports href="android/bd/dao/generateDaoAndroid.emtl#/0"/>
-    <imports href="android/files/createFileHelper.emtl#/0"/>
-    <imports href="android/keyvalue/createSharedHelper.emtl#/0"/>
-    <imports href="android/adapter/generateBDAdapters.emtl#/0"/>
-    <imports href="android/adapter/generateKVAdapters.emtl#/0"/>
-    <imports href="android/activities/generateMainActivity.emtl#/0"/>
-    <imports href="android/activities/generateBDActivities.emtl#/0"/>
-    <imports href="android/activities/generateFileActivities.emtl#/0"/>
-    <imports href="android/activities/generateKVActivities.emtl#/0"/>
-    <imports href="android/activities/generateRestActivities.emtl#/0"/>
-    <imports href="android/activities/generateBDFormActivities.emtl#/0"/>
-    <imports href="android/activities/generateKVFormActivities.emtl#/0"/>
-    <imports href="android/activities/generateSensorActivities.emtl#/0"/>
-    <imports href="windows/pages/generateMainPage.emtl#/0"/>
-    <imports href="windows/pages/generateBDPages.emtl#/0"/>
-    <imports href="windows/pages/generateBDCreateFormPage.emtl#/0"/>
-    <imports href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0"/>
-    <imports href="windows/pages/generateFilePages.emtl#/0"/>
-    <imports href="windows/pages/generateKVPages.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/config/generateConfigFiles.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/config/generateBuildGradle.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/beans/beansGenAndroid.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/rest/generateRestInterface.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/rest/generateRestClient.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/createAndroidDatabase.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/tables/generateDbTables.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/dao/generateDaoAndroid.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/files/createFileHelper.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/keyvalue/createSharedHelper.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateBDAdapters.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateKVAdapters.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateMainActivity.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDActivities.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateFileActivities.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVActivities.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateRestActivities.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDFormActivities.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVFormActivities.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateMainPage.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDPages.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDCreateFormPage.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateFilePages.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateKVPages.emtl#/0"/>
     <imports href="windows/pages/generateKVDeleteUpdateFormPage.emtl#/0"/>
     <imports href="windows/pages/generateRestPages.emtl#/0"/>
     <imports href="windows/pages/generateSensorsPages.emtl#/0"/>
     <imports href="windows/beans/beansGenWindows.emtl#/0"/>
     <imports href="windows/generateAppPage.emtl#/0"/>
-    <imports href="windows/bd/createWindowsDatabaseHelper.emtl#/0"/>
-    <imports href="windows/bd/dao/generateDaoWindows.emtl#/0"/>
-    <imports href="windows/files/createFileHelperWindows.emtl#/0"/>
-    <imports href="windows/keyvalue/createSharedHelperWindows.emtl#/0"/>
-    <imports href="windows/rest/generateRestWindowsInterface.emtl#/0"/>
-    <imports href="../../services/uml2services.emtl#/0"/>
-    <imports href="../../common/utils_gen.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/bd/createWindowsDatabaseHelper.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/bd/dao/generateDaoWindows.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/files/createFileHelperWindows.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/keyvalue/createSharedHelperWindows.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/rest/generateRestWindowsInterface.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
@@ -68,7 +68,7 @@
                 <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
                 <body xsi:type="mtl:TemplateInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="android/beans/beansGenAndroid.emtl#/0/beansGenAndroid"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/beans/beansGenAndroid.emtl#/0/beansGenAndroid"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/%/%.5/aPackage">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                   </argument>
@@ -132,7 +132,7 @@
                   <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
                   <ifExpr xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <definition href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/%/%.5/aPackage">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                     </argument>
@@ -187,7 +187,7 @@
                   <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
                   <ifExpr xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <definition href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/%/%.5/aPackage">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                     </argument>
@@ -242,7 +242,7 @@
                   <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
                   <ifExpr xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <definition href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/%/%.5/aPackage">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                     </argument>
@@ -259,7 +259,7 @@
                 </body>
                 <ifExpr xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <definition href="../../services/uml2services.emtl#/0/hasStereotype.1"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/%/%.5/aPackage">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                   </argument>
@@ -310,7 +310,7 @@
                     <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
                     <ifExpr xsi:type="mtl:QueryInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                      <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+                      <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.5/%/%/%.3/%/aClass">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                       </argument>
@@ -359,7 +359,7 @@
                     <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
                     <ifExpr xsi:type="mtl:QueryInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                      <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+                      <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateElement/%/%.5/%/%/%.3/%/aClass">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                       </argument>
@@ -375,7 +375,7 @@
                 </body>
                 <ifExpr xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                  <definition href="../../services/uml2services.emtl#/0/hasStereotype.1"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateElement/%/%.5/aPackage">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
                   </argument>
@@ -441,7 +441,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralAndroidClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -449,7 +449,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/activities/generateMainActivity.emtl#/0/generateMainActivityLayout"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateMainActivity.emtl#/0/generateMainActivityLayout"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralAndroidClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -457,7 +457,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralAndroidClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -465,7 +465,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/config/generateBuildGradle.emtl#/0/generateBuildGradle"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/config/generateBuildGradle.emtl#/0/generateBuildGradle"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralAndroidClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -489,7 +489,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralWindowsClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -497,7 +497,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="model" referredVariable="/0/generateGeneralWindowsClasses/model">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Model"/>
         </argument>
@@ -514,7 +514,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/bd/createAndroidDatabase.emtl#/0/createDatabaseAndroid"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/createAndroidDatabase.emtl#/0/createDatabaseAndroid"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateDBForAndroid/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -530,7 +530,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -541,7 +541,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateBDActivities.emtl#/0/generateaBDActivitiesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDActivities.emtl#/0/generateaBDActivitiesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -550,7 +550,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -561,7 +561,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivitiesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivitiesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -570,7 +570,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/adapter/generateBDAdapters.emtl#/0/generateBDAdapters"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateBDAdapters.emtl#/0/generateBDAdapters"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -581,7 +581,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/adapter/generateBDAdapters.emtl#/0/generateBDAdapterLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateBDAdapters.emtl#/0/generateBDAdapterLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -590,7 +590,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -602,7 +602,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/bd/dao/generateDaoAndroid.emtl#/0/generateDaoAndroid"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/dao/generateDaoAndroid.emtl#/0/generateDaoAndroid"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -615,7 +615,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -634,7 +634,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForAndroid/%/%.3/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -677,7 +677,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateDBForWindows/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -693,7 +693,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -704,7 +704,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -715,7 +715,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -726,7 +726,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -737,7 +737,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -748,7 +748,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -760,7 +760,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -773,7 +773,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -792,7 +792,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateDBForWindows/%/%.3/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -835,7 +835,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/files/createFileHelper.emtl#/0/createFileHelper"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/files/createFileHelper.emtl#/0/createFileHelper"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateFilesForAndroid/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -850,7 +850,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -861,7 +861,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateFileActivities.emtl#/0/generateFileActivitiesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateFileActivities.emtl#/0/generateFileActivitiesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -871,7 +871,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForAndroid/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -890,7 +890,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForAndroid/%/%.3/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -933,7 +933,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateFilesForWindows/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -948,7 +948,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -959,7 +959,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -972,7 +972,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForWindows/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -991,7 +991,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateFilesForWindows/%/%.3/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -1034,7 +1034,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateKVForAndroid/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -1049,7 +1049,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateKVActivities.emtl#/0/generateKVActivities"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVActivities.emtl#/0/generateKVActivities"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1060,7 +1060,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateKVActivities.emtl#/0/generateKVActivitiesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVActivities.emtl#/0/generateKVActivitiesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1068,7 +1068,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivities"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivities"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1079,7 +1079,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivitiesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivitiesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1087,7 +1087,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/adapter/generateKVAdapters.emtl#/0/generateKVAdapters"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateKVAdapters.emtl#/0/generateKVAdapters"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1098,7 +1098,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="android/adapter/generateKVAdapters.emtl#/0/generateKVAdapterLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateKVAdapters.emtl#/0/generateKVAdapterLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1108,7 +1108,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -1127,7 +1127,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForAndroid/%/%.3/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -1170,7 +1170,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aPackage" referredVariable="/0/generateKVForWindows/aPackage">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Package"/>
           </argument>
@@ -1182,7 +1182,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1193,7 +1193,7 @@
               <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;"/>
               <body xsi:type="mtl:TemplateInvocation">
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                <definition href="windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
+                <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
                 <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                   <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                 </argument>
@@ -1228,7 +1228,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                 <source xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
                   </argument>
@@ -1247,7 +1247,7 @@
             </body>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateKVForWindows/%/%.3/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -1290,7 +1290,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/rest/generateRestInterface.emtl#/0/generateRestInterface"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/rest/generateRestInterface.emtl#/0/generateRestInterface"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1302,7 +1302,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/rest/generateRestClient.emtl#/0/generateRestClient"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/rest/generateRestClient.emtl#/0/generateRestClient"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1313,7 +1313,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;&#xD;&#xA;&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/activities/generateRestActivities.emtl#/0/generateRestActivities"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateRestActivities.emtl#/0/generateRestActivities"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1324,7 +1324,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/activities/generateRestActivities.emtl#/0/generateRestActivitiesLayout"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateRestActivities.emtl#/0/generateRestActivitiesLayout"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1332,7 +1332,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <ifExpr xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-          <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1356,7 +1356,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1389,7 +1389,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <ifExpr xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-          <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateRestWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1412,7 +1412,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/activities/generateSensorActivities.emtl#/0/generateGPSClass"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateGPSClass"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1423,7 +1423,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/activities/generateSensorActivities.emtl#/0/generateAudioActivity"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateAudioActivity"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1434,7 +1434,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/activities/generateSensorActivities.emtl#/0/generateAudioActivityLayout"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateAudioActivityLayout"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1442,7 +1442,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/activities/generateSensorActivities.emtl#/0/generateCameraActivity"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateCameraActivity"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1453,7 +1453,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;"/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="android/activities/generateSensorActivities.emtl#/0/generateCameraActivityLayout"/>
+        <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateCameraActivityLayout"/>
         <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
         </argument>
@@ -1463,7 +1463,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/activities/generateSensorActivities.emtl#/0/generateSensorActivities"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateSensorActivities"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1474,7 +1474,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;&#x9;&#x9;"/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="android/activities/generateSensorActivities.emtl#/0/generateSensorActivitiesLayout"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateSensorActivitiesLayout"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1482,7 +1482,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <ifExpr xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-          <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsAndroid/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1573,7 +1573,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
         <ifExpr xsi:type="mtl:QueryInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-          <definition href="../../services/uml2services.emtl#/0/hasStereotype"/>
+          <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsWindows/aClass">
             <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
           </argument>
@@ -1793,7 +1793,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/config/generateConfigFiles.emtl#/0/generateConfigFiles"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -1805,7 +1805,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/config/generateBuildGradle.emtl#/0/generateBuildGradle"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/config/generateBuildGradle.emtl#/0/generateBuildGradle"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -1817,7 +1817,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/beans/beansGenAndroid.emtl#/0/beansGenAndroid"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/beans/beansGenAndroid.emtl#/0/beansGenAndroid"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -1832,7 +1832,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/rest/generateRestInterface.emtl#/0/generateRestInterface"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/rest/generateRestInterface.emtl#/0/generateRestInterface"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1847,7 +1847,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/rest/generateRestClient.emtl#/0/generateRestClient"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/rest/generateRestClient.emtl#/0/generateRestClient"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1862,7 +1862,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/bd/createAndroidDatabase.emtl#/0/createDatabaseAndroid"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/createAndroidDatabase.emtl#/0/createDatabaseAndroid"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -1877,7 +1877,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/tables/generateDbTables.emtl#/0/generateDbTables"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1892,7 +1892,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/bd/dao/generateDaoAndroid.emtl#/0/generateDaoAndroid"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/bd/dao/generateDaoAndroid.emtl#/0/generateDaoAndroid"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1907,7 +1907,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/files/createFileHelper.emtl#/0/createFileHelper"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/files/createFileHelper.emtl#/0/createFileHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -1922,7 +1922,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/keyvalue/createSharedHelper.emtl#/0/createSharedHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -1937,7 +1937,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/adapter/generateBDAdapters.emtl#/0/generateBDAdapters"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateBDAdapters.emtl#/0/generateBDAdapters"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1952,7 +1952,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/adapter/generateBDAdapters.emtl#/0/generateBDAdapterLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateBDAdapters.emtl#/0/generateBDAdapterLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1964,7 +1964,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/adapter/generateKVAdapters.emtl#/0/generateKVAdapters"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateKVAdapters.emtl#/0/generateKVAdapters"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1979,7 +1979,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/adapter/generateKVAdapters.emtl#/0/generateKVAdapterLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/adapter/generateKVAdapters.emtl#/0/generateKVAdapterLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -1991,7 +1991,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateMainActivity.emtl#/0/generateMainActivity"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -2003,7 +2003,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateMainActivity.emtl#/0/generateMainActivityLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateMainActivity.emtl#/0/generateMainActivityLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -2015,7 +2015,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDActivities.emtl#/0/generateBDActivities"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2030,7 +2030,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateBDActivities.emtl#/0/generateaBDActivitiesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDActivities.emtl#/0/generateaBDActivitiesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2042,7 +2042,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateFileActivities.emtl#/0/generateFileActivities"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2057,7 +2057,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateFileActivities.emtl#/0/generateFileActivitiesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateFileActivities.emtl#/0/generateFileActivitiesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2069,7 +2069,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateKVActivities.emtl#/0/generateKVActivities"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVActivities.emtl#/0/generateKVActivities"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2084,7 +2084,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateKVActivities.emtl#/0/generateKVActivitiesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVActivities.emtl#/0/generateKVActivitiesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2096,7 +2096,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateRestActivities.emtl#/0/generateRestActivities"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateRestActivities.emtl#/0/generateRestActivities"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2111,7 +2111,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateRestActivities.emtl#/0/generateRestActivitiesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateRestActivities.emtl#/0/generateRestActivitiesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2123,7 +2123,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivities"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2138,7 +2138,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivitiesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateBDFormActivities.emtl#/0/generateBDFormActivitiesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2150,7 +2150,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivities"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivities"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2165,7 +2165,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivitiesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateKVFormActivities.emtl#/0/generateKVFormActivitiesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2177,7 +2177,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateSensorActivities.emtl#/0/generateSensorActivities"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateSensorActivities"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2192,7 +2192,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateSensorActivities.emtl#/0/generateSensorActivitiesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateSensorActivitiesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2204,7 +2204,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateSensorActivities.emtl#/0/generateGPSClass"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateGPSClass"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2219,7 +2219,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateSensorActivities.emtl#/0/generateAudioActivity"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateAudioActivity"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2234,7 +2234,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateSensorActivities.emtl#/0/generateAudioActivityLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateAudioActivityLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2246,7 +2246,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateSensorActivities.emtl#/0/generateCameraActivity"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateCameraActivity"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2261,7 +2261,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="android/activities/generateSensorActivities.emtl#/0/generateCameraActivityLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/android/activities/generateSensorActivities.emtl#/0/generateCameraActivityLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2273,7 +2273,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateMainPage.emtl#/0/generateMainPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -2285,7 +2285,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateMainPage.emtl#/0/generateMainPageLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="model">
@@ -2297,7 +2297,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDPages.emtl#/0/generateBDPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2312,7 +2312,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDPages.emtl#/0/generateBDPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2327,7 +2327,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2342,7 +2342,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDCreateFormPage.emtl#/0/generateBDCreateFormPageLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2357,7 +2357,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPage"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2372,7 +2372,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateBDDeleteUpdateFormPage.emtl#/0/generateBDDeleteUpdateFormPageLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2387,7 +2387,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateFilePages.emtl#/0/generateFilePages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2402,7 +2402,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateFilePages.emtl#/0/generateFilePagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2417,7 +2417,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateKVPages.emtl#/0/generateKVPages"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2432,7 +2432,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/pages/generateKVPages.emtl#/0/generateKVPagesLayout"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2621,7 +2621,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/bd/createWindowsDatabaseHelper.emtl#/0/createWindowsDatabaseHelper"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2636,7 +2636,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/bd/dao/generateDaoWindows.emtl#/0/generateDaoWindows"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2651,7 +2651,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/files/createFileHelperWindows.emtl#/0/createFileHelperWindows"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2666,7 +2666,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/keyvalue/createSharedHelperWindows.emtl#/0/createSharedHelperWindows"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aPackage">
@@ -2678,7 +2678,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/mobileCodeGenerator/main/windows/rest/generateRestWindowsInterface.emtl#/0/generateRestWindowsInterface"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aClass">
@@ -2693,7 +2693,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../services/uml2services.emtl#/0/hasStereotype"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -2708,7 +2708,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../services/uml2services.emtl#/0/hasStereotype.1"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/hasStereotype.1"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -2723,7 +2723,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isPackageHasThisPropertyStereotype"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -2744,7 +2744,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">

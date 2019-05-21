@@ -4,8 +4,8 @@
     <input>
       <takesTypesFrom href="http://www.eclipse.org/uml2/5.0.0/UML#/"/>
     </input>
-    <imports href="../../../../services/uml2services.emtl#/0"/>
-    <imports href="../../../../common/utils_gen.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0"/>
+    <imports href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateSensorsPages" visibility="Public">
       <body xsi:type="mtl:LetBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
@@ -139,7 +139,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.6/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -271,7 +271,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.10/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -394,7 +394,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <initExpression xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -420,7 +420,7 @@
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                       <source xsi:type="mtl:QueryInvocation">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                        <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                         <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/select/p">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                         </argument>
@@ -440,7 +440,7 @@
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                       <source xsi:type="mtl:QueryInvocation">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                        <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                         <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/select/p">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                         </argument>
@@ -462,7 +462,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                     <source xsi:type="mtl:QueryInvocation">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                      <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                       <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.1/select/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </argument>
@@ -613,7 +613,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <initExpression xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.12/%.3/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -634,7 +634,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;            }&#xA;            else&#xA;            {&#xA;                MessageDialog ms = new MessageDialog(&quot;No accelerometer Found&quot;);&#xA;                ms.ShowAsync();&#xA;            }&#xA;"/>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../../../services/uml2services.emtl#/0/isClassHasSensors"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isClassHasSensors"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsPages/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -667,7 +667,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.1/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -708,7 +708,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.3/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -749,7 +749,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.5/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -790,7 +790,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                   <source xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                     <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.14/%.7/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
@@ -815,7 +815,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            });&#xA;        }&#xA;"/>
             <ifExpr xsi:type="mtl:QueryInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-              <definition href="../../../../services/uml2services.emtl#/0/isClassHasSensors"/>
+              <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isClassHasSensors"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="aClass" referredVariable="/0/generateSensorsPages/aClass">
                 <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
               </argument>
@@ -917,7 +917,7 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
                   <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPages/%/%.1/%.16/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
@@ -938,7 +938,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    }&#xA;}&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
+            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -1042,7 +1042,11 @@
           <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateSensorsPagesLayout/namespace">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
           </body>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;    &lt;ScrollViewer>&#xA;        &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;Persistence App&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;            &lt;/StackPanel>&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,40,0,0&quot;>&#xA;"/>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".Views&quot;>&#xA;    &lt;ScrollViewer>&#xA;        &lt;Grid x:Name=&quot;LayoutRoot&quot;>&#xA;            &lt;!-- Title Panel -->&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,0,0,0&quot;>&#xA;                &lt;TextBlock Text=&quot;"/>
+          <body xsi:type="ocl.ecore:VariableExp" name="namespace" referredVariable="/0/generateSensorsPagesLayout/namespace">
+            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          </body>
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&quot; Style=&quot;{ThemeResource TitleTextBlockStyle}&quot; Margin=&quot;0,12,0,0&quot;/>&#xA;            &lt;/StackPanel>&#xA;            &lt;StackPanel Grid.Row=&quot;0&quot; Margin=&quot;19,40,0,0&quot;>&#xA;"/>
           <body xsi:type="mtl:ForBlock">
             <body xsi:type="mtl:LetBlock">
               <body xsi:type="mtl:IfBlock">
@@ -1055,7 +1059,7 @@
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                       <source xsi:type="ocl.ecore:PropertyCallExp">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                        <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                        <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                           <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                         </source>
                         <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1067,8 +1071,8 @@
                   </source>
                   <argument xsi:type="mtl:QueryInvocation">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
-                    <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                    <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                    <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </argument>
                     <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::HardwareDeviceProperty">
@@ -1084,7 +1088,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                   <source xsi:type="ocl.ecore:PropertyCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                    <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                       <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                     </source>
                     <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1099,7 +1103,7 @@
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
                       <source xsi:type="ocl.ecore:OperationCallExp">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                        <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
+                        <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
                           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                         </source>
                         <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Accelerometer">
@@ -1109,7 +1113,7 @@
                       </source>
                       <argument xsi:type="ocl.ecore:OperationCallExp">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                        <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
+                        <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
                           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                         </source>
                         <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Ambient_Light">
@@ -1121,7 +1125,7 @@
                     </source>
                     <argument xsi:type="ocl.ecore:OperationCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
+                      <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
                         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                       </source>
                       <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Gyroscope">
@@ -1133,7 +1137,7 @@
                   </source>
                   <argument xsi:type="ocl.ecore:OperationCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
+                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     </source>
                     <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Compass">
@@ -1149,7 +1153,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:PropertyCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </source>
                       <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1160,7 +1164,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:PropertyCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </source>
                       <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1171,7 +1175,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:PropertyCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </source>
                       <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1180,7 +1184,7 @@
                   <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="GPSTbx&quot; Height=&quot;66&quot; Text=&quot;0&quot; Width=&quot;350&quot;/>&#xA;"/>
                   <ifExpr xsi:type="ocl.ecore:OperationCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
+                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     </source>
                     <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="GPS">
@@ -1195,7 +1199,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:PropertyCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </source>
                       <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1206,7 +1210,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:PropertyCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </source>
                       <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1215,7 +1219,7 @@
                   <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Camera_Click&quot; />&#xA;"/>
                   <ifExpr xsi:type="ocl.ecore:OperationCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
+                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     </source>
                     <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Camera">
@@ -1230,7 +1234,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:PropertyCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </source>
                       <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1241,7 +1245,7 @@
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     <source xsi:type="ocl.ecore:PropertyCallExp">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                      <source xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                         <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                       </source>
                       <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/uml2/5.0.0/UML#//NamedElement/name"/>
@@ -1250,7 +1254,7 @@
                   <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="AudioRecord_Click&quot; />&#xA;"/>
                   <ifExpr xsi:type="ocl.ecore:OperationCallExp">
                     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
+                    <source xsi:type="ocl.ecore:VariableExp" name="deviceType" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
                       <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                     </source>
                     <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Microphone">
@@ -1264,8 +1268,8 @@
                 <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 <initExpression xsi:type="mtl:QueryInvocation">
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-                  <definition href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
-                  <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
+                  <definition href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+                  <argument xsi:type="ocl.ecore:VariableExp" name="p" referredVariable="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
                     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Property"/>
                   </argument>
                   <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mobile Profile::HardwareDeviceProperty">
@@ -1285,7 +1289,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            &lt;/StackPanel>&#xA;        &lt;/Grid>&#xA;    &lt;/ScrollViewer>&#xA;&lt;/Page>&#xA;"/>
           <fileUrl xsi:type="mtl:QueryInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="../../../../services/uml2services.emtl#/0/classFileName"/>
+            <definition href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
             <argument xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
               <source xsi:type="ocl.ecore:OperationCallExp" referredOperation="/1/oclstdlib_String_Class/+">
@@ -1569,7 +1573,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../services/uml2services.emtl#/0/isClassHasSensors"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/isClassHasSensors"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
         <eParameters name="arg0">
@@ -1587,7 +1591,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../services/uml2services.emtl#/0/classFileName"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/services/uml2services.emtl#/0/classFileName"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="arg0">
@@ -1608,7 +1612,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="../../../../common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
+          <references href="platform:/resource/moweba_mobile_code_generator/bin/common/utils_gen.emtl#/0/getValueOfStereotypePropertyEnumLit"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="elem">
@@ -1986,6 +1990,9 @@
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/uml2/5.0.0/UML#//Class"/>
@@ -4054,12 +4061,12 @@
     </eAnnotations>
     <eAnnotations source="positions.381" references="/0/generateSensorsPagesLayout">
       <details key="start" value="11633"/>
-      <details key="end" value="13853"/>
+      <details key="end" value="13850"/>
       <details key="line" value="256"/>
     </eAnnotations>
     <eAnnotations source="positions.382" references="/0/generateSensorsPagesLayout/%">
       <details key="start" value="11714"/>
-      <details key="end" value="13841"/>
+      <details key="end" value="13838"/>
       <details key="line" value="257"/>
     </eAnnotations>
     <eAnnotations source="positions.383" references="/0/generateSensorsPagesLayout/%/%">
@@ -4069,7 +4076,7 @@
     </eAnnotations>
     <eAnnotations source="positions.384" references="/0/generateSensorsPagesLayout/%/%.1">
       <details key="start" value="11887"/>
-      <details key="end" value="13834"/>
+      <details key="end" value="13831"/>
       <details key="line" value="259"/>
     </eAnnotations>
     <eAnnotations source="positions.385" references="/0/generateSensorsPagesLayout/%/%.1/%">
@@ -4114,762 +4121,772 @@
     </eAnnotations>
     <eAnnotations source="positions.393" references="/0/generateSensorsPagesLayout/%/%.1/%.4">
       <details key="start" value="12234"/>
-      <details key="end" value="12583"/>
+      <details key="end" value="12419"/>
       <details key="line" value="264"/>
     </eAnnotations>
-    <eAnnotations source="positions.394" references="/0/generateSensorsPagesLayout/%/%.1/%.5">
-      <details key="start" value="12584"/>
-      <details key="end" value="13756"/>
+    <eAnnotations source="positions.394" references="/0/generateSensorsPagesLayout/%/%.1/namespace.2">
+      <details key="start" value="12420"/>
+      <details key="end" value="12429"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.395" references="/0/generateSensorsPagesLayout/%/%.1/%.5">
+      <details key="start" value="12431"/>
+      <details key="end" value="12580"/>
+      <details key="line" value="269"/>
+    </eAnnotations>
+    <eAnnotations source="positions.396" references="/0/generateSensorsPagesLayout/%/%.1/%.6">
+      <details key="start" value="12581"/>
+      <details key="end" value="13753"/>
       <details key="line" value="272"/>
     </eAnnotations>
-    <eAnnotations source="positions.395" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%">
-      <details key="start" value="12635"/>
-      <details key="end" value="13747"/>
+    <eAnnotations source="positions.397" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%">
+      <details key="start" value="12632"/>
+      <details key="end" value="13744"/>
       <details key="line" value="273"/>
     </eAnnotations>
-    <eAnnotations source="positions.396" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%">
-      <details key="start" value="12767"/>
-      <details key="end" value="13739"/>
+    <eAnnotations source="positions.398" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%">
+      <details key="start" value="12764"/>
+      <details key="end" value="13736"/>
       <details key="line" value="274"/>
     </eAnnotations>
-    <eAnnotations source="positions.397" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%">
-      <details key="start" value="12889"/>
-      <details key="end" value="12911"/>
+    <eAnnotations source="positions.399" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%">
+      <details key="start" value="12886"/>
+      <details key="end" value="12908"/>
       <details key="line" value="275"/>
     </eAnnotations>
-    <eAnnotations source="positions.398" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1">
-      <details key="start" value="12912"/>
-      <details key="end" value="13038"/>
+    <eAnnotations source="positions.400" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1">
+      <details key="start" value="12909"/>
+      <details key="end" value="13035"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.399" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%">
-      <details key="start" value="12912"/>
-      <details key="end" value="12936"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.400" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%/%">
-      <details key="start" value="12912"/>
+    <eAnnotations source="positions.401" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%">
+      <details key="start" value="12909"/>
       <details key="end" value="12933"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.401" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%/%/%">
-      <details key="start" value="12912"/>
-      <details key="end" value="12918"/>
+    <eAnnotations source="positions.402" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%/%">
+      <details key="start" value="12909"/>
+      <details key="end" value="12930"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.402" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%/%/%/p">
-      <details key="start" value="12912"/>
-      <details key="end" value="12913"/>
+    <eAnnotations source="positions.403" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%/%/%">
+      <details key="start" value="12909"/>
+      <details key="end" value="12915"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.403" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%/%.1">
+    <eAnnotations source="positions.404" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%/%/%/p">
+      <details key="start" value="12909"/>
+      <details key="end" value="12910"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.405" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%/%.1">
+      <details key="start" value="12931"/>
+      <details key="end" value="12933"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.406" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%.1">
       <details key="start" value="12934"/>
-      <details key="end" value="12936"/>
+      <details key="end" value="13035"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.404" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%.1">
-      <details key="start" value="12937"/>
-      <details key="end" value="13038"/>
+    <eAnnotations source="positions.407" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%.1/p">
+      <details key="start" value="12934"/>
+      <details key="end" value="12935"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.405" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%.1/p">
-      <details key="start" value="12937"/>
-      <details key="end" value="12938"/>
+    <eAnnotations source="positions.408" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%.1/%">
+      <details key="start" value="12972"/>
+      <details key="end" value="13012"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.406" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%.1/%">
-      <details key="start" value="12975"/>
-      <details key="end" value="13015"/>
+    <eAnnotations source="positions.409" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.1/%.1/%.1">
+      <details key="start" value="13014"/>
+      <details key="end" value="13034"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.407" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.1/%.1/%.1">
-      <details key="start" value="13017"/>
-      <details key="end" value="13037"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.408" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.2">
-      <details key="start" value="13040"/>
-      <details key="end" value="13094"/>
+    <eAnnotations source="positions.410" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.2">
+      <details key="start" value="13037"/>
+      <details key="end" value="13091"/>
       <details key="line" value="275"/>
     </eAnnotations>
-    <eAnnotations source="positions.409" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.3">
-      <details key="start" value="13095"/>
-      <details key="end" value="13116"/>
+    <eAnnotations source="positions.411" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.3">
+      <details key="start" value="13092"/>
+      <details key="end" value="13113"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.410" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.3/%">
-      <details key="start" value="13095"/>
-      <details key="end" value="13101"/>
+    <eAnnotations source="positions.412" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.3/%">
+      <details key="start" value="13092"/>
+      <details key="end" value="13098"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.411" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.3/%/p">
-      <details key="start" value="13095"/>
-      <details key="end" value="13096"/>
+    <eAnnotations source="positions.413" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.3/%/p">
+      <details key="start" value="13092"/>
+      <details key="end" value="13093"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.412" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.4">
-      <details key="start" value="13118"/>
-      <details key="end" value="13158"/>
+    <eAnnotations source="positions.414" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.4">
+      <details key="start" value="13115"/>
+      <details key="end" value="13155"/>
       <details key="line" value="276"/>
     </eAnnotations>
-    <eAnnotations source="positions.413" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5">
-      <details key="start" value="12771"/>
-      <details key="end" value="12887"/>
+    <eAnnotations source="positions.415" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5">
+      <details key="start" value="12768"/>
+      <details key="end" value="12884"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.414" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%">
-      <details key="start" value="12772"/>
-      <details key="end" value="12860"/>
+    <eAnnotations source="positions.416" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%">
+      <details key="start" value="12769"/>
+      <details key="end" value="12857"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.415" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%">
-      <details key="start" value="12772"/>
-      <details key="end" value="12832"/>
+    <eAnnotations source="positions.417" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%">
+      <details key="start" value="12769"/>
+      <details key="end" value="12829"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.416" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%/%">
-      <details key="start" value="12772"/>
-      <details key="end" value="12800"/>
+    <eAnnotations source="positions.418" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%/%">
+      <details key="start" value="12769"/>
+      <details key="end" value="12797"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.417" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%/%/deviceType">
-      <details key="start" value="12772"/>
-      <details key="end" value="12782"/>
+    <eAnnotations source="positions.419" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%/%/deviceType">
+      <details key="start" value="12769"/>
+      <details key="end" value="12779"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.418" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%/%/%">
-      <details key="start" value="12785"/>
-      <details key="end" value="12800"/>
+    <eAnnotations source="positions.420" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%/%/%">
+      <details key="start" value="12782"/>
+      <details key="end" value="12797"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.419" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%/%.1">
-      <details key="start" value="12804"/>
-      <details key="end" value="12832"/>
+    <eAnnotations source="positions.421" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%/%.1">
+      <details key="start" value="12801"/>
+      <details key="end" value="12829"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.420" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%/%.1/deviceType">
-      <details key="start" value="12804"/>
-      <details key="end" value="12814"/>
+    <eAnnotations source="positions.422" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%/%.1/deviceType">
+      <details key="start" value="12801"/>
+      <details key="end" value="12811"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.421" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%/%.1/%">
-      <details key="start" value="12817"/>
-      <details key="end" value="12832"/>
+    <eAnnotations source="positions.423" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%/%.1/%">
+      <details key="start" value="12814"/>
+      <details key="end" value="12829"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.422" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%.1">
-      <details key="start" value="12836"/>
-      <details key="end" value="12860"/>
+    <eAnnotations source="positions.424" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%.1">
+      <details key="start" value="12833"/>
+      <details key="end" value="12857"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.423" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%.1/deviceType">
-      <details key="start" value="12836"/>
-      <details key="end" value="12846"/>
+    <eAnnotations source="positions.425" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%.1/deviceType">
+      <details key="start" value="12833"/>
+      <details key="end" value="12843"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.424" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%/%.1/%">
-      <details key="start" value="12849"/>
-      <details key="end" value="12860"/>
+    <eAnnotations source="positions.426" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%/%.1/%">
+      <details key="start" value="12846"/>
+      <details key="end" value="12857"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.425" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%.1">
-      <details key="start" value="12864"/>
-      <details key="end" value="12886"/>
+    <eAnnotations source="positions.427" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%.1">
+      <details key="start" value="12861"/>
+      <details key="end" value="12883"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.426" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%.1/deviceType">
-      <details key="start" value="12864"/>
-      <details key="end" value="12874"/>
+    <eAnnotations source="positions.428" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%.1/deviceType">
+      <details key="start" value="12861"/>
+      <details key="end" value="12871"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.427" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.5/%.1/%">
-      <details key="start" value="12877"/>
-      <details key="end" value="12886"/>
+    <eAnnotations source="positions.429" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.5/%.1/%">
+      <details key="start" value="12874"/>
+      <details key="end" value="12883"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.428" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6">
-      <details key="start" value="13160"/>
-      <details key="end" value="13411"/>
+    <eAnnotations source="positions.430" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6">
+      <details key="start" value="13157"/>
+      <details key="end" value="13408"/>
       <details key="line" value="277"/>
     </eAnnotations>
-    <eAnnotations source="positions.429" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%">
-      <details key="start" value="13190"/>
-      <details key="end" value="13216"/>
+    <eAnnotations source="positions.431" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%">
+      <details key="start" value="13187"/>
+      <details key="end" value="13213"/>
       <details key="line" value="278"/>
     </eAnnotations>
-    <eAnnotations source="positions.430" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.1">
-      <details key="start" value="13217"/>
-      <details key="end" value="13238"/>
+    <eAnnotations source="positions.432" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.1">
+      <details key="start" value="13214"/>
+      <details key="end" value="13235"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.431" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.1/%">
-      <details key="start" value="13217"/>
-      <details key="end" value="13223"/>
+    <eAnnotations source="positions.433" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.1/%">
+      <details key="start" value="13214"/>
+      <details key="end" value="13220"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.432" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.1/%/p">
-      <details key="start" value="13217"/>
-      <details key="end" value="13218"/>
+    <eAnnotations source="positions.434" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.1/%/p">
+      <details key="start" value="13214"/>
+      <details key="end" value="13215"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.433" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.2">
-      <details key="start" value="13240"/>
-      <details key="end" value="13269"/>
+    <eAnnotations source="positions.435" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.2">
+      <details key="start" value="13237"/>
+      <details key="end" value="13266"/>
       <details key="line" value="278"/>
     </eAnnotations>
-    <eAnnotations source="positions.434" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.3">
-      <details key="start" value="13270"/>
-      <details key="end" value="13291"/>
+    <eAnnotations source="positions.436" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.3">
+      <details key="start" value="13267"/>
+      <details key="end" value="13288"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.435" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.3/%">
-      <details key="start" value="13270"/>
-      <details key="end" value="13276"/>
+    <eAnnotations source="positions.437" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.3/%">
+      <details key="start" value="13267"/>
+      <details key="end" value="13273"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.436" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.3/%/p">
-      <details key="start" value="13270"/>
-      <details key="end" value="13271"/>
+    <eAnnotations source="positions.438" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.3/%/p">
+      <details key="start" value="13267"/>
+      <details key="end" value="13268"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.437" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.4">
-      <details key="start" value="13293"/>
-      <details key="end" value="13342"/>
+    <eAnnotations source="positions.439" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.4">
+      <details key="start" value="13290"/>
+      <details key="end" value="13339"/>
       <details key="line" value="278"/>
     </eAnnotations>
-    <eAnnotations source="positions.438" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.5">
-      <details key="start" value="13343"/>
-      <details key="end" value="13364"/>
+    <eAnnotations source="positions.440" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.5">
+      <details key="start" value="13340"/>
+      <details key="end" value="13361"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.439" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.5/%">
-      <details key="start" value="13343"/>
-      <details key="end" value="13349"/>
+    <eAnnotations source="positions.441" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.5/%">
+      <details key="start" value="13340"/>
+      <details key="end" value="13346"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.440" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.5/%/p">
-      <details key="start" value="13343"/>
-      <details key="end" value="13344"/>
+    <eAnnotations source="positions.442" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.5/%/p">
+      <details key="start" value="13340"/>
+      <details key="end" value="13341"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.441" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.6">
-      <details key="start" value="13366"/>
-      <details key="end" value="13409"/>
+    <eAnnotations source="positions.443" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.6">
+      <details key="start" value="13363"/>
+      <details key="end" value="13406"/>
       <details key="line" value="279"/>
     </eAnnotations>
-    <eAnnotations source="positions.442" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.7">
-      <details key="start" value="13168"/>
-      <details key="end" value="13188"/>
+    <eAnnotations source="positions.444" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.7">
+      <details key="start" value="13165"/>
+      <details key="end" value="13185"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.443" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.7/deviceType">
-      <details key="start" value="13169"/>
-      <details key="end" value="13179"/>
+    <eAnnotations source="positions.445" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.7/deviceType">
+      <details key="start" value="13166"/>
+      <details key="end" value="13176"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.444" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.6/%.7/%">
-      <details key="start" value="13182"/>
-      <details key="end" value="13187"/>
+    <eAnnotations source="positions.446" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.6/%.7/%">
+      <details key="start" value="13179"/>
+      <details key="end" value="13184"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.445" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7">
-      <details key="start" value="13411"/>
-      <details key="end" value="13569"/>
+    <eAnnotations source="positions.447" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7">
+      <details key="start" value="13408"/>
+      <details key="end" value="13566"/>
       <details key="line" value="280"/>
     </eAnnotations>
-    <eAnnotations source="positions.446" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%">
-      <details key="start" value="13444"/>
-      <details key="end" value="13467"/>
+    <eAnnotations source="positions.448" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%">
+      <details key="start" value="13441"/>
+      <details key="end" value="13464"/>
       <details key="line" value="281"/>
     </eAnnotations>
-    <eAnnotations source="positions.447" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.1">
-      <details key="start" value="13468"/>
-      <details key="end" value="13489"/>
+    <eAnnotations source="positions.449" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.1">
+      <details key="start" value="13465"/>
+      <details key="end" value="13486"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.448" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.1/%">
-      <details key="start" value="13468"/>
-      <details key="end" value="13474"/>
+    <eAnnotations source="positions.450" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.1/%">
+      <details key="start" value="13465"/>
+      <details key="end" value="13471"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.449" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.1/%/p">
-      <details key="start" value="13468"/>
-      <details key="end" value="13469"/>
+    <eAnnotations source="positions.451" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.1/%/p">
+      <details key="start" value="13465"/>
+      <details key="end" value="13466"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.450" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.2">
-      <details key="start" value="13491"/>
-      <details key="end" value="13526"/>
+    <eAnnotations source="positions.452" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.2">
+      <details key="start" value="13488"/>
+      <details key="end" value="13523"/>
       <details key="line" value="281"/>
     </eAnnotations>
-    <eAnnotations source="positions.451" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.3">
-      <details key="start" value="13527"/>
-      <details key="end" value="13548"/>
+    <eAnnotations source="positions.453" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.3">
+      <details key="start" value="13524"/>
+      <details key="end" value="13545"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.452" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.3/%">
-      <details key="start" value="13527"/>
-      <details key="end" value="13533"/>
+    <eAnnotations source="positions.454" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.3/%">
+      <details key="start" value="13524"/>
+      <details key="end" value="13530"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.453" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.3/%/p">
-      <details key="start" value="13527"/>
-      <details key="end" value="13528"/>
+    <eAnnotations source="positions.455" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.3/%/p">
+      <details key="start" value="13524"/>
+      <details key="end" value="13525"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.454" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.4">
-      <details key="start" value="13550"/>
-      <details key="end" value="13567"/>
+    <eAnnotations source="positions.456" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.4">
+      <details key="start" value="13547"/>
+      <details key="end" value="13564"/>
       <details key="line" value="281"/>
     </eAnnotations>
-    <eAnnotations source="positions.455" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.5">
-      <details key="start" value="13419"/>
-      <details key="end" value="13442"/>
+    <eAnnotations source="positions.457" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.5">
+      <details key="start" value="13416"/>
+      <details key="end" value="13439"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.456" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.5/deviceType">
-      <details key="start" value="13420"/>
-      <details key="end" value="13430"/>
+    <eAnnotations source="positions.458" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.5/deviceType">
+      <details key="start" value="13417"/>
+      <details key="end" value="13427"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.457" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.7/%.5/%">
-      <details key="start" value="13433"/>
-      <details key="end" value="13441"/>
+    <eAnnotations source="positions.459" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.7/%.5/%">
+      <details key="start" value="13430"/>
+      <details key="end" value="13438"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.458" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8">
-      <details key="start" value="13569"/>
-      <details key="end" value="13734"/>
+    <eAnnotations source="positions.460" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8">
+      <details key="start" value="13566"/>
+      <details key="end" value="13731"/>
       <details key="line" value="282"/>
     </eAnnotations>
-    <eAnnotations source="positions.459" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%">
-      <details key="start" value="13606"/>
-      <details key="end" value="13629"/>
+    <eAnnotations source="positions.461" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%">
+      <details key="start" value="13603"/>
+      <details key="end" value="13626"/>
       <details key="line" value="283"/>
     </eAnnotations>
-    <eAnnotations source="positions.460" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.1">
-      <details key="start" value="13630"/>
-      <details key="end" value="13651"/>
+    <eAnnotations source="positions.462" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.1">
+      <details key="start" value="13627"/>
+      <details key="end" value="13648"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.461" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.1/%">
-      <details key="start" value="13630"/>
-      <details key="end" value="13636"/>
+    <eAnnotations source="positions.463" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.1/%">
+      <details key="start" value="13627"/>
+      <details key="end" value="13633"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.462" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.1/%/p">
-      <details key="start" value="13630"/>
-      <details key="end" value="13631"/>
+    <eAnnotations source="positions.464" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.1/%/p">
+      <details key="start" value="13627"/>
+      <details key="end" value="13628"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.463" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.2">
-      <details key="start" value="13653"/>
-      <details key="end" value="13686"/>
+    <eAnnotations source="positions.465" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.2">
+      <details key="start" value="13650"/>
+      <details key="end" value="13683"/>
       <details key="line" value="283"/>
     </eAnnotations>
-    <eAnnotations source="positions.464" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.3">
-      <details key="start" value="13687"/>
-      <details key="end" value="13708"/>
+    <eAnnotations source="positions.466" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.3">
+      <details key="start" value="13684"/>
+      <details key="end" value="13705"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.465" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.3/%">
-      <details key="start" value="13687"/>
-      <details key="end" value="13693"/>
+    <eAnnotations source="positions.467" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.3/%">
+      <details key="start" value="13684"/>
+      <details key="end" value="13690"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.466" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.3/%/p">
-      <details key="start" value="13687"/>
-      <details key="end" value="13688"/>
+    <eAnnotations source="positions.468" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.3/%/p">
+      <details key="start" value="13684"/>
+      <details key="end" value="13685"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.467" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.4">
-      <details key="start" value="13710"/>
-      <details key="end" value="13732"/>
+    <eAnnotations source="positions.469" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.4">
+      <details key="start" value="13707"/>
+      <details key="end" value="13729"/>
       <details key="line" value="283"/>
     </eAnnotations>
-    <eAnnotations source="positions.468" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.5">
-      <details key="start" value="13577"/>
-      <details key="end" value="13604"/>
+    <eAnnotations source="positions.470" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.5">
+      <details key="start" value="13574"/>
+      <details key="end" value="13601"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.469" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.5/deviceType">
-      <details key="start" value="13578"/>
-      <details key="end" value="13588"/>
+    <eAnnotations source="positions.471" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.5/deviceType">
+      <details key="start" value="13575"/>
+      <details key="end" value="13585"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.470" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/%/%.8/%.5/%">
-      <details key="start" value="13591"/>
-      <details key="end" value="13603"/>
+    <eAnnotations source="positions.472" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/%/%.8/%.5/%">
+      <details key="start" value="13588"/>
+      <details key="end" value="13600"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.471" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType">
-      <details key="start" value="12640"/>
-      <details key="end" value="12763"/>
+    <eAnnotations source="positions.473" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType">
+      <details key="start" value="12637"/>
+      <details key="end" value="12760"/>
       <details key="line" value="273"/>
     </eAnnotations>
-    <eAnnotations source="positions.472" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType/%">
-      <details key="start" value="12663"/>
-      <details key="end" value="12764"/>
+    <eAnnotations source="positions.474" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType/%">
+      <details key="start" value="12660"/>
+      <details key="end" value="12761"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.473" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType/%/p">
-      <details key="start" value="12663"/>
-      <details key="end" value="12664"/>
+    <eAnnotations source="positions.475" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType/%/p">
+      <details key="start" value="12660"/>
+      <details key="end" value="12661"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.474" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType/%/%">
-      <details key="start" value="12701"/>
-      <details key="end" value="12741"/>
+    <eAnnotations source="positions.476" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType/%/%">
+      <details key="start" value="12698"/>
+      <details key="end" value="12738"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.475" references="/0/generateSensorsPagesLayout/%/%.1/%.5/%/deviceType/%/%.1">
-      <details key="start" value="12743"/>
-      <details key="end" value="12763"/>
+    <eAnnotations source="positions.477" references="/0/generateSensorsPagesLayout/%/%.1/%.6/%/deviceType/%/%.1">
+      <details key="start" value="12740"/>
+      <details key="end" value="12760"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.476" references="/0/generateSensorsPagesLayout/%/%.1/%.5/p">
-      <details key="start" value="12590"/>
-      <details key="end" value="12602"/>
+    <eAnnotations source="positions.478" references="/0/generateSensorsPagesLayout/%/%.1/%.6/p">
+      <details key="start" value="12587"/>
+      <details key="end" value="12599"/>
       <details key="line" value="272"/>
     </eAnnotations>
-    <eAnnotations source="positions.477" references="/0/generateSensorsPagesLayout/%/%.1/%.5/persistentEntityProperties">
-      <details key="start" value="12605"/>
-      <details key="end" value="12631"/>
+    <eAnnotations source="positions.479" references="/0/generateSensorsPagesLayout/%/%.1/%.6/persistentEntityProperties">
+      <details key="start" value="12602"/>
+      <details key="end" value="12628"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.478" references="/0/generateSensorsPagesLayout/%/%.1/%.6">
-      <details key="start" value="13757"/>
-      <details key="end" value="13827"/>
+    <eAnnotations source="positions.480" references="/0/generateSensorsPagesLayout/%/%.1/%.7">
+      <details key="start" value="13754"/>
+      <details key="end" value="13824"/>
       <details key="line" value="287"/>
     </eAnnotations>
-    <eAnnotations source="positions.479" references="/0/generateSensorsPagesLayout/%/%.1/%.7">
+    <eAnnotations source="positions.481" references="/0/generateSensorsPagesLayout/%/%.1/%.8">
       <details key="start" value="11894"/>
       <details key="end" value="11987"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.480" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%">
+    <eAnnotations source="positions.482" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%">
       <details key="start" value="11915"/>
       <details key="end" value="11962"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.481" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%/%">
+    <eAnnotations source="positions.483" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%/%">
       <details key="start" value="11915"/>
       <details key="end" value="11958"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.482" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%/%/%">
+    <eAnnotations source="positions.484" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%/%/%">
       <details key="start" value="11915"/>
       <details key="end" value="11931"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.483" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%/%/%.1">
+    <eAnnotations source="positions.485" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%/%/%.1">
       <details key="start" value="11932"/>
       <details key="end" value="11958"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.484" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%/%/%.1/%">
+    <eAnnotations source="positions.486" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%/%/%.1/%">
       <details key="start" value="11932"/>
       <details key="end" value="11943"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.485" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%/%/%.1/%/aClass">
+    <eAnnotations source="positions.487" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%/%/%.1/%/aClass">
       <details key="start" value="11932"/>
       <details key="end" value="11938"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.486" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%/%.1">
+    <eAnnotations source="positions.488" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%/%.1">
       <details key="start" value="11959"/>
       <details key="end" value="11962"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.487" references="/0/generateSensorsPagesLayout/%/%.1/%.7/aClass">
+    <eAnnotations source="positions.489" references="/0/generateSensorsPagesLayout/%/%.1/%.8/aClass">
       <details key="start" value="11964"/>
       <details key="end" value="11970"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.488" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%.1">
+    <eAnnotations source="positions.490" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%.1">
       <details key="start" value="11972"/>
       <details key="end" value="11978"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.489" references="/0/generateSensorsPagesLayout/%/%.1/%.7/%.2">
+    <eAnnotations source="positions.491" references="/0/generateSensorsPagesLayout/%/%.1/%.8/%.2">
       <details key="start" value="11979"/>
       <details key="end" value="11986"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.490" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties">
+    <eAnnotations source="positions.492" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties">
       <details key="start" value="11719"/>
       <details key="end" value="11880"/>
       <details key="line" value="257"/>
     </eAnnotations>
-    <eAnnotations source="positions.491" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select">
+    <eAnnotations source="positions.493" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select">
       <details key="start" value="11765"/>
       <details key="end" value="11881"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.492" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/%">
+    <eAnnotations source="positions.494" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/%">
       <details key="start" value="11766"/>
       <details key="end" value="11791"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.493" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/%/aClass">
+    <eAnnotations source="positions.495" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/%/aClass">
       <details key="start" value="11766"/>
       <details key="end" value="11772"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.494" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists">
+    <eAnnotations source="positions.496" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists">
       <details key="start" value="11800"/>
       <details key="end" value="11879"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.495" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%">
+    <eAnnotations source="positions.497" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%">
       <details key="start" value="11800"/>
       <details key="end" value="11823"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.496" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%/temp1">
+    <eAnnotations source="positions.498" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%/temp1">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.497" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1">
+    <eAnnotations source="positions.499" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1">
       <details key="start" value="11847"/>
       <details key="end" value="11878"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.498" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1/%">
+    <eAnnotations source="positions.500" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1/%">
       <details key="start" value="11847"/>
       <details key="end" value="11853"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.499" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
+    <eAnnotations source="positions.501" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1/%/s">
       <details key="start" value="11847"/>
       <details key="end" value="11848"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.500" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
+    <eAnnotations source="positions.502" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/%.1/%.1">
       <details key="start" value="11854"/>
       <details key="end" value="11878"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.501" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/s">
+    <eAnnotations source="positions.503" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/exists/s">
       <details key="start" value="11832"/>
       <details key="end" value="11845"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.502" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/temp2">
+    <eAnnotations source="positions.504" references="/0/generateSensorsPagesLayout/%/persistentEntityProperties/select/temp2">
       <details key="start" value="-1"/>
       <details key="end" value="-1"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.503" references="/0/generateSensorsPagesLayout/aClass">
+    <eAnnotations source="positions.505" references="/0/generateSensorsPagesLayout/aClass">
       <details key="start" value="11677"/>
       <details key="end" value="11691"/>
       <details key="line" value="256"/>
     </eAnnotations>
-    <eAnnotations source="positions.504" references="/0/generateSensorsPagesLayout/namespace">
+    <eAnnotations source="positions.506" references="/0/generateSensorsPagesLayout/namespace">
       <details key="start" value="11693"/>
       <details key="end" value="11711"/>
       <details key="line" value="256"/>
     </eAnnotations>
-    <eAnnotations source="positions.505" references="/0/generateCameraPages">
-      <details key="start" value="13856"/>
-      <details key="end" value="17414"/>
+    <eAnnotations source="positions.507" references="/0/generateCameraPages">
+      <details key="start" value="13853"/>
+      <details key="end" value="17411"/>
       <details key="line" value="296"/>
     </eAnnotations>
-    <eAnnotations source="positions.506" references="/0/generateCameraPages/%">
-      <details key="start" value="13930"/>
-      <details key="end" value="17402"/>
+    <eAnnotations source="positions.508" references="/0/generateCameraPages/%">
+      <details key="start" value="13927"/>
+      <details key="end" value="17399"/>
       <details key="line" value="297"/>
     </eAnnotations>
-    <eAnnotations source="positions.507" references="/0/generateCameraPages/%/%">
-      <details key="start" value="13988"/>
-      <details key="end" value="14450"/>
+    <eAnnotations source="positions.509" references="/0/generateCameraPages/%/%">
+      <details key="start" value="13985"/>
+      <details key="end" value="14447"/>
       <details key="line" value="298"/>
     </eAnnotations>
-    <eAnnotations source="positions.508" references="/0/generateCameraPages/%/namespace">
-      <details key="start" value="14451"/>
-      <details key="end" value="14460"/>
+    <eAnnotations source="positions.510" references="/0/generateCameraPages/%/namespace">
+      <details key="start" value="14448"/>
+      <details key="end" value="14457"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.509" references="/0/generateCameraPages/%/%.1">
-      <details key="start" value="14462"/>
-      <details key="end" value="14508"/>
+    <eAnnotations source="positions.511" references="/0/generateCameraPages/%/%.1">
+      <details key="start" value="14459"/>
+      <details key="end" value="14505"/>
       <details key="line" value="309"/>
     </eAnnotations>
-    <eAnnotations source="positions.510" references="/0/generateCameraPages/%/namespace.1">
-      <details key="start" value="14509"/>
-      <details key="end" value="14518"/>
+    <eAnnotations source="positions.512" references="/0/generateCameraPages/%/namespace.1">
+      <details key="start" value="14506"/>
+      <details key="end" value="14515"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.511" references="/0/generateCameraPages/%/%.2">
-      <details key="start" value="14520"/>
-      <details key="end" value="17395"/>
+    <eAnnotations source="positions.513" references="/0/generateCameraPages/%/%.2">
+      <details key="start" value="14517"/>
+      <details key="end" value="17392"/>
       <details key="line" value="313"/>
     </eAnnotations>
-    <eAnnotations source="positions.512" references="/0/generateCameraPages/%/%.3">
-      <details key="start" value="13937"/>
-      <details key="end" value="13978"/>
+    <eAnnotations source="positions.514" references="/0/generateCameraPages/%/%.3">
+      <details key="start" value="13934"/>
+      <details key="end" value="13975"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.513" references="/0/generateCameraPages/aClass">
-      <details key="start" value="13893"/>
-      <details key="end" value="13907"/>
+    <eAnnotations source="positions.515" references="/0/generateCameraPages/aClass">
+      <details key="start" value="13890"/>
+      <details key="end" value="13904"/>
       <details key="line" value="296"/>
     </eAnnotations>
-    <eAnnotations source="positions.514" references="/0/generateCameraPages/namespace">
-      <details key="start" value="13909"/>
-      <details key="end" value="13927"/>
+    <eAnnotations source="positions.516" references="/0/generateCameraPages/namespace">
+      <details key="start" value="13906"/>
+      <details key="end" value="13924"/>
       <details key="line" value="296"/>
     </eAnnotations>
-    <eAnnotations source="positions.515" references="/0/generateCameraPagesLayout">
-      <details key="start" value="17416"/>
-      <details key="end" value="18332"/>
+    <eAnnotations source="positions.517" references="/0/generateCameraPagesLayout">
+      <details key="start" value="17413"/>
+      <details key="end" value="18329"/>
       <details key="line" value="402"/>
     </eAnnotations>
-    <eAnnotations source="positions.516" references="/0/generateCameraPagesLayout/%">
-      <details key="start" value="17496"/>
-      <details key="end" value="18320"/>
+    <eAnnotations source="positions.518" references="/0/generateCameraPagesLayout/%">
+      <details key="start" value="17493"/>
+      <details key="end" value="18317"/>
       <details key="line" value="403"/>
     </eAnnotations>
-    <eAnnotations source="positions.517" references="/0/generateCameraPagesLayout/%/%">
-      <details key="start" value="17551"/>
-      <details key="end" value="17570"/>
+    <eAnnotations source="positions.519" references="/0/generateCameraPagesLayout/%/%">
+      <details key="start" value="17548"/>
+      <details key="end" value="17567"/>
       <details key="line" value="404"/>
     </eAnnotations>
-    <eAnnotations source="positions.518" references="/0/generateCameraPagesLayout/%/namespace">
-      <details key="start" value="17571"/>
-      <details key="end" value="17580"/>
+    <eAnnotations source="positions.520" references="/0/generateCameraPagesLayout/%/namespace">
+      <details key="start" value="17568"/>
+      <details key="end" value="17577"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.519" references="/0/generateCameraPagesLayout/%/%.1">
-      <details key="start" value="17582"/>
-      <details key="end" value="17753"/>
+    <eAnnotations source="positions.521" references="/0/generateCameraPagesLayout/%/%.1">
+      <details key="start" value="17579"/>
+      <details key="end" value="17750"/>
       <details key="line" value="405"/>
     </eAnnotations>
-    <eAnnotations source="positions.520" references="/0/generateCameraPagesLayout/%/namespace.1">
-      <details key="start" value="17754"/>
-      <details key="end" value="17763"/>
+    <eAnnotations source="positions.522" references="/0/generateCameraPagesLayout/%/namespace.1">
+      <details key="start" value="17751"/>
+      <details key="end" value="17760"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.521" references="/0/generateCameraPagesLayout/%/%.2">
-      <details key="start" value="17765"/>
-      <details key="end" value="18313"/>
+    <eAnnotations source="positions.523" references="/0/generateCameraPagesLayout/%/%.2">
+      <details key="start" value="17762"/>
+      <details key="end" value="18310"/>
       <details key="line" value="408"/>
     </eAnnotations>
-    <eAnnotations source="positions.522" references="/0/generateCameraPagesLayout/%/%.3">
-      <details key="start" value="17503"/>
-      <details key="end" value="17541"/>
+    <eAnnotations source="positions.524" references="/0/generateCameraPagesLayout/%/%.3">
+      <details key="start" value="17500"/>
+      <details key="end" value="17538"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.523" references="/0/generateCameraPagesLayout/aClass">
-      <details key="start" value="17459"/>
-      <details key="end" value="17473"/>
+    <eAnnotations source="positions.525" references="/0/generateCameraPagesLayout/aClass">
+      <details key="start" value="17456"/>
+      <details key="end" value="17470"/>
       <details key="line" value="402"/>
     </eAnnotations>
-    <eAnnotations source="positions.524" references="/0/generateCameraPagesLayout/namespace">
-      <details key="start" value="17475"/>
-      <details key="end" value="17493"/>
+    <eAnnotations source="positions.526" references="/0/generateCameraPagesLayout/namespace">
+      <details key="start" value="17472"/>
+      <details key="end" value="17490"/>
       <details key="line" value="402"/>
     </eAnnotations>
-    <eAnnotations source="positions.525" references="/0/generateAudioRecordPages">
-      <details key="start" value="18333"/>
-      <details key="end" value="23430"/>
+    <eAnnotations source="positions.527" references="/0/generateAudioRecordPages">
+      <details key="start" value="18330"/>
+      <details key="end" value="23427"/>
       <details key="line" value="421"/>
     </eAnnotations>
-    <eAnnotations source="positions.526" references="/0/generateAudioRecordPages/%">
-      <details key="start" value="18412"/>
-      <details key="end" value="23418"/>
+    <eAnnotations source="positions.528" references="/0/generateAudioRecordPages/%">
+      <details key="start" value="18409"/>
+      <details key="end" value="23415"/>
       <details key="line" value="422"/>
     </eAnnotations>
-    <eAnnotations source="positions.527" references="/0/generateAudioRecordPages/%/%">
-      <details key="start" value="18480"/>
-      <details key="end" value="18486"/>
+    <eAnnotations source="positions.529" references="/0/generateAudioRecordPages/%/%">
+      <details key="start" value="18477"/>
+      <details key="end" value="18483"/>
       <details key="line" value="423"/>
     </eAnnotations>
-    <eAnnotations source="positions.528" references="/0/generateAudioRecordPages/%/namespace">
-      <details key="start" value="18487"/>
-      <details key="end" value="18496"/>
+    <eAnnotations source="positions.530" references="/0/generateAudioRecordPages/%/namespace">
+      <details key="start" value="18484"/>
+      <details key="end" value="18493"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.529" references="/0/generateAudioRecordPages/%/%.1">
-      <details key="start" value="18498"/>
-      <details key="end" value="18783"/>
+    <eAnnotations source="positions.531" references="/0/generateAudioRecordPages/%/%.1">
+      <details key="start" value="18495"/>
+      <details key="end" value="18780"/>
       <details key="line" value="423"/>
     </eAnnotations>
-    <eAnnotations source="positions.530" references="/0/generateAudioRecordPages/%/namespace.1">
-      <details key="start" value="18784"/>
-      <details key="end" value="18793"/>
+    <eAnnotations source="positions.532" references="/0/generateAudioRecordPages/%/namespace.1">
+      <details key="start" value="18781"/>
+      <details key="end" value="18790"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.531" references="/0/generateAudioRecordPages/%/%.2">
-      <details key="start" value="18795"/>
-      <details key="end" value="23411"/>
+    <eAnnotations source="positions.533" references="/0/generateAudioRecordPages/%/%.2">
+      <details key="start" value="18792"/>
+      <details key="end" value="23408"/>
       <details key="line" value="436"/>
     </eAnnotations>
-    <eAnnotations source="positions.532" references="/0/generateAudioRecordPages/%/%.3">
-      <details key="start" value="18419"/>
-      <details key="end" value="18470"/>
+    <eAnnotations source="positions.534" references="/0/generateAudioRecordPages/%/%.3">
+      <details key="start" value="18416"/>
+      <details key="end" value="18467"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.533" references="/0/generateAudioRecordPages/aClass">
-      <details key="start" value="18375"/>
-      <details key="end" value="18389"/>
+    <eAnnotations source="positions.535" references="/0/generateAudioRecordPages/aClass">
+      <details key="start" value="18372"/>
+      <details key="end" value="18386"/>
       <details key="line" value="421"/>
     </eAnnotations>
-    <eAnnotations source="positions.534" references="/0/generateAudioRecordPages/namespace">
-      <details key="start" value="18391"/>
-      <details key="end" value="18409"/>
+    <eAnnotations source="positions.536" references="/0/generateAudioRecordPages/namespace">
+      <details key="start" value="18388"/>
+      <details key="end" value="18406"/>
       <details key="line" value="421"/>
     </eAnnotations>
-    <eAnnotations source="positions.535" references="/0/generateAudioRecordPagesLayout">
-      <details key="start" value="23432"/>
-      <details key="end" value="24468"/>
+    <eAnnotations source="positions.537" references="/0/generateAudioRecordPagesLayout">
+      <details key="start" value="23429"/>
+      <details key="end" value="24465"/>
       <details key="line" value="581"/>
     </eAnnotations>
-    <eAnnotations source="positions.536" references="/0/generateAudioRecordPagesLayout/%">
-      <details key="start" value="23517"/>
-      <details key="end" value="24456"/>
+    <eAnnotations source="positions.538" references="/0/generateAudioRecordPagesLayout/%">
+      <details key="start" value="23514"/>
+      <details key="end" value="24453"/>
       <details key="line" value="582"/>
     </eAnnotations>
-    <eAnnotations source="positions.537" references="/0/generateAudioRecordPagesLayout/%/%">
-      <details key="start" value="23582"/>
-      <details key="end" value="23601"/>
+    <eAnnotations source="positions.539" references="/0/generateAudioRecordPagesLayout/%/%">
+      <details key="start" value="23579"/>
+      <details key="end" value="23598"/>
       <details key="line" value="583"/>
     </eAnnotations>
-    <eAnnotations source="positions.538" references="/0/generateAudioRecordPagesLayout/%/namespace">
-      <details key="start" value="23602"/>
-      <details key="end" value="23611"/>
+    <eAnnotations source="positions.540" references="/0/generateAudioRecordPagesLayout/%/namespace">
+      <details key="start" value="23599"/>
+      <details key="end" value="23608"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.539" references="/0/generateAudioRecordPagesLayout/%/%.1">
-      <details key="start" value="23613"/>
-      <details key="end" value="23789"/>
+    <eAnnotations source="positions.541" references="/0/generateAudioRecordPagesLayout/%/%.1">
+      <details key="start" value="23610"/>
+      <details key="end" value="23786"/>
       <details key="line" value="584"/>
     </eAnnotations>
-    <eAnnotations source="positions.540" references="/0/generateAudioRecordPagesLayout/%/namespace.1">
-      <details key="start" value="23790"/>
-      <details key="end" value="23799"/>
+    <eAnnotations source="positions.542" references="/0/generateAudioRecordPagesLayout/%/namespace.1">
+      <details key="start" value="23787"/>
+      <details key="end" value="23796"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.541" references="/0/generateAudioRecordPagesLayout/%/%.2">
-      <details key="start" value="23801"/>
-      <details key="end" value="24449"/>
+    <eAnnotations source="positions.543" references="/0/generateAudioRecordPagesLayout/%/%.2">
+      <details key="start" value="23798"/>
+      <details key="end" value="24446"/>
       <details key="line" value="587"/>
     </eAnnotations>
-    <eAnnotations source="positions.542" references="/0/generateAudioRecordPagesLayout/%/%.3">
-      <details key="start" value="23524"/>
-      <details key="end" value="23572"/>
+    <eAnnotations source="positions.544" references="/0/generateAudioRecordPagesLayout/%/%.3">
+      <details key="start" value="23521"/>
+      <details key="end" value="23569"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.543" references="/0/generateAudioRecordPagesLayout/aClass">
-      <details key="start" value="23480"/>
-      <details key="end" value="23494"/>
+    <eAnnotations source="positions.545" references="/0/generateAudioRecordPagesLayout/aClass">
+      <details key="start" value="23477"/>
+      <details key="end" value="23491"/>
       <details key="line" value="581"/>
     </eAnnotations>
-    <eAnnotations source="positions.544" references="/0/generateAudioRecordPagesLayout/namespace">
-      <details key="start" value="23496"/>
-      <details key="end" value="23514"/>
+    <eAnnotations source="positions.546" references="/0/generateAudioRecordPagesLayout/namespace">
+      <details key="start" value="23493"/>
+      <details key="end" value="23511"/>
       <details key="line" value="581"/>
     </eAnnotations>
   </ecore:EAnnotation>

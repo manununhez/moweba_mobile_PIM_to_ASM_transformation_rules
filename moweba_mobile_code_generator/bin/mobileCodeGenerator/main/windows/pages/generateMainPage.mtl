@@ -81,7 +81,7 @@ namespace [p.name.toUpperFirst()/]
         <Grid x:Name="LayoutRoot">
             <!-- Title Panel -->
             <StackPanel Grid.Row="0" Margin="19,0,0,0">
-                <TextBlock Text="PERSISTENCE APP" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+                <TextBlock Text="[p.name.toUpperFirst()/]" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
             </StackPanel>
 			<StackPanel Grid.Row="1" Margin="19,40,19,19">
 [for (aPackage : Package | aPackages)]
